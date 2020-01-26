@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+<h1>Hello World</h1>
+<img th:src="@{/images/test.png}"/>
+
+
+<form method="GET" th:object="${order}">
+    <h3>Vyberte si objednavku:</h3>
+    <div th:each="var : ${itemList}">
+        <input name="orders" type="checkbox" th:value="${var.getName()}"/>
+        <span th:text="${var.getName()}">INGREDIENT</span><br/>
+    </div>
+</form>
+
+
+
+
+</body>
+</html>
