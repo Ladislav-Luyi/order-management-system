@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import com.alte.ordermanagementsystem.orders.Item.Type;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,36 +20,41 @@ import java.util.stream.Collectors;
 @RequestMapping("/order")
 public class AddItemsController {
 
-    private List<Item> filterByType(List<Item> ingredients, Item.Type type) {
 
-        return ingredients.stream()
-                .filter(x -> x.getType().equals(type))
-                .collect(Collectors.toList());
-    }
 
     @GetMapping
     public String showOrderForm(Model model){
-        List<Item> orders = new ArrayList<>();
-        orders.add(new Item( 1l,"Capri", Item.Type.PIZZA));
-        orders.add(new Item( 2l,"Alte", Item.Type.PIZZA));
+//        List<Item> items = new ArrayList<>();
+        List<Item> items =  Arrays.asList(
+                new Item( 1l,"Capri", Item.Type.PIZZA),
+                new Item( 2l,"Alte", Item.Type.PIZZA)
+        );
 
-        Item.Type[] types = Item.Type.values();
-        for (Item.Type type : types){
-            model.addAttribute(type.toString().toLowerCase(), filterByType(orders, type));
+
+        Item.Type[] types = Type.values();
+        for (Type type : types)
+        {
+            List<Item> tmpList = new ArrayList<>();
+            for(Item tmpItem : items)
+            {
+                if (tmpItem.getType() == type)
+                    tmpList.add(tmpItem);
+            }
+
+            if (tmpList.size() == 0)
+                continue;
+
+            log.info("continue for " + type.toString());
+            model.addAttribute(type.toString(), tmpList);
         }
 
-//        for(Order.Type type : types){
-//            for(Order order : orders)
-//                if (order.getType().toString().toLowerCase().equals(type.toString().toLowerCase()))
-//                    model.addAttribute(type.toString().toLowerCase(), order);
-//        }
-
-        model.addAttribute("itemList", orders );
         model.addAttribute("order", new Order() );
 
         return "order";
 
     }
+
+
 
 
 

@@ -10,13 +10,12 @@
 <img th:src="@{/images/test.png}"/>
 
 
-<form method="GET" th:object="${order}">
     <h3>Vyberte si objednavku:</h3>
-    <div th:each="var : ${itemList}">
-        <input name="orders" type="checkbox" th:value="${var.getName()}"/>
+    <div th:each="var : ${PIZZA}">
+        <input name="orders" type="checkbox" th:value="${var}"/>
         <span th:text="${var.getName()}">INGREDIENT</span><br/>
     </div>
-</form>
+
 
 
 

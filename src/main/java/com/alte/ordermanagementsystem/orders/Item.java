@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 public class Item {
     private final Long id;
     private final String name;
+    private int quantity;
     private final Type type;
 
     public static enum Type {
