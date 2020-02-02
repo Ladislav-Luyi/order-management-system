@@ -1,25 +1,23 @@
-package com.alte.ordermanagementsystem.Controllers;
+package com.customer.ordermanagementsystem.Controllers;
 
-import com.alte.ordermanagementsystem.orders.Item;
-import com.alte.ordermanagementsystem.orders.Order;
+import com.customer.ordermanagementsystem.orders.Item;
+import com.customer.ordermanagementsystem.orders.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import com.alte.ordermanagementsystem.orders.Item.Type;
+import org.springframework.web.bind.annotation.*;
+import com.customer.ordermanagementsystem.orders.Item.Type;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @Controller
-@RequestMapping("/order")
+@SessionAttributes("order")
+@RequestMapping("/basket")
 public class AddItemsController {
-
 
 
     @GetMapping
@@ -27,7 +25,8 @@ public class AddItemsController {
 //        List<Item> items = new ArrayList<>();
         List<Item> items =  Arrays.asList(
                 new Item( 1l,"Capri", Item.Type.PIZZA),
-                new Item( 2l,"Alte", Item.Type.PIZZA)
+                new Item( 2l,"Alte", Item.Type.PIZZA),
+                new Item(3l,"Cesnacka", Type.POLIEVKA)
         );
 
 
@@ -54,6 +53,13 @@ public class AddItemsController {
 
     }
 
+    @PostMapping
+    public String processOrder(Order order) {
+
+        log.info("Processing order: " + order);
+        return "redirect:/order/current";
+        //return "order";
+    }
 
 
 

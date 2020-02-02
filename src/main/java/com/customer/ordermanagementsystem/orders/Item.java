@@ -1,4 +1,4 @@
-package com.alte.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.orders;
 
 
 import lombok.Data;

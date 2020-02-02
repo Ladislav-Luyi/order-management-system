@@ -1,7 +1,6 @@
-package com.alte.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.orders;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,5 +9,5 @@ import java.util.List;
 @Component
 public class Order {
     private String name;
-    private List<Item> itemList;
+    private List<Long> orderList;
 }

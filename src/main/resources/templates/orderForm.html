@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <title>Test</title>
 </head>
-    <body>
-        <h1>Hello World</h1>
-        <img th:src="@{/images/test.png}"/>
+<body>
+<h1>Order Form</h1>
 
-    </body>
+<form method="POST" th:action="@{/order}" th:object="${orderInfo}">
+
+    <button>Odoslať objednávku</button>
+</form>
+
+
+
+</body>
 </html>

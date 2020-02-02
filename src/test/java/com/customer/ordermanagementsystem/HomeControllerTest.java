@@ -1,6 +1,6 @@
-package com.alte.ordermanagementsystem;
+package com.customer.ordermanagementsystem;
 
-import com.alte.ordermanagementsystem.Controllers.HomeController;
+import com.customer.ordermanagementsystem.Controllers.HomeController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

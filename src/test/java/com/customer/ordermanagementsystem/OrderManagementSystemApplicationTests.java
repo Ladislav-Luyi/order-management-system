@@ -1,4 +1,4 @@
-package com.alte.ordermanagementsystem;
+package com.customer.ordermanagementsystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -11,12 +11,26 @@
 
 
     <h3>Vyberte si objednavku:</h3>
-    <div th:each="var : ${PIZZA}">
-        <input name="orders" type="checkbox" th:value="${var}"/>
-        <span th:text="${var.getName()}">INGREDIENT</span><br/>
+
+<form method="POST" th:object="${order}">
+    <div class="grid">
+
+
+        <div th:each="var : ${PIZZA}">
+            <input name="orderList" type="checkbox" th:value="${var.id}"/>
+            <span th:text="${var.getName()}">item</span><br/>
+        </div>
+
+        <div th:each="var : ${POLIEVKA}">
+            <input name="orderList" type="checkbox" th:value="${var.id}"/>
+            <span th:text="${var.getName()}">item</span><br/>
+        </div>
+
+
     </div>
 
-
+    <button>Vyplniť adresu objednávky</button>
+</form>
 
 
 
