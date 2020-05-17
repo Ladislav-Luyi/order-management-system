@@ -3,11 +3,14 @@ package com.customer.ordermanagementsystem.orders;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Data
 @Component
 public class Order {
-    private String name;
-    private List<Long> orderList;
+    private  String name;
+    private  List<Long> orderList;
+
+
 }

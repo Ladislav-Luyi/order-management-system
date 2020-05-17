@@ -10,6 +10,29 @@
 <img th:src="@{/images/test.png}"/>
 
 
+<script>
+function incrementValue(id)
+{
+    var value = parseInt(document.getElementById(id).value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById(id).value = value;
+
+}
+
+function decrementValue(id)
+{
+    var value = parseInt(document.getElementById(id).value, 10);
+    value = isNaN(value) ? 0 : value;
+    if (value > 0)
+        value--;
+    document.getElementById(id).value = value;
+}
+
+
+</script>
+
+
     <h3>Vyberte si objednavku:</h3>
 
 <form method="POST" th:object="${order}">
@@ -17,19 +40,42 @@
 
 
         <div th:each="var : ${PIZZA}">
-            <input name="orderList" type="checkbox" th:value="${var.id}"/>
-            <span th:text="${var.getName()}">item</span><br/>
+
+                <p>
+                    <span th:text="${var.getName()}">item</span>
+                    <input name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+
+                    <input th:onclick="incrementValue([[ ${var.id} ]])" type="button" value="↑" />
+                    <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="↓" />
+
+                    <input  th:id="${var.id}" name="orderList" type="text" value="0" />
+
+                </p>
+
+
         </div>
+
 
         <div th:each="var : ${POLIEVKA}">
-            <input name="orderList" type="checkbox" th:value="${var.id}"/>
-            <span th:text="${var.getName()}">item</span><br/>
-        </div>
 
+            <p>
+                <span th:text="${var.getName()}">item</span>
+                <input name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+
+                <input th:onclick="incrementValue([[ ${var.id} ]])" type="button" value="↑" />
+                <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="↓" />
+
+                <input  th:id="${var.id}" name="orderList" type="text" value="0" />
+
+
+            </p>
+
+        </div>
 
     </div>
 
     <button>Vyplniť adresu objednávky</button>
+
 </form>
 
 

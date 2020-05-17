@@ -12,10 +12,18 @@ public class Item {
     private int quantity;
     private final Type type;
 
+
+
     public static enum Type {
         PIZZA, POLIEVKA, NAPOJ
     }
 
 
+    public int getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
