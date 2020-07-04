@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 @Component
 public class Order {
+    private Integer priceSummary;
     private  List<Long> orderList;
+//    private  List<Long,Integer> orderList;
 
 }

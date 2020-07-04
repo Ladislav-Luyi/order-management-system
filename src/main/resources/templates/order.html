@@ -23,6 +23,7 @@ function incrementValue(id)
     document.getElementById(id).value = value;
 
     var checkBoxId = id + "checkbox";
+
     if (value > 0){
         document.getElementById(id).disabled = false;
         document.getElementById(checkBoxId).checked = true;
@@ -48,8 +49,19 @@ function decrementValue(id)
     }
 }
 
+window.addEventListener( "pageshow", function ( event ) {
+    var historyTraversal = event.persisted ||
+        ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 );
+
+    if ( historyTraversal ) {
+        // Handle page restore.
+        window.location.reload();
+    }
+
+});
 
 </script>
+
 
 
     <h3>Vyberte si objednavku:</h3>
@@ -63,7 +75,7 @@ function decrementValue(id)
                 <p>
                     <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none"  />
 
-                    <input th:onclick="incrementValue([[ ${var.id} ]])" type="button" value="+" />
+                    <input th:onclick="incrementValue([[ ${var.id} ]] )" type="button" value="+" />
 
                     <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="-" />
 
