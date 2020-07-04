@@ -9,8 +9,6 @@ import java.util.List;
 @Data
 @Component
 public class Order {
-    private  String name;
     private  List<Long> orderList;
-
 
 }

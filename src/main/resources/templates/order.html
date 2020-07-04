@@ -6,8 +6,7 @@
     <title>Test</title>
 </head>
 <body>
-<h1>Hello World</h1>
-<img th:src="@{/images/test.png}"/>
+
 
 <style>
 input[type=text]:disabled{
@@ -55,19 +54,17 @@ function decrementValue(id)
 
     <h3>Vyberte si objednavku:</h3>
 
-<form method="POST" th:object="${order}">
-    <div class="grid">
+<form method="POST" >
+    <div class="grid" th:object="${order}">
 
 
         <div th:each="var : ${PIZZA}">
 
                 <p>
-
                     <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none"  />
 
-
-
                     <input th:onclick="incrementValue([[ ${var.id} ]])" type="button" value="+" />
+
                     <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="-" />
 
                     <input  th:id="${var.id}" name="orderList" type="text" value="" disabled/>
@@ -85,9 +82,8 @@ function decrementValue(id)
 
                 <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none"  />
 
-
-
                 <input th:onclick="incrementValue([[ ${var.id} ]])" type="button" value="+" />
+
                 <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="-" />
 
                 <input  th:id="${var.id}" name="orderList" type="text" value="" disabled/>
@@ -99,9 +95,45 @@ function decrementValue(id)
 
     </div>
 
-    <button>Vyplniť adresu objednávky</button>
 
+
+    <div class="column" th:object="${orderInfo}">
+        <table>
+            <tr>
+                <td>Meno a priezvisko:</td>
+                <td><input type="text" th:field="*{name}"></input></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Zadajte meno a priezvisko prosím</td>
+            </tr>
+
+            <tr>
+                <td>Ulica:</td>
+                <td><input type="text" th:field="*{street}"></input></td>
+                <td th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Zadajte ulicu prosím</td>
+            </tr>
+
+            <tr>
+                <td>Mesto:</td>
+                <td><input type="text" th:field="*{city}"></input></td>
+                <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Zadajte mesto prosím</td>
+            </tr>
+
+            <tr>
+                <td>Telefónne číslo:</td>
+                <td><input type="text" th:field="*{telephoneNumber}"></input></td>
+                <td th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</td>
+
+            </tr>
+
+
+        </table>
+
+
+    </div>
+
+
+    <button>Odoslať objednávku</button>
 </form>
+
 
 
 
