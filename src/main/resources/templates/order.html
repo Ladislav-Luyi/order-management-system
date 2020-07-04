@@ -15,37 +15,64 @@ display: none;
 </style>
 
 <script>
-function incrementValue(id)
+function incrementValue(id, priceOfProduct)
 {
     var value = parseInt(document.getElementById(id).value, 10);
     value = isNaN(value) ? 0 : value;
     value++;
     document.getElementById(id).value = value;
 
+
     var checkBoxId = id + "checkbox";
 
+    var priceOfProduct = parseFloat(priceOfProduct, 10)
+    var sumPrice = parseFloat(document.getElementById("overallPrice").innerHTML, 10);
+    sumPrice = isNaN(sumPrice) ? 0 : sumPrice;
+
+    console.log(priceOfProduct + " " + sumPrice);
+
     if (value > 0){
+        var result = sumPrice + priceOfProduct
+        document.getElementById("overallPrice").innerHTML = result.toFixed(2);
+
         document.getElementById(id).disabled = false;
         document.getElementById(checkBoxId).checked = true;
     }
 }
 
-function decrementValue(id)
+function decrementValue(id, priceOfProduct)
 {
     var value = parseInt(document.getElementById(id).value, 10);
+
+    var checkBoxId = id + "checkbox";
+
+    console.log(value);
+
+    if (value >= 1){
+        console.log("zavolane");
+        var priceOfProduct = parseFloat(priceOfProduct, 10)
+        var sumPrice = parseFloat(document.getElementById("overallPrice").innerHTML, 10);
+        sumPrice = isNaN(sumPrice) ? 0 : sumPrice;
+        var result = sumPrice - priceOfProduct
+        document.getElementById("overallPrice").innerHTML =  result.toFixed(2);
+
+    }
+
+
     value = isNaN(value) ? 0 : value;
     if (value > 0)
         value--;
 
     if (value == 0)
-        value=""
+    value=""
 
     document.getElementById(id).value = value;
 
-    var checkBoxId = id + "checkbox";
     if (value == "" || value <= 0){
-        document.getElementById(checkBoxId).checked = false;
-        document.getElementById(id).disabled = true;
+
+    document.getElementById(checkBoxId).checked = false;
+    document.getElementById(id).disabled = true;
+
     }
 }
 
@@ -75,9 +102,9 @@ window.addEventListener( "pageshow", function ( event ) {
                 <p>
                     <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none"  />
 
-                    <input th:onclick="incrementValue([[ ${var.id} ]] )" type="button" value="+" />
+                    <input th:onclick="incrementValue([[ ${var.id} ]], [[ ${var.price} ]] )" type="button" value="+" />
 
-                    <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="-" />
+                    <input th:onclick="decrementValue([[ ${var.id} ]], [[ ${var.price} ]] )" type="button" value="-" />
 
                     <input  th:id="${var.id}" name="orderList" type="text" value="" disabled/>
 
@@ -147,6 +174,11 @@ window.addEventListener( "pageshow", function ( event ) {
 </form>
 
 
+<p>
+    <span>Celková cena</span>
+    <span id="overallPrice">0.00</span>
+    <span> €</span>
+</p>
 
 
 </body>

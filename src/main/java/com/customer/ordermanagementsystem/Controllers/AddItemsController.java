@@ -27,9 +27,9 @@ public class AddItemsController {
     @GetMapping
     public String showOrderForm(Model model){
         List<Item> items =  Arrays.asList(
-                new Item( 1l,"Capri", Item.Type.PIZZA),
-                new Item( 2l,"Alte", Item.Type.PIZZA),
-                new Item(3l,"Cesnacka", Type.POLIEVKA)
+                new Item( 1l,"Capri", Item.Type.PIZZA,5.1f),
+                new Item( 2l,"Alte", Item.Type.PIZZA,6.2f),
+                new Item(3l,"Cesnacka", Type.POLIEVKA,7.1f)
         );
 
 
