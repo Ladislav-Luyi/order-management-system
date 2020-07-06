@@ -3,11 +3,26 @@ package com.customer.ordermanagementsystem.orders;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "Orders")
 @Data
 @Component
 public class Order {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private  Long id;
+
+    private Date placedAt;
+
+    @ManyToMany(targetEntity=Item.class)
     private  List<Long> orderList;
+
+    @PrePersist
+    void placedAt(){
+        placedAt = new Date();
+    }
 }

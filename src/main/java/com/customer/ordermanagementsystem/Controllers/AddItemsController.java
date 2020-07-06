@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import com.customer.ordermanagementsystem.orders.Item.Type;
 
 import javax.validation.Valid;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -62,7 +61,7 @@ public class AddItemsController {
     }
 
     @PostMapping
-    public String processOrder(Order order,@Valid OrderInfo orderInfo, BindingResult bindingResult) {
+    public String processOrder(Order order, @Valid OrderInfo orderInfo, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             System.out.println("BINDING RESULT ERROR");
