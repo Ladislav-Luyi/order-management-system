@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem;
+package com.customer.ordermanagementsystem.processingBatchFiles;
 
 
 import com.customer.ordermanagementsystem.orders.Item;

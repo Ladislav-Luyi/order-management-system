@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem;
+package com.customer.ordermanagementsystem.processingBatchFiles;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
