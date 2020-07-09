@@ -2,6 +2,7 @@ package com.customer.ordermanagementsystem.orders;
 
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
@@ -9,19 +10,47 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Items")
 @Data
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+//@NoArgsConstructor,
 public class Item {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private final Long id;
-    private final String name;
-    private final Type type;
-    private final Float price;
+    public  Long id;
+    public  String name;
 
+    @Enumerated(EnumType.STRING)
+    public  Type type;
+    public  Float price;
+
+    public Item(Long id, String name, Type type, Float price) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+    }
+
+    public Item(){
+
+    }
 
     public static enum Type {
         PIZZA, POLIEVKA, NAPOJ
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
 }
