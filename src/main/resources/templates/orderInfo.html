@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+
+<form method="POST">
+        <div class="column" th:object="${orderInfo}">
+            <table>
+                <tr>
+                    <td>Meno a priezvisko:</td>
+                    <td><input type="text" th:field="*{name}"></input></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Zadajte meno a priezvisko prosím</td>
+                </tr>
+
+                <tr>
+                    <td>Ulica:</td>
+                    <td><input type="text" th:field="*{street}"></input></td>
+                    <td th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Zadajte ulicu prosím</td>
+                </tr>
+
+                <tr>
+                    <td>Mesto:</td>
+                    <td><input type="text" th:field="*{city}"></input></td>
+                    <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Zadajte mesto prosím</td>
+                </tr>
+
+                <tr>
+                    <td>Telefónne číslo:</td>
+                    <td><input type="text" th:field="*{telephoneNumber}"></input></td>
+                    <td th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</td>
+
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+
+    <button>Odoslať objednávku</button>
+</form>
+
+
+
+
+
+</body>
+</html>

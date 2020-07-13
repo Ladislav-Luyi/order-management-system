@@ -3,7 +3,9 @@ package com.customer.ordermanagementsystem.Controllers;
 import com.customer.ordermanagementsystem.orders.Item;
 import com.customer.ordermanagementsystem.orders.Order;
 import com.customer.ordermanagementsystem.orders.OrderInfo;
+import com.customer.ordermanagementsystem.orders.OrderPlaceHolder;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,13 +20,16 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@SessionAttributes({"order","orderInfo"})
+@SessionAttributes({"orderInfo","order"})
 @RequestMapping("/basket")
 public class AddItemsController {
 
+    @Autowired
+    private OrderPlaceHolder orderPlaceHolder;
 
-    @GetMapping
-    public String showOrderForm(Model model){
+
+    @RequestMapping()
+    public String showOrderForm(Model model, Order order){
         List<Item> items =  Arrays.asList(
                 new Item( 1l,"Capri", Item.Type.PIZZA,5.1f),
                 new Item( 2l,"Alte", Item.Type.PIZZA,6.2f),
@@ -54,10 +59,58 @@ public class AddItemsController {
 
         model.addAttribute("order", new Order() );
 
-        model.addAttribute("orderInfo", new OrderInfo());
 
         return "order";
 
+    }
+
+
+    @RequestMapping(params={"addElement"})
+    public String addElement(Order  order, Model model) {
+        log.info("before order: " + order);
+
+        if (order.getOrderList() != null)
+            orderPlaceHolder.getOrderList().add(order.getOrderList().get(0));
+
+        System.out.println(orderPlaceHolder.getOrderList().toString());
+        ///// test
+        List<Item> items =  Arrays.asList(
+                new Item( 1l,"Capri", Item.Type.PIZZA,5.1f),
+                new Item( 2l,"Alte", Item.Type.PIZZA,6.2f),
+                new Item(3l,"Cesnacka", Type.POLIEVKA,7.1f)
+        );
+
+
+        Item.Type[] types = Type.values();
+        for (Type type : types)
+        {
+            List<Item> tmpList = new ArrayList<>();
+            for(Item tmpItem : items)
+            {
+                if (tmpItem.getType() == type) {
+                    tmpList.add(tmpItem);
+                }
+            }
+
+            if (tmpList.size() == 0)
+                continue;
+
+            log.info("continue for " + type.toString());
+            model.addAttribute(type.toString(), tmpList);
+
+
+        }
+        //test
+
+
+        // tu by si mal pridat do modelu dalsi polozky
+
+        log.info("Processing order: " + order);
+        log.info("calling add element!");
+
+
+//        return "redirect:/basket";
+        return "order";
     }
 
     @PostMapping
@@ -68,12 +121,14 @@ public class AddItemsController {
             return "order";
         }
 
+        order.setOrderList( orderPlaceHolder.getOrderList() );
+
+
         log.info("Processing order: " + order);
         log.info("Processing order: " + orderInfo);
 
-        return "redirect:/order/orderFinished";
+        return "redirect:/order/orderInfo";
     }
-
 
 
 

@@ -15,77 +15,13 @@ display: none;
 </style>
 
 <script>
-function incrementValue(id, priceOfProduct)
+function activateCheckbox(id)
 {
-    var value = parseInt(document.getElementById(id).value, 10);
-    value = isNaN(value) ? 0 : value;
-    value++;
-    document.getElementById(id).value = value;
-
-
     var checkBoxId = id + "checkbox";
+    document.getElementById(checkBoxId).checked = true;
 
-    var priceOfProduct = parseFloat(priceOfProduct, 10)
-    var sumPrice = parseFloat(document.getElementById("overallPrice").innerHTML, 10);
-    sumPrice = isNaN(sumPrice) ? 0 : sumPrice;
-
-    console.log(priceOfProduct + " " + sumPrice);
-
-    if (value > 0){
-        var result = sumPrice + priceOfProduct
-        document.getElementById("overallPrice").innerHTML = result.toFixed(2);
-
-        document.getElementById(id).disabled = false;
-        document.getElementById(checkBoxId).checked = true;
-    }
 }
 
-function decrementValue(id, priceOfProduct)
-{
-    var value = parseInt(document.getElementById(id).value, 10);
-
-    var checkBoxId = id + "checkbox";
-
-    console.log(value);
-
-    if (value >= 1){
-        console.log("zavolane");
-        var priceOfProduct = parseFloat(priceOfProduct, 10)
-        var sumPrice = parseFloat(document.getElementById("overallPrice").innerHTML, 10);
-        sumPrice = isNaN(sumPrice) ? 0 : sumPrice;
-        var result = sumPrice - priceOfProduct
-        document.getElementById("overallPrice").innerHTML =  result.toFixed(2);
-
-    }
-
-
-    value = isNaN(value) ? 0 : value;
-    if (value > 0)
-        value--;
-
-    if (value == 0)
-    value=""
-
-    document.getElementById(id).value = value;
-
-    if (value == "" || value <= 0){
-
-    document.getElementById(checkBoxId).checked = false;
-    document.getElementById(id).disabled = true;
-
-    }
-}
-
-window.addEventListener( "pageshow", function ( event ) {
-    var historyTraversal = event.persisted ||
-        ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 );
-
-    if ( historyTraversal ) {
-        // Handle page restore.
-        window.location.reload();
-    }
-
-});
 
 </script>
 
@@ -99,17 +35,11 @@ window.addEventListener( "pageshow", function ( event ) {
 
         <div th:each="var : ${PIZZA}">
 
-                <p>
-                    <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none"  />
-
-                    <input th:onclick="incrementValue([[ ${var.id} ]], [[ ${var.price} ]] )" type="button" value="+" />
-
-                    <input th:onclick="decrementValue([[ ${var.id} ]], [[ ${var.price} ]] )" type="button" value="-" />
-
-                    <input  th:id="${var.id}" name="orderList" type="text" value="" disabled/>
-
-                    <span th:text="${var.getName()}">item</span>
-                </p>
+            <p>
+                <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+                <button th:onclick="activateCheckbox([[ ${var.id} ]])" type="submit" name="addElement">+</button>
+                <span th:text="${var.getName()}">item</span>
+            </p>
 
 
         </div>
@@ -118,56 +48,17 @@ window.addEventListener( "pageshow", function ( event ) {
         <div th:each="var : ${POLIEVKA}">
 
             <p>
-
-                <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none"  />
-
-                <input th:onclick="incrementValue([[ ${var.id} ]])" type="button" value="+" />
-
-                <input th:onclick="decrementValue([[ ${var.id} ]])" type="button" value="-" />
-
-                <input  th:id="${var.id}" name="orderList" type="text" value="" disabled/>
-
+                <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+                <button th:onclick="activateCheckbox([[ ${var.id} ]])" type="submit" name="addElement">+</button>
                 <span th:text="${var.getName()}">item</span>
             </p>
+
 
         </div>
 
     </div>
 
 
-
-    <div class="column" th:object="${orderInfo}">
-        <table>
-            <tr>
-                <td>Meno a priezvisko:</td>
-                <td><input type="text" th:field="*{name}"></input></td>
-                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Zadajte meno a priezvisko prosím</td>
-            </tr>
-
-            <tr>
-                <td>Ulica:</td>
-                <td><input type="text" th:field="*{street}"></input></td>
-                <td th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Zadajte ulicu prosím</td>
-            </tr>
-
-            <tr>
-                <td>Mesto:</td>
-                <td><input type="text" th:field="*{city}"></input></td>
-                <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Zadajte mesto prosím</td>
-            </tr>
-
-            <tr>
-                <td>Telefónne číslo:</td>
-                <td><input type="text" th:field="*{telephoneNumber}"></input></td>
-                <td th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</td>
-
-            </tr>
-
-
-        </table>
-
-
-    </div>
 
 
     <button>Odoslať objednávku</button>

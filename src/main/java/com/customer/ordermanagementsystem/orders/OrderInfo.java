@@ -10,20 +10,20 @@ import javax.validation.constraints.Size;
 @Data
 @Component
 public class OrderInfo {
-    @NotNull
-    @Size(min=5, max=30)
+//    @NotNull
+//    @Size(min=5, max=30)
     private String name;
 
-    @NotNull
-    @Size(min=5, max=100)
+//    @NotNull
+//    @Size(min=5, max=100)
     private String street;
 
-    @NotNull
-    @Size(min=5, max=100)
+//    @NotNull
+//    @Size(min=5, max=100)
     private String city;
 
-    @NotNull
-    @Size(min=5, max=100)
+//    @NotNull
+//    @Size(min=5, max=100)
     private String telephoneNumber;
 
 }
