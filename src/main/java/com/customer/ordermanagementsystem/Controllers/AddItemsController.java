@@ -4,6 +4,7 @@ import com.customer.ordermanagementsystem.orders.Item;
 import com.customer.ordermanagementsystem.orders.Order;
 import com.customer.ordermanagementsystem.orders.OrderInfo;
 import com.customer.ordermanagementsystem.orders.OrderPlaceHolder;
+import com.customer.ordermanagementsystem.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,14 +28,12 @@ public class AddItemsController {
     @Autowired
     private OrderPlaceHolder orderPlaceHolder;
 
+    @Autowired
+    private ItemRepository itemRepository;
 
     @RequestMapping()
     public String showOrderForm(Model model, Order order){
-        List<Item> items =  Arrays.asList(
-                new Item( 1l,"Capri", Item.Type.PIZZA,5.1f),
-                new Item( 2l,"Alte", Item.Type.PIZZA,6.2f),
-                new Item(3l,"Cesnacka", Type.POLIEVKA,7.1f)
-        );
+        List<Item> items = itemRepository.findAll();
 
 
         Item.Type[] types = Type.values();
@@ -67,19 +66,14 @@ public class AddItemsController {
 
     @RequestMapping(params={"addElement"})
     public String addElement(Order  order, Model model) {
-        log.info("before order: " + order);
+        log.info("before order: " + orderPlaceHolder);
 
         if (order.getOrderList() != null)
             orderPlaceHolder.getOrderList().add(order.getOrderList().get(0));
 
         System.out.println(orderPlaceHolder.getOrderList().toString());
-        ///// test
-        List<Item> items =  Arrays.asList(
-                new Item( 1l,"Capri", Item.Type.PIZZA,5.1f),
-                new Item( 2l,"Alte", Item.Type.PIZZA,6.2f),
-                new Item(3l,"Cesnacka", Type.POLIEVKA,7.1f)
-        );
 
+        List<Item> items = itemRepository.findAll();
 
         Item.Type[] types = Type.values();
         for (Type type : types)
@@ -105,7 +99,7 @@ public class AddItemsController {
 
         // tu by si mal pridat do modelu dalsi polozky
 
-        log.info("Processing order: " + order);
+        log.info("Processing order: " + orderPlaceHolder);
         log.info("calling add element!");
 
 
@@ -114,7 +108,7 @@ public class AddItemsController {
     }
 
     @PostMapping
-    public String processOrder(Order order, @Valid OrderInfo orderInfo, BindingResult bindingResult) {
+    public String processOrder(Order order, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             System.out.println("BINDING RESULT ERROR");
@@ -125,7 +119,6 @@ public class AddItemsController {
 
 
         log.info("Processing order: " + order);
-        log.info("Processing order: " + orderInfo);
 
         return "redirect:/order/orderInfo";
     }

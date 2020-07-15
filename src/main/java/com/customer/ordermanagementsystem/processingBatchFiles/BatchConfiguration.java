@@ -9,6 +9,7 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
+import org.springframework.batch.item.database.JpaItemWriter;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
@@ -19,12 +20,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 
-
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
 @EnableBatchProcessing
 public class BatchConfiguration {
+
+    @Autowired
+    EntityManagerFactory emf;
 
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
@@ -50,13 +54,12 @@ public class BatchConfiguration {
         return new ItemItemProcessor();
     }
 
+
     @Bean
-    public JdbcBatchItemWriter<Item> writer(DataSource dataSource) {
-        return new JdbcBatchItemWriterBuilder<Item>()
-                .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-                .sql("INSERT INTO Items (id, name, type, price) VALUES (:id, :name, :type, :price)")
-                .dataSource(dataSource)
-                .build();
+    public JpaItemWriter writer() {
+        JpaItemWriter writer = new JpaItemWriter();
+        writer.setEntityManagerFactory(emf);
+        return writer;
     }
 
     @Bean
@@ -69,13 +72,14 @@ public class BatchConfiguration {
                 .build();
     }
 
+    //
     @Bean
-    public Step step1(JdbcBatchItemWriter<Item> writer) {
+    public Step step1() {
         return stepBuilderFactory.get("step1")
                 .<Item, Item> chunk(10)
                 .reader(reader())
                 .processor(processor())
-                .writer(writer)
+                .writer(writer())
                 .build();
     }
 }

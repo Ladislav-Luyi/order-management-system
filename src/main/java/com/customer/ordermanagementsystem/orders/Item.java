@@ -19,7 +19,7 @@ public class Item {
     public  Long id;
     public  String name;
 
-    @Enumerated(EnumType.STRING)
+
     public  Type type;
     public  Float price;
 
