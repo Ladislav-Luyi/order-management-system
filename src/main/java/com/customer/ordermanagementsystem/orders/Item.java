@@ -34,9 +34,9 @@ public class Item {
 
     }
 
-    public static enum Type {
-        PIZZA, POLIEVKA, NAPOJ
-    }
+//    public static enum Type {
+//        PIZZA, POLIEVKA, NAPOJ
+//    }
 
     public Long getId() {
         return id;

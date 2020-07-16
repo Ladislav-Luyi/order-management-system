@@ -19,7 +19,7 @@ public class Order {
     private Date placedAt;
 
     @ManyToMany(targetEntity=Item.class)
-    private  List<Long> orderList;
+    private  List<Item> orderList;
 
     @PrePersist
     void placedAt(){

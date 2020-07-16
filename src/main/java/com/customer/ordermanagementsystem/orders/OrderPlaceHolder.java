@@ -9,9 +9,9 @@ import java.util.List;
 @Component
 public class OrderPlaceHolder {
 
-    private final List<Long> orderList;
+    private final List<Item> orderList;
 
-    public List<Long> getOrderList() {
+    public List<Item> getOrderList() {
         return orderList;
     }
 }
