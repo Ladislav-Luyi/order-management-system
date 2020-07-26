@@ -28,8 +28,10 @@ public class AddItemsController {
     @Autowired
     private ItemRepository itemRepository;
 
+
     @RequestMapping()
     public String showOrderForm(Model model, Order order){
+
         List<Item> items = itemRepository.findAll();
 
 
@@ -63,6 +65,7 @@ public class AddItemsController {
 
     @RequestMapping(params={"addElement"})
     public String addElement(Order  order, Model model) {
+
         log.info("before order: " + orderPlaceHolder);
 
         if (order.getOrderList() != null)
@@ -93,11 +96,63 @@ public class AddItemsController {
         }
         //test
 
+        model.addAttribute("orderedItem", orderPlaceHolder.getOrderList());
 
         // tu by si mal pridat do modelu dalsi polozky
 
         log.info("Processing order: " + orderPlaceHolder);
         log.info("calling add element!");
+
+
+//        return "redirect:/basket";
+        return "order";
+    }
+
+
+    @RequestMapping(params={"removeElement"})
+    public String removeElement(Order  order, Model model) {
+        log.info("before removeElement: " + orderPlaceHolder);
+
+
+        if (order.getOrderList().size() > 0)
+////            removed = orderPlaceHolder.getOrderList().remove(order.getOrderList().get(0));
+            orderPlaceHolder.getOrderList().remove(order.getIndexToRemove());
+
+
+
+
+        List<Item> items = itemRepository.findAll();
+
+        Type[] types = Type.values();
+        for (Type type : types)
+        {
+            List<Item> tmpList = new ArrayList<>();
+            for(Item tmpItem : items)
+            {
+                if (tmpItem.getType() == type) {
+                    tmpList.add(tmpItem);
+                }
+            }
+
+            if (tmpList.size() == 0)
+                continue;
+
+            log.info("continue for " + type.toString());
+            model.addAttribute(type.toString(), tmpList);
+
+
+        }
+        //test
+
+        model.addAttribute("orderedItem", orderPlaceHolder.getOrderList());
+
+        // tu by si mal pridat do modelu dalsi polozky
+
+        log.info("after removeElement: " + orderPlaceHolder);
+        log.info("calling remove element!");
+
+
+
 
 
 //        return "redirect:/basket";
@@ -116,6 +171,7 @@ public class AddItemsController {
 
 
         log.info("Processing order: " + order);
+
 
         return "redirect:/order/orderInfo";
     }

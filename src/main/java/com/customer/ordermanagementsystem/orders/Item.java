@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Items")
@@ -22,6 +23,10 @@ public class Item {
 
     public  Type type;
     public  Float price;
+
+    @Column(nullable = true)
+    @ManyToMany(targetEntity=Item.class)
+    private List<Item> itemList;
 
     public Item(Long id, String name, Type type, Float price) {
         this.id = id;

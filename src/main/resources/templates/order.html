@@ -17,8 +17,7 @@ display: none;
 <script>
 function activateCheckbox(id)
 {
-    var checkBoxId = id + "checkbox";
-    document.getElementById(checkBoxId).checked = true;
+    document.getElementById(id).checked = true;
 
 }
 
@@ -37,7 +36,8 @@ function activateCheckbox(id)
 
             <p>
                 <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
-                <button th:onclick="activateCheckbox([[ ${var.id} ]])" type="submit" name="addElement">+</button>
+
+                <button th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                 <span th:text="${var.getName()}">item</span>
             </p>
 
@@ -49,7 +49,8 @@ function activateCheckbox(id)
 
             <p>
                 <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
-                <button th:onclick="activateCheckbox([[ ${var.id} ]])" type="submit" name="addElement">+</button>
+                <button th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+
                 <span th:text="${var.getName()}">item</span>
             </p>
 
@@ -58,11 +59,28 @@ function activateCheckbox(id)
 
     </div>
 
+    <div class="grid" th:object="${order}">
+        <div th:each="var : ${orderedItem}">
+            <p>
+<!--                <input th:id="${var.id + 'removeItem'}" name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />-->
+<!--                <input th:id="${var.id + 'removeItem'}" th:field="${order.indexToRemove}" type="checkbox" th:value="${varStat.index}" style="display:none" />-->
+                <input th:id="${var.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />
+                <button th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])" type="submit" name="removeElement">-</button>
+                <span  th:text="${var.name}"></span>
+                <span  th:text="${varStat.index}"></span>
+            </p>
+
+        </div>
+    </div>
 
 
 
     <button>Odoslať objednávku</button>
+
+
+
 </form>
+
 
 
 <p>

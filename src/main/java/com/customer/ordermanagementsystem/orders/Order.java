@@ -25,4 +25,10 @@ public class Order {
     void placedAt(){
         placedAt = new Date();
     }
+
+    private int indexToRemove;
+
+//    public Long getIndexToRemove() {
+//        return indexToRemove;
+//    }
 }
