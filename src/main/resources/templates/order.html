@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
@@ -37,7 +38,7 @@ function activateCheckbox(id)
             <p>
                 <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
 
-                <button th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                 <span th:text="${var.getName()}">item</span>
             </p>
 
@@ -49,7 +50,7 @@ function activateCheckbox(id)
 
             <p>
                 <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
-                <button th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
 
                 <span th:text="${var.getName()}">item</span>
             </p>
@@ -62,20 +63,22 @@ function activateCheckbox(id)
     <div class="grid" th:object="${order}">
         <div th:each="var : ${orderedItem}">
             <p>
-<!--                <input th:id="${var.id + 'removeItem'}" name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />-->
-<!--                <input th:id="${var.id + 'removeItem'}" th:field="${order.indexToRemove}" type="checkbox" th:value="${varStat.index}" style="display:none" />-->
+
                 <input th:id="${var.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />
-                <button th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])" type="submit" name="removeElement">-</button>
+                <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
                 <span  th:text="${var.name}"></span>
-                <span  th:text="${varStat.index}"></span>
+                <a  class="btn btn-outline-info" th:href="@{/editItem(index=${varStat.index})}">Pridaj suroviny</a>
             </p>
+
+
+
 
         </div>
     </div>
 
 
 
-    <button>Odoslať objednávku</button>
+    <button class="btn btn-outline-primary">Odoslať objednávku</button>
 
 
 

@@ -32,6 +32,8 @@ public class AddItemsController {
     @RequestMapping()
     public String showOrderForm(Model model, Order order){
 
+
+
         List<Item> items = itemRepository.findAll();
 
 
@@ -57,6 +59,7 @@ public class AddItemsController {
 
         model.addAttribute("order", new Order() );
 
+        model.addAttribute("orderedItem", orderPlaceHolder.getOrderList());
 
         return "order";
 

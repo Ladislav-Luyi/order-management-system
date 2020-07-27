@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.orders.Item;
+
 import com.customer.ordermanagementsystem.orders.Order;
 import com.customer.ordermanagementsystem.orders.OrderInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 @Slf4j
 @Controller
