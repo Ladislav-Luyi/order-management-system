@@ -5,15 +5,10 @@
     <meta charset="UTF-8">
     <title>Test</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="custom.css">
 </head>
 <body>
 
-
-<style>
-input[type=text]:disabled{
-display: none;
-}
-</style>
 
 <script>
 function activateCheckbox(id)
@@ -25,15 +20,18 @@ function activateCheckbox(id)
 
 </script>
 
+<h3>Vyberte si objednavku:</h3>
 
-<div class="container">
-    <h3>Vyberte si objednavku:</h3>
+<div class="some-page-wrapper">
+
 
 <form method="POST" >
+    <div class='row'>
     <div  th:object="${orderPlaceHolder}">
 
+    <div class="column">
 
-        <div th:each="var : ${PIZZA}">
+        <div  th:each="var : ${PIZZA}">
 
             <p>
                 <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
@@ -60,7 +58,10 @@ function activateCheckbox(id)
 
     </div>
 
-    <div style='right:30px;top:10px;z-index:2;position:absolute' th:object="${orderPlaceHolder}">
+
+    </div>
+
+    <div class="column"  th:object="${orderPlaceHolder}">
         <div th:each="var : ${orderedItem}">
             <p>
 
@@ -74,25 +75,28 @@ function activateCheckbox(id)
 
 
         </div>
+
+        <p>
+            <span>Celková cena</span>
+            <span id="overallPrice">0.00</span>
+            <span> €</span>
+        </p>
+
+
+
     </div>
 
+    </div>
 
-
-    <button class="btn btn-outline-primary">Odoslať objednávku</button>
-
-
+    <button class="btn btn-outline-primary row">Odoslať objednávku</button>
 
 </form>
 
 
 
-<p>
-    <span>Celková cena</span>
-    <span id="overallPrice">0.00</span>
-    <span> €</span>
-</p>
 
-</div>>
+</div>
+
 
 
 </body>
