@@ -10,27 +10,25 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 @Slf4j
 @Controller
-@SessionAttributes({"orderInfo","order"})
+@SessionAttributes({"orderInfo","orderPlaceHolder"})
 @RequestMapping("/basket")
 public class AddItemsController {
 
     @Autowired
-    private OrderPlaceHolder orderPlaceHolder;
+    private Order order;
 
     @Autowired
     private ItemRepository itemRepository;
 
 
     @RequestMapping()
-    public String showOrderForm(Model model, Order order){
+    public String showOrderForm(Model model, OrderPlaceHolder orderPlaceHolder){
 
 
 
@@ -57,9 +55,9 @@ public class AddItemsController {
 
         }
 
-        model.addAttribute("order", new Order() );
+        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
-        model.addAttribute("orderedItem", orderPlaceHolder.getOrderList());
+        model.addAttribute("orderedItem", order.getOrderList());
 
         return "order";
 
@@ -67,14 +65,16 @@ public class AddItemsController {
 
 
     @RequestMapping(params={"addElement"})
-    public String addElement(Order  order, Model model) {
+    public String addElement(OrderPlaceHolder orderPlaceHolder, Model model) {
 
-        log.info("before order: " + orderPlaceHolder);
+        log.info("before order: " + order);
 
-        if (order.getOrderList() != null)
-            orderPlaceHolder.getOrderList().add(order.getOrderList().get(0));
+        order.getOrderList().add(orderPlaceHolder.getItem());
 
-        System.out.println(orderPlaceHolder.getOrderList().toString());
+//        if (order.getOrderList() != null)
+//            order.getOrderList().add(order.getOrderList().get(0));
+//
+        System.out.println(order.getOrderList().toString());
 
         List<Item> items = itemRepository.findAll();
 
@@ -99,11 +99,11 @@ public class AddItemsController {
         }
         //test
 
-        model.addAttribute("orderedItem", orderPlaceHolder.getOrderList());
+        model.addAttribute("orderedItem", order.getOrderList());
 
         // tu by si mal pridat do modelu dalsi polozky
 
-        log.info("Processing order: " + orderPlaceHolder);
+        log.info("Processing order: " + order);
         log.info("calling add element!");
 
 
@@ -113,13 +113,13 @@ public class AddItemsController {
 
 
     @RequestMapping(params={"removeElement"})
-    public String removeElement(Order  order, Model model) {
-        log.info("before removeElement: " + orderPlaceHolder);
+    public String removeElement(OrderPlaceHolder orderPlaceHolder,  Model model) {
+        log.info("before removeElement: " + this.order);
 
 
         if (order.getOrderList().size() > 0)
 ////            removed = orderPlaceHolder.getOrderList().remove(order.getOrderList().get(0));
-            orderPlaceHolder.getOrderList().remove(order.getIndexToRemove());
+            this.order.getOrderList().remove(orderPlaceHolder.getIndexToRemove());
 
 
 
@@ -147,11 +147,11 @@ public class AddItemsController {
         }
         //test
 
-        model.addAttribute("orderedItem", orderPlaceHolder.getOrderList());
+        model.addAttribute("orderedItem", this.order.getOrderList());
 
         // tu by si mal pridat do modelu dalsi polozky
 
-        log.info("after removeElement: " + orderPlaceHolder);
+        log.info("after removeElement: " + this.order);
         log.info("calling remove element!");
 
 
@@ -169,7 +169,7 @@ public class AddItemsController {
             return "order";
         }
 
-        order.setOrderList( orderPlaceHolder.getOrderList() );
+        order.setOrderList( this.order.getOrderList() );
 
 
         log.info("Processing order: " + order);

@@ -23,7 +23,7 @@ import java.util.List;
 public class EditItemController {
 
     @Autowired
-    private OrderPlaceHolder orderPlaceHolder;
+    private Order order;
 
     @Autowired
     private ItemRepository itemRepository;
@@ -33,7 +33,7 @@ public class EditItemController {
         System.out.println("Edit item with index: " + index);
 
         //trying to access data
-        System.out.println( orderPlaceHolder.getOrderList().get(index) );
+        System.out.println( order.getOrderList().get(index) );
 
 
 
@@ -71,9 +71,9 @@ public class EditItemController {
     @RequestMapping(params={"addInnerElement"})
     public String addItem(Model model, Order innerOrder, @RequestParam int index){
         System.out.println(innerOrder);
-        orderPlaceHolder.getOrderList().get(index).getItemList().add(innerOrder.getOrderList().get(0));
+        order.getOrderList().get(index).getItemList().add(innerOrder.getOrderList().get(0));
 
-        System.out.println(orderPlaceHolder);
+        System.out.println(order);
         List<Item> items = itemRepository.findAll();
 
 

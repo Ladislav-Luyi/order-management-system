@@ -30,13 +30,13 @@ function activateCheckbox(id)
     <h3>Vyberte si objednavku:</h3>
 
 <form method="POST" >
-    <div  th:object="${order}">
+    <div  th:object="${orderPlaceHolder}">
 
 
         <div th:each="var : ${PIZZA}">
 
             <p>
-                <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+                <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
 
                 <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                 <span th:text="${var.getName()}">item</span>
@@ -49,7 +49,7 @@ function activateCheckbox(id)
         <div th:each="var : ${POLIEVKA}">
 
             <p>
-                <input th:id="${var.id + 'checkbox'}" name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+                <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
                 <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
 
                 <span th:text="${var.getName()}">item</span>
@@ -60,7 +60,7 @@ function activateCheckbox(id)
 
     </div>
 
-    <div style='right:30px;top:10px;z-index:2;position:absolute' th:object="${order}">
+    <div style='right:30px;top:10px;z-index:2;position:absolute' th:object="${orderPlaceHolder}">
         <div th:each="var : ${orderedItem}">
             <p>
 

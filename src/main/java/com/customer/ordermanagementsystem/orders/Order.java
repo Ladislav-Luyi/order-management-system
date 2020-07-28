@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,14 +20,13 @@ public class Order {
     private Date placedAt;
 
     @ManyToMany(targetEntity=Item.class)
-    private  List<Item> orderList;
+    private  List<Item> orderList = new ArrayList<>();
 
     @PrePersist
     void placedAt(){
         placedAt = new Date();
     }
 
-    private int indexToRemove;
 
 //    public Long getIndexToRemove() {
 //        return indexToRemove;
