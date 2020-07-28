@@ -58,4 +58,12 @@ public class Item {
     public Float getPrice() {
         return price;
     }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
+    }
 }

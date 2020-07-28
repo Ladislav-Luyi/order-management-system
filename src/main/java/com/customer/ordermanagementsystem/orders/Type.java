@@ -3,7 +3,7 @@ package com.customer.ordermanagementsystem.orders;
 
 public enum Type {
 
-    PIZZA("P"), POLIEVKA("S"), NAPOJ("N");
+    PIZZA("P"), POLIEVKA("S"), NAPOJ("N"), DOPLNKY("D");
 
 
     private String shortName;
@@ -26,6 +26,9 @@ public enum Type {
 
             case "N":
                 return Type.NAPOJ;
+
+            case "D":
+                return Type.DOPLNKY;
 
             default:
                 throw new IllegalArgumentException("ShortName [" + shortName

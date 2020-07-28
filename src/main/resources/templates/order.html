@@ -26,11 +26,11 @@ function activateCheckbox(id)
 </script>
 
 
-
+<div class="container">
     <h3>Vyberte si objednavku:</h3>
 
 <form method="POST" >
-    <div class="grid" th:object="${order}">
+    <div  th:object="${order}">
 
 
         <div th:each="var : ${PIZZA}">
@@ -60,7 +60,7 @@ function activateCheckbox(id)
 
     </div>
 
-    <div class="grid" th:object="${order}">
+    <div style='right:30px;top:10px;z-index:2;position:absolute' th:object="${order}">
         <div th:each="var : ${orderedItem}">
             <p>
 
@@ -91,6 +91,8 @@ function activateCheckbox(id)
     <span id="overallPrice">0.00</span>
     <span> €</span>
 </p>
+
+</div>>
 
 
 </body>

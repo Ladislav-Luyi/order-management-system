@@ -7,13 +7,45 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
+<style>
+input[type=text]:disabled{
+display: none;
+}
+</style>
+
+<script>
+function activateCheckbox(id)
+{
+    document.getElementById(id).checked = true;
+
+}
+
+
+</script>
+
+
 <body>
 
+
 <form method="POST" >
+    <div class="grid" th:object="${innerOrder}">
 
-    <a th:href="@{/basket}" class="btn btn-outline-info">Späť k nákupu</a>
+        <div th:each="var : ${DOPLNKY}">
 
+            <p>
+
+                <input th:id="${var.id + 'checkbox'}" th:name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+                <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
+                <span th:text="${var.getName()}">item</span>
+            </p>
+
+        </div>
+
+        <a class="btn btn-outline-primary" th:href="@{/basket}">Späť k nákupu</a>
+
+    </div>
 </form>
+
 
 </body>
 </html>

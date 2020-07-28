@@ -107,7 +107,7 @@ public class AddItemsController {
         log.info("calling add element!");
 
 
-//        return "redirect:/basket";
+
         return "order";
     }
 
@@ -158,7 +158,6 @@ public class AddItemsController {
 
 
 
-//        return "redirect:/basket";
         return "order";
     }
 
