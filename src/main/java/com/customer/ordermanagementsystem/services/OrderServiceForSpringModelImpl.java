@@ -22,6 +22,6 @@ public class OrderServiceForSpringModelImpl implements OrderServiceForSpringMode
 
     @Override
     public void addSingleOrderedItemToModel(Model model, int i) {
-
+        model.addAttribute("orderedItem", order.getOrderList().get(i));
     }
 }

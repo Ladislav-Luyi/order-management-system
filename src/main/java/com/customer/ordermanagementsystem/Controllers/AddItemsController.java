@@ -62,8 +62,6 @@ public class AddItemsController {
         log.info("Processing order: " + order);
         log.info("calling add element!");
 
-
-
         return "order";
     }
 

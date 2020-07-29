@@ -17,46 +17,26 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    public  Long id;
-    public  String name;
+    private Long id;
+    private String name;
 
 
-    public  Type type;
-    public  Float price;
+    private Type type;
+    private Float price;
 
     @Column(nullable = true)
     @ManyToMany(targetEntity=Item.class)
-    private List<Item> itemList;
+    private  List<Item> itemList;
 
-    public Item(Long id, String name, Type type, Float price) {
+    public Item(Long id, String name, Type type, Float price, List<Item> itemList) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
+        this.itemList = itemList;
     }
 
-    public Item(){
-
-    }
-
-//    public static enum Type {
-//        PIZZA, POLIEVKA, NAPOJ
-//    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public Float getPrice() {
-        return price;
+    public Item() {
     }
 
     public List<Item> getItemList() {
@@ -65,5 +45,27 @@ public class Item {
 
     public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
+    }
+
+    public String itemListToString(){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        int counter = 0;
+
+        for(Item item : itemList){
+            if (counter == 0) {
+                stringBuilder.append("(");
+                stringBuilder.append(item.name.toLowerCase());
+            }
+            else
+                stringBuilder.append(", " + item.name.toLowerCase());
+
+            counter++;
+        }
+        if (counter > 0)
+            stringBuilder.append(")");
+
+        return stringBuilder.toString();
+
     }
 }

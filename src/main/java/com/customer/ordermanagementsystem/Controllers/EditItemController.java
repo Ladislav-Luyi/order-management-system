@@ -43,8 +43,10 @@ public class EditItemController {
         System.out.println( order.getOrderList().get(index) );
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNKY);
+//        itemServiceForSpringModel.addAllItemsToModel(model);
 
-        model.addAttribute("orderedItem", order.getOrderList());
+//        orderServiceForSpringModel.addOrderedItemsToModel(model);
+        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index);
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
@@ -58,10 +60,12 @@ public class EditItemController {
         order.getOrderList().get(index).getItemList().add(orderPlaceHolder.getItem());
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNKY);
+//        itemServiceForSpringModel.addAllItemsToModel(model);
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
-        model.addAttribute("orderedItem", order.getOrderList());
+//        orderServiceForSpringModel.addOrderedItemsToModel(model);
+        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index);
 
         return "edit";
 
@@ -76,9 +80,12 @@ public class EditItemController {
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNKY);
 
-        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
+//        itemServiceForSpringModel.addAllItemsToModel(model);
 
-        model.addAttribute("orderedItem", order.getOrderList());
+        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index);
+//        orderServiceForSpringModel.addOrderedItemsToModel(model);
+
+        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
         return "edit";
     }
@@ -87,10 +94,6 @@ public class EditItemController {
     @PostMapping()
     public String returnToBasket(Model model, Order order){
 
-
-
-
         return "redirect:/basket";
-
     }
 }

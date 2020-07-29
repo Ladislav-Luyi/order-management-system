@@ -22,48 +22,60 @@ function activateCheckbox(id)
 
 <body>
 
+<h1  th:text="${orderedItem.name}"></h1>
 
-<form method="POST" >
+<div th:each="var : ${orderedItem}">
+    <p>
+        <span  th:text="${var.getName()}"></span>
+        <span th:text="${var.itemListToString()}"></span>
+    </p>
 
-    <div th:object="${orderPlaceHolder}">
-        <div th:each="var : ${orderedItem}">
-            <p>
+</div>
+<p>
+    <span>Celková cena</span>
+    <span id="overallPrice">0.00</span>
+    <span> €</span>
+</p>
 
-                <span  th:text="${var.name}"></span>
+<div class="page-wrapper">
+    <form method="POST" >
+        <div class='row'>
 
-                <div th:each="ingredient : ${var.getItemList()}">
+            <div class="column" th:object="${orderPlaceHolder}">
 
-                    <span  th:text="${ingredient.name + ' ' + ingredientStat.index}"></span>
+                <div th:each="var : ${DOPLNKY}">
 
-                                    <input th:id="${ingredient.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${ingredientStat.index}" style="display:none" />
-                                    <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
+                    <p>
+
+                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
+                        <span th:text="${var.getName()}">item</span>
+                    </p>
 
                 </div>
 
-            </p>
+
+
+            </div>
+
+            <div class="column" th:object="${orderPlaceHolder}">
+
+                <div th:each="ingredient : ${orderedItem.getItemList()}">
+                    <p>
+                        <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
+                        <span  th:text="${ingredient.name + ' ' + ingredientStat.index}"></span>
+                        <input th:id="${ingredient.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${ingredientStat.index}" style="display:none" />
+                    </p>
+                </div>
+
+
+
+            </div>
+
         </div>
-    </div>
-
-    <div th:object="${orderPlaceHolder}">
-
-        <div th:each="var : ${DOPLNKY}">
-
-            <p>
-
-                <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
-                <span th:text="${var.getName()}">item</span>
-            </p>
-
-        </div>
-
-        <a class="btn btn-outline-primary" th:href="@{/basket}">Späť k nákupu</a>
-
-    </div>
-
-
-</form>
-
+        <a class="btn btn-outline-primary row" th:href="@{/basket}">Späť k nákupu</a>
+    </form>
+</div>
 
 </body>
 </html>

@@ -27,8 +27,5 @@ public class Order {
         placedAt = new Date();
     }
 
-
-//    public Long getIndexToRemove() {
-//        return indexToRemove;
-//    }
+    
 }

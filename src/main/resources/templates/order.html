@@ -22,7 +22,7 @@ function activateCheckbox(id)
 
 <h3>Vyberte si objednavku:</h3>
 
-<div class="some-page-wrapper">
+<div class="page-wrapper">
 
 
 <form method="POST" >
@@ -67,9 +67,9 @@ function activateCheckbox(id)
                 <input th:id="${var.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />
                 <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
                 <span  th:text="${var.name}"></span>
+                <span th:text="${var.itemListToString()}"></span>
                 <a  class="btn btn-outline-info" th:href="@{/editItem(index=${varStat.index})}">Pridaj suroviny</a>
             </p>
-
 
         </div>
         <p>
