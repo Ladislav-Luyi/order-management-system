@@ -2,6 +2,8 @@ package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.*;
 import com.customer.ordermanagementsystem.repository.ItemRepository;
+import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
+import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,51 +18,31 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@SessionAttributes({"orderInfo","orderPlaceHolder"})
+@SessionAttributes({"orderInfo","order"})
 @RequestMapping("/basket")
 public class AddItemsController {
 
-    @Autowired
-    private Order order;
+    private final Order order;
+    private final ItemServiceForSpringModel itemServiceForSpringModel;
+    private final OrderServiceForSpringModel orderServiceForSpringModel;
 
     @Autowired
-    private ItemRepository itemRepository;
-
+    public AddItemsController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel) {
+        this.order = order;
+        this.itemServiceForSpringModel = itemServiceForSpringModel;
+        this.orderServiceForSpringModel = orderServiceForSpringModel;
+    }
 
     @RequestMapping()
-    public String showOrderForm(Model model, OrderPlaceHolder orderPlaceHolder){
+    public String showOrderForm(Model model){
 
+        itemServiceForSpringModel.addAllItemsToModel(model);
 
-
-        List<Item> items = itemRepository.findAll();
-
-
-        Type[] types = Type.values();
-        for (Type type : types)
-        {
-            List<Item> tmpList = new ArrayList<>();
-            for(Item tmpItem : items)
-            {
-                if (tmpItem.getType() == type) {
-                    tmpList.add(tmpItem);
-                }
-            }
-
-            if (tmpList.size() == 0)
-                continue;
-
-            log.info("continue for " + type.toString());
-            model.addAttribute(type.toString(), tmpList);
-
-
-        }
+        orderServiceForSpringModel.addOrderedItemsToModel(model);
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
-        model.addAttribute("orderedItem", order.getOrderList());
-
         return "order";
-
     }
 
 
@@ -71,37 +53,11 @@ public class AddItemsController {
 
         order.getOrderList().add(orderPlaceHolder.getItem());
 
-//        if (order.getOrderList() != null)
-//            order.getOrderList().add(order.getOrderList().get(0));
-//
         System.out.println(order.getOrderList().toString());
 
-        List<Item> items = itemRepository.findAll();
+        itemServiceForSpringModel.addAllItemsToModel(model);
 
-        Type[] types = Type.values();
-        for (Type type : types)
-        {
-            List<Item> tmpList = new ArrayList<>();
-            for(Item tmpItem : items)
-            {
-                if (tmpItem.getType() == type) {
-                    tmpList.add(tmpItem);
-                }
-            }
-
-            if (tmpList.size() == 0)
-                continue;
-
-            log.info("continue for " + type.toString());
-            model.addAttribute(type.toString(), tmpList);
-
-
-        }
-        //test
-
-        model.addAttribute("orderedItem", order.getOrderList());
-
-        // tu by si mal pridat do modelu dalsi polozky
+        orderServiceForSpringModel.addOrderedItemsToModel(model);
 
         log.info("Processing order: " + order);
         log.info("calling add element!");
@@ -118,44 +74,16 @@ public class AddItemsController {
 
 
         if (order.getOrderList().size() > 0)
-////            removed = orderPlaceHolder.getOrderList().remove(order.getOrderList().get(0));
             this.order.getOrderList().remove(orderPlaceHolder.getIndexToRemove());
 
 
+        itemServiceForSpringModel.addAllItemsToModel(model);
 
+        orderServiceForSpringModel.addOrderedItemsToModel(model);
 
-        List<Item> items = itemRepository.findAll();
-
-        Type[] types = Type.values();
-        for (Type type : types)
-        {
-            List<Item> tmpList = new ArrayList<>();
-            for(Item tmpItem : items)
-            {
-                if (tmpItem.getType() == type) {
-                    tmpList.add(tmpItem);
-                }
-            }
-
-            if (tmpList.size() == 0)
-                continue;
-
-            log.info("continue for " + type.toString());
-            model.addAttribute(type.toString(), tmpList);
-
-
-        }
-        //test
-
-        model.addAttribute("orderedItem", this.order.getOrderList());
-
-        // tu by si mal pridat do modelu dalsi polozky
 
         log.info("after removeElement: " + this.order);
         log.info("calling remove element!");
-
-
-
 
 
         return "order";
@@ -171,9 +99,7 @@ public class AddItemsController {
 
         order.setOrderList( this.order.getOrderList() );
 
-
         log.info("Processing order: " + order);
-
 
         return "redirect:/order/orderInfo";
     }

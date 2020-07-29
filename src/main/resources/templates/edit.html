@@ -24,13 +24,33 @@ function activateCheckbox(id)
 
 
 <form method="POST" >
-    <div class="grid" th:object="${innerOrder}">
+
+    <div th:object="${orderPlaceHolder}">
+        <div th:each="var : ${orderedItem}">
+            <p>
+
+                <span  th:text="${var.name}"></span>
+
+                <div th:each="ingredient : ${var.getItemList()}">
+
+                    <span  th:text="${ingredient.name + ' ' + ingredientStat.index}"></span>
+
+                                    <input th:id="${ingredient.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${ingredientStat.index}" style="display:none" />
+                                    <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
+
+                </div>
+
+            </p>
+        </div>
+    </div>
+
+    <div th:object="${orderPlaceHolder}">
 
         <div th:each="var : ${DOPLNKY}">
 
             <p>
 
-                <input th:id="${var.id + 'checkbox'}" th:name="orderList" type="checkbox" th:value="${var.id}" style="display:none" />
+                <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
                 <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
                 <span th:text="${var.getName()}">item</span>
             </p>
@@ -40,6 +60,8 @@ function activateCheckbox(id)
         <a class="btn btn-outline-primary" th:href="@{/basket}">Späť k nákupu</a>
 
     </div>
+
+
 </form>
 
 

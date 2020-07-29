@@ -64,7 +64,6 @@ function activateCheckbox(id)
     <div class="column"  th:object="${orderPlaceHolder}">
         <div th:each="var : ${orderedItem}">
             <p>
-
                 <input th:id="${var.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />
                 <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
                 <span  th:text="${var.name}"></span>
@@ -72,10 +71,7 @@ function activateCheckbox(id)
             </p>
 
 
-
-
         </div>
-
         <p>
             <span>Celková cena</span>
             <span id="overallPrice">0.00</span>
