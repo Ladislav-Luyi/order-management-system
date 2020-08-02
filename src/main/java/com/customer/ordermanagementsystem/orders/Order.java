@@ -27,5 +27,5 @@ public class Order {
         placedAt = new Date();
     }
 
-    
+
 }

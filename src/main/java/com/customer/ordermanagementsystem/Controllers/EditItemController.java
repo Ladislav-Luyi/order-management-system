@@ -46,7 +46,7 @@ public class EditItemController {
 //        itemServiceForSpringModel.addAllItemsToModel(model);
 
 //        orderServiceForSpringModel.addOrderedItemsToModel(model);
-        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index);
+        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
@@ -65,7 +65,7 @@ public class EditItemController {
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
 //        orderServiceForSpringModel.addOrderedItemsToModel(model);
-        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index);
+        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
 
         return "edit";
 
@@ -82,7 +82,7 @@ public class EditItemController {
 
 //        itemServiceForSpringModel.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index);
+        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
 //        orderServiceForSpringModel.addOrderedItemsToModel(model);
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );

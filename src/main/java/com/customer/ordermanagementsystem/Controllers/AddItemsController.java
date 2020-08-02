@@ -1,7 +1,6 @@
 package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.*;
-import com.customer.ordermanagementsystem.repository.ItemRepository;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
 import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
 import lombok.extern.slf4j.Slf4j;
@@ -10,10 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Slf4j
@@ -38,7 +33,9 @@ public class AddItemsController {
 
         itemServiceForSpringModel.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model);
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
@@ -57,7 +54,9 @@ public class AddItemsController {
 
         itemServiceForSpringModel.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model);
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
         log.info("Processing order: " + order);
         log.info("calling add element!");
@@ -77,7 +76,9 @@ public class AddItemsController {
 
         itemServiceForSpringModel.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model);
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
 
         log.info("after removeElement: " + this.order);
