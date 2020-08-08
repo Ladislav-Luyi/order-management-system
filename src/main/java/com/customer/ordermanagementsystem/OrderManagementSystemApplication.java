@@ -14,11 +14,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class OrderManagementSystemApplication {
 
-    @Autowired
-    JobLauncher jobLauncher;
+//    @Autowired
+//    JobLauncher jobLauncher;
+//
+//    @Autowired
+//    Job job;
 
-    @Autowired
-    Job job;
+
 
     public static void main(String[] args) {
         // mvn clean compile assembly:single // for building package with dependencies

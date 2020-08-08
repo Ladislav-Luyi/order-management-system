@@ -6,7 +6,6 @@ import com.customer.ordermanagementsystem.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import java.util.ArrayList;
@@ -16,8 +15,11 @@ import java.util.List;
 @Component
 public class ItemServiceForSpringModelImpl implements ItemServiceForSpringModel {
 
+
+    private final ItemRepository itemRepository;
+
     @Autowired
-    private ItemRepository itemRepository;
+    public ItemServiceForSpringModelImpl(ItemRepository itemRepository) { this.itemRepository = itemRepository; }
 
     @Override
     public void addAllItemsToModel(Model model) {

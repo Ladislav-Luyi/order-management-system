@@ -43,7 +43,6 @@ public class OrderServiceForSpringModelImpl implements OrderServiceForSpringMode
 
         String roundedPrice2Decimal = df.format(price);
 
-
         model.addAttribute(nameOfAttributeForMapping, roundedPrice2Decimal);
 
     }
