@@ -1,7 +1,10 @@
 package com.customer.ordermanagementsystem.orders;
 
 import lombok.Data;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,7 +15,8 @@ import java.util.List;
 @Table(name = "Orders")
 @Data
 @Component
-public class Order {
+@SessionScope
+public class Order{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private  Long id;

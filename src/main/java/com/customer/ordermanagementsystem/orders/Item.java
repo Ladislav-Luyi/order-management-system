@@ -4,6 +4,8 @@ package com.customer.ordermanagementsystem.orders;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Scope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 @Data
 //@RequiredArgsConstructor
 //@NoArgsConstructor,
+@SessionScope
 public class Item {
 
     @Id

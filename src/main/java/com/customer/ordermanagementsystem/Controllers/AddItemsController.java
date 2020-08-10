@@ -31,6 +31,7 @@ public class AddItemsController {
     @RequestMapping()
     public String showOrderForm(Model model){
 
+
         itemServiceForSpringModel.addAllItemsToModel(model);
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
