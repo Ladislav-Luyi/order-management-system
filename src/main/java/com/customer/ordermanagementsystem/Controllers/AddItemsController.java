@@ -30,8 +30,6 @@ public class AddItemsController {
 
     @RequestMapping()
     public String showOrderForm(Model model){
-
-
         itemServiceForSpringModel.addAllItemsToModel(model);
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
@@ -46,7 +44,6 @@ public class AddItemsController {
 
     @RequestMapping(params={"addElement"})
     public String addElement(OrderPlaceHolder orderPlaceHolder, Model model) {
-
         log.info("before order: " + order);
 
         order.getOrderList().add(orderPlaceHolder.getItem());

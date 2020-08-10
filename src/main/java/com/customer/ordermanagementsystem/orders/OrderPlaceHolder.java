@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 public class OrderPlaceHolder {
 
     private Item item;
-
     private int indexToRemove;
 
 }

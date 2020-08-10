@@ -22,15 +22,12 @@ public class ItemConverter implements Converter<String, Item> {
     @Override
     public Item convert(String source) {
 
-        //System.out.println("tuu " + source);
-
         List<Item> items = new ArrayList<>();
 
         itemRepository.findAll().forEach(i -> items.add(i));
 
         for (Item item : items) {
 
-            // You may use equal() method
             if ( item.getId().toString().equals(source) )
 
                 return item;

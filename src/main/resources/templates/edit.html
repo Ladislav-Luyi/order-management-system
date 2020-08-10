@@ -3,79 +3,79 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Alte Caffe & Pizza</title>
+    <link rel="stylesheet" type="text/css" href="/custom.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="custom.css">
 </head>
 
 
-<script>
-function activateCheckbox(id)
-{
-    document.getElementById(id).checked = true;
+    <script>
+        function activateCheckbox(id)
+        {
+            document.getElementById(id).checked = true;
 
-}
-
-
-</script>
+        }
+    </script>
 
 
 <body>
 
-<h1  th:text="${orderedItem.name}"></h1>
-
-<div th:each="var : ${orderedItem}">
-    <p>
-        <span  th:text="${var.getName()}"></span>
-        <span th:text="${var.itemListToString()}"></span>
-    </p>
-
-</div>
-<p>
-    <span>Celková cena</span>
-    <span id="overallPrice">0.00</span>
-    <span> €</span>
-</p>
-
-<div class="page-wrapper">
-    <form method="POST" >
-        <div class='row'>
-
-            <div class="column" th:object="${orderPlaceHolder}">
-
-                <div th:each="var : ${DOPLNKY}">
-
-                    <p>
-
-                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                        <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
-                        <span th:text="${var.getName()}">item</span>
-                    </p>
-
-                </div>
 
 
+    <div class="page-wrapper">
 
-            </div>
+        <h1  th:text="${orderedItem.name}"></h1>
 
-            <div class="column" th:object="${orderPlaceHolder}">
-
-                <div th:each="ingredient : ${orderedItem.getItemList()}">
-                    <p>
-                        <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
-                        <span  th:text="${ingredient.name + ' ' + ingredientStat.index}"></span>
-                        <input th:id="${ingredient.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${ingredientStat.index}" style="display:none" />
-                    </p>
-                </div>
-
-
-
-            </div>
+        <div th:each="var : ${orderedItem}">
+            <p>
+                <span  th:text="${var.getName()}"></span>
+                <span th:text="${var.itemListToString()}"></span>
+            </p>
 
         </div>
-        <a class="btn btn-outline-primary row" th:href="@{/basket}">Späť k nákupu</a>
-    </form>
-</div>
+
+        <p>
+            <span>Celková cena</span>
+            <span id="overallPrice">0.00</span>
+            <span> €</span>
+        </p>
+
+        <form method="POST" >
+            <div class='row'>
+
+                <div class="column" th:object="${orderPlaceHolder}">
+
+                    <div th:each="var : ${DOPLNKY}">
+
+                        <p>
+                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                            <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
+                            <span th:text="${var.getName()}">item</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="column" th:object="${orderPlaceHolder}">
+
+                    <div th:each="ingredient : ${orderedItem.getItemList()}">
+                        <p>
+                            <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
+                            <span  th:text="${ingredient.name + ' ' + ingredientStat.index}"></span>
+                            <input th:id="${ingredient.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${ingredientStat.index}" style="display:none" />
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a class="btn btn-outline-primary row" th:href="@{/basket}">Späť k nákupu</a>
+
+        </form>
+
+    </div>
 
 </body>
 </html>

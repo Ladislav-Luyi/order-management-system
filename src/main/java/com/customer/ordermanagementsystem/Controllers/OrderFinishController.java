@@ -6,13 +6,9 @@ import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.context.request.WebRequest;
-
 import javax.servlet.http.HttpSession;
 
 @Slf4j
@@ -39,7 +35,7 @@ public class OrderFinishController {
 
         sessionStatus.setComplete();
         httpsession.invalidate();
-        
+
         return "ordered";
     }
 

@@ -3,51 +3,54 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Alte Caffe & Pizza</title>
+    <link rel="stylesheet" type="text/css" href="/custom.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body>
 
-<form method="POST">
-        <div class="column" th:object="${orderInfo}">
-            <table>
-                <tr>
-                    <td>Meno a priezvisko:</td>
-                    <td><input type="text" th:field="*{name}"></input></td>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Zadajte meno a priezvisko prosím</td>
-                </tr>
 
-                <tr>
-                    <td>Ulica:</td>
-                    <td><input type="text" th:field="*{street}"></input></td>
-                    <td th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Zadajte ulicu prosím</td>
-                </tr>
-
-                <tr>
-                    <td>Mesto:</td>
-                    <td><input type="text" th:field="*{city}"></input></td>
-                    <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Zadajte mesto prosím</td>
-                </tr>
-
-                <tr>
-                    <td>Telefónne číslo:</td>
-                    <td><input type="text" th:field="*{telephoneNumber}"></input></td>
-                    <td th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</td>
-
-                </tr>
+    <div class="page-wrapper">
+        <form method="POST">
 
 
-            </table>
+                <div th:object="${orderInfo}">
+
+                        <p>
+                            <span>Meno a priezvisko:</span>
+                            <span><input type="text" th:field="*{name}"></input></span>
+                            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Zadajte meno a priezvisko prosím</span>
+                        </p>
+
+                        <p>
+                            <span>Ulica:</span>
+                            <span><input type="text" th:field="*{street}"></input></span>
+                            <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Zadajte ulicu prosím</span>
+                        </p>
+
+                        <p>
+                            <span>Mesto:</span>
+                            <span><input type="text" th:field="*{city}"></input></span>
+                            <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Zadajte mesto prosím</span>
+                        </p>
+
+                        <p>
+                            <span>Telefónne číslo:</span>
+                            <span><input type="text" th:field="*{telephoneNumber}"></input></span>
+                            <span th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</span>
+                        </p>
 
 
-        </div>
-
-
-    <button>Odoslať objednávku</button>
-</form>
+                </div>
 
 
 
+            <button class="btn btn-outline-primary">Odoslať objednávku</button>
+        </form>
 
+    </div>
 
 </body>
+
 </html>
