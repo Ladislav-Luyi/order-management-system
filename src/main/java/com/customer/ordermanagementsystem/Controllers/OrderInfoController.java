@@ -42,6 +42,8 @@ public class OrderInfoController {
         log.info("Processing order in orderInfo: " + order);
         log.info("Processing orderInfo in orderInfo: " + orderInfo);
 
+        order.setOrderInfo(orderInfo);
+
         return "redirect:/order/orderFinished";
 
     }

@@ -31,5 +31,6 @@ public class Order{
         placedAt = new Date();
     }
 
+    private OrderInfo orderInfo;
 
 }
