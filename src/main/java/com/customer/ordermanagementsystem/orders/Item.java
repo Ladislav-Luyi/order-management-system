@@ -21,19 +21,19 @@ public class Item {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String name;
-
-
     private Type type;
+    private String name;
+    private String additionalInfo;
     private Float price;
 
     @Column(nullable = true)
     @ManyToMany(targetEntity=Item.class)
     private  List<Item> itemList;
 
-    public Item(Long id, String name, Type type, Float price, List<Item> itemList) {
+    public Item(Long id, String name, String additionalInfo, Type type, Float price, List<Item> itemList) {
         this.id = id;
         this.name = name;
+        this.additionalInfo = additionalInfo;
         this.type = type;
         this.price = price;
         this.itemList = itemList;
