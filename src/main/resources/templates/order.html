@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Alte Caffe & Pizza</title>
-    <link rel="stylesheet" type="text/css" href="/custom.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/custom.css">
 </head>
 
 <body>
@@ -20,14 +20,71 @@
 
 
     <div class="content">
+
+
         <div class="page-wrapper">
 
-            <h1>Vyberte si objednavku:</h1>
+            <h1>Vyberte si objednávku:</h1>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active" >
+                            <a class="nav-link" href="#Pizza - normálna veľkosť">Pizza - normálna veľkosť<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Pizza - XXL veľkosť">Pizza - XXL veľkosť</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Polievky">Polievky</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Šaláty">Šaláty</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Bagety">Bagety</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Burgre">Burgre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Z každého rohu trochu">Z každého rohu trochu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Cestoviny">Cestoviny</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Gurmánske jedlá">Gurmánske jedlá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Klasické jedlá">Klasické jedlá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Fit jedlá">Fit jedlá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Rizotá">Rizotá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Sladkosti">Sladkosti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Prílohy">Prílohy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Pochutiny">Pochutiny</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Omáčky">Omáčky</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
             <form method="POST" >
                 <div class='row'>
                         <div class="column" th:object="${orderPlaceHolder}">
-                            <h2 class="dash_border">Pizza - normálna veľkosť</h2>
+                            <h2 id="Pizza - normálna veľkosť" class="dash_border">Pizza - normálna veľkosť</h2>
                             <div  th:each="var : ${PIZZA_NORMAL}">
 
                                 <p>
@@ -43,7 +100,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Pizza - xxl veľkosť</h2>
+                            <h2 id="Pizza - XXL veľkosť" class="dash_border">Pizza - XXL veľkosť</h2>
                             <div  th:each="var : ${PIZZA_BIG}">
 
                                 <p>
@@ -59,7 +116,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Polievka</h2>
+                            <h2 id="Polievky" class="dash_border">Polievky</h2>
                             <div th:each="var : ${POLIEVKA}">
 
                                 <p>
@@ -75,7 +132,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Šaláty</h2>
+                            <h2 id="Šaláty" class="dash_border">Šaláty</h2>
                             <div th:each="var : ${SALAT}">
 
                                 <p>
@@ -90,7 +147,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Bagety</h2>
+                            <h2 id="Bagety" class="dash_border">Bagety</h2>
                             <div th:each="var : ${BAGETA}">
 
                                 <p>
@@ -105,7 +162,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Burgre</h2>
+                            <h2 id="Burgre" class="dash_border">Burgre</h2>
                             <div th:each="var : ${BURGER}">
 
                                 <p>
@@ -120,7 +177,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Z každého rohu trochu</h2>
+                            <h2 id="Z každého rohu trochu" class="dash_border">Z každého rohu trochu</h2>
                             <div th:each="var : ${POMIESANE_JEDLA}">
 
                                 <p>
@@ -135,7 +192,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Cestoviny</h2>
+                            <h2 id="Cestoviny" class="dash_border">Cestoviny</h2>
                             <div th:each="var : ${CESTOVINA}">
 
                                 <p>
@@ -150,7 +207,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Gurmánske jedlá</h2>
+                            <h2 id="Gurmánske jedlá" class="dash_border">Gurmánske jedlá</h2>
                             <div th:each="var : ${GURMANSKE}">
 
                                 <p>
@@ -165,7 +222,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Klasické jedlá</h2>
+                            <h2 id="Klasické jedlá" class="dash_border">Klasické jedlá</h2>
                             <div th:each="var : ${KLASIKA}">
 
                                 <p>
@@ -180,7 +237,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Fit jedlá</h2>
+                            <h2 id="Fit jedlá" class="dash_border">Fit jedlá</h2>
                             <div th:each="var : ${FIT}">
 
                                 <p>
@@ -195,7 +252,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Rizotá</h2>
+                            <h2 id="Rizotá" class="dash_border">Rizotá</h2>
                             <div th:each="var : ${RIZOTO}">
 
                                 <p>
@@ -210,7 +267,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Sladkosti</h2>
+                            <h2 id="Sladkosti" class="dash_border">Sladkosti</h2>
                             <div th:each="var : ${SLADKOST}">
 
                                 <p>
@@ -225,7 +282,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Prílohy</h2>
+                            <h2 id="Prílohy" class="dash_border">Prílohy</h2>
                             <div th:each="var : ${PRILOHA}">
 
                                 <p>
@@ -240,7 +297,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Pochutiny</h2>
+                            <h2 id="Pochutiny" class="dash_border">Pochutiny</h2>
                             <div th:each="var : ${POCHUTINA}">
 
                                 <p>
@@ -255,7 +312,7 @@
 
                             </div>
 
-                            <h2 class="dash_border">Omáčky</h2>
+                            <h2 id="Omáčky" class="dash_border">Omáčky</h2>
                             <div th:each="var : ${OMACKA}">
 
                                 <p>
@@ -282,7 +339,7 @@
                             <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
                             <span class="small_font" th:text="${var.name}"></span>
                             <span class="small_font" th:text="${var.itemListToString()}"></span>
-                            <a  class="btn btn-outline-info" th:href="@{/editItem(index=${varStat.index})}">Uprav suroviny</a>
+                            <a  class="btn btn-outline-info" th:href="@{/editItem(index=${varStat.index})}">extra +/-</a>
                         </p>
 
                     </div>
@@ -303,7 +360,60 @@
 
             </form>
 
-
+            <nav class="navbar navbar-expand-lg">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active" >
+                            <a class="nav-link" href="#Pizza - normálna veľkosť">Pizza - normálna veľkosť<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Pizza - XXL veľkosť">Pizza - XXL veľkosť</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Polievky">Polievky</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Šaláty">Šaláty</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Bagety">Bagety</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Burgre">Burgre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Z každého rohu trochu">Z každého rohu trochu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Cestoviny">Cestoviny</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Gurmánske jedlá">Gurmánske jedlá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Klasické jedlá">Klasické jedlá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Fit jedlá">Fit jedlá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Rizotá">Rizotá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Sladkosti">Sladkosti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Prílohy">Prílohy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Pochutiny">Pochutiny</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Omáčky">Omáčky</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
 
         </div>

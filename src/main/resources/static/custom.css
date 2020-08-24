@@ -18,6 +18,11 @@ body {
   background-repeat:repeat;
 }
 
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 .dash_border{
 border-top: 2px dashed white;
 border-bottom: 2px dashed white;
@@ -29,6 +34,16 @@ border-bottom: 2px dashed white;
 
 .pink_color{
     color: #fcc;
+    line-height: 1.0;
+}
+
+a {
+    color: #ff9;
+    text-align: center;
+}
+
+a:hover {
+  color: #fcc;
 }
 
 .small_font{
