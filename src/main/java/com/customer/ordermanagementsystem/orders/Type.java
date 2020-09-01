@@ -7,7 +7,7 @@ public enum Type {
     POLIEVKA("POLIEVKA"),      SALAT("SALAT"),    OMACKA("OMACKA"),   POCHUTINA("POCHUTINA"),
     BAGETA("BAGETA"), BURGER("BURGER"), POMIESANE_JEDLA("POMIESANE_JEDLA"), CESTOVINA("CESTOVINA"),
     GURMANSKE("GURMANSKE"), KLASIKA("KLASIKA"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"),
-    PRILOHA("PRILOHA"), NAPOJ("NAPOJ"), DOPLNKY("DOPLNKY");
+    PRILOHA("PRILOHA"), NAPOJ("NAPOJ"), DOPLNOK("DOPLNOK");
 
 
     private String shortName;
@@ -79,8 +79,8 @@ public enum Type {
             case "NAPOJ":
                 return Type.NAPOJ;
 
-            case "DOPLNKY":
-                return Type.DOPLNKY;
+            case "DOPLNOK":
+                return Type.DOPLNOK;
 
             default:
                 throw new IllegalArgumentException("ShortName [" + shortName

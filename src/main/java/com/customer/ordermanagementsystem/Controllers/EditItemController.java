@@ -42,7 +42,7 @@ public class EditItemController {
         //trying to access data
         System.out.println( order.getOrderList().get(index) );
 
-        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNKY);
+        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
 //        itemServiceForSpringModel.addAllItemsToModel(model);
 
 //        orderServiceForSpringModel.addOrderedItemsToModel(model);
@@ -59,7 +59,7 @@ public class EditItemController {
         System.out.println(orderPlaceHolder);
         order.getOrderList().get(index).getItemList().add(orderPlaceHolder.getItem());
 
-        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNKY);
+        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
 //        itemServiceForSpringModel.addAllItemsToModel(model);
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
@@ -78,7 +78,7 @@ public class EditItemController {
         if (order.getOrderList().get(index).getItemList().size() > 0)
             order.getOrderList().get(index).getItemList().remove(orderPlaceHolder.getIndexToRemove());
 
-        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNKY);
+        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
 
 //        itemServiceForSpringModel.addAllItemsToModel(model);
 

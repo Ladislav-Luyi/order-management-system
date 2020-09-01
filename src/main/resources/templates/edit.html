@@ -45,7 +45,7 @@
 
                     <div class="column" th:object="${orderPlaceHolder}">
 
-                        <div th:each="var : ${DOPLNKY}">
+                        <div th:each="var : ${DOPLNOK}">
 
                             <p>
                                 <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
