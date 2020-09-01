@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Alte Caffe & Pizza</title>
-    <link rel="stylesheet" type="text/css" href="/custom.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/custom.css">
 </head>
 
 
@@ -49,7 +49,7 @@
 
                             <p>
                                 <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                                <button class="btn btn-outline-success" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
+                                <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
                                 <span class="jedlo" th:text="${var.getName()}">item</span>
                             </p>
 
