@@ -37,6 +37,10 @@ border-bottom: 2px dashed white;
     line-height: 1.0;
 }
 
+.no_breaking_text{
+white-space: nowrap;
+}
+
 a {
     color: #ff9;
     text-align: center;
@@ -87,3 +91,4 @@ display: none;
 .no-flex{
 flex: none;
 }
+
