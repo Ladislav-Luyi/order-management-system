@@ -23,6 +23,8 @@ public class Order{
 
     private Date placedAt;
 
+    private boolean paid = false;
+
     @ManyToMany(targetEntity=Item.class)
     private  List<Item> orderList = new ArrayList<>();
 
