@@ -30,12 +30,14 @@ public class GetOrdersController {
         File file = new File(fileName);
 
         BufferedWriter writer = null;
+        final String newLine = System.getProperty("line.separator");
 
         try {
-            writer = new BufferedWriter(new FileWriter(file));
+            writer = new BufferedWriter(new FileWriter(file, true));
 
             for (Order o : orderRepository.findAll()){
                 writer.write(o.toString());
+                writer.append(newLine);
             }
 
             writer.close();

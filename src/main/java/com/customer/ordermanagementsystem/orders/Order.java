@@ -35,4 +35,22 @@ public class Order{
 
     private OrderInfo orderInfo;
 
+    /*
+        expected format:
+                        #OrderId*Order info#
+     */
+    @Override
+    public String toString() {
+
+        StringBuilder s = new StringBuilder();
+        s.append("#");
+        s.append(id);
+        s.append("*");
+        s.append(orderList);
+        s.append(orderInfo);
+        s.append("#");
+
+        return s.toString();
+
+    }
 }
