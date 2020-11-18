@@ -2,6 +2,8 @@ package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.Order;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +16,13 @@ import java.io.*;
 import java.util.Optional;
 
 @RestController
-public class GetOrdersController {
-    private OrderRepository orderRepository;
+@Slf4j
+public class TerminalControllers {
+
+    private final OrderRepository orderRepository;
 
     @Autowired
-    public GetOrdersController(OrderRepository orderRepository) {
+    public TerminalControllers(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 
@@ -62,11 +66,16 @@ public class GetOrdersController {
                              @RequestParam String dt,
                              @RequestParam String u,
                              @RequestParam String p){
-        System.out.println("Called: "+ o);
+
+        log.info("Terminal reply: " + a + " " + o  + " " + ak + " " + m + " " + dt + " " + u + " " + p);
 
         Optional<Order> order = orderRepository.findById( Long.valueOf(o) );
-        Order order1 =  order.orElse();
-        return o;
 
+        order.ifPresent(opt -> {
+            opt.setAccepted(true);
+            orderRepository.save(opt);
+        });
+
+        return o;
     }
 }

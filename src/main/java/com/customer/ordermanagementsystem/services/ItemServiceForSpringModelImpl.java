@@ -39,7 +39,7 @@ public class ItemServiceForSpringModelImpl implements ItemServiceForSpringModel 
             if (tmpList.size() == 0)
                 continue;
 
-            log.info("continue for " + type.toString());
+            log.info("Processing for " + type.toString());
             model.addAttribute(type.toString(), tmpList);
 
 
@@ -60,7 +60,7 @@ public class ItemServiceForSpringModelImpl implements ItemServiceForSpringModel 
             }
         }
 
-        log.info("continue for " + type.toString());
+        log.info("Processing " + type.toString());
         model.addAttribute(type.toString(), tmpList);
     }
 }

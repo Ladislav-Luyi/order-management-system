@@ -23,7 +23,9 @@ public class Order{
 
     private Date placedAt;
 
-    private boolean paid = false;
+    private boolean isPaid = false;
+
+    private boolean isAccepted = false;
 
     @ManyToMany(targetEntity=Item.class)
     private  List<Item> orderList = new ArrayList<>();
@@ -38,6 +40,8 @@ public class Order{
     /*
         expected format:
                         #OrderId*Order info#
+
+        UOrderId*
      */
     @Override
     public String toString() {
@@ -53,4 +57,5 @@ public class Order{
         return s.toString();
 
     }
+
 }
