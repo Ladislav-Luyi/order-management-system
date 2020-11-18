@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Alte Caffe & Pizza</title>
-    <link rel="stylesheet" type="text/css" href="/custom.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/custom.css">
 </head>
 
 <body>
@@ -13,25 +13,8 @@
     <div class="content">
         <div class="page-wrapper">
             <form method="POST">
-
-
-                <div class="column"  th:object="${orderPlaceHolder}">
-                    <p class="pink_color emphasize">Tvoj košík</p>
-                    <div th:each="var : ${orderedItems}">
-                        <p>
-                            <span class="small_font" th:text="${var.name}"></span>
-                            <span class="small_font" th:text="${var.itemListToString()}"></span>
-                        </p>
-
-                    </div>
-                    <p>
-                        <span class="pink_color emphasize">Celková cena</span>
-                        <span class="pink_color emphasize" th:text="${totalPrice}" id="overallPrice">0.00</span>
-                        <span class="pink_color emphasize"> €</span>
-                    </p>
-                </div>
-
-                    <div th:object="${orderInfo}">
+                <div class='row'>
+                    <div class="column" th:object="${orderInfo}">
 
                             <p>
                                 <span>Meno a priezvisko:</span>
@@ -56,9 +39,26 @@
                                 <span><input type="text" th:field="*{telephoneNumber}"></input></span>
                                 <span th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</span>
                             </p>
-
-
                     </div>
+
+                    <div class="column"  th:object="${orderPlaceHolder}">
+                        <p class="pink_color emphasize">Tvoj košík</p>
+                        <div th:each="var : ${orderedItems}">
+                            <p>
+                                <span class="small_font" th:text="${var.name}"></span>
+                                <span class="small_font" th:text="${var.itemListToString()}"></span>
+                            </p>
+
+                        </div>
+
+                        <p>
+                            <span class="pink_color emphasize">Celková cena</span>
+                            <span class="pink_color emphasize" th:text="${totalPrice}" id="overallPrice">0.00</span>
+                            <span class="pink_color emphasize"> €</span>
+                        </p>
+                    </div>
+
+                </div>
 
 
                 <a class="btn btn-outline-primary" th:href="@{/basket}">Späť k nákupu</a>
