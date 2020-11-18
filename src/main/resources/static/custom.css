@@ -93,3 +93,6 @@ display: none;
 flex: none;
 }
 
+.emphasize {
+  font-weight: bold;
+}

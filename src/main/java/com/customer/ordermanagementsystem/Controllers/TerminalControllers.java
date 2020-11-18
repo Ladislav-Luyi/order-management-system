@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
+import java.util.Optional;
 
 @RestController
 public class GetOrdersController {
@@ -36,8 +38,10 @@ public class GetOrdersController {
             writer = new BufferedWriter(new FileWriter(file, true));
 
             for (Order o : orderRepository.findAll()){
-                writer.write(o.toString());
-                writer.append(newLine);
+                if (o.isAccepted() == false) {
+                    writer.write(o.toString());
+                    writer.append(newLine);
+                }
             }
 
             writer.close();
@@ -47,5 +51,22 @@ public class GetOrdersController {
         }
 
         return ResponseEntity.ok().body(new FileSystemResource(file));
+    }
+
+    @GetMapping("/reply-orders.txt")
+    @ResponseBody
+    public String acceptOrders(@RequestParam String a,
+                             @RequestParam String o,
+                             @RequestParam String ak,
+                             @RequestParam String m,
+                             @RequestParam String dt,
+                             @RequestParam String u,
+                             @RequestParam String p){
+        System.out.println("Called: "+ o);
+
+        Optional<Order> order = orderRepository.findById( Long.valueOf(o) );
+        Order order1 =  order.orElse();
+        return o;
+
     }
 }
