@@ -3,7 +3,10 @@ package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.Order;
 import com.customer.ordermanagementsystem.orders.OrderInfo;
+import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
+import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,10 +24,23 @@ import javax.validation.Valid;
 @RequestMapping("/order")
 public class OrderInfoController {
 
+    private final ItemServiceForSpringModel itemServiceForSpringModel;
+    private final OrderServiceForSpringModel orderServiceForSpringModel;
+
+    @Autowired
+    public OrderInfoController(ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel) {
+        this.itemServiceForSpringModel = itemServiceForSpringModel;
+        this.orderServiceForSpringModel = orderServiceForSpringModel;
+    }
+
     @GetMapping("/orderInfo")
     public String showOrderInfoForm(Model model, OrderInfo orderInfo){
 
         model.addAttribute("orderInfo", new OrderInfo());
+
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
         return "orderInfo";
 

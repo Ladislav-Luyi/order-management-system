@@ -331,9 +331,8 @@
                 </div>
 
 
-
-
                 <div class="column"  th:object="${orderPlaceHolder}">
+                    <p class="pink_color emphasize">Tvoj košík</p>
                     <div th:each="var : ${orderedItems}">
                         <p>
                             <input th:id="${var.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />

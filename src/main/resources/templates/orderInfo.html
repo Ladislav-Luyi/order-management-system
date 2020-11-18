@@ -15,6 +15,22 @@
             <form method="POST">
 
 
+                <div class="column"  th:object="${orderPlaceHolder}">
+                    <p class="pink_color emphasize">Tvoj košík</p>
+                    <div th:each="var : ${orderedItems}">
+                        <p>
+                            <span class="small_font" th:text="${var.name}"></span>
+                            <span class="small_font" th:text="${var.itemListToString()}"></span>
+                        </p>
+
+                    </div>
+                    <p>
+                        <span class="pink_color emphasize">Celková cena</span>
+                        <span class="pink_color emphasize" th:text="${totalPrice}" id="overallPrice">0.00</span>
+                        <span class="pink_color emphasize"> €</span>
+                    </p>
+                </div>
+
                     <div th:object="${orderInfo}">
 
                             <p>
@@ -45,7 +61,7 @@
                     </div>
 
 
-
+                <a class="btn btn-outline-primary" th:href="@{/basket}">Späť k nákupu</a>
                 <button class="btn btn-outline-primary">Odoslať objednávku</button>
             </form>
 
