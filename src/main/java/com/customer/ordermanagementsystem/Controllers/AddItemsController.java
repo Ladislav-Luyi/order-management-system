@@ -1,6 +1,7 @@
 package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.*;
+import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
 import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
 import lombok.extern.slf4j.Slf4j;
@@ -13,19 +14,21 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
-@SessionAttributes({"orderInfo","order","orderedItems","totalPrice"})
+@SessionAttributes({"orderInfo","order","orderedItems","totalPrice","discount"})
 @RequestMapping("/basket")
 public class AddItemsController {
 
     private final Order order;
     private final ItemServiceForSpringModel itemServiceForSpringModel;
     private final OrderServiceForSpringModel orderServiceForSpringModel;
+    private final DiscountService discountService;
 
     @Autowired
-    public AddItemsController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel) {
+    public AddItemsController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService) {
         this.order = order;
         this.itemServiceForSpringModel = itemServiceForSpringModel;
         this.orderServiceForSpringModel = orderServiceForSpringModel;
+        this.discountService = discountService;
     }
 
     @RequestMapping()
@@ -33,6 +36,12 @@ public class AddItemsController {
         itemServiceForSpringModel.addAllItemsToModel(model);
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
+        orderServiceForSpringModel.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
 
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
@@ -54,7 +63,15 @@ public class AddItemsController {
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
 
+        orderServiceForSpringModel.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
+
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+
+
 
         log.info("Processing order: " + order);
         log.info("calling add element!");
@@ -76,7 +93,14 @@ public class AddItemsController {
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
 
+        orderServiceForSpringModel.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
+
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+
 
 
         log.info("after removeElement: " + this.order);

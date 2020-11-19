@@ -2,12 +2,14 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.orders.Item;
 import com.customer.ordermanagementsystem.orders.Order;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
+
 
 @Component
 public class OrderServiceForSpringModelImpl implements OrderServiceForSpringModel{
@@ -31,6 +33,13 @@ public class OrderServiceForSpringModelImpl implements OrderServiceForSpringMode
 
     @Override
     public void addTotalPrice(Model model, String nameOfAttributeForMapping) {
+        BigDecimal totalPriceWithDiscount = order.getTotalPriceDiscount();
+
+        model.addAttribute(nameOfAttributeForMapping, totalPriceWithDiscount);
+    }
+
+    @Override
+    public void refreshPrice(){
         BigDecimal price = new BigDecimal(0);
 
         for(Item item1 : order.getOrderList()) {
@@ -41,6 +50,7 @@ public class OrderServiceForSpringModelImpl implements OrderServiceForSpringMode
             }
         }
 
-        model.addAttribute(nameOfAttributeForMapping, price);
+        order.setTotalPrice(price);
+
     }
 }

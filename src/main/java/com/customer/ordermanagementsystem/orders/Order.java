@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +23,12 @@ public class Order{
     private  Long id;
 
     private Date placedAt;
+
+    private BigDecimal totalPrice = new BigDecimal(0);
+
+    private BigDecimal totalDiscount = new BigDecimal(0);
+
+    private BigDecimal totalPriceDiscount = new BigDecimal(0);
 
     private boolean isPaid = false;
 
@@ -43,6 +50,11 @@ public class Order{
 
         UOrderId*
      */
+
+    public BigDecimal getTotalPriceDiscount() {
+        return totalPrice.subtract(totalDiscount);
+    }
+
     @Override
     public String toString() {
 
@@ -57,5 +69,10 @@ public class Order{
         return s.toString();
 
     }
+
+
+
+
+
 
 }

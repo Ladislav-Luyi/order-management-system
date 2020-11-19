@@ -3,6 +3,7 @@ package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.Order;
 import com.customer.ordermanagementsystem.orders.OrderInfo;
+import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
 import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
 import lombok.extern.slf4j.Slf4j;
@@ -26,11 +27,13 @@ public class OrderInfoController {
 
     private final ItemServiceForSpringModel itemServiceForSpringModel;
     private final OrderServiceForSpringModel orderServiceForSpringModel;
+    private final DiscountService discountService;
 
     @Autowired
-    public OrderInfoController(ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel) {
+    public OrderInfoController(ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService) {
         this.itemServiceForSpringModel = itemServiceForSpringModel;
         this.orderServiceForSpringModel = orderServiceForSpringModel;
+        this.discountService = discountService;
     }
 
     @GetMapping("/orderInfo")
@@ -39,6 +42,12 @@ public class OrderInfoController {
         model.addAttribute("orderInfo", new OrderInfo());
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
+        orderServiceForSpringModel.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
 
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
