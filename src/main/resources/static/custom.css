@@ -96,3 +96,8 @@ flex: none;
 .emphasize {
   font-weight: bold;
 }
+
+li {
+  float: left;
+  list-style: none;
+}

@@ -39,14 +39,13 @@ public class EditItemController {
     public String editItem(Model model,  @RequestParam int index){
         System.out.println("Edit item with index: " + index);
 
-        //trying to access data
         System.out.println( order.getOrderList().get(index) );
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
-//        itemServiceForSpringModel.addAllItemsToModel(model);
 
-//        orderServiceForSpringModel.addOrderedItemsToModel(model);
         orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
@@ -60,12 +59,12 @@ public class EditItemController {
         order.getOrderList().get(index).getItemList().add(orderPlaceHolder.getItem());
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
-//        itemServiceForSpringModel.addAllItemsToModel(model);
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
-//        orderServiceForSpringModel.addOrderedItemsToModel(model);
         orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
         return "edit";
 
@@ -80,10 +79,9 @@ public class EditItemController {
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
 
-//        itemServiceForSpringModel.addAllItemsToModel(model);
-
         orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
-//        orderServiceForSpringModel.addOrderedItemsToModel(model);
+
+        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 

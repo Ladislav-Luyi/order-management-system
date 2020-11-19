@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 @Component
@@ -30,20 +31,16 @@ public class OrderServiceForSpringModelImpl implements OrderServiceForSpringMode
 
     @Override
     public void addTotalPrice(Model model, String nameOfAttributeForMapping) {
-        float price = 0;
+        BigDecimal price = new BigDecimal(0);
 
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
+        for(Item item1 : order.getOrderList()) {
+            price = price.add(item1.getPrice()) ;
 
-        for(Item item : order.getOrderList()) {
-            df.format(price);
-
-            price += item.getPrice();
+            for (Item item2 : item1.getItemList()){
+                price = price.add(item2.getPrice()) ;
+            }
         }
 
-        String roundedPrice2Decimal = df.format(price);
-
-        model.addAttribute(nameOfAttributeForMapping, roundedPrice2Decimal);
-
+        model.addAttribute(nameOfAttributeForMapping, price);
     }
 }

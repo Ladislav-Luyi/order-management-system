@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Entity
@@ -24,13 +26,13 @@ public class Item {
     private Type type;
     private String name;
     private String additionalInfo;
-    private Float price;
+    private BigDecimal price;
 
     @Column(nullable = true)
     @ManyToMany(targetEntity=Item.class)
     private  List<Item> itemList;
 
-    public Item(Long id, String name, String additionalInfo, Type type, Float price, List<Item> itemList) {
+    public Item(Long id, String name, String additionalInfo, Type type, BigDecimal price, List<Item> itemList) {
         this.id = id;
         this.name = name;
         this.additionalInfo = additionalInfo;
@@ -71,4 +73,6 @@ public class Item {
         return stringBuilder.toString();
 
     }
+
+
 }
