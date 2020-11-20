@@ -43,6 +43,8 @@ public class EditItemController {
 
         orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
 
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+
         orderServiceForSpringModel.refreshPrice();
 
         discountService.refreshDiscounts();
@@ -63,6 +65,8 @@ public class EditItemController {
         order.getOrderList().get(index).getItemList().add(orderPlaceHolder.getItem());
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
+
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
 
         model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
 
@@ -88,6 +92,8 @@ public class EditItemController {
             order.getOrderList().get(index).getItemList().remove(orderPlaceHolder.getIndexToRemove());
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
+
+        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
 
         orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
 

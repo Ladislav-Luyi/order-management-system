@@ -24,60 +24,65 @@
     <div class="content">
         <div class="page-wrapper">
 
-            <h1  th:text="${orderedItem.name}"></h1>
-
-            <div th:each="var : ${orderedItem}">
-                <p>
-                    <span  th:text="${var.getName()}"></span>
-                    <span th:text="${var.itemListToString()}"></span>
-                </p>
-
+            <div class='row'>
+                <h1  th:text="${'Upravuješ doplnky na: ' + orderedItem.name}"></h1>
             </div>
 
-            <p th:text="${discount}"></p>
-            <p>
-                <span class="pink_color emphasize">Celková cena</span>
-                <span class="pink_color emphasize" th:text="${totalPrice}" id="overallPrice">0.00</span>
-                <span class="pink_color emphasize"> €</span>
-            </p>
+            <div class='row'>
+
+                <div class="column"  th:object="${orderPlaceHolder}">
+
+                    <p class="pink_color emphasize">Tvoj košík</p>
+                    <div th:each="var : ${orderedItems}">
+                        <p>
+                            <span class="small_font" th:text="${var.name}"></span>
+                            <span class="small_font" th:text="${var.itemListToString()}"></span>
+                        </p>
+
+                    </div>
+
+                    <p th:text="${discount}"></p>
+                    <p>
+                        <span class="pink_color emphasize">Celková cena</span>
+                        <span class="pink_color emphasize" th:text="${totalPrice}" id="overallPrice">0.00</span>
+                        <span class="pink_color emphasize"> €</span>
+                    </p>
+
+                </div>
+            </div>
 
             <form method="POST" >
                 <div class='row'>
 
                     <div class="column" th:object="${orderPlaceHolder}">
-
                         <div th:each="var : ${DOPLNOK}">
-
                             <p>
                                 <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
                                 <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addInnerElement">+</button>
                                 <span class="jedlo" th:text="${var.getName()}">item</span>
+                                <span> - </span>
+                                <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                                <br>
+                                <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
                             </p>
-
                         </div>
-
                     </div>
 
                     <div class="column" th:object="${orderPlaceHolder}">
-
                         <div th:each="ingredient : ${orderedItem.getItemList()}">
                             <p>
                                 <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
-                                <span  th:text="${ingredient.name + ' ' + ingredientStat.index}"></span>
+                                <span  th:text="${ingredient.name}"></span>
                                 <input th:id="${ingredient.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${ingredientStat.index}" style="display:none" />
                             </p>
                         </div>
-
                         <a class="btn btn-outline-primary row" th:href="@{/basket}">Späť k nákupu</a>
-
                     </div>
-
                 </div>
 
                 <a class="btn btn-outline-primary row" th:href="@{/basket}">Späť k nákupu</a>
 
             </form>
-
         </div>
     </div>
 </body>
