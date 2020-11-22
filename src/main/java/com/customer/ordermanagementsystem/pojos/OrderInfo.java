@@ -26,4 +26,6 @@ public class OrderInfo {
 //    @Size(min=5, max=100)
     private String telephoneNumber;
 
+    private String comment;
+
 }

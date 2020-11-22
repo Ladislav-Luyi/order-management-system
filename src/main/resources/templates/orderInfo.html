@@ -15,7 +15,7 @@
             <form method="POST">
                 <div class='row'>
                     <div class="column" th:object="${orderInfo}">
-
+                            <h1>Prosím zadajte </h1>
                             <p>
                                 <span>Meno a priezvisko:</span>
                                 <span><input type="text" th:field="*{name}"></input></span>
@@ -38,6 +38,11 @@
                                 <span>Telefónne číslo:</span>
                                 <span><input type="text" th:field="*{telephoneNumber}"></input></span>
                                 <span th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</span>
+                            </p>
+
+                            <p>
+                                <p style="margin-bottom:0;">Poznámka k objednávke:</p>
+                                <textarea placeholder="Tu zadajte poznámku k objednávke týkajúcu sa jedla, adresy a pod." th:field="*{comment}"></textarea>
                             </p>
                     </div>
 
