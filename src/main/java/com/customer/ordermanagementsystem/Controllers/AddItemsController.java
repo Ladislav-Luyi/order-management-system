@@ -1,6 +1,7 @@
 package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.orders.*;
+import com.customer.ordermanagementsystem.services.CompanyService;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
 import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
@@ -22,17 +23,25 @@ public class AddItemsController {
     private final ItemServiceForSpringModel itemServiceForSpringModel;
     private final OrderServiceForSpringModel orderServiceForSpringModel;
     private final DiscountService discountService;
+    private final CompanyService companyService;
 
     @Autowired
-    public AddItemsController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService) {
+    public AddItemsController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService, CompanyService companyService) {
         this.order = order;
         this.itemServiceForSpringModel = itemServiceForSpringModel;
         this.orderServiceForSpringModel = orderServiceForSpringModel;
         this.discountService = discountService;
+        this.companyService = companyService;
     }
 
     @RequestMapping()
     public String showOrderForm(Model model){
+
+        if ( ! companyService.isStoreOpen() ) {
+            companyService.addItemToModel(model,"closedMessage");
+            return "closed";
+        }
+
         itemServiceForSpringModel.addAllItemsToModel(model);
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");

@@ -1,9 +1,9 @@
 package com.customer.ordermanagementsystem.repository;
 
-import com.customer.ordermanagementsystem.orders.Order;
+import com.customer.ordermanagementsystem.orders.Company;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends CrudRepository<Order,Long> {
+public interface CompanyRepository  extends CrudRepository<Company,Long> {
 }

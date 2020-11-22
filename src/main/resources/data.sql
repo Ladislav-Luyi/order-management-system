@@ -1,0 +1,18 @@
+SET MODE MySQL;
+INSERT IGNORE  INTO Company (ID,STATUS, STATUS_MESSAGE)
+VALUES (1,true, '');
+
+INSERT IGNORE  INTO OPENNING_HOURS  (ID,DESCRIPTION,OPENNING_HOURS, CLOSING_HOURS,DAY_DESCRIPTION)
+VALUES
+(0,'General openning hours',9,11,''),
+(1,'Pondelok',-1,-1,'1'),
+(2,'Utorok',-1,-1,'2'),
+(3,'Streda',-1,-1,'3'),
+(4,'Štvrtok',-1,-1,'4'),
+(5,'Piatok',-1,-1,'5'),
+(6,'Sobota',-1,-1,'6'),
+(7,'Nedeľa',-1,-1,'7');
+
+INSERT IGNORE  INTO OPENNING_HOURS  (ID,DESCRIPTION,OPENNING_HOURS, CLOSING_HOURS,DAY_DESCRIPTION)
+VALUES
+(8,'Special',6,18,'20.11');
