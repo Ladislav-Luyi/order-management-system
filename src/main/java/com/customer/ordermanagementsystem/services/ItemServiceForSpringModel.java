@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.orders.Type;
+import com.customer.ordermanagementsystem.pojos.Type;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 

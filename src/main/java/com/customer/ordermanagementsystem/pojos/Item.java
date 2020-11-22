@@ -1,15 +1,11 @@
-package com.customer.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.pojos;
 
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.List;
 
 @Entity

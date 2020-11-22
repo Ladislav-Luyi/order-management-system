@@ -82,7 +82,7 @@
 
         <form method="POST" >
             <div class='row'>
-                <div class="column" th:object="${orderPlaceHolder}">
+                <div class="column" th:object="${orderDTO}">
                     <h2 id="Pizza - normálna veľkosť" class="dash_border">Pizza - normálna veľkosť</h2>
                     <div  th:each="var : ${PIZZA_NORMAL}">
 
@@ -329,7 +329,7 @@
                 </div>
 
 
-                <div class="column"  th:object="${orderPlaceHolder}">
+                <div class="column"  th:object="${orderDTO}">
                     <p class="pink_color emphasize">Tvoj košík</p>
                     <div th:each="var : ${orderedItems}">
                         <p>

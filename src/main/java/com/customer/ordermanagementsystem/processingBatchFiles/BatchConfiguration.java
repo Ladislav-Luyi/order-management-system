@@ -1,16 +1,13 @@
 package com.customer.ordermanagementsystem.processingBatchFiles;
 
-import com.customer.ordermanagementsystem.orders.Item;
+import com.customer.ordermanagementsystem.pojos.Item;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
-import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
-import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.JpaItemWriter;
-import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
@@ -21,7 +18,6 @@ import org.springframework.core.io.ClassPathResource;
 
 
 import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
 
 @Configuration
 @EnableBatchProcessing

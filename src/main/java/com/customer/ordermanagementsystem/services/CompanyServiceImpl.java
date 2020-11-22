@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.orders.Company;
-import com.customer.ordermanagementsystem.orders.OpenningHours;
+import com.customer.ordermanagementsystem.pojos.Company;
+import com.customer.ordermanagementsystem.pojos.OpenningHours;
 import com.customer.ordermanagementsystem.repository.CompanyRepository;
 import com.customer.ordermanagementsystem.repository.OpenningHoursRepository;
 import lombok.extern.slf4j.Slf4j;

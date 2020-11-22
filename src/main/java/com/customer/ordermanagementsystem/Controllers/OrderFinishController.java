@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.orders.Order;
-import com.customer.ordermanagementsystem.orders.OrderInfo;
+import com.customer.ordermanagementsystem.pojos.Order;
+import com.customer.ordermanagementsystem.pojos.OrderInfo;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

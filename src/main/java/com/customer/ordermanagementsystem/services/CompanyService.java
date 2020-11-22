@@ -1,6 +1,5 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.orders.Company;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 

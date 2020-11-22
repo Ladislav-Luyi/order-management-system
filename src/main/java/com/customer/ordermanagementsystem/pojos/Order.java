@@ -1,8 +1,6 @@
-package com.customer.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.pojos;
 
 import lombok.Data;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 

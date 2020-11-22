@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.pojos;
 
 import org.springframework.stereotype.Component;
 

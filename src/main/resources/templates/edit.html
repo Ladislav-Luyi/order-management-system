@@ -30,7 +30,7 @@
 
             <div class='row'>
 
-                <div class="column"  th:object="${orderPlaceHolder}">
+                <div class="column"  th:object="${orderDTO}">
 
                     <p class="pink_color emphasize">Tvoj košík</p>
                     <div th:each="var : ${orderedItems}">
@@ -54,7 +54,7 @@
             <form method="POST" >
                 <div class='row'>
 
-                    <div class="column" th:object="${orderPlaceHolder}">
+                    <div class="column" th:object="${orderDTO}">
                         <div th:each="var : ${DOPLNOK}">
                             <p>
                                 <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
@@ -68,7 +68,7 @@
                         </div>
                     </div>
 
-                    <div class="column" th:object="${orderPlaceHolder}">
+                    <div class="column" th:object="${orderDTO}">
                         <div th:each="ingredient : ${orderedItem.getItemList()}">
                             <p>
                                 <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${ingredient.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>

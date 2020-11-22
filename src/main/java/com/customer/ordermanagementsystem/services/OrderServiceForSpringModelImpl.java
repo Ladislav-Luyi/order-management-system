@@ -1,9 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.orders.Item;
-import com.customer.ordermanagementsystem.orders.Order;
-import lombok.Getter;
-import lombok.Setter;
+import com.customer.ordermanagementsystem.pojos.Item;
+import com.customer.ordermanagementsystem.pojos.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;

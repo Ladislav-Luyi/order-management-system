@@ -1,8 +1,8 @@
 package com.customer.ordermanagementsystem.Controllers;
 
 
-import com.customer.ordermanagementsystem.orders.Order;
-import com.customer.ordermanagementsystem.orders.OrderInfo;
+import com.customer.ordermanagementsystem.pojos.Order;
+import com.customer.ordermanagementsystem.pojos.OrderInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
 import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;

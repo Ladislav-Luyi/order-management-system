@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.pojos;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-public class OrderPlaceHolder {
+public class OrderDTO {
 
     private Item item;
     private int indexToRemove;

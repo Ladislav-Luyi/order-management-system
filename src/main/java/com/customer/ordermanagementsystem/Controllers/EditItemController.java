@@ -1,8 +1,8 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.orders.Order;
-import com.customer.ordermanagementsystem.orders.OrderPlaceHolder;
-import com.customer.ordermanagementsystem.orders.Type;
+import com.customer.ordermanagementsystem.pojos.Order;
+import com.customer.ordermanagementsystem.pojos.OrderDTO;
+import com.customer.ordermanagementsystem.pojos.Type;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
 import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
-@SessionAttributes({"orderInfo","order", "orderPlaceHolder"})
+@SessionAttributes({"orderInfo","order", "orderDTO"})
 
 @RequestMapping("/editItem")
 public class EditItemController {
@@ -53,22 +53,22 @@ public class EditItemController {
 
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
-        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
+        model.addAttribute("orderDTO", new OrderDTO() );
 
         return "edit";
 
     }
 
     @RequestMapping(params={"addInnerElement"})
-    public String addItem(Model model, OrderPlaceHolder orderPlaceHolder, @RequestParam int index){
-        System.out.println(orderPlaceHolder);
-        order.getOrderList().get(index).getItemList().add(orderPlaceHolder.getItem());
+    public String addItem(Model model, OrderDTO orderDTO, @RequestParam int index){
+        System.out.println(orderDTO);
+        order.getOrderList().get(index).getItemList().add(orderDTO.getItem());
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
 
         orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
 
-        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
+        model.addAttribute("orderDTO", new OrderDTO() );
 
         orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
 
@@ -86,10 +86,10 @@ public class EditItemController {
 
 
     @RequestMapping(params={"removeElement"})
-    public String removeItem(OrderPlaceHolder orderPlaceHolder,  Model model, @RequestParam int index) {
+    public String removeItem(OrderDTO orderDTO, Model model, @RequestParam int index) {
 
         if (order.getOrderList().get(index).getItemList().size() > 0)
-            order.getOrderList().get(index).getItemList().remove(orderPlaceHolder.getIndexToRemove());
+            order.getOrderList().get(index).getItemList().remove(orderDTO.getIndexToRemove());
 
         itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
 
@@ -99,7 +99,7 @@ public class EditItemController {
 
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
-        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
+        model.addAttribute("orderDTO", new OrderDTO() );
 
         return "edit";
     }

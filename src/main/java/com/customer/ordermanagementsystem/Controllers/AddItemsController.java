@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.orders.*;
+import com.customer.ordermanagementsystem.pojos.*;
 import com.customer.ordermanagementsystem.services.CompanyService;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
@@ -54,17 +54,17 @@ public class AddItemsController {
 
         orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
 
-        model.addAttribute("orderPlaceHolder", new OrderPlaceHolder() );
+        model.addAttribute("orderDTO", new OrderDTO() );
 
         return "order";
     }
 
 
     @RequestMapping(params={"addElement"})
-    public String addElement(OrderPlaceHolder orderPlaceHolder, Model model) {
+    public String addElement(OrderDTO orderDTO, Model model) {
         log.info("before order: " + order);
 
-        order.getOrderList().add(orderPlaceHolder.getItem());
+        order.getOrderList().add(orderDTO.getItem());
 
         System.out.println(order.getOrderList().toString());
 
@@ -90,12 +90,12 @@ public class AddItemsController {
 
 
     @RequestMapping(params={"removeElement"})
-    public String removeElement(OrderPlaceHolder orderPlaceHolder,  Model model) {
+    public String removeElement(OrderDTO orderDTO, Model model) {
         log.info("before removeElement: " + this.order);
 
 
         if (order.getOrderList().size() > 0)
-            this.order.getOrderList().remove(orderPlaceHolder.getIndexToRemove());
+            this.order.getOrderList().remove(orderDTO.getIndexToRemove());
 
 
         itemServiceForSpringModel.addAllItemsToModel(model);

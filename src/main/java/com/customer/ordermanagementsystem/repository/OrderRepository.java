@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.repository;
 
-import com.customer.ordermanagementsystem.orders.Order;
+import com.customer.ordermanagementsystem.pojos.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

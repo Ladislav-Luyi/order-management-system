@@ -1,11 +1,9 @@
-package com.customer.ordermanagementsystem.orders;
+package com.customer.ordermanagementsystem.pojos;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Embeddable;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 
 @Data
