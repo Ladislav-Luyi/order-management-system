@@ -15,9 +15,10 @@ public class OpenningHours {
     @Id
     private Long id;
     private String description;
-    private String dayDescription;
+    private String matcher;
     private int openning_hours;
     private int closing_hours;
+    private int priority;
 
 
 }

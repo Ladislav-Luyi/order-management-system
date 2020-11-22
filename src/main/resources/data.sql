@@ -2,17 +2,17 @@ SET MODE MySQL;
 INSERT IGNORE  INTO Company (ID,STATUS, STATUS_MESSAGE)
 VALUES (1,true, '');
 
-INSERT IGNORE  INTO OPENNING_HOURS  (ID,DESCRIPTION,OPENNING_HOURS, CLOSING_HOURS,DAY_DESCRIPTION)
+INSERT IGNORE  INTO OPENNING_HOURS  (ID,DESCRIPTION,OPENNING_HOURS, CLOSING_HOURS,MATCHER, PRIORITY)
 VALUES
-(0,'General openning hours',9,11,''),
-(1,'Pondelok',-1,-1,'1'),
-(2,'Utorok',-1,-1,'2'),
-(3,'Streda',-1,-1,'3'),
-(4,'Štvrtok',-1,-1,'4'),
-(5,'Piatok',-1,-1,'5'),
-(6,'Sobota',-1,-1,'6'),
-(7,'Nedeľa',-1,-1,'7');
+(0,'General openning hours',9,11,'',1),
+(1,'Pondelok',-1,-1,'1',2),
+(2,'Utorok',-1,-1,'2',2),
+(3,'Streda',-1,-1,'3',2),
+(4,'Štvrtok',-1,-1,'4',2),
+(5,'Piatok',-1,-1,'5',2),
+(6,'Sobota',-1,-1,'6',2),
+(7,'Nedeľa',10,11,'7',2);
 
-INSERT IGNORE  INTO OPENNING_HOURS  (ID,DESCRIPTION,OPENNING_HOURS, CLOSING_HOURS,DAY_DESCRIPTION)
+INSERT IGNORE  INTO OPENNING_HOURS  (ID,DESCRIPTION,OPENNING_HOURS, CLOSING_HOURS,MATCHER, PRIORITY)
 VALUES
-(8,'Special',6,18,'20.11');
+(8,'Special',6,18,'22.11',3);

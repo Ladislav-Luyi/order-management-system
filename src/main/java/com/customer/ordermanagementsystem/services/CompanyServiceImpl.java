@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.StreamSupport;
 
 @Slf4j
 @Service
@@ -65,8 +67,7 @@ public class CompanyServiceImpl implements CompanyService{
         else
             return companyStatus;
     }
-
-
+    
     private boolean isCompanyStatus() {
         Optional<Company> company = companyRepository.findById(1l);
         return company.get().isStatus();
@@ -84,18 +85,18 @@ public class CompanyServiceImpl implements CompanyService{
     @Override
     public boolean openAndCloseStoreAccordingTimeSchedule() {
 
-        HashMap< String,List<Optional<OpenningHours>> > rules = fetchRules();
+        Iterable<OpenningHours> rules = fetchRules();
 
-        boolean result = procesOpenningHoursRules(rules);
+        boolean result = procesOpeningHoursRules(rules);
 
         return result;
     }
 
-    private boolean procesOpenningHoursRules(HashMap<String, List<Optional<OpenningHours>>> rules) {
+    private boolean procesOpeningHoursRules(Iterable<OpenningHours> rules) {
         boolean result = true;
 
         try {
-            HashMap<String, List<OpenningHours>> applicableRules = getApplicableRules(rules);
+            List<OpenningHours> applicableRules = getApplicableRules(rules);
 
             result                                               = processApplicableRules(applicableRules);
         } catch (Exception e) {
@@ -106,124 +107,85 @@ public class CompanyServiceImpl implements CompanyService{
         return result;
     }
 
-    private boolean processApplicableRules(HashMap<String, List<OpenningHours>> applicableRules) {
+    private boolean processApplicableRules(List<OpenningHours> applicableRules) {
         int currentHour = getCurrentHour();
 
-        System.out.println("tu " + currentHour);
-        for (Map.Entry<String, List<OpenningHours>> input : applicableRules.entrySet()) { input.getValue().forEach(System.out::println);}
+        try {
+            int priority = applicableRules.stream()
+                    .mapToInt(o -> o.getPriority())
+                    .max()
+                    .orElseThrow(() -> new IllegalStateException("Not applicable rule was found!"));
 
-        OpenningHours generalRule = null;
-        if ( applicableRules.get("generalRule").size() > 0 ) generalRule = applicableRules.get("generalRule").get(0);
+            OpenningHours ruleWithHighestPriority = applicableRules.stream()
+                    .filter(o -> o.getPriority() == priority)
+                    .reduce((a, b) -> {
+                        throw new IllegalStateException("Found multiple elements" + a + " " + b);
+                    })
+                    .get();
 
-        OpenningHours daysOfWeekRule = null;
-        if ( applicableRules.get("daysOfWeekRules").size() > 0 ) daysOfWeekRule =  applicableRules.get("daysOfWeekRules").get(0);
+            log.info("Going to apply rule:" + ruleWithHighestPriority);
 
-        OpenningHours ruleForSpecificDay = null;
-        if ( applicableRules.get("rulesForSpecificDays").size() > 0 ) ruleForSpecificDay =  applicableRules.get("rulesForSpecificDays").get(0);
+            return ruleWithHighestPriority.getOpenning_hours() <= currentHour &&
+                    ruleWithHighestPriority.getClosing_hours() > currentHour;
 
-        System.out.println(ruleForSpecificDay);
-        System.out.println(daysOfWeekRule);
-        System.out.println(generalRule);
-
-        if (ruleForSpecificDay != null) {
-            log.info("Applying " + ruleForSpecificDay);
-            return ruleForSpecificDay.getOpenning_hours() <= currentHour && ruleForSpecificDay.getClosing_hours() > currentHour;
+        } catch (Exception e){
+            e.printStackTrace();
         }
 
-        else if (daysOfWeekRule != null) {
-            log.info("Applying " + daysOfWeekRule);
-            return daysOfWeekRule.getOpenning_hours() <= currentHour && daysOfWeekRule.getClosing_hours() > currentHour;
-        }
-
-        else if (generalRule != null) {
-            log.info("Applying " + generalRule);
-            return generalRule.getOpenning_hours() <= currentHour && generalRule.getClosing_hours() > currentHour;
-        }
 
         return true;
     }
 
-    private HashMap<String, List<OpenningHours>> getApplicableRules(HashMap<String, List<Optional<OpenningHours>>> rules) throws Exception {
-        HashMap<String, List<OpenningHours>> applicableRules = new HashMap<>();
 
-        for (Map.Entry<String, List<Optional<OpenningHours>>> input : rules.entrySet()) { input.getValue().forEach(System.out::println);}
+    Predicate<OpenningHours> prio1Match = o -> o.getPriority() == 1;
+    Predicate<OpenningHours> matchExactDay = o -> o.getMatcher().equals( getCurrentDayAndMonth() );
+    Predicate<OpenningHours> notMinusValue = o -> o.getOpenning_hours() > 0 && o.getClosing_hours() > 0;
 
-        applicableRules.put("generalRule", new ArrayList<>());
-        applicableRules.put("daysOfWeekRules", new ArrayList<>());
-        applicableRules.put("rulesForSpecificDays", new ArrayList<>());
+    Predicate<OpenningHours> prio2Match = o -> o.getPriority() == 2;
+    Predicate<OpenningHours> matchDayFromWeek = o -> Integer.valueOf( o.getMatcher() ) == getCurrentDayFromWeek();
 
-        addEntriesForGeneralRule(rules, applicableRules);
+    Predicate<OpenningHours> prio3Rule = o -> o.getPriority() == 3;
 
-        addEntriesForDaysOfWeekRules(rules, applicableRules);
+    private List<OpenningHours> getApplicableRules(Iterable<OpenningHours> allRules) throws Exception {
 
-        addEntriesForRulesForSpecificDays(rules, applicableRules);
+        Predicate<OpenningHours> prio1Rule = prio1Match.and(matchExactDay).and(notMinusValue);
+        Predicate<OpenningHours> prio2Rule = prio2Match.and(matchDayFromWeek).and(notMinusValue);
 
-        for (Map.Entry<String, List<OpenningHours>> input : applicableRules.entrySet()) {
-           input.getValue().forEach(System.out::println);
-        }
+        List<OpenningHours> applicableRules = new ArrayList<>();
 
+        addApplicableRule(allRules, applicableRules, prio1Rule);
+        addApplicableRule(allRules, applicableRules, prio2Rule);
+        addApplicableRule(allRules, applicableRules, prio3Rule);
+
+
+        log.info("Applicable rules: ");
+        applicableRules.forEach(o -> log.info( o.toString() ));
 
        return applicableRules;
     }
 
-    private void addEntriesForRulesForSpecificDays(HashMap<String, List<Optional<OpenningHours>>> rules, HashMap<String, List<OpenningHours>> applicableRules) {
-        OpenningHours tmpHour;
-        for( Optional<OpenningHours> r : rules.get("rulesForSpecificDays")){
-            if (r.isPresent()) {
-                tmpHour = r.get();
-                log.info(getCurrentDayAndMonth());
-                if (tmpHour.getDayDescription().equals(getCurrentDayAndMonth())){
-                    if(tmpHour.getOpenning_hours() != -1 && tmpHour.getOpenning_hours() != -1)
-                        applicableRules.get("rulesForSpecificDays").add(tmpHour);
-                }
-            }
+    private void addApplicableRule(Iterable<OpenningHours> allRules, List<OpenningHours> specificRules, Predicate<OpenningHours> predicate) {
+        try {
+
+            StreamSupport.stream(allRules.spliterator(), false)
+                    .filter(predicate)
+                    .reduce((a, b) -> {
+                        throw new IllegalStateException("Found multiple elements" + a + " " + b);
+                    }).ifPresent( o -> specificRules.add(o));
+
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
-    private void addEntriesForDaysOfWeekRules(HashMap<String, List<Optional<OpenningHours>>> rules, HashMap<String, List<OpenningHours>> applicableRules) {
-        OpenningHours tmpHour;
-        for( Optional<OpenningHours> r : rules.get("daysOfWeekRules")){
-            if (r.isPresent()) {
-                tmpHour = r.get();
-                log.info( String.valueOf( getCurrentDayFromWeek() ));
-                if ( Integer.parseInt(tmpHour.getDayDescription() ) ==  getCurrentDayFromWeek() ){
-                    if(tmpHour.getOpenning_hours() != -1 && tmpHour.getOpenning_hours() != -1)
-                        applicableRules.get("daysOfWeekRules").add(tmpHour);
-                }
-            }
-        }
-    }
 
-    private void addEntriesForGeneralRule(HashMap<String, List<Optional<OpenningHours>>> rules, HashMap<String, List<OpenningHours>> applicableRules) throws Exception {
-        if ( ! rules.get("generalRule").get(0).isPresent())
-            throw new Exception("general Rules is missing");
-        else
-            applicableRules.get("generalRule").add( rules.get("generalRule").get(0).get() );
-    }
+    private Iterable<OpenningHours> fetchRules() {
+        Iterable<OpenningHours> allRules = openningHoursRepository.findAll();
 
-    private HashMap<String, List<Optional<OpenningHours>>> fetchRules() {
-        HashMap<String, List<Optional<OpenningHours>>> map = new HashMap<>();
+        log.info("All fetched rules: ");
+        allRules.forEach(o -> log.info( o.toString() ));
 
-        map.put("generalRule", new ArrayList<>());
-        map.put("daysOfWeekRules", new ArrayList<>());
-        map.put("rulesForSpecificDays", new ArrayList<>());
-
-        Iterable<OpenningHours> openingHours = openningHoursRepository.findAll();
-
-        int counter = 0;
-        for (OpenningHours o : openingHours) {
-
-            if (counter == 0)
-                map.get("generalRule").add(Optional.of(o));
-            else if (counter <= 7)
-                map.get("daysOfWeekRules").add(Optional.of(o));
-            else
-                map.get("rulesForSpecificDays").add(Optional.of(o));
-
-            counter++;
-
-        }
-        return map;
+        return allRules;
     }
 
 
@@ -243,7 +205,10 @@ public class CompanyServiceImpl implements CompanyService{
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
 
-        return cal.get(Calendar.DAY_OF_WEEK) - 1;
+        int day = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        if (day == 0) day = 7;
+
+        return day;
     }
 
     private String getCurrentDayAndMonth(){
