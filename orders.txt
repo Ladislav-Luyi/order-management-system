@@ -1,0 +1,4 @@
+#142*[Item(id=1, type=PIZZA_NORMAL, name=Pizza Margherita klasik (1,7), additionalInfo=450g, pomodoro, syr Mozzarella, oregano, price=4.00, itemList=[])]OrderInfo(name=, street=, city=, telephoneNumber=, comment=)#
+#142*[Item(id=1, type=PIZZA_NORMAL, name=Pizza Margherita klasik (1,7), additionalInfo=450g, pomodoro, syr Mozzarella, oregano, price=4.00, itemList=[])]OrderInfo(name=, street=, city=, telephoneNumber=, comment=)#
+#143*[Item(id=2, type=PIZZA_NORMAL, name=Pizza Šunková klasik (1,7), additionalInfo=550g, pomodoro, syr Mozzarella, šunka, oregano, price=4.95, itemList=[])]OrderInfo(name=b, street=, city=, telephoneNumber=, comment=)#
+#143*[Item(id=2, type=PIZZA_NORMAL, name=Pizza Šunková klasik (1,7), additionalInfo=550g, pomodoro, syr Mozzarella, šunka, oregano, price=4.95, itemList=[])]OrderInfo(name=b, street=, city=, telephoneNumber=, comment=)#

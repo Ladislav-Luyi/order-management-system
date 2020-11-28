@@ -2,6 +2,7 @@ package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.pojos.Order;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
+import com.customer.ordermanagementsystem.services.TerminalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.*;
+import java.io.File;
 import java.util.Optional;
 
 @RestController
@@ -19,42 +20,29 @@ import java.util.Optional;
 public class TerminalControllers {
 
     private final OrderRepository orderRepository;
+    private final TerminalService terminalService;
+
+    private String user;
+    private String password;
 
     @Autowired
-    public TerminalControllers(OrderRepository orderRepository) {
+    public TerminalControllers(OrderRepository orderRepository, TerminalService terminalService) {
         this.orderRepository = orderRepository;
+        this.terminalService = terminalService;
     }
 
     @GetMapping("/orders.txt")
     @ResponseBody
-    public ResponseEntity<FileSystemResource> getOrders(){
+    public ResponseEntity<FileSystemResource> getOrders( @RequestParam String u, @RequestParam String p){
 
-        String randomPrefix = String.valueOf(Math.random());
-        String fileName = randomPrefix+"-orders.txt";
-        new File(fileName).delete();
-        File file = new File(fileName);
+        File f = terminalService.refreshAndGetFile();
 
-        BufferedWriter writer = null;
-        final String newLine = System.getProperty("line.separator");
 
-        try {
-            writer = new BufferedWriter(new FileWriter(file, true));
 
-            for (Order o : orderRepository.findAll()){
-                if (o.isAccepted() == false) {
-                    writer.write(o.toString());
-                    writer.append(newLine);
-                }
-            }
 
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return ResponseEntity.ok().body(new FileSystemResource(file));
+        return ResponseEntity.ok().body(new FileSystemResource(f));
     }
+
 
     @GetMapping("/reply-orders.txt")
     @ResponseBody
@@ -65,7 +53,7 @@ public class TerminalControllers {
                              @RequestParam String dt,
                              @RequestParam String u,
                              @RequestParam String p){
-
+        //Terminal reply: AC001 142 Accepted OK 04:31 admin admin
         log.info("Terminal reply: " + a + " " + o  + " " + ak + " " + m + " " + dt + " " + u + " " + p);
 
         Optional<Order> order = orderRepository.findById( Long.valueOf(o) );
