@@ -56,8 +56,7 @@ public class TerminalServiceImpl implements TerminalService {
                     continue outerLoop;
                 }
 
-                log.info("Writing new order: " + o.toString());
-                fileWriter.write(o.toString());
+                fileWriter.write( composeMessage(o) );
             }
 
             fileWriter.flush();
@@ -68,6 +67,18 @@ public class TerminalServiceImpl implements TerminalService {
         }
 
         return f;
+    }
+
+    @Override
+    public String composeMessage(Order o) {
+        StringBuilder s = new StringBuilder();
+        s.append("#");
+        s.append(o.getId());
+        s.append("*");
+        s.append(o.getOrderText());
+        s.append("#");
+
+        return s.toString();
     }
 
     private File createFileWithMillisecondName() {

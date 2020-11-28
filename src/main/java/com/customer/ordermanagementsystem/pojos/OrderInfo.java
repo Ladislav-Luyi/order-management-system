@@ -18,9 +18,6 @@ public class OrderInfo {
 //    @Size(min=5, max=100)
     private String street;
 
-//    @NotNull
-//    @Size(min=5, max=100)
-    private String city;
 
 //    @NotNull
 //    @Size(min=5, max=100)
@@ -28,4 +25,22 @@ public class OrderInfo {
 
     private String comment;
 
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        final String newLine = System.getProperty("line.separator");
+        s.append(newLine);
+        s.append("Daľšie informácie:");
+        s.append(newLine);
+        s.append("Meno: " + name);
+        s.append(newLine);
+        s.append("Ulica: " + street);
+        s.append(newLine);
+        s.append("Telefónne číslo:" + telephoneNumber);
+        s.append(newLine);
+        s.append("Komentár: " + comment );
+        s.append(newLine);
+
+        return s.toString();
+    }
 }

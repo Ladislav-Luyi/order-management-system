@@ -2,10 +2,13 @@ package com.customer.ordermanagementsystem.pojos;
 
 
 import lombok.Data;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,17 +27,15 @@ public class Item {
     private String additionalInfo;
     private BigDecimal price;
 
-    @Column(nullable = true)
-    @ManyToMany(targetEntity=Item.class)
-    private  List<Item> itemList;
+    @Transient
+    private  List<Item> itemList = new ArrayList<>();
 
-    public Item(Long id, String name, String additionalInfo, Type type, BigDecimal price, List<Item> itemList) {
+    public Item(Long id, String name, String additionalInfo, Type type, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.additionalInfo = additionalInfo;
         this.type = type;
         this.price = price;
-        this.itemList = itemList;
     }
 
     public Item() {

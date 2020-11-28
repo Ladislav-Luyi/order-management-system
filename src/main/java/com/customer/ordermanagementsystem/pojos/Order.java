@@ -32,8 +32,10 @@ public class Order{
 
     private boolean isAccepted = false;
 
-    @ManyToMany(targetEntity=Item.class)
+    @Transient
     private  List<Item> orderList = new ArrayList<>();
+
+    private  String orderText = "";
 
     @PrePersist
     void placedAt(){
@@ -57,19 +59,36 @@ public class Order{
     public String toString() {
 
         StringBuilder s = new StringBuilder();
-        s.append("#");
-        s.append(id);
-        s.append("*");
-        s.append(orderList);
+        s.append(orderListToString());
         s.append(orderInfo);
-        s.append("#");
 
         return s.toString();
 
     }
 
 
+    private String orderListToString(){
+        StringBuilder s = new StringBuilder();
+        final String newLine = System.getProperty("line.separator");
 
+        for(Item item : orderList) {
+            s.append(newLine);
+            s.append(item.getName());
+
+            if (item.getItemList().size()>0);
+            int innerCounter = 0;
+            for (Item subItem : item.getItemList()){
+                    if(innerCounter == 0)
+                        s.append(newLine);
+                    s.append("+");
+                    s.append(subItem.getName());
+                    s.append(newLine);
+                    ++innerCounter;
+            }
+        }
+            s.append(newLine);
+        return s.toString();
+    }
 
 
 
