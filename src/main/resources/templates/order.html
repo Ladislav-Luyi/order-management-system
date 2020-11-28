@@ -12,6 +12,8 @@
 
 
 <script>
+        history.pushState("", document.title, location.href.replace( /#.*/, ""));
+        
         function activateCheckbox(id)
         {
             document.getElementById(id).checked = true;
