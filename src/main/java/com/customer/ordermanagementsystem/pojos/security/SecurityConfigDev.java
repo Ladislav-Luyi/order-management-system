@@ -8,9 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-@Profile("prod")
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+@Profile("dev")
+public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
 
 
 
@@ -21,9 +20,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests().antMatchers("/otvorene").authenticated()
                 .and()
+                .authorizeRequests().antMatchers("/db/**").permitAll() // tmp setup then remove
+                .and()
                 .csrf().disable();
 
-    }
+
+        http.headers().frameOptions().disable(); // tmp setup then remove
+        }
+
     }
 
 
