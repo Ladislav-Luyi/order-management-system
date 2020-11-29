@@ -20,6 +20,8 @@ public class Order{
     @GeneratedValue(strategy= GenerationType.AUTO)
     private  Long id;
 
+
+
     private Date placedAt;
 
     private BigDecimal totalPrice = new BigDecimal(0);
@@ -29,8 +31,6 @@ public class Order{
     private BigDecimal totalPriceDiscount = new BigDecimal(0);
 
     private boolean isPaid = false;
-
-    private boolean isAccepted = false;
 
     @Transient
     private  List<Item> orderList = new ArrayList<>();
@@ -43,6 +43,7 @@ public class Order{
     }
 
     private OrderInfo orderInfo;
+    private TerminalReply terminalReplyInfo;
 
     /*
         expected format:

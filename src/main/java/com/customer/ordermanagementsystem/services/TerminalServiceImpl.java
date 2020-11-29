@@ -1,6 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.pojos.Order;
+import com.customer.ordermanagementsystem.pojos.TerminalReply;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class TerminalServiceImpl implements TerminalService {
 
             outerLoop: for(Order o : orderRepository.findAll()) {
 
-                if (o.isAccepted())
+                if (o.getTerminalReplyInfo() != null)
                     continue;
 
                 String s = "#" + o.getId().toString() + "*";
@@ -80,6 +81,16 @@ public class TerminalServiceImpl implements TerminalService {
 
         return s.toString();
     }
+
+    @Override
+    public void updateOrder(TerminalReply terminalReply) {
+        Optional<Order> order = orderRepository.findById(
+                Long.valueOf(terminalReply.getOrderId()));
+
+        order.ifPresent(o -> o.setTerminalReplyInfo(terminalReply));
+
+    }
+
 
     private File createFileWithMillisecondName() {
         String fileName = new Date().toInstant().toEpochMilli() + "_orders.txt";
