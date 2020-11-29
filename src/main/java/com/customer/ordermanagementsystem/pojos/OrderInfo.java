@@ -27,7 +27,7 @@ public class OrderInfo {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        final String newLine = System.getProperty("line.separator");
+        String newLine = "\\r";
         s.append(newLine);
         s.append("Daľšie informácie:");
         s.append(newLine);

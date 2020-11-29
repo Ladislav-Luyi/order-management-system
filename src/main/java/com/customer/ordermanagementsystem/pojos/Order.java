@@ -70,7 +70,8 @@ public class Order{
 
     private String orderListToString(){
         StringBuilder s = new StringBuilder();
-        final String newLine = System.getProperty("line.separator");
+
+        String newLine = "\\r";
 
         for(Item item : orderList) {
             s.append(newLine);

@@ -78,6 +78,7 @@ public class TerminalServiceImpl implements TerminalService {
         s.append("*");
         s.append(o.getOrderText());
         s.append("#");
+        s.append("\r");
 
         return s.toString();
     }
@@ -85,9 +86,10 @@ public class TerminalServiceImpl implements TerminalService {
     @Override
     public void updateOrder(TerminalReply terminalReply) {
         Optional<Order> order = orderRepository.findById(
-                Long.valueOf(terminalReply.getOrderId()));
+                Long.valueOf(terminalReply.getOrderId()).longValue());
 
-        order.ifPresent(o -> o.setTerminalReplyInfo(terminalReply));
+        order.ifPresent( o -> { o.setTerminalReplyInfo(terminalReply);
+            orderRepository.save(o);});
 
     }
 
