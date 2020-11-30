@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.processingBatchFiles;
 
-import com.customer.ordermanagementsystem.pojos.Item;
+import com.customer.ordermanagementsystem.pojos.item.Item;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;

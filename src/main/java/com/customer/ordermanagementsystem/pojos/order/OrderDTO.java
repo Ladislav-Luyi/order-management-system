@@ -1,5 +1,6 @@
-package com.customer.ordermanagementsystem.pojos;
+package com.customer.ordermanagementsystem.pojos.order;
 
+import com.customer.ordermanagementsystem.pojos.item.Item;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 

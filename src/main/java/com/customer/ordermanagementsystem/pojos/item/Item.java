@@ -1,9 +1,7 @@
-package com.customer.ordermanagementsystem.pojos;
+package com.customer.ordermanagementsystem.pojos.item;
 
 
 import lombok.Data;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;

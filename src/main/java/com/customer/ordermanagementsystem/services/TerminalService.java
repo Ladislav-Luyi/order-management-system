@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.Order;
-import com.customer.ordermanagementsystem.pojos.TerminalReply;
+import com.customer.ordermanagementsystem.pojos.order.Order;
+import com.customer.ordermanagementsystem.pojos.order.TerminalReply;
 import org.springframework.stereotype.Service;
 
 import java.io.File;

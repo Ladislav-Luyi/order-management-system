@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.Item;
-import com.customer.ordermanagementsystem.pojos.Type;
+import com.customer.ordermanagementsystem.pojos.item.Item;
+import com.customer.ordermanagementsystem.pojos.item.Type;
 import com.customer.ordermanagementsystem.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +13,13 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class ItemServiceForSpringModelImpl implements ItemServiceForSpringModel {
+public class ItemServiceImpl implements ItemService {
 
 
     private final ItemRepository itemRepository;
 
     @Autowired
-    public ItemServiceForSpringModelImpl(ItemRepository itemRepository) { this.itemRepository = itemRepository; }
+    public ItemServiceImpl(ItemRepository itemRepository) { this.itemRepository = itemRepository; }
 
     @Override
     public void addAllItemsToModel(Model model) {

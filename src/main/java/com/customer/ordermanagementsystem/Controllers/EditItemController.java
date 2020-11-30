@@ -1,11 +1,11 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.pojos.Order;
-import com.customer.ordermanagementsystem.pojos.OrderDTO;
-import com.customer.ordermanagementsystem.pojos.Type;
+import com.customer.ordermanagementsystem.pojos.order.Order;
+import com.customer.ordermanagementsystem.pojos.order.OrderDTO;
+import com.customer.ordermanagementsystem.pojos.item.Type;
 import com.customer.ordermanagementsystem.services.DiscountService;
-import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
-import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
+import com.customer.ordermanagementsystem.services.ItemService;
+import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,15 +21,15 @@ import org.springframework.web.bind.annotation.*;
 public class EditItemController {
 
     private final Order order;
-    private final ItemServiceForSpringModel itemServiceForSpringModel;
-    private final OrderServiceForSpringModel orderServiceForSpringModel;
+    private final ItemService itemService;
+    private final OrderService orderService;
     private final DiscountService discountService;
 
     @Autowired
-    public EditItemController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService) {
+    public EditItemController(Order order, ItemService itemService, OrderService orderService, DiscountService discountService) {
         this.order = order;
-        this.itemServiceForSpringModel = itemServiceForSpringModel;
-        this.orderServiceForSpringModel = orderServiceForSpringModel;
+        this.itemService = itemService;
+        this.orderService = orderService;
         this.discountService = discountService;
     }
 
@@ -39,19 +39,19 @@ public class EditItemController {
 
         System.out.println( order.getOrderList().get(index) );
 
-        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
+        itemService.addSingleItemToModel(model, Type.DOPLNOK);
 
-        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
+        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
-        orderServiceForSpringModel.refreshPrice();
+        orderService.refreshPrice();
 
         discountService.refreshDiscounts();
 
         discountService.addDiscountToModel(model, "discount");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
         model.addAttribute("orderDTO", new OrderDTO() );
 
@@ -64,21 +64,21 @@ public class EditItemController {
         System.out.println(orderDTO);
         order.getOrderList().get(index).getItemList().add(orderDTO.getItem());
 
-        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
+        itemService.addSingleItemToModel(model, Type.DOPLNOK);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
         model.addAttribute("orderDTO", new OrderDTO() );
 
-        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
+        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
 
-        orderServiceForSpringModel.refreshPrice();
+        orderService.refreshPrice();
 
         discountService.refreshDiscounts();
 
         discountService.addDiscountToModel(model, "discount");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
         return "edit";
 
@@ -91,13 +91,13 @@ public class EditItemController {
         if (order.getOrderList().get(index).getItemList().size() > 0)
             order.getOrderList().get(index).getItemList().remove(orderDTO.getIndexToRemove());
 
-        itemServiceForSpringModel.addSingleItemToModel(model, Type.DOPLNOK);
+        itemService.addSingleItemToModel(model, Type.DOPLNOK);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
-        orderServiceForSpringModel.addSingleOrderedItemToModel(model, index, "orderedItem");
+        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
         model.addAttribute("orderDTO", new OrderDTO() );
 

@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.Item;
-import com.customer.ordermanagementsystem.pojos.Order;
+import com.customer.ordermanagementsystem.pojos.item.Item;
+import com.customer.ordermanagementsystem.pojos.order.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
@@ -10,12 +10,12 @@ import java.math.BigDecimal;
 
 
 @Component
-public class OrderServiceForSpringModelImpl implements OrderServiceForSpringModel{
+public class OrderServiceImpl implements OrderService {
 
     private final Order order;
 
     @Autowired
-    public OrderServiceForSpringModelImpl(Order order) {
+    public OrderServiceImpl(Order order) {
         this.order = order;
     }
 

@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.processingBatchFiles;
 
 
-import com.customer.ordermanagementsystem.pojos.Item;
+import com.customer.ordermanagementsystem.pojos.item.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;

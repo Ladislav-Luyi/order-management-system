@@ -1,14 +1,12 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.pojos.Order;
-import com.customer.ordermanagementsystem.pojos.TerminalReply;
+import com.customer.ordermanagementsystem.pojos.order.TerminalReply;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import com.customer.ordermanagementsystem.services.TerminalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
-import java.util.Optional;
 
 @RestController
 @Slf4j

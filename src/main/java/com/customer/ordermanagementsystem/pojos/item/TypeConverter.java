@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.pojos;
+package com.customer.ordermanagementsystem.pojos.item;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

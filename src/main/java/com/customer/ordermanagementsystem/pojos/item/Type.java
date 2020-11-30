@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.pojos;
+package com.customer.ordermanagementsystem.pojos.item;
 
 
 public enum Type {

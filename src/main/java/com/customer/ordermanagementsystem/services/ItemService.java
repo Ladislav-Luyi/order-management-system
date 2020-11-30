@@ -1,11 +1,11 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.Type;
+import com.customer.ordermanagementsystem.pojos.item.Type;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public interface ItemServiceForSpringModel {
+public interface ItemService {
     void addAllItemsToModel(Model model);
     void addSingleItemToModel(Model model, Type type);
 }

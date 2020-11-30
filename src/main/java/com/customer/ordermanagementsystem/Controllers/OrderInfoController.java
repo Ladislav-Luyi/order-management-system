@@ -1,11 +1,11 @@
 package com.customer.ordermanagementsystem.Controllers;
 
 
-import com.customer.ordermanagementsystem.pojos.Order;
-import com.customer.ordermanagementsystem.pojos.OrderInfo;
+import com.customer.ordermanagementsystem.pojos.order.Order;
+import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
-import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
-import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
+import com.customer.ordermanagementsystem.services.ItemService;
+import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,14 +25,14 @@ import javax.validation.Valid;
 @RequestMapping("/order")
 public class OrderInfoController {
 
-    private final ItemServiceForSpringModel itemServiceForSpringModel;
-    private final OrderServiceForSpringModel orderServiceForSpringModel;
+    private final ItemService itemService;
+    private final OrderService orderService;
     private final DiscountService discountService;
 
     @Autowired
-    public OrderInfoController(ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService) {
-        this.itemServiceForSpringModel = itemServiceForSpringModel;
-        this.orderServiceForSpringModel = orderServiceForSpringModel;
+    public OrderInfoController(ItemService itemService, OrderService orderService, DiscountService discountService) {
+        this.itemService = itemService;
+        this.orderService = orderService;
         this.discountService = discountService;
     }
 
@@ -41,15 +41,15 @@ public class OrderInfoController {
 
         model.addAttribute("orderInfo", new OrderInfo());
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
-        orderServiceForSpringModel.refreshPrice();
+        orderService.refreshPrice();
 
         discountService.refreshDiscounts();
 
         discountService.addDiscountToModel(model, "discount");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
         return "orderInfo";
 

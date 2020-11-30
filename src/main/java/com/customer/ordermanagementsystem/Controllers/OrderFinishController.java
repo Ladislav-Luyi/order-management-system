@@ -1,9 +1,7 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.pojos.Item;
-import com.customer.ordermanagementsystem.pojos.Order;
-import com.customer.ordermanagementsystem.pojos.OrderInfo;
-import com.customer.ordermanagementsystem.repository.ItemRepository;
+import com.customer.ordermanagementsystem.pojos.order.Order;
+import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,11 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.pojos.*;
+import com.customer.ordermanagementsystem.pojos.order.Order;
+import com.customer.ordermanagementsystem.pojos.order.OrderDTO;
 import com.customer.ordermanagementsystem.services.CompanyService;
 import com.customer.ordermanagementsystem.services.DiscountService;
-import com.customer.ordermanagementsystem.services.ItemServiceForSpringModel;
-import com.customer.ordermanagementsystem.services.OrderServiceForSpringModel;
+import com.customer.ordermanagementsystem.services.ItemService;
+import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,16 +21,16 @@ import org.springframework.web.bind.annotation.*;
 public class AddItemsController {
 
     private final Order order;
-    private final ItemServiceForSpringModel itemServiceForSpringModel;
-    private final OrderServiceForSpringModel orderServiceForSpringModel;
+    private final ItemService itemService;
+    private final OrderService orderService;
     private final DiscountService discountService;
     private final CompanyService companyService;
 
     @Autowired
-    public AddItemsController(Order order, ItemServiceForSpringModel itemServiceForSpringModel, OrderServiceForSpringModel orderServiceForSpringModel, DiscountService discountService, CompanyService companyService) {
+    public AddItemsController(Order order, ItemService itemService, OrderService orderService, DiscountService discountService, CompanyService companyService) {
         this.order = order;
-        this.itemServiceForSpringModel = itemServiceForSpringModel;
-        this.orderServiceForSpringModel = orderServiceForSpringModel;
+        this.itemService = itemService;
+        this.orderService = orderService;
         this.discountService = discountService;
         this.companyService = companyService;
     }
@@ -42,17 +43,17 @@ public class AddItemsController {
             return "closed";
         }
 
-        itemServiceForSpringModel.addAllItemsToModel(model);
+        itemService.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
-        orderServiceForSpringModel.refreshPrice();
+        orderService.refreshPrice();
 
         discountService.refreshDiscounts();
 
         discountService.addDiscountToModel(model, "discount");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
         model.addAttribute("orderDTO", new OrderDTO() );
 
@@ -68,17 +69,17 @@ public class AddItemsController {
 
         System.out.println(order.getOrderList().toString());
 
-        itemServiceForSpringModel.addAllItemsToModel(model);
+        itemService.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
-        orderServiceForSpringModel.refreshPrice();
+        orderService.refreshPrice();
 
         discountService.refreshDiscounts();
 
         discountService.addDiscountToModel(model, "discount");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
 
 
@@ -98,17 +99,17 @@ public class AddItemsController {
             this.order.getOrderList().remove(orderDTO.getIndexToRemove());
 
 
-        itemServiceForSpringModel.addAllItemsToModel(model);
+        itemService.addAllItemsToModel(model);
 
-        orderServiceForSpringModel.addOrderedItemsToModel(model, "orderedItems");
+        orderService.addOrderedItemsToModel(model, "orderedItems");
 
-        orderServiceForSpringModel.refreshPrice();
+        orderService.refreshPrice();
 
         discountService.refreshDiscounts();
 
         discountService.addDiscountToModel(model, "discount");
 
-        orderServiceForSpringModel.addTotalPrice(model, "totalPrice");
+        orderService.addTotalPrice(model, "totalPrice");
 
 
 
