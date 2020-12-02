@@ -54,7 +54,10 @@ public class CompanyServiceImpl implements CompanyService{
 
         company.ifPresent(c -> c.setStatus(s));
 
-        company.ifPresent(c-> c.setStatusMessage(message));
+        if(s)
+            company.ifPresent(c-> c.setStatusMessage(""));
+        else
+            company.ifPresent(c-> c.setStatusMessage(message));
 
         company.ifPresent(c->companyRepository.save(c));
     }

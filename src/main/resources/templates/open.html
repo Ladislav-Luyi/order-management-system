@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alte Caffe & Pizza</title>
+
+</head>
+
+
+<body>
+
+        <form method="POST">
+
+            <div class="column" th:object="${company}">
+                <h1 th:text="${status}"></h1>
+                <h3>Zadaj slovom otvorene alebo zatvorene pre podnik</h3>
+                <input type="text" th:field="*{status}"/>
+
+                <h3>Ak chceš zadaj správu pre zákazníkov</h3>
+                <input type="text" th:field="*{statusMessage}"/>
+            </div>
+
+            <button class="btn btn-outline-primary row">Uložiť</button>
+        </form>
+
+
+</body>
+
+</html>
