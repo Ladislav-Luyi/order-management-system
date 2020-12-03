@@ -57,17 +57,14 @@ public class OrderInfoController {
 
 
     @PostMapping("/orderInfo")
-    public String processOrderInfoForm(Order order, @Valid OrderInfo orderInfo, BindingResult bindingResult) {
+    public String processOrderInfoForm(@Valid OrderInfo orderInfo, BindingResult bindingResult) {
 
-        if (bindingResult.hasErrors()) {
-            System.out.println("BINDING RESULT ERROR");
-            return "order";
-        }
 
-        log.info("Processing order in orderInfo: " + order);
+        log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
+
         log.info("Processing orderInfo in orderInfo: " + orderInfo);
 
-        order.setOrderInfo(orderInfo);
+        orderService.getOrderInstance().setOrderInfo(orderInfo);
 
         return "redirect:/order/orderFinished";
 

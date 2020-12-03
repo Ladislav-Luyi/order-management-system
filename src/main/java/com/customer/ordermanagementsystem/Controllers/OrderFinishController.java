@@ -1,8 +1,7 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.pojos.order.Order;
-import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
+import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,24 +13,21 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
-@SessionAttributes({"order","orderInfo"})
 @RequestMapping("/order")
 public class OrderFinishController {
 
-    private final OrderRepository orderRepository;
+    private final OrderService orderService;
 
     @Autowired
-    public OrderFinishController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    public OrderFinishController(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     @GetMapping("/orderFinished")
-    public String home(Order order, OrderInfo orderInfo, SessionStatus sessionStatus, HttpSession httpsession){
-        log.info("Sending order to ticketing device: " + order);
+    public String home(SessionStatus sessionStatus, HttpSession httpsession){
+        log.info("Sending order to ticketing device: " + orderService.getOrderInstance());
 
-        order.setOrderText( order.toString() );
-
-        orderRepository.save(order);
+        orderService.saveOrder();
 
         sessionStatus.setComplete();
         httpsession.invalidate();

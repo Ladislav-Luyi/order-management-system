@@ -20,15 +20,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/basket")
 public class AddItemsController {
 
-    private final Order order;
     private final ItemService itemService;
     private final OrderService orderService;
     private final DiscountService discountService;
     private final CompanyService companyService;
 
     @Autowired
-    public AddItemsController(Order order, ItemService itemService, OrderService orderService, DiscountService discountService, CompanyService companyService) {
-        this.order = order;
+    public AddItemsController(ItemService itemService, OrderService orderService, DiscountService discountService, CompanyService companyService) {
         this.itemService = itemService;
         this.orderService = orderService;
         this.discountService = discountService;
@@ -62,10 +60,10 @@ public class AddItemsController {
 
 
     @RequestMapping(params={"addElement"})
-    public String addElement(OrderDTO orderDTO, Model model) {
+    public String addElement(OrderDTO orderDTO, Model model, Order order) {
         log.info("before order: " + order);
 
-        order.getOrderList().add(orderDTO.getItem());
+        orderService.addItemToList(orderDTO.getItem());
 
         System.out.println(order.getOrderList().toString());
 
@@ -81,9 +79,8 @@ public class AddItemsController {
 
         orderService.addTotalPrice(model, "totalPrice");
 
-
-
         log.info("Processing order: " + order);
+
         log.info("calling add element!");
 
         return "order";
@@ -91,12 +88,12 @@ public class AddItemsController {
 
 
     @RequestMapping(params={"removeElement"})
-    public String removeElement(OrderDTO orderDTO, Model model) {
-        log.info("before removeElement: " + this.order);
+    public String removeElement(OrderDTO orderDTO, Model model, Order order) {
+        log.info("before removeElement: " + order);
 
 
         if (order.getOrderList().size() > 0)
-            this.order.getOrderList().remove(orderDTO.getIndexToRemove());
+            order.getOrderList().remove(orderDTO.getIndexToRemove());
 
 
         itemService.addAllItemsToModel(model);
@@ -112,8 +109,8 @@ public class AddItemsController {
         orderService.addTotalPrice(model, "totalPrice");
 
 
+        log.info("after removeElement: " + order);
 
-        log.info("after removeElement: " + this.order);
         log.info("calling remove element!");
 
 
@@ -121,16 +118,11 @@ public class AddItemsController {
     }
 
     @PostMapping
-    public String processOrder(Order order, BindingResult bindingResult) {
+    public String processOrder() {
 
-        if (bindingResult.hasErrors()) {
-            System.out.println("BINDING RESULT ERROR");
-            return "order";
-        }
+//        order.setOrderList( order.getOrderList() );
 
-        order.setOrderList( this.order.getOrderList() );
-
-        log.info("Processing order: " + order);
+        log.info("Processing order: " + orderService.getOrderInstance());
 
         return "redirect:/order/orderInfo";
     }

@@ -21,8 +21,6 @@ public class Order{
     @GeneratedValue(strategy= GenerationType.AUTO)
     private  Long id;
 
-
-
     private Date placedAt;
 
     private BigDecimal totalPrice = new BigDecimal(0);
