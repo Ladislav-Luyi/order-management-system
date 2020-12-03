@@ -102,11 +102,11 @@ public class OrderServiceImpl implements OrderService {
     public void saveOrder() {
 
         Order orderToSave = new Order();
-        orderToSave.setOrderText( order.toString() );
         orderToSave.setOrderInfo( order.getOrderInfo() );
         orderToSave.setTotalPrice( order.getTotalPrice() );
         orderToSave.setTotalDiscount( order.getTotalDiscount() );
         orderToSave.setTotalPriceDiscount( order.getTotalPriceDiscount() );
+        orderToSave.setOrderText( order.toString() );
 
         orderRepository.save(orderToSave);
     }

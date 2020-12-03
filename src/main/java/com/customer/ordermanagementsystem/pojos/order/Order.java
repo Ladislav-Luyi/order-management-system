@@ -61,6 +61,7 @@ public class Order{
         StringBuilder s = new StringBuilder();
         s.append(orderListToString());
         s.append(orderInfo);
+        s.append(priceToString());
 
         return s.toString();
 
@@ -91,6 +92,13 @@ public class Order{
         return s.toString();
     }
 
+    private String priceToString(){
+        StringBuilder s = new StringBuilder();
 
-
+        String newLine = "\\r";
+        s.append("Celková cena: " + this.getTotalPriceDiscount());
+        s.append(newLine);
+        return s.toString();
+    }
+    
 }

@@ -24,13 +24,11 @@ import javax.validation.Valid;
 @RequestMapping("/order")
 public class OrderInfoController {
 
-    private final ItemService itemService;
     private final OrderService orderService;
     private final DiscountService discountService;
 
     @Autowired
-    public OrderInfoController(ItemService itemService, OrderService orderService, DiscountService discountService) {
-        this.itemService = itemService;
+    public OrderInfoController(OrderService orderService, DiscountService discountService) {
         this.orderService = orderService;
         this.discountService = discountService;
     }
