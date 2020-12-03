@@ -1,13 +1,11 @@
 package com.customer.ordermanagementsystem.Controllers;
 
-import com.customer.ordermanagementsystem.repository.OrderRepository;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import javax.servlet.http.HttpSession;
 

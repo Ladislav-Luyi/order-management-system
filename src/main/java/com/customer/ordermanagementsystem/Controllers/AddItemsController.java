@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -60,12 +59,11 @@ public class AddItemsController {
 
 
     @RequestMapping(params={"addElement"})
-    public String addElement(OrderDTO orderDTO, Model model, Order order) {
-        log.info("before order: " + order);
+    public String addElement(OrderDTO orderDTO, Model model) {
 
         orderService.addItemToList(orderDTO.getItem());
 
-        System.out.println(order.getOrderList().toString());
+        log.info("addElement: " + orderService.getOrderInstance().getOrderList().toString());
 
         itemService.addAllItemsToModel(model);
 
@@ -78,23 +76,14 @@ public class AddItemsController {
         discountService.addDiscountToModel(model, "discount");
 
         orderService.addTotalPrice(model, "totalPrice");
-
-        log.info("Processing order: " + order);
-
-        log.info("calling add element!");
 
         return "order";
     }
 
 
     @RequestMapping(params={"removeElement"})
-    public String removeElement(OrderDTO orderDTO, Model model, Order order) {
-        log.info("before removeElement: " + order);
-
-
-        if (order.getOrderList().size() > 0)
-            order.getOrderList().remove(orderDTO.getIndexToRemove());
-
+    public String removeElement(OrderDTO orderDTO, Model model) {
+        orderService.removeItemFromList(orderDTO.getIndexToRemove());
 
         itemService.addAllItemsToModel(model);
 
@@ -107,12 +96,6 @@ public class AddItemsController {
         discountService.addDiscountToModel(model, "discount");
 
         orderService.addTotalPrice(model, "totalPrice");
-
-
-        log.info("after removeElement: " + order);
-
-        log.info("calling remove element!");
-
 
         return "order";
     }
@@ -120,15 +103,10 @@ public class AddItemsController {
     @PostMapping
     public String processOrder() {
 
-//        order.setOrderList( order.getOrderList() );
-
         log.info("Processing order: " + orderService.getOrderInstance());
 
         return "redirect:/order/orderInfo";
     }
-
-
-
 
 }
 

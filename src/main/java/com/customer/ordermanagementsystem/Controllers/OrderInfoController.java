@@ -1,7 +1,6 @@
 package com.customer.ordermanagementsystem.Controllers;
 
 
-import com.customer.ordermanagementsystem.pojos.order.Order;
 import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemService;
@@ -37,7 +36,7 @@ public class OrderInfoController {
     }
 
     @GetMapping("/orderInfo")
-    public String showOrderInfoForm(Model model, OrderInfo orderInfo){
+    public String showOrderInfoForm(Model model){
 
         model.addAttribute("orderInfo", new OrderInfo());
 
@@ -57,14 +56,12 @@ public class OrderInfoController {
 
 
     @PostMapping("/orderInfo")
-    public String processOrderInfoForm(@Valid OrderInfo orderInfo, BindingResult bindingResult) {
-
-
+    public String processOrderInfoForm(@Valid OrderInfo orderInfo) {
         log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
 
         log.info("Processing orderInfo in orderInfo: " + orderInfo);
 
-        orderService.getOrderInstance().setOrderInfo(orderInfo);
+        orderService.setOrderInfo(orderInfo);
 
         return "redirect:/order/orderFinished";
 

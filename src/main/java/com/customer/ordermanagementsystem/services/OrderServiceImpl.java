@@ -2,7 +2,9 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.order.Order;
+import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
@@ -12,10 +14,12 @@ import java.util.ArrayList;
 
 
 @Component
+@Slf4j
 public class OrderServiceImpl implements OrderService {
 
     private final Order order;
     private final OrderRepository orderRepository;
+
 
     @Autowired
     public OrderServiceImpl(Order order, OrderRepository orderRepository) {
@@ -44,6 +48,34 @@ public class OrderServiceImpl implements OrderService {
     public void addItemToList(Item item) {
         order.getOrderList().add(item);
     }
+
+    @Override
+    public void removeItemFromList(int index) {
+        if (order.getOrderList().size() > 0)
+            order.getOrderList().remove(index);
+    }
+
+    @Override
+    public void addItemToIndexInList(int index, Item item) {
+        if (order.getOrderList().size() > 0) {
+            log.info("Adding subItem " + item);
+            order.getOrderList().get(index).getItemList().add(item);
+        }
+    }
+
+    @Override
+    public void removeIndexFromInnerList(int indexOuter, int indexInner) {
+        if (order.getOrderList().size() > 0) {
+            log.info("Removing subItem " + indexInner);
+            order.getOrderList().get(indexOuter).getItemList().remove(indexInner);
+        }
+    }
+
+    @Override
+    public void setOrderInfo(OrderInfo orderInfo) {
+        order.setOrderInfo(orderInfo);
+    }
+
 
     @Override
     public void refreshPrice(){

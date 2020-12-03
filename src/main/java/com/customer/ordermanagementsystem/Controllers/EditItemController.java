@@ -20,14 +20,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/editItem")
 public class EditItemController {
 
-    private final Order order;
+
     private final ItemService itemService;
     private final OrderService orderService;
     private final DiscountService discountService;
 
     @Autowired
-    public EditItemController(Order order, ItemService itemService, OrderService orderService, DiscountService discountService) {
-        this.order = order;
+    public EditItemController(ItemService itemService, OrderService orderService, DiscountService discountService) {
         this.itemService = itemService;
         this.orderService = orderService;
         this.discountService = discountService;
@@ -35,10 +34,6 @@ public class EditItemController {
 
     @RequestMapping()
     public String editItem(Model model,  @RequestParam int index){
-        System.out.println("Edit item with index: " + index);
-
-        System.out.println( order.getOrderList().get(index) );
-
         itemService.addSingleItemToModel(model, Type.DOPLNOK);
 
         orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
@@ -61,8 +56,7 @@ public class EditItemController {
 
     @RequestMapping(params={"addInnerElement"})
     public String addItem(Model model, OrderDTO orderDTO, @RequestParam int index){
-        System.out.println(orderDTO);
-        order.getOrderList().get(index).getItemList().add(orderDTO.getItem());
+        orderService.addItemToIndexInList(index, orderDTO.getItem());
 
         itemService.addSingleItemToModel(model, Type.DOPLNOK);
 
@@ -87,9 +81,7 @@ public class EditItemController {
 
     @RequestMapping(params={"removeElement"})
     public String removeItem(OrderDTO orderDTO, Model model, @RequestParam int index) {
-
-        if (order.getOrderList().get(index).getItemList().size() > 0)
-            order.getOrderList().get(index).getItemList().remove(orderDTO.getIndexToRemove());
+        orderService.removeIndexFromInnerList(index, orderDTO.getIndexToRemove());
 
         itemService.addSingleItemToModel(model, Type.DOPLNOK);
 
@@ -106,7 +98,7 @@ public class EditItemController {
 
 
     @PostMapping()
-    public String returnToBasket(Model model, Order order){
+    public String returnToBasket(){
 
         return "redirect:/basket";
     }
