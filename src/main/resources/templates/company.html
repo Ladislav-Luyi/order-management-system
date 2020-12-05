@@ -21,8 +21,27 @@
                 <input type="text" th:field="*{statusMessage}"/>
             </div>
 
-            <button class="btn btn-outline-primary row">Uložiť</button>
+
+            <p>
+                <span>
+                    <button>Uložiť otvorenie/zatvorenie</button>
+
+                    <button>
+                        <a th:href="@{/ukaz-menu}">Ukáž menu</a>
+                    </button>
+
+                    <button>
+                        <a th:href="@{/uprav-menu}">Uprav menu</a>
+                    </button>
+
+                </span>
+            </p>
         </form>
+
+
+
+
+
 
 
 </body>

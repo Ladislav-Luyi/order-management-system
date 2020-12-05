@@ -3,7 +3,7 @@ package com.customer.ordermanagementsystem.pojos.item;
 
 public enum Type {
 
-    PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SMALL("PIZZA_SMALL"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
+    MENU_POLIEVKA("MENU_POLIEVKA"), MENU_JEDLO("MENU_JEDLO"),PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SMALL("PIZZA_SMALL"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
     POLIEVKA("POLIEVKA"),      SALAT("SALAT"),    OMACKA("OMACKA"),   POCHUTINA("POCHUTINA"),
     BAGETA("BAGETA"), BURGER("BURGER"), POMIESANE_JEDLA("POMIESANE_JEDLA"), CESTOVINA("CESTOVINA"),
     GURMANSKE("GURMANSKE"), KLASIKA("KLASIKA"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"),
@@ -22,6 +22,12 @@ public enum Type {
 
     public static Type fromShortName(String shortName) {
         switch (shortName) {
+            case "MENU_POLIEVKA":
+                return Type.MENU_POLIEVKA;
+
+            case "MENU_JEDLO":
+                return Type.MENU_JEDLO;
+
             case "PIZZA_NORMAL":
                 return Type.PIZZA_NORMAL;
 

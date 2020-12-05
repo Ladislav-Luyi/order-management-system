@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alte Caffe & Pizza</title>
+
+</head>
+
+<style>
+    input::-webkit-inner-spin-button,
+    input::-webkit-clear-button {
+        display: none;
+    }
+
+    input::-webkit-calendar-picker-indicator {
+        color: rgba(0, 0, 0, 0);
+        opacity: 1
+    }
+
+    input::-webkit-calendar-picker-indicator:hover {
+        background: transparent;
+        cursor: pointer;
+    }
+
+    input::-webkit-calendar-picker-indicator::after {
+        content: '';
+        display: block;
+        background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-08-512.png) no-repeat;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -16px;
+    }
+
+    .date {
+        position: relative;
+        width: 154px;
+        overflow: auto;
+        margin: 30px auto;
+        background: #000;
+    }
+    input {
+        width: 140px;
+        padding: 5px;
+        height: 24px;
+        display: block;
+    }
+</style>
+
+<body>
+
+<form th:action="@{/uprav-menu}">
+    <div class="date">
+        <input type="date" th:name="selectedDate"/>
+        <button  style="height:30px;width:154px">Choď na dátum</button>
+    </div>
+</form>
+
+<h1 th:text="${'Upravuješ menu pre deň ' + specificDate}"></h1>
+
+    <p>
+        <span>
+            <button>
+                <a th:href="@{/podnik}">Späť na podnik</a>
+            </button>
+
+            <button>
+                <a th:href="@{/ukaz-menu}">Ukáž menu</a>
+            </button>
+        </span>
+    </p>
+
+
+
+</body>
+
+</html>

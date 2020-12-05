@@ -13,7 +13,9 @@ public class TypeConverter  implements AttributeConverter<Type, String> {
 
     @Override
     public Type convertToEntityAttribute(String dbData) {
-        return Type.fromShortName(dbData);
+        if (dbData != null)
+            return Type.fromShortName(dbData);
+        return null;
     }
 
 }

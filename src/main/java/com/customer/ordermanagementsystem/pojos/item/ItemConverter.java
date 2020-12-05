@@ -21,7 +21,6 @@ public class ItemConverter implements Converter<String, Item> {
 
     @Override
     public Item convert(String source) {
-
         List<Item> items = new ArrayList<>();
 
         itemRepository.findAll().forEach(i -> items.add(i));

@@ -83,21 +83,42 @@
         </nav>
 
 
-        <div  th:each="var : ${menu}">
-            <p>
-                <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
-                <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                <span> - </span>
-                <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                <br>
-<!--                <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>-->
-            </p>
-        </div>
 
         <form method="POST" >
             <div class='row'>
                 <div class="column" th:object="${orderDTO}">
+
+                    <h2 id="Menu" class="dash_border">Denné menu</h2>
+                    <div  th:each="var : ${MENU_POLIEVKA}">
+
+                        <p>
+                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                            <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                            <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                            <span> - </span>
+                            <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                            <br>
+                            <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                        </p>
+
+
+                    </div>
+
+                    <div  th:each="var : ${MENU_JEDLO}">
+
+                        <p>
+                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                            <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                            <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                            <span> - </span>
+                            <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                            <br>
+                            <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                        </p>
+
+
+                    </div>
+
                     <h2 id="Pizza - normálna veľkosť" class="dash_border">Pizza - normálna veľkosť</h2>
                     <div  th:each="var : ${PIZZA_NORMAL}">
 

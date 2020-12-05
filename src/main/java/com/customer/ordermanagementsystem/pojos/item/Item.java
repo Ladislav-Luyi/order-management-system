@@ -24,6 +24,8 @@ public class Item {
     private String name;
     private String additionalInfo;
     private BigDecimal price;
+    private String date;
+
 
     @Transient
     private  List<Item> itemList = new ArrayList<>();
@@ -34,6 +36,14 @@ public class Item {
         this.additionalInfo = additionalInfo;
         this.type = type;
         this.price = price;
+    }
+
+    public Item(Long id, String name,  Type type, BigDecimal price, String date) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.date = date;
     }
 
     public Item() {
