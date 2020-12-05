@@ -20,12 +20,12 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests().antMatchers("/otvorene").authenticated()
                 .and()
-                .authorizeRequests().antMatchers("/db/**").permitAll() // tmp setup then remove
+                .authorizeRequests().antMatchers("/db/**").permitAll()
                 .and()
                 .csrf().disable();
 
 
-        http.headers().frameOptions().disable(); // tmp setup then remove
+        http.headers().frameOptions().disable(); 
         }
 
     }
