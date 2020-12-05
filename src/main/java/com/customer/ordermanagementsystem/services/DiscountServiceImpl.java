@@ -112,21 +112,7 @@ public class DiscountServiceImpl implements DiscountService {
             sb.append( order.getTotalDiscount() );
             sb.append( " € = ");
             sb.append( order.getTotalPriceDiscount());
-            sb.append( " € ");
-            sb.append( " / ");
-
-            int loopCounter = 0;
-            for (Item i : listItemsWithDiscount) {
-
-                if (loopCounter > 0)
-                    sb.append(", ");
-
-                sb.append(i.getName());
-
-                loopCounter++;
-
-            }
-            sb.append( " / ");
+            sb.append( " €");
         }
 
         return addPrefixIfNotEmpty( sb.toString() );
