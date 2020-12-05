@@ -82,7 +82,11 @@ public class OrderServiceImpl implements OrderService {
         BigDecimal price = new BigDecimal(0);
 
         for(Item item1 : order.getOrderList()) {
-            price = price.add(item1.getPrice()) ;
+
+            if (item1.getPrice() != null) {
+                price = price.add(item1.getPrice()) ;
+            }
+
 
             for (Item item2 : item1.getItemList()){
                 price = price.add(item2.getPrice()) ;

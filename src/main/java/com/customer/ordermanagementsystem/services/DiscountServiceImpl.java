@@ -19,14 +19,20 @@ import java.util.List;
 @Slf4j
 @Service
 public class DiscountServiceImpl implements DiscountService {
+
+    private final OrderService orderService;
     private final Order order;
+
     private String message = "";
     private BigDecimal discount = new BigDecimal(0);
 
+
     @Autowired
-    public DiscountServiceImpl(Order order) {
-        this.order = order;
+    public DiscountServiceImpl(OrderService orderService) {
+        this.orderService = orderService;
+        this.order = orderService.getOrderInstance();
     }
+
 
     @Override
     public void addDiscountToModel(Model model, String nameOfAttributeForMapping) {
@@ -46,23 +52,24 @@ public class DiscountServiceImpl implements DiscountService {
 
     private void processDiscountsForPizzas() {
 
-        List<Item> l = new ArrayList<>();
+        List<Item> pizzaItems = new ArrayList<>();
 
         for(Item i : order.getOrderList() ){
             if (i.getType() == Type.PIZZA_BIG || i.getType() == Type.PIZZA_NORMAL)
-                l.add(i);
+                pizzaItems.add(i);
         }
 
+        log.debug("Items considered for pizza discount: " + pizzaItems);
 
         List<Item> listItemsWithDiscount = new ArrayList<>();
         List<Item> listItemsWithOutDiscount = new ArrayList<>();
 
-        if (isDiscountForPizzas()){
-            int discountForXItems = howManyTimesDiscountForPizzas();
-            Collections.sort( l, Comparator.comparing(o -> o.getPrice()));
+        if (isDiscountForPizzas(pizzaItems)){
+            int discountForXItems = howManyTimesDiscountForPizzas(pizzaItems);
+            Collections.sort( pizzaItems, Comparator.comparing(o -> o.getPrice()));
 
             int counter = 0;
-            for(Item item : l){
+            for(Item item : pizzaItems){
 
                if(counter < discountForXItems){
                    listItemsWithDiscount.add(item);
@@ -133,11 +140,11 @@ public class DiscountServiceImpl implements DiscountService {
             return originalMessage;
     }
 
-    private int howManyTimesDiscountForPizzas() {
-        return order.getOrderList().size() / 4;
+    private int howManyTimesDiscountForPizzas(List<Item> pizzaItems) {
+        return pizzaItems.size() / 4;
     }
 
-    private boolean isDiscountForPizzas() {
-        return (order.getOrderList().size() / 4) > 0;
+    private boolean isDiscountForPizzas(List<Item> pizzaItems) {
+        return (pizzaItems.size() / 4) > 0;
     }
 }
