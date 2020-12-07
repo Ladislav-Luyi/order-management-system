@@ -88,7 +88,7 @@
             <div class='row'>
                 <div class="column" th:object="${orderDTO}">
 
-                    <h2 id="Menu" class="dash_border">Denné menu</h2>
+                    <h2 id="Menu" th:if="${MENU_POLIEVKA != null}" class="dash_border">Denné menu</h2>
                     <div  th:each="var : ${MENU_POLIEVKA}">
 
                         <p>

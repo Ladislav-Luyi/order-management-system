@@ -48,18 +48,79 @@
         height: 24px;
         display: block;
     }
+
+    #main {
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+
+    #a {border: 1px solid gray; border-radius: 15px;}
+    #a input{height:2em; width:6em; margin-top: 1em; margin: 0.3em; border: 0;text-align:center;font-size:2em; }
+
+    #b { height:50px; width:300px; }
+
 </style>
 
 <body>
 
-<form th:action="@{/uprav-menu}">
-    <div class="date">
-        <input type="date" th:name="selectedDate"/>
-        <button  style="height:30px;width:154px">Choď na dátum</button>
-    </div>
-</form>
 
-<h1 th:text="${'Upravuješ menu pre deň ' + specificDate}"></h1>
+<form method="POST" th:object="${menuEditDTO}">
+
+    <p class="date">
+        <input type="date" th:field="*{specificDate}"/>
+    </p>
+
+        <textarea  id="b" type="text" th:field="*{soup1}" placeholder="Polievka1" ></textarea>
+        <span><input id="a" type="text" th:field="*{soup1price}" placeholder="CENA"/></span>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{soup2}" placeholder="Polievka2" ></textarea>
+        <span><input id="a" type="text" th:field="*{soup2price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal1}" placeholder="Menu1" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal1price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal2}" placeholder="Menu2" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal2price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal3}" placeholder="Menu3" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal3price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal4}" placeholder="Menu4" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal4price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal5}" placeholder="Menu5" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal5price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal6}" placeholder="Menu6" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal6price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal7}" placeholder="Menu7" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal7price}" placeholder="CENA"/></span>
+    </p>
+
+    <p>
+        <textarea  id="b" type="text" th:field="*{meal8}" placeholder="Menu8" ></textarea>
+        <span><input id="a" type="text" th:field="*{meal8price}" placeholder="CENA"/></span>
+    </p>
+
+    <button>Ulož menu</button>
+
+</form>
 
     <p>
         <span>
