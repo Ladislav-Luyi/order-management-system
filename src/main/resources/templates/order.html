@@ -82,13 +82,19 @@
             </div>
         </nav>
 
+        <div class='row'>
+            <h5 style="padding-left:20px;" th:text="${'Minimálna cena objednávky je ' + minimalOrderValue + ' €. '}"></h5>
+        </div>
 
+        <div class='row'>
+            <h5 style="padding-left:20px;">Objednávky na Ťahanovce, Furču a Jazero nerozvážame.</h5>
+        </div>
 
         <form method="POST" >
             <div class='row'>
                 <div class="column" th:object="${orderDTO}">
-
                     <h2 id="Menu" th:if="${MENU_POLIEVKA != null}" class="dash_border">Denné menu</h2>
+                    <h6 th:if="${MENU_POLIEVKA != null}">V cene menu je polievka. Cena polievky bude po výbere menu jedla odrátaná.</h6>
                     <div  th:each="var : ${MENU_POLIEVKA}">
 
                         <p>

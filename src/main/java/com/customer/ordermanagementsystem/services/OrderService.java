@@ -21,4 +21,6 @@ public interface OrderService {
     void refreshPrice();
     Order getOrderInstance();
     void saveOrder();
+    boolean isHigherThanMinimalValue();
+    void addMinimalOrderValueToModel(Model model, String nameOfAttributeForMapping);
 }

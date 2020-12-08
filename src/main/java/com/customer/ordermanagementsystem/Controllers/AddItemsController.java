@@ -35,6 +35,7 @@ public class AddItemsController {
     @RequestMapping()
     public String showOrderForm(Model model){
 
+
         if ( ! companyService.isStoreOpen() ) {
             companyService.addItemToModel(model,"closedMessage");
             return "closed";
@@ -43,6 +44,8 @@ public class AddItemsController {
         itemService.addAllItemsToModel(model);
 
         orderService.addOrderedItemsToModel(model, "orderedItems");
+
+        orderService.addMinimalOrderValueToModel(model,"minimalOrderValue");
 
         orderService.refreshPrice();
 
@@ -69,6 +72,8 @@ public class AddItemsController {
 
         orderService.addOrderedItemsToModel(model, "orderedItems");
 
+        orderService.addMinimalOrderValueToModel(model,"minimalOrderValue");
+
         orderService.refreshPrice();
 
         discountService.refreshDiscounts();
@@ -89,6 +94,8 @@ public class AddItemsController {
 
         orderService.addOrderedItemsToModel(model, "orderedItems");
 
+        orderService.addMinimalOrderValueToModel(model,"minimalOrderValue");
+
         orderService.refreshPrice();
 
         discountService.refreshDiscounts();
@@ -102,6 +109,8 @@ public class AddItemsController {
 
     @PostMapping
     public String processOrder() {
+        if (!orderService.isHigherThanMinimalValue())
+            return "redirect:/basket";
 
         log.info("Processing order: " + orderService.getOrderInstance());
 

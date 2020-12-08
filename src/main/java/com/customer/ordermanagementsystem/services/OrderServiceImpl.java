@@ -114,4 +114,18 @@ public class OrderServiceImpl implements OrderService {
 
         orderRepository.save(orderToSave);
     }
+
+    @Override
+    public boolean isHigherThanMinimalValue() {
+
+        if ( order.getTotalPriceDiscount().compareTo(order.getMinimalValueForOrder()) == -1 )
+            return false;
+        else
+            return true;
+    }
+
+    @Override
+    public void addMinimalOrderValueToModel(Model model, String nameOfAttributeForMapping) {
+        model.addAttribute(nameOfAttributeForMapping, order.getMinimalValueForOrder());
+    }
 }

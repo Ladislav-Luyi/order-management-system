@@ -3,6 +3,7 @@ package com.customer.ordermanagementsystem.pojos.order;
 import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.item.menu_item.MenuItem;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -37,6 +38,10 @@ public class Order{
 
     @Transient
     private  List<MenuItem> orderListMenu = new ArrayList<>();
+
+    @Transient
+    @Value("${minimalValueForOrder}")
+    BigDecimal minimalValueForOrder;
 
     private  String orderText = "";
 
