@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -54,7 +52,16 @@ public class OrderInfoController {
 
 
     @PostMapping("/orderInfo")
-    public String processOrderInfoForm(@Valid OrderInfo orderInfo) {
+    public String processOrderInfoForm( @Valid OrderInfo orderInfo, BindingResult bindingResult) {
+
+
+
+        if (bindingResult.hasErrors()) {
+            System.out.println("BINDING RESULT ERROR");
+            return "order";
+        }
+
+
         log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
 
         log.info("Processing orderInfo in orderInfo: " + orderInfo);
@@ -62,6 +69,13 @@ public class OrderInfoController {
         orderService.setOrderInfo(orderInfo);
 
         return "redirect:/order/orderFinished";
+
+    }
+
+    @GetMapping("/podmienky")
+    public String legalConditions() {
+
+        return "conditions";
 
     }
 }
