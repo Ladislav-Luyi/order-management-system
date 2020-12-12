@@ -3,14 +3,12 @@ package com.customer.ordermanagementsystem.Controllers;
 
 import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
-import com.customer.ordermanagementsystem.services.ItemService;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,7 +24,7 @@ public class OrderInfoController {
     private final DiscountService discountService;
 
     @Autowired
-    public OrderInfoController(OrderService orderService, DiscountService discountService) {
+    public OrderInfoController(OrderService orderService, DiscountService discountService, OrderInfo orderInfo) {
         this.orderService = orderService;
         this.discountService = discountService;
     }
@@ -34,7 +32,7 @@ public class OrderInfoController {
     @GetMapping("/orderInfo")
     public String showOrderInfoForm(Model model){
 
-        model.addAttribute("orderInfo", new OrderInfo());
+        model.addAttribute("orderInfo",  new OrderInfo());
 
         orderService.addOrderedItemsToModel(model, "orderedItems");
 
@@ -47,20 +45,16 @@ public class OrderInfoController {
         orderService.addTotalPrice(model, "totalPrice");
 
         return "orderInfo";
-
     }
 
 
     @PostMapping("/orderInfo")
     public String processOrderInfoForm( @Valid OrderInfo orderInfo, BindingResult bindingResult) {
 
-
-
         if (bindingResult.hasErrors()) {
-            System.out.println("BINDING RESULT ERROR");
-            return "order";
+            log.info("BINDING RESULT ERROR");
+            return "orderInfo";
         }
-
 
         log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
 
@@ -69,13 +63,11 @@ public class OrderInfoController {
         orderService.setOrderInfo(orderInfo);
 
         return "redirect:/order/orderFinished";
-
     }
 
     @GetMapping("/podmienky")
     public String legalConditions() {
 
         return "conditions";
-
     }
 }

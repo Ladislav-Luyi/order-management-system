@@ -3,6 +3,7 @@ package com.customer.ordermanagementsystem.pojos.order;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -12,17 +13,21 @@ import javax.validation.constraints.Size;
 @Embeddable
 public class OrderInfo {
     @NotNull
-    @Size(min=5, max=30)
+    @Size(min=5, max=30, message = "Zadajte prosím meno a priezvisko")
     private String name;
 
-//    @NotNull
-//    @Size(min=5, max=100)
+    @NotNull
+    @Size(min=5, max=100, message = "Zadajte prosím ulicu")
     private String street;
 
-
-//    @NotNull
-//    @Size(min=5, max=100)
+    @NotNull
+    @Size(min=5, max=100, message = "Zadajte prosím telefónne číslo")
     private String telephoneNumber;
+
+    @Transient
+    @NotNull
+    @Size(min=3)
+    private String agreement;
 
     private String comment;
 

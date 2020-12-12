@@ -36,7 +36,7 @@
                             <p>
                                 <span>Telefónne číslo:</span>
                                 <span><input type="text" th:field="*{telephoneNumber}"></input></span>
-                                <span th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{city}">Zadajte telefónne číslo prosím</span>
+                                <span th:if="${#fields.hasErrors('telephoneNumber')}" th:telephoneNumber="*{telephoneNumber}">Zadajte telefónne číslo prosím</span>
                             </p>
 
                             <p>
@@ -45,7 +45,9 @@
                             </p>
 
                         <p>
-                            <input id="" th:name="item" type="checkbox" value="" ><span>Súhlas s podmienkami podniku</span>
+                            <input id="" th:field="*{agreement}" type="checkbox" value="true" >
+                            <span th:if="${#fields.hasErrors('agreement')}" th:telephoneNumber="*{agreement}"></span>
+                            <span>Súhlas s podmienkami podniku</span>
                             <a class="btn btn-outline-info" th:href="@{/order/podmienky}">Ukáž podmienky podniku</a>
                         </p>
                     </div>
