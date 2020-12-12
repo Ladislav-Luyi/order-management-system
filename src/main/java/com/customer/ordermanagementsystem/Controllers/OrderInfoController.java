@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 @SessionAttributes({"order","orderInfo"})
-@RequestMapping("/order")
+@RequestMapping("/objednavka")
 public class OrderInfoController {
 
     private final OrderService orderService;
@@ -29,7 +29,7 @@ public class OrderInfoController {
         this.discountService = discountService;
     }
 
-    @GetMapping("/orderInfo")
+    @GetMapping("/formular")
     public String showOrderInfoForm(Model model){
 
         model.addAttribute("orderInfo",  new OrderInfo());
@@ -48,7 +48,7 @@ public class OrderInfoController {
     }
 
 
-    @PostMapping("/orderInfo")
+    @PostMapping("/formular")
     public String processOrderInfoForm( @Valid OrderInfo orderInfo, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
@@ -62,7 +62,7 @@ public class OrderInfoController {
 
         orderService.setOrderInfo(orderInfo);
 
-        return "redirect:/order/orderFinished";
+        return "redirect:/objednavka/dokoncena";
     }
 
     @GetMapping("/podmienky")

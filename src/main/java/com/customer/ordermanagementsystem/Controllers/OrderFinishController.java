@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
-@RequestMapping("/order")
+@RequestMapping("/objednavka")
 public class OrderFinishController {
 
     private final OrderService orderService;
@@ -21,7 +21,7 @@ public class OrderFinishController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/orderFinished")
+    @GetMapping("/dokoncena")
     public String home(SessionStatus sessionStatus, HttpSession httpsession){
         log.info("Sending order to ticketing device: " + orderService.getOrderInstance());
 

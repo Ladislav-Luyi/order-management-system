@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @SessionAttributes({"orderInfo","order", "orderDTO"})
 
-@RequestMapping("/editItem")
+@RequestMapping("/upravaPolozky")
 public class EditItemController {
 
 
@@ -100,6 +100,6 @@ public class EditItemController {
     @PostMapping()
     public String returnToBasket(){
 
-        return "redirect:/basket";
+        return "redirect:/kosik";
     }
 }

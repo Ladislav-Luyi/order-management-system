@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @Controller
 @SessionAttributes({"orderInfo","order","orderedItems","totalPrice","discount"})
-@RequestMapping("/basket")
+@RequestMapping({"","/","/kosik"})
 public class AddItemsController {
 
     private final ItemService itemService;
@@ -110,11 +110,11 @@ public class AddItemsController {
     @PostMapping
     public String processOrder() {
         if (!orderService.isHigherThanMinimalValue())
-            return "redirect:/basket";
+            return "redirect:/kosik";
 
         log.info("Processing order: " + orderService.getOrderInstance());
 
-        return "redirect:/order/orderInfo";
+        return "redirect:/objednavka/formular";
     }
 
 }

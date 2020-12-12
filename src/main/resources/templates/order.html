@@ -379,7 +379,7 @@
                             <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
                             <span class="small_font" th:text="${var.name}"></span>
                             <span class="small_font" th:text="${var.itemListToString()}"></span>
-                            <a  class="btn btn-outline-info" th:href="@{/editItem(index=${varStat.index})}">extra +/-</a>
+                            <a  class="btn btn-outline-info" th:href="@{/upravaPolozky(index=${varStat.index})}">extra +/-</a>
                         </p>
 
                     </div>

@@ -48,7 +48,7 @@
                             <input id="" th:field="*{agreement}" type="checkbox" value="true" >
                             <span th:if="${#fields.hasErrors('agreement')}" th:telephoneNumber="*{agreement}"></span>
                             <span>Súhlas s podmienkami podniku</span>
-                            <a class="btn btn-outline-info" th:href="@{/order/podmienky}">Ukáž podmienky podniku</a>
+                            <a class="btn btn-outline-info" th:href="@{/objednavka/podmienky}">Ukáž podmienky podniku</a>
                         </p>
                     </div>
 
@@ -74,7 +74,7 @@
 
 
                 <div class='row'>
-                    <a class="btn btn-outline-primary" th:href="@{/basket}">Späť k nákupu</a>
+                    <a class="btn btn-outline-primary" th:href="@{/kosik}">Späť k nákupu</a>
                     <button class="btn btn-outline-primary">Odoslať objednávku</button>
                 </div>
 
