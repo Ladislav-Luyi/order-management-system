@@ -77,6 +77,8 @@ public class TerminalServiceImpl implements TerminalService {
         s.append(o.getId());
         s.append("*");
         s.append(o.getOrderText());
+        s.append("*");
+        s.append(o.getOrderInfo().getTelephoneNumber());
         s.append("#");
         s.append("\r");
 
