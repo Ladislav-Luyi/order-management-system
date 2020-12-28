@@ -44,12 +44,17 @@
                                 <textarea placeholder="Tu zadajte poznámku k objednávke týkajúcu sa jedla, adresy a pod." th:field="*{comment}"></textarea>
                             </p>
 
-                        <p>
-                            <input id="" th:field="*{agreement}" type="checkbox" value="true" >
-                            <span th:if="${#fields.hasErrors('agreement')}" th:telephoneNumber="*{agreement}"></span>
-                            <span>Súhlas s podmienkami podniku</span>
-                            <a class="btn btn-outline-info" th:href="@{/objednavka/podmienky}">Ukáž podmienky podniku</a>
-                        </p>
+                            <p>
+                                <input th:field="*{payWithCardToDeliveryGuy}" type="checkbox" value="true" >
+                                <span>Platba donáškarovi kartou</span>
+                            </p>
+
+                            <p>
+                                <input th:field="*{agreement}" type="checkbox" value="true" >
+                                <span th:if="${#fields.hasErrors('agreement')}" th:telephoneNumber="*{agreement}"></span>
+                                <span>Súhlas s podmienkami podniku</span>
+                                <a class="btn btn-outline-info" th:href="@{/objednavka/podmienky}">Ukáž podmienky podniku</a>
+                            </p>
                     </div>
 
                     <div class="column"  th:object="${orderDTO}">

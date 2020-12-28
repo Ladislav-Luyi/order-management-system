@@ -24,6 +24,8 @@ public class OrderInfo {
     @Size(min=5, max=100, message = "Zadajte prosím telefónne číslo")
     private String telephoneNumber;
 
+    private String payWithCardToDeliveryGuy;
+
     @Transient
     @NotNull
     @Size(min=3)
@@ -47,6 +49,13 @@ public class OrderInfo {
         s.append("Komentár: " + comment );
         s.append(newLine);
 
+        if (payWithCardToDeliveryGuy != null)
+        if (payWithCardToDeliveryGuy.contains("true")){
+            s.append("Platba kartou donáškarovi. ");
+            s.append(newLine);
+        }
+
         return s.toString();
     }
+
 }
