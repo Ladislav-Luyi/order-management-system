@@ -2,7 +2,6 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.item.Type;
-import com.customer.ordermanagementsystem.pojos.item.menu_item.MenuItemRawInput;
 import com.customer.ordermanagementsystem.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +17,16 @@ public class ItemServiceImpl implements ItemService {
 
 
     private final ItemRepository itemRepository;
-    private final MenuItemRawService menuItemRawService;
-
 
     @Autowired
-    public ItemServiceImpl(ItemRepository itemRepository, MenuItemRawService menuItemRawService) {
+    public ItemServiceImpl(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
-        this.menuItemRawService = menuItemRawService;
     }
 
 
 
     @Override
     public void addAllItemsToModel(Model model) {
-
-
-        //tmp
-//        menuItemRawService.convertMenuItemsAndSave(  MenuItemRawInput.menuItems );
-        //tmp
 
         List<Item> items = itemRepository.findAll();
 
