@@ -64,19 +64,25 @@
 <body>
 
 
+    <form method="POST"  >
+        <div th:object="${dateDTO}">
+            <p class="date">
+                <input type="date" th:field="*{date}"/>
+            </p>
+        </div>
+        <button type="submit" name="loadDate">Načítaj dátum</button>
+
+    </form>
+
+
 <form method="POST" th:object="${menuEditDTO}">
 
-    <p class="date">
-        <input type="date" th:field="*{specificDate}"/>
-    </p>
-
-        <textarea  id="b" type="text" th:field="*{soup1}" placeholder="Polievka1" ></textarea>
-        <span><input id="a" type="text" th:field="*{soup1price}" placeholder="CENA"/></span>
 
     <p>
-        <textarea  id="b" type="text" th:field="*{soup2}" placeholder="Polievka2" ></textarea>
-        <span><input id="a" type="text" th:field="*{soup2price}" placeholder="CENA"/></span>
+        <textarea  id="b" type="text" th:field="*{soup1}" placeholder="Polievka1" ></textarea>
+        <span><input id="a" type="text" th:field="*{soup1price}" placeholder="CENA"/></span>
     </p>
+
 
     <p>
         <textarea  id="b" type="text" th:field="*{meal1}" placeholder="Menu1" ></textarea>
@@ -96,26 +102,6 @@
     <p>
         <textarea  id="b" type="text" th:field="*{meal4}" placeholder="Menu4" ></textarea>
         <span><input id="a" type="text" th:field="*{meal4price}" placeholder="CENA"/></span>
-    </p>
-
-    <p>
-        <textarea  id="b" type="text" th:field="*{meal5}" placeholder="Menu5" ></textarea>
-        <span><input id="a" type="text" th:field="*{meal5price}" placeholder="CENA"/></span>
-    </p>
-
-    <p>
-        <textarea  id="b" type="text" th:field="*{meal6}" placeholder="Menu6" ></textarea>
-        <span><input id="a" type="text" th:field="*{meal6price}" placeholder="CENA"/></span>
-    </p>
-
-    <p>
-        <textarea  id="b" type="text" th:field="*{meal7}" placeholder="Menu7" ></textarea>
-        <span><input id="a" type="text" th:field="*{meal7price}" placeholder="CENA"/></span>
-    </p>
-
-    <p>
-        <textarea  id="b" type="text" th:field="*{meal8}" placeholder="Menu8" ></textarea>
-        <span><input id="a" type="text" th:field="*{meal8price}" placeholder="CENA"/></span>
     </p>
 
     <button>Ulož menu</button>

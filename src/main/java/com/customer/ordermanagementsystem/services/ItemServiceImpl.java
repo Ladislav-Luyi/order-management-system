@@ -34,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
 
 
         //tmp
-        menuItemRawService.convertMenuItemsAndSave(  MenuItemRawInput.menuItems );
+//        menuItemRawService.convertMenuItemsAndSave(  MenuItemRawInput.menuItems );
         //tmp
 
         List<Item> items = itemRepository.findAll();
