@@ -109,13 +109,9 @@ public class DiscountServiceImpl implements DiscountService {
                counter++;
             }
 
-
         }
 
         this.discount = setTotalDiscountForPizzas(listItemsWithDiscount, discount);
-        order.setTotalDiscount(discount);
-
-        this.message = generateMessageDiscounts(listItemsWithDiscount, message);
 
         log.info("Pizza items with discount: " + listItemsWithDiscount.toString() );
         log.info("Pizza items without discount: " + listItemsWithOutDiscount.toString() );
@@ -129,30 +125,6 @@ public class DiscountServiceImpl implements DiscountService {
         }
 
         return discount;
-    }
-
-    private String generateMessageDiscounts(List<Item> listItemsWithDiscount,String originalMessage) {
-
-        StringBuilder sb = new StringBuilder(originalMessage);
-
-        if (listItemsWithDiscount.size() > 0) {
-            sb.append( order.getTotalPrice() );
-            sb.append( " € - ");
-            sb.append( order.getTotalDiscount() );
-            sb.append( " € = ");
-            sb.append( order.getTotalPriceDiscount());
-            sb.append( " €");
-        }
-
-        return addPrefixIfNotEmpty( sb.toString() );
-    }
-
-
-    private String addPrefixIfNotEmpty(String originalMessage) {
-        if (originalMessage.length() > 0)
-            return originalMessage = "Zľava: " + originalMessage;
-        else
-            return originalMessage;
     }
 
     private int howManyTimesDiscountForPizzas(List<Item> pizzaItems) {
