@@ -43,6 +43,7 @@ public class EditMenuController {
         if (dateDTO.getDate() != null) {
             List<Item> items = adjustMenuService.getMenuEditDTOAccordingDate(dateDTO.getDate());
             adjustMenuService.loadMenuEditDTO(menuEditDTO, items);
+            adjustMenuService.setTargetDate(dateDTO.getDate());
         }
 
         model.addAttribute("dateDTO", dateDTO);

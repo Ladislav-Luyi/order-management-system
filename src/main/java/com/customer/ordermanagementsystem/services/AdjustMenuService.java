@@ -11,4 +11,5 @@ public interface AdjustMenuService {
     void transformToItemAndSave(MenuEditDTO menuEditDTO);
     List<Item> getMenuEditDTOAccordingDate(String date);
     void loadMenuEditDTO(MenuEditDTO menuEditDTO, List<Item> items);
+    void setTargetDate(String date);
 }

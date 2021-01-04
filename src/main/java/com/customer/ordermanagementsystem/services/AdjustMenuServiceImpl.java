@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 public class AdjustMenuServiceImpl implements AdjustMenuService {
 
     private final ItemRepository itemRepository;
+    private String targetDate;
 
 
     @Value("${soupDefaultPrice}")
@@ -51,14 +52,12 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
     private void saveMenuItems(List<Item> items) {
         log.info("saveMenuItems is saving " + items);
 
-        String targetDate = items.get(0).getDate();
-
         Predicate<Item> isMenuMeal = i -> i.getType().equals(Type.MENU_JEDLO);
         Predicate<Item> isMenuSoup = i -> i.getType().equals(Type.MENU_POLIEVKA);
 
         ArrayList<Item> itemsToRemove = itemRepository.findAll().stream()
                 .filter(isMenuMeal.or(isMenuSoup))
-                .filter(i -> i.getDate().equals(targetDate))
+                .filter(i -> i.getDate().equals(this.targetDate))
                 .collect(Collectors.toCollection(ArrayList::new));
 
         itemsToRemove.forEach(itemRepository::delete);
@@ -188,6 +187,11 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
                 countSoup++;
             }
         }
+    }
+
+    @Override
+    public void setTargetDate(String date) {
+        this.targetDate = date;
     }
 
 
