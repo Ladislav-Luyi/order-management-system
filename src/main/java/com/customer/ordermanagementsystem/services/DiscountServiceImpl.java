@@ -47,6 +47,35 @@ public class DiscountServiceImpl implements DiscountService {
         this.discount = new BigDecimal(0);
         this.message = "";
         processDiscountsForPizzas();
+        processDiscountsForMenu();
+        order.setTotalDiscount(discount);
+    }
+
+    private void processDiscountsForMenu() {
+        List<Item> menuMeal = new ArrayList<>();
+        List<Item> menuSoup = new ArrayList<>();
+
+        for(Item i : order.getOrderList() ){
+            if (i.getType() == Type.MENU_JEDLO)
+                menuMeal.add(i);
+
+            if (i.getType() == Type.MENU_POLIEVKA)
+                menuSoup.add(i);
+        }
+
+
+        int count=menuSoup.size();
+        BigDecimal menuDiscount = new BigDecimal("0");
+        for(int i=0; i<menuMeal.size();i++){
+            if(count==0)
+                break;
+
+            menuDiscount = menuSoup.get(0).getPrice().add(menuDiscount);
+
+            count--;
+        }
+
+        this.discount = this.discount.add(menuDiscount);
 
     }
 
