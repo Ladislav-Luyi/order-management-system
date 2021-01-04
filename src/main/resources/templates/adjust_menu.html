@@ -103,21 +103,21 @@
         <span><input id="a" type="text" th:field="*{meal4price}" placeholder="CENA"/></span>
     </p>
 
-    <button>Ulož menu</button>
+
+    <p>
+        <span>
+            <button>Ulož menu</button>
+
+            <button>
+                <a style="text-decoration: none; color:inherit;" th:href="@{/podnik}">Späť na podnik</a>
+            </button>
+        </span>
+    </p>
 
 </form>
 
 
-    <p>
-        <span>
-            <button>
-                <a th:href="@{/podnik}">Späť na podnik</a>
-            </button>
-            <button>
-                <a th:href="@{/ukaz-menu}">Ukáž menu</a>
-            </button>
-        </span>
-    </p>
+
 
 
 
