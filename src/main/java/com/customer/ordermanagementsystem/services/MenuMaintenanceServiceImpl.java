@@ -4,6 +4,7 @@ import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.item.Type;
 import com.customer.ordermanagementsystem.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class MenuMaintenanceServiceImpl implements MenuMaintenanceService {
 
     private final ItemRepository itemRepository;
 
+    @Autowired
     public MenuMaintenanceServiceImpl(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
