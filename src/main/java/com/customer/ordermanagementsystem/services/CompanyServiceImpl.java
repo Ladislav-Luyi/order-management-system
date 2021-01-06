@@ -116,7 +116,7 @@ public class CompanyServiceImpl implements CompanyService{
         try {
             int priority = applicableRules.stream()
                     .mapToInt(o -> o.getPriority())
-                    .max()
+                    .min()
                     .orElseThrow(() -> new IllegalStateException("Not applicable rule was found!"));
 
             OpenningHours ruleWithHighestPriority = applicableRules.stream()
