@@ -70,6 +70,8 @@
                 <input type="date" th:field="*{date}"/>
                 <button style="padding: 8px 35px;" type="submit" name="loadDate">Načítaj dátum</button>
             </p>
+            <h1 th:text="*{'Načítaný dátum:' + date}">Načítaný dátum: -</h1>
+            <h7 style="color: red;" th:if="${#fields.hasErrors('date')}" th:date="*{date}">Prv načítaj dátum</h7>
         </div>
     </form>
 

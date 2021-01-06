@@ -8,8 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -43,7 +45,6 @@ public class EditMenuController {
         if (dateDTO.getDate() != null) {
             List<Item> items = adjustMenuService.getMenuEditDTOAccordingDate(dateDTO.getDate());
             adjustMenuService.loadMenuEditDTO(menuEditDTO, items);
-            adjustMenuService.setTargetDate(dateDTO.getDate());
         }
 
         model.addAttribute("dateDTO", dateDTO);
@@ -54,11 +55,18 @@ public class EditMenuController {
 
 
     @PostMapping
-    public String adjustMenu(MenuEditDTO menuEditDTO, DateDTO dateDTO){
+    public String adjustMenu(MenuEditDTO menuEditDTO, @Valid DateDTO dateDTO, BindingResult bindingResult){
 
-        log.info("Processing menu " + menuEditDTO);
+        if (bindingResult.hasErrors()) {
+            log.info("BINDING RESULT ERROR");
+            return "adjust_menu";
+        }
+
+        log.info("Processing menu " + menuEditDTO + " target date " + dateDTO.getDate());
 
         menuEditDTO.setSpecificDate(dateDTO.getDate());
+        adjustMenuService.setTargetDate(dateDTO.getDate());
+
         adjustMenuService.transformToItemAndSave(menuEditDTO);
 
         return "redirect:/uprav-menu";

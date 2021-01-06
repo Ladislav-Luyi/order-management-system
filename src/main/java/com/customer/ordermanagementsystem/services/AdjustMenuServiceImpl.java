@@ -57,6 +57,7 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
 
         ArrayList<Item> itemsToRemove = itemRepository.findAll().stream()
                 .filter(isMenuMeal.or(isMenuSoup))
+                .filter(i -> i.getDate() != null)
                 .filter(i -> i.getDate().equals(this.targetDate))
                 .collect(Collectors.toCollection(ArrayList::new));
 
