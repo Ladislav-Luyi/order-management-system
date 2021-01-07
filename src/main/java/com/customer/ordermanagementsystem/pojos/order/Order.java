@@ -43,6 +43,7 @@ public class Order{
     @Value("${minimalValueForOrder}")
     BigDecimal minimalValueForOrder;
 
+    @Column(columnDefinition = "TEXT")
     private  String orderText = "";
 
     @PrePersist

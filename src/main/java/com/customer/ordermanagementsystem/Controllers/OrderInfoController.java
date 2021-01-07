@@ -34,25 +34,17 @@ public class OrderInfoController {
 
         model.addAttribute("orderInfo",  new OrderInfo());
 
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.refreshPrice();
-
-        discountService.refreshDiscounts();
-
-        discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        addOrderToModel(model);
 
         return "orderInfo";
     }
 
-
     @PostMapping("/formular")
-    public String processOrderInfoForm( @Valid OrderInfo orderInfo, BindingResult bindingResult) {
+    public String processOrderInfoForm(Model model, @Valid OrderInfo orderInfo, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             log.info("BINDING RESULT ERROR");
+            addOrderToModel(model);
             return "orderInfo";
         }
 
@@ -69,5 +61,17 @@ public class OrderInfoController {
     public String legalConditions() {
 
         return "conditions";
+    }
+
+    private void addOrderToModel(Model model) {
+        orderService.addOrderedItemsToModel(model, "orderedItems");
+
+        orderService.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
+
+        orderService.addTotalPrice(model, "totalPrice");
     }
 }

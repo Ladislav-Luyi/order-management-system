@@ -31,6 +31,7 @@ public class OrderInfo {
     @Size(min=3)
     private String agreement;
 
+    @Size(max=256, message = "Maximálny počet znakov je 256")
     private String comment;
 
     @Override
