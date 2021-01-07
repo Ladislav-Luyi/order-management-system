@@ -43,14 +43,14 @@ public class OrderInfoController {
     public String processOrderInfoForm(Model model, @Valid OrderInfo orderInfo, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            log.info("BINDING RESULT ERROR");
+            log.debug("BINDING RESULT ERROR");
             addOrderToModel(model);
             return "orderInfo";
         }
 
-        log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
+        log.debug("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
 
-        log.info("Processing orderInfo in orderInfo: " + orderInfo);
+        log.debug("Processing orderInfo in orderInfo: " + orderInfo);
 
         orderService.setOrderInfo(orderInfo);
 

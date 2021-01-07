@@ -77,7 +77,7 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
 
 
             if ( name == null || name == "" ) {
-                log.info("Menu name is missing; skipping");
+                log.debug("Menu name is missing; skipping");
                 continue;
             }
 
@@ -90,7 +90,7 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
                 price=soupDefaultPrice;
 
             if ( ( price == null || price == "" ) && type.equals(Type.MENU_JEDLO)) {
-                log.info("Menu Type.MENU_JEDLO price is missing; skipping");
+                log.debug("Menu Type.MENU_JEDLO price is missing; skipping");
                 continue;
             }
             price = replaceCommaWithDots(price);
@@ -127,7 +127,7 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
     @Override
     public List<Item>  getMenuEditDTOAccordingDate(String date) {
         List<Item> items = itemRepository.findAll();
-        log.info("All items from getMenuEditDTOAccordingDate " + items);
+        log.debug("All items from getMenuEditDTOAccordingDate " + items);
 
         Predicate<Item> isMenuMeal = i -> i.getType().equals(Type.MENU_JEDLO);
         Predicate<Item> isMenuSoup = i -> i.getType().equals(Type.MENU_POLIEVKA);
@@ -139,14 +139,14 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
                 .filter(i -> i.getDate().equals(date))
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        log.info("Loaded items from date " + date + ": "+ collect);
+        log.debug("Loaded items from date " + date + ": "+ collect);
 
         return collect;
     }
 
     @Override
     public void loadMenuEditDTO(MenuEditDTO menuEditDTO, List<Item> items) {
-        log.info("Calling loadMenuEditDTO " + items);
+        log.debug("Calling loadMenuEditDTO " + items);
         int countMeal = 0;
         for(Item item : items){
 

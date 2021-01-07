@@ -52,7 +52,7 @@ public class ItemServiceImpl implements ItemService {
             if (tmpList.size() == 0)
                 continue;
 
-            log.info("Processing for " + type.toString());
+            log.debug("Processing for " + type.toString());
 
 
             model.addAttribute(type.toString(), tmpList);
@@ -87,7 +87,7 @@ public class ItemServiceImpl implements ItemService {
             }
         }
 
-        log.info("Processing " + type.toString());
+        log.debug("Processing " + type.toString());
         model.addAttribute(type.toString(), tmpList);
     }
 }

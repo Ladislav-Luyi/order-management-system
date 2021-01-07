@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void addItemToIndexInList(int index, Item item) {
         if (order.getOrderList().size() > 0) {
-            log.info("Adding subItem " + item);
+            log.debug("Adding subItem " + item);
             order.getOrderList().get(index).getItemList().add(item);
         }
     }
@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void removeIndexFromInnerList(int indexOuter, int indexInner) {
         if (order.getOrderList().size() > 0) {
-            log.info("Removing subItem " + indexInner);
+            log.debug("Removing subItem " + indexInner);
             order.getOrderList().get(indexOuter).getItemList().remove(indexInner);
         }
     }

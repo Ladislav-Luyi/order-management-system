@@ -80,7 +80,7 @@ public class CompanyServiceImpl implements CompanyService{
     @Override
     public void addItemToModel(Model model, String nameOfAttributeForMapping) {
         if ( ! isCompanyStatus() ) {
-            log.info("Reason for closed is dedicated rest api call; not opening hours; fetching message about close reason and adding it to model");
+            log.debug("Reason for closed is dedicated rest api call; not opening hours; fetching message about close reason and adding it to model");
             model.addAttribute(nameOfAttributeForMapping, companyRepository.findById(1l).get().getStatusMessage());
         }
     }
@@ -160,9 +160,8 @@ public class CompanyServiceImpl implements CompanyService{
         addApplicableRule(allRules, applicableRules, prio2Rule);
         addApplicableRule(allRules, applicableRules, prio3Rule);
 
-
-        log.info("Applicable rules: ");
-        applicableRules.forEach(o -> log.info( o.toString() ));
+        log.debug("Applicable rules: ");
+        applicableRules.forEach(o -> log.debug( o.toString() ));
 
        return applicableRules;
     }
@@ -185,8 +184,8 @@ public class CompanyServiceImpl implements CompanyService{
     private Iterable<OpenningHours> fetchRules() {
         Iterable<OpenningHours> allRules = openningHoursRepository.findAll();
 
-        log.info("All fetched rules: ");
-        allRules.forEach(o -> log.info( o.toString() ));
+        log.debug("All fetched rules: ");
+        allRules.forEach(o -> log.debug( o.toString() ));
 
         return allRules;
     }

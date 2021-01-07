@@ -58,11 +58,11 @@ public class EditMenuController {
     public String adjustMenu(MenuEditDTO menuEditDTO, @Valid DateDTO dateDTO, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()) {
-            log.info("BINDING RESULT ERROR");
+            log.debug("BINDING RESULT ERROR");
             return "adjust_menu";
         }
 
-        log.info("Processing menu " + menuEditDTO + " target date " + dateDTO.getDate());
+        log.debug("Processing menu " + menuEditDTO + " target date " + dateDTO.getDate());
 
         menuEditDTO.setSpecificDate(dateDTO.getDate());
         adjustMenuService.setTargetDate(dateDTO.getDate());

@@ -30,13 +30,13 @@ public class MenuMaintenanceServiceImpl implements MenuMaintenanceService {
         Predicate<Item> isMenuSoup = i -> i.getType().equals(Type.MENU_POLIEVKA);
         Predicate<Item> isNotNullDate = i -> i.getDate() != null;
 
-        log.info("Running menuMaintenanceServiceImpl");
+        log.debug("Running menuMaintenanceServiceImpl");
 
         List<Item> items = itemRepository.findAll();
         items.stream()
                 .filter(isMenuMeal.or(isMenuSoup))
                 .filter(isNotNullDate)
-                .peek(i -> log.info("Going to remove " + i.getName() + " " + i.getDate()))
+                .peek(i -> log.debug("Going to remove " + i.getName() + " " + i.getDate()))
                 .forEach(itemRepository::delete);
     }
 }

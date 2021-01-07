@@ -113,8 +113,8 @@ public class DiscountServiceImpl implements DiscountService {
 
         this.discount = setTotalDiscountForPizzas(listItemsWithDiscount, discount);
 
-        log.info("Pizza items with discount: " + listItemsWithDiscount.toString() );
-        log.info("Pizza items without discount: " + listItemsWithOutDiscount.toString() );
+        log.debug("Pizza items with discount: " + listItemsWithDiscount.toString() );
+        log.debug("Pizza items without discount: " + listItemsWithOutDiscount.toString() );
 
     }
 

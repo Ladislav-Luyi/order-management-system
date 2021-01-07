@@ -66,7 +66,7 @@ public class AddItemsController {
 
         orderService.addItemToList(orderDTO.getItem());
 
-        log.info("addElement: " + orderService.getOrderInstance().getOrderList().toString());
+        log.debug("addElement: " + orderService.getOrderInstance().getOrderList().toString());
 
         itemService.addAllItemsToModel(model);
 
