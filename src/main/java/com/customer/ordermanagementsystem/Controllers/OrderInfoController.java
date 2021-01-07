@@ -24,13 +24,15 @@ public class OrderInfoController {
     private final DiscountService discountService;
 
     @Autowired
-    public OrderInfoController(OrderService orderService, DiscountService discountService, OrderInfo orderInfo) {
+    public OrderInfoController(OrderService orderService, DiscountService discountService) {
         this.orderService = orderService;
         this.discountService = discountService;
     }
 
     @GetMapping("/formular")
     public String showOrderInfoForm(Model model){
+        if (!orderService.isHigherThanMinimalValue())
+            return "redirect:/kosik";
 
         model.addAttribute("orderInfo",  new OrderInfo());
 

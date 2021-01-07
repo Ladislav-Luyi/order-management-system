@@ -23,6 +23,9 @@ public class OrderFinishController {
 
     @GetMapping("/dokoncena")
     public String home(SessionStatus sessionStatus, HttpSession httpsession){
+        if (!orderService.isHigherThanMinimalValue())
+            return "redirect:/kosik";
+
         log.info("Sending order to ticketing device: " + orderService.getOrderInstance());
 
         orderService.saveOrder();
