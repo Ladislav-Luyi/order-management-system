@@ -25,14 +25,12 @@ public class ItemConverter implements Converter<String, Item> {
 
         itemRepository.findAll().forEach(i -> items.add(i));
 
-        for (Item item : items) {
-
-            if ( item.getId().toString().equals(source) )
-
-                return item;
-        }
-
-        return null;
+        return items.stream()
+                .filter(i -> i.getId().toString().equals(source))
+                .reduce((a, b) -> {
+                    throw new IllegalStateException("Found multiple elements" + a + " " + b);
+                })
+                .orElseGet(null);
     }
 
 }
