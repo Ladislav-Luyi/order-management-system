@@ -34,19 +34,7 @@ public class EditItemController {
 
     @RequestMapping()
     public String editItem(Model model,  @RequestParam int index){
-        itemService.addSingleItemToModel(model, Type.DOPLNOK);
-
-        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.refreshPrice();
-
-        discountService.refreshDiscounts();
-
-        discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        addItemOrderDiscountToModel(model, index);
 
         model.addAttribute("orderDTO", new OrderDTO() );
 
@@ -58,21 +46,9 @@ public class EditItemController {
     public String addItem(Model model, OrderDTO orderDTO, @RequestParam int index){
         orderService.addItemToIndexInList(index, orderDTO.getItem());
 
-        itemService.addSingleItemToModel(model, Type.DOPLNOK);
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
+        addItemOrderDiscountToModel(model, index);
 
         model.addAttribute("orderDTO", new OrderDTO() );
-
-        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
-
-        orderService.refreshPrice();
-
-        discountService.refreshDiscounts();
-
-        discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
 
         return "edit";
 
@@ -83,13 +59,7 @@ public class EditItemController {
     public String removeItem(OrderDTO orderDTO, Model model, @RequestParam int index) {
         orderService.removeIndexFromInnerList(index, orderDTO.getIndexToRemove());
 
-        itemService.addSingleItemToModel(model, Type.DOPLNOK);
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        addItemOrderDiscountToModel(model, index);
 
         model.addAttribute("orderDTO", new OrderDTO() );
 
@@ -101,5 +71,21 @@ public class EditItemController {
     public String returnToBasket(){
 
         return "redirect:/kosik";
+    }
+
+    private void addItemOrderDiscountToModel(Model model, @RequestParam int index) {
+        itemService.addSingleItemToModel(model, Type.DOPLNOK);
+
+        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
+
+        orderService.addOrderedItemsToModel(model, "orderedItems");
+
+        orderService.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
+
+        orderService.addTotalPrice(model, "totalPrice");
     }
 }

@@ -34,26 +34,12 @@ public class AddItemsController {
 
     @RequestMapping()
     public String showOrderForm(Model model){
-
-
         if ( ! companyService.isStoreOpen() ) {
             companyService.addItemToModel(model,"closedMessage");
             return "closed";
         }
 
-        itemService.addAllItemsToModel(model);
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.addMinimalOrderValueToModel(model,"minimalOrderValue");
-
-        orderService.refreshPrice();
-
-        discountService.refreshDiscounts();
-
-        discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        addItemOrderDiscountToModel(model);
 
         model.addAttribute("orderDTO", new OrderDTO() );
 
@@ -61,26 +47,14 @@ public class AddItemsController {
     }
 
 
+
     @RequestMapping(params={"addElement"})
     public String addElement(OrderDTO orderDTO, Model model) {
-
         orderService.addItemToList(orderDTO.getItem());
 
         log.debug("addElement: " + orderService.getOrderInstance().getOrderList().toString());
 
-        itemService.addAllItemsToModel(model);
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.addMinimalOrderValueToModel(model,"minimalOrderValue");
-
-        orderService.refreshPrice();
-
-        discountService.refreshDiscounts();
-
-        discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        addItemOrderDiscountToModel(model);
 
         return "order";
     }
@@ -90,19 +64,7 @@ public class AddItemsController {
     public String removeElement(OrderDTO orderDTO, Model model) {
         orderService.removeItemFromList(orderDTO.getIndexToRemove());
 
-        itemService.addAllItemsToModel(model);
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.addMinimalOrderValueToModel(model,"minimalOrderValue");
-
-        orderService.refreshPrice();
-
-        discountService.refreshDiscounts();
-
-        discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        addItemOrderDiscountToModel(model);
 
         return "order";
     }
@@ -115,6 +77,22 @@ public class AddItemsController {
         log.info("Processing order: " + orderService.getOrderInstance());
 
         return "redirect:/objednavka/formular";
+    }
+
+    private void addItemOrderDiscountToModel(Model model) {
+        itemService.addAllItemsToModel(model);
+
+        orderService.addOrderedItemsToModel(model, "orderedItems");
+
+        orderService.addMinimalOrderValueToModel(model, "minimalOrderValue");
+
+        orderService.refreshPrice();
+
+        discountService.refreshDiscounts();
+
+        discountService.addDiscountToModel(model, "discount");
+
+        orderService.addTotalPrice(model, "totalPrice");
     }
 
 }
