@@ -3,6 +3,7 @@ package com.customer.ordermanagementsystem.pojos.item;
 
 import lombok.Data;
 import org.springframework.web.context.annotation.SessionScope;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,8 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "Items")
 @Data
-//@RequiredArgsConstructor
-//@NoArgsConstructor,
+@NoArgsConstructor
 @SessionScope
 public class Item {
 
@@ -44,9 +44,6 @@ public class Item {
         this.type = type;
         this.price = price;
         this.date = date;
-    }
-
-    public Item() {
     }
 
     public List<Item> getItemList() {
