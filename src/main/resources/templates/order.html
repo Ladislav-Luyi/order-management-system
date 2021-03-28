@@ -49,16 +49,13 @@
                         <a class="nav-link" href="#Burgre">Burgre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Z každého rohu trochu">Z každého rohu trochu</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#Cestoviny">Cestoviny</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Gurmánske jedlá">Gurmánske jedlá</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Klasické jedlá">Klasické jedlá</a>
+                        <a class="nav-link" href="#OBALOVANE">Obalované jedlá</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Fit jedlá">Fit jedlá</a>
@@ -77,6 +74,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Omáčky">Omáčky</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#PIVO">Pivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#VINO">Víno</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ALKOHOL">Alkohol</a>
                     </li>
                 </ul>
             </div>
@@ -190,8 +196,8 @@
 
                     </div>
 
-                    <h2 id="Bagety" class="dash_border">Bagety</h2>
-                    <div th:each="var : ${BAGETA}">
+                    <h2 id="ZEMIAK_SPECIAL" class="dash_border">Zemiakové špeciality</h2>
+                    <div th:each="var : ${ZEMIAK_SPECIAL}">
 
                         <p>
                             <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
@@ -220,21 +226,6 @@
 
                     </div>
 
-                    <h2 id="Z každého rohu trochu" class="dash_border">Z každého rohu trochu</h2>
-                    <div th:each="var : ${POMIESANE_JEDLA}">
-
-                        <p>
-                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                            <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
-                            <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                            <span> - </span>
-                            <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                            <br>
-                            <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
-                        </p>
-
-                    </div>
-
                     <h2 id="Cestoviny" class="dash_border">Cestoviny</h2>
                     <div th:each="var : ${CESTOVINA}">
 
@@ -250,7 +241,7 @@
 
                     </div>
 
-                    <h2 id="Gurmánske jedlá" class="dash_border">Gurmánske jedlá</h2>
+                    <h2 id="Gurmánske jedlá" class="dash_border">Jedlá na veľký hlad pre gurmánov</h2>
                     <div th:each="var : ${GURMANSKE}">
 
                         <p>
@@ -265,8 +256,8 @@
 
                     </div>
 
-                    <h2 id="Klasické jedlá" class="dash_border">Klasické jedlá</h2>
-                    <div th:each="var : ${KLASIKA}">
+                    <h2 id="OBALOVANE" class="dash_border">Obalované jedlá</h2>
+                    <div th:each="var : ${OBALOVANE}">
 
                         <p>
                             <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
@@ -370,6 +361,51 @@
 
                     </div>
 
+                    <h2 id="PIVO" class="dash_border">Pivo</h2>
+                    <div th:each="var : ${PIVO}">
+
+                        <p>
+                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                            <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                            <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                            <span> - </span>
+                            <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                            <br>
+                            <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                        </p>
+
+                    </div>
+
+                    <h2 id="VINO" class="dash_border">Víno</h2>
+                    <div th:each="var : ${VINO}">
+
+                        <p>
+                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                            <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                            <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                            <span> - </span>
+                            <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                            <br>
+                            <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                        </p>
+
+                    </div>
+
+                    <h2 id="ALKOHOL" class="dash_border">Alkohol</h2>
+                    <div th:each="var : ${ALKOHOL}">
+
+                        <p>
+                            <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                            <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                            <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                            <span> - </span>
+                            <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                            <br>
+                            <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                        </p>
+
+                    </div>
+
                 </div>
 
 
@@ -419,13 +455,10 @@
                         <a class="nav-link" href="#Šaláty">Šaláty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Bagety">Bagety</a>
+                        <a class="nav-link" href="#ZEMIAK_SPECIAL">Zemiakové špeciality</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Burgre">Burgre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Z každého rohu trochu">Z každého rohu trochu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Cestoviny">Cestoviny</a>
@@ -434,7 +467,7 @@
                         <a class="nav-link" href="#Gurmánske jedlá">Gurmánske jedlá</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Klasické jedlá">Klasické jedlá</a>
+                        <a class="nav-link" href="#OBALOVANE">Obalované jedlá</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Fit jedlá">Fit jedlá</a>
@@ -453,6 +486,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Omáčky">Omáčky</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#PIVO">Pivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#VINO">Víno</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ALKOHOL">Alkohol</a>
                     </li>
                 </ul>
             </div>

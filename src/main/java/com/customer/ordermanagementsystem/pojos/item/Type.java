@@ -3,11 +3,12 @@ package com.customer.ordermanagementsystem.pojos.item;
 
 public enum Type {
 
-    MENU_POLIEVKA("MENU_POLIEVKA"), MENU_JEDLO("MENU_JEDLO"),PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SMALL("PIZZA_SMALL"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
+    MENU_POLIEVKA("MENU_POLIEVKA"), MENU_JEDLO("MENU_JEDLO"),PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
     POLIEVKA("POLIEVKA"),      SALAT("SALAT"),    OMACKA("OMACKA"),   POCHUTINA("POCHUTINA"),
-    BAGETA("BAGETA"), BURGER("BURGER"), POMIESANE_JEDLA("POMIESANE_JEDLA"), CESTOVINA("CESTOVINA"),
-    GURMANSKE("GURMANSKE"), KLASIKA("KLASIKA"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"),
-    PRILOHA("PRILOHA"), NAPOJ("NAPOJ"), DOPLNOK("DOPLNOK");
+    ZEMIAK_SPECIAL("ZEMIAK_SPECIAL"), BURGER("BURGER"), CESTOVINA("CESTOVINA"),
+    GURMANSKE("GURMANSKE"), OBALOVANE("OBALOVANE"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"),
+    PRILOHA("PRILOHA"), NAPOJ("NAPOJ"), DOPLNOK("DOPLNOK"),
+    PIVO("PIVO"), VINO("VINO"), ALKOHOL("ALKOHOL");
 
 
     private String shortName;
@@ -34,9 +35,6 @@ public enum Type {
             case "PIZZA_BIG":
                 return Type.PIZZA_BIG;
 
-            case "PIZZA_SMALL":
-                return Type.PIZZA_SMALL;
-
             case "PIZZA_SPECIAL":
                 return Type.PIZZA_SPECIAL;
 
@@ -52,14 +50,11 @@ public enum Type {
             case "POCHUTINA":
                 return Type.POCHUTINA;
 
-            case "BAGETA":
-                return Type.BAGETA;
+            case "ZEMIAK_SPECIAL":
+                return Type.ZEMIAK_SPECIAL;
 
             case "BURGER":
                 return Type.BURGER;
-
-            case "POMIESANE_JEDLA":
-                return Type.POMIESANE_JEDLA;
 
             case "CESTOVINA":
                 return Type.CESTOVINA;
@@ -67,8 +62,8 @@ public enum Type {
             case "GURMANSKE":
                 return Type.GURMANSKE;
 
-            case "KLASIKA":
-                return Type.KLASIKA;
+            case "OBALOVANE":
+                return Type.OBALOVANE;
 
             case "FIT":
                 return Type.FIT;
@@ -87,6 +82,16 @@ public enum Type {
 
             case "DOPLNOK":
                 return Type.DOPLNOK;
+
+            case "PIVO":
+                return Type.PIVO;
+
+            case "VINO":
+                return Type.VINO;
+
+            case "ALKOHOL":
+                return Type.ALKOHOL;
+
 
             default:
                 throw new IllegalArgumentException("ShortName [" + shortName
