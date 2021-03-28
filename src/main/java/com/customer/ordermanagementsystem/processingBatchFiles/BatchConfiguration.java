@@ -59,16 +59,15 @@ public class BatchConfiguration {
     }
 
     @Bean
-    public Job importUserJob(JobCompletionNotificationListener listener, Step step1) {
+    public Job importUserJob(Step step1) {
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer())
-//                .listener(listener)
                 .flow(step1)
                 .end()
                 .build();
     }
 
-    //
+
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
