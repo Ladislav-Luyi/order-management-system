@@ -27,7 +27,7 @@ public class TerminalServiceImpl implements TerminalService {
 
         File f = getCurrentFileForWriting();
 
-        log.info("Obtaining file: " + f.getAbsolutePath());
+        log.debug("Obtaining file: " + f.getAbsolutePath());
         List<String> listOrdersFromFile = new ArrayList<>();
 
         try(BufferedReader reader = new BufferedReader( new FileReader(f) )){
