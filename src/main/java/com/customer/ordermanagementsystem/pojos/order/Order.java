@@ -20,8 +20,14 @@ import java.util.List;
 @SessionScope
 public class Order{
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private  Long id;
+
+    public Order(){
+       Date date = new Date();
+       long timeMilli = date.getTime();
+       id = timeMilli;
+    }
+
 
     private Date placedAt;
 
