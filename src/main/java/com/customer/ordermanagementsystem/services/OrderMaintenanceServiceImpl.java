@@ -31,9 +31,11 @@ public class OrderMaintenanceServiceImpl implements OrderMaintenanceService {
         List<Order> items = (List<Order>) orderRepository.findAll();
 
         Predicate<Order> isOrderOlderThan7days = o -> deltaDates(o.getPlacedAt(),new Date()) > 7;
+        Predicate<Order> isNotIdWhichSupposedToBeSkipped = o -> ! o.getId().equals(11111l);
 
         items.stream()
                 .filter(isOrderOlderThan7days)
+                .filter(isNotIdWhichSupposedToBeSkipped)
                 .forEach(orderRepository::delete);
     }
 
