@@ -18,14 +18,20 @@
         <div class="page-wrapper">
             <form method="POST">
                 <div class='row'>
-                    <h2>Objednávky momentálne možné iba vyzdvihnúť osobne v podniku Alte Caffe Brigádnická 2 040 11 Košice. SMSskou budete informovaný o predpokladanom čase dokončenia.</h2>
                     <div class="column" th:object="${orderInfo}">
-                            <h2>Prosím zadajte </h2>
+                            <h1>Prosím zadajte </h1>
                             <p>
                                 <span>Meno a priezvisko:</span>
                                 <span><input type="text" th:field="*{name}"></input></span>
                                 <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Zadajte meno a priezvisko prosím</span>
                             </p>
+
+                            <p>
+                                <span>Ulica:</span>
+                                <span><input type="text" th:field="*{street}"></input></span>
+                                <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Zadajte ulicu prosím</span>
+                            </p>
+
 
                             <p>
                                 <span>Telefónne číslo:</span>
@@ -37,6 +43,11 @@
                                 <p style="margin-bottom:0;">Poznámka k objednávke:</p>
                                 <textarea placeholder="Tu zadajte poznámku k objednávke týkajúcu sa jedla, adresy a pod." th:field="*{comment}"></textarea>
                                 <span th:if="${#fields.hasErrors('comment')}" th:telephoneNumber="*{comment}">Komentár môže mať najviac 256 znakov</span>
+                            </p>
+
+                            <p>
+                                <input th:field="*{payWithCardToDeliveryGuy}" type="checkbox" value="true" >
+                                <span>Platba donáškarovi kartou</span>
                             </p>
 
                             <p>

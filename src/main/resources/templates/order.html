@@ -89,12 +89,16 @@
         </nav>
 
         <div class='row'>
-            <h5 style="padding-left:20px;" th:text="${'Minimálna cena objednávky je ' + minimalOrderValue + ' €. '}"></h5>
+            <h2>Objednávky momentálne možné iba vyzdvihnúť osobne v podniku Alte Caffe Brigádnická 2 040 11 Košice. SMSskou budete informovaný o predpokladanom čase dokončenia.</h2>
         </div>
 
         <div class='row'>
-            <h5 style="padding-left:20px;">Objednávky na Ťahanovce, Furču a Jazero nerozvážame.</h5>
+            <h5 style="padding-left:20px;" th:text="${'Minimálna cena objednávky je ' + minimalOrderValue + ' €. '}"></h5>
         </div>
+
+<!--        <div class='row'>-->
+<!--            <h5 style="padding-left:20px;">Objednávky na Ťahanovce, Furču a Jazero nerozvážame.</h5>-->
+<!--        </div>-->
 
         <form method="POST" >
             <div class='row'>
