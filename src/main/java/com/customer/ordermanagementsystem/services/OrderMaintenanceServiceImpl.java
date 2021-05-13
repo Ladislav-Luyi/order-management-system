@@ -34,8 +34,8 @@ public class OrderMaintenanceServiceImpl implements OrderMaintenanceService {
         Predicate<Order> isNotIdWhichSupposedToBeSkipped = o -> ! o.getId().equals(11111l);
 
         items.stream()
-                .filter(isOrderOlderThan7days)
                 .filter(isNotIdWhichSupposedToBeSkipped)
+                .filter(isOrderOlderThan7days)
                 .forEach(orderRepository::delete);
     }
 
