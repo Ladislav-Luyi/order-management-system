@@ -111,6 +111,10 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
         mealAndValue.put(menuEditDTO.getMeal2(), menuEditDTO.getMeal2price());
         mealAndValue.put(menuEditDTO.getMeal3(), menuEditDTO.getMeal3price());
         mealAndValue.put(menuEditDTO.getMeal4(), menuEditDTO.getMeal4price());
+        mealAndValue.put(menuEditDTO.getMeal5(), menuEditDTO.getMeal5price());
+        mealAndValue.put(menuEditDTO.getMeal6(), menuEditDTO.getMeal6price());
+        mealAndValue.put(menuEditDTO.getMeal7(), menuEditDTO.getMeal7price());
+        mealAndValue.put(menuEditDTO.getMeal8(), menuEditDTO.getMeal8price());
 
 
         return mealAndValue;
@@ -120,6 +124,7 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
         HashMap<String, String> soupAndValue = new HashMap<>();
 
         soupAndValue.put(menuEditDTO.getSoup1(),menuEditDTO.getSoup1price());
+        soupAndValue.put(menuEditDTO.getSoup2(),menuEditDTO.getSoup2price());
 
         return soupAndValue;
     }
@@ -139,10 +144,31 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
                 .filter(i -> i.getDate().equals(date))
                 .collect(Collectors.toCollection(ArrayList::new));
 
+
+        if (isAddDefaultNeeded(collect))
+            collect.addAll( DefaultMenuService.getMenuEntries(date) );
+
         log.debug("Loaded items from date " + date + ": "+ collect);
 
         return collect;
     }
+
+    private boolean isAddDefaultNeeded(List<Item> collect) {
+        boolean addDefaultMenu = true;
+
+        if (collect.size() > 0) {
+            addDefaultMenu = false;
+        }
+
+        for(Item i : collect){
+            if (i.getName().contains("Kurací vývar s cestovinou")) {
+                addDefaultMenu = false;
+                break;
+            }
+        }
+        return addDefaultMenu;
+    }
+
 
     @Override
     public void loadMenuEditDTO(MenuEditDTO menuEditDTO, List<Item> items) {
@@ -171,6 +197,26 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
                     menuEditDTO.setMeal4price(item.getPrice().toString());
                 }
 
+                if (countMeal == 4) {
+                    menuEditDTO.setMeal5(item.getName());
+                    menuEditDTO.setMeal5price(item.getPrice().toString());
+                }
+
+                if (countMeal == 5) {
+                    menuEditDTO.setMeal6(item.getName());
+                    menuEditDTO.setMeal6price(item.getPrice().toString());
+                }
+
+                if (countMeal == 6) {
+                    menuEditDTO.setMeal7(item.getName());
+                    menuEditDTO.setMeal7price(item.getPrice().toString());
+                }
+
+                if (countMeal == 7) {
+                    menuEditDTO.setMeal8(item.getName());
+                    menuEditDTO.setMeal8price(item.getPrice().toString());
+                }
+
                 countMeal++;
             }
 
@@ -183,6 +229,11 @@ public class AdjustMenuServiceImpl implements AdjustMenuService {
                 if (countSoup == 0) {
                     menuEditDTO.setSoup1(item.getName());
                     menuEditDTO.setSoup1price(item.getPrice().toString());
+                }
+
+                if (countSoup == 1) {
+                    menuEditDTO.setSoup2(item.getName());
+                    menuEditDTO.setSoup2price(item.getPrice().toString());
                 }
 
                 countSoup++;

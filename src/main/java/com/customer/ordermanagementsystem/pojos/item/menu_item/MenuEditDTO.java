@@ -18,6 +18,9 @@ public class MenuEditDTO {
     private String soup1;
     private String soup1price;
 
+    private String soup2;
+    private String soup2price;
+
     private String meal1;
     private String meal1price;
 
@@ -29,5 +32,17 @@ public class MenuEditDTO {
 
     private String meal4;
     private String meal4price;
+
+    private String meal5;
+    private String meal5price;
+
+    private String meal6;
+    private String meal6price;
+
+    private String meal7;
+    private String meal7price;
+
+    private String meal8;
+    private String meal8price;
 
 }
