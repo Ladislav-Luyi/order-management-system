@@ -47,8 +47,9 @@ public class TerminalServiceImpl implements TerminalService {
 
             outerLoop: for(Order o : orderRepository.findAll()) {
 
-                if (o.getTerminalReplyInfo() != null)
-                    continue;
+                if(! o.getId().equals(11111L) )
+                    if (o.getTerminalReplyInfo() != null)
+                        continue;
 
                 String s = "#" + o.getId().toString() + "*";
 
