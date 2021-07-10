@@ -50,9 +50,9 @@ public class OrderInfoController {
             return "orderInfo";
         }
 
-        log.debug("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
+        log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
 
-        log.debug("Processing orderInfo in orderInfo: " + orderInfo);
+        log.info("Processing orderInfo in orderInfo: " + orderInfo);
 
         orderService.setOrderInfo(orderInfo);
 
