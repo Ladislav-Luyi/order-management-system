@@ -89,17 +89,32 @@
         </nav>
 
         <div class='row'>
-            <h2>Objednávky momentálne možné iba vyzdvihnúť osobne v podniku Alte Caffe Brigádnická 2 040 11 Košice. SMSskou budete informovaný o predpokladanom čase dokončenia.</h2>
-            <h2>10% zľava pri objednaní z našej stránky. Zľava Vám bude vyrátaná pri vyzdvihnutí tovaru, avšak neplatí pri akcii 3 + 1 pizza.</h2>
+            <h5>Objednávky znova doručujeme.</h5>
         </div>
 
         <div class='row'>
-            <h5 style="padding-left:20px;" th:text="${'Minimálna cena objednávky je ' + minimalOrderValue + ' €. '}"></h5>
+            <h5>SMSkou budete informovaný o predpokladanom čase doručenia.</h5>
         </div>
 
-<!--        <div class='row'>-->
-<!--            <h5 style="padding-left:20px;">Objednávky na Ťahanovce, Furču a Jazero nerozvážame.</h5>-->
-<!--        </div>-->
+        <div class='row'>
+            <h5>10% zľava pri objednaní z našej stránky.</h5>
+        </div>
+
+        <div class='row'>
+            <h5>Zľava Vám bude vyrátaná pri vyzdvihnutí/doručení tovaru.</h5>
+        </div>
+
+        <div class='row'>
+            <h5>Zľava sa nevzťahuje na denné menu a na akciu 3 + 1 pizza.</h5>
+        </div>
+
+        <div class='row'>
+            <h5 th:text="${'Minimálna cena objednávky je ' + minimalOrderValue + ' €. '}"></h5>
+        </div>
+
+        <div class='row'>
+            <h5>Objednávky na Ťahanovce, Furču a Jazero nerozvážame.</h5>
+        </div>
 
         <form method="POST" >
             <div class='row'>
