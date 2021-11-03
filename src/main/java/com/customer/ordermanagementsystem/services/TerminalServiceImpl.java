@@ -77,7 +77,7 @@ public class TerminalServiceImpl implements TerminalService {
         s.append("#");
         s.append(o.getId());
         s.append("*");
-        s.append(o.getOrderText());
+        s.append(removeEmojiChars( o.getOrderText() ));
         s.append("*");
         s.append(o.getOrderInfo().getTelephoneNumber());
         s.append("#");
@@ -157,5 +157,13 @@ public class TerminalServiceImpl implements TerminalService {
 
         return false;
 
+    }
+
+    private String removeEmojiChars(String s){
+        String characterFilter = "[^\\p{L}\\p{M}\\p{N}\\p{P}\\p{Z}\\p{Cf}\\p{Cs}\\s]";
+
+        String emojiless = s.replaceAll(characterFilter,"");
+
+        return emojiless;
     }
 }
