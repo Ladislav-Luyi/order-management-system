@@ -46,8 +46,8 @@ public class BatchConfiguration {
     }
 
     @Bean
-    public ItemItemProcessor processor() {
-        return new ItemItemProcessor();
+    public ItemProcessorImpl processor() {
+        return new ItemProcessorImpl();
     }
 
 
