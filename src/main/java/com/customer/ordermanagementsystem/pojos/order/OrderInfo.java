@@ -7,6 +7,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 
 @Data
@@ -40,6 +41,8 @@ public class OrderInfo {
     public String toString() {
         StringBuilder s = new StringBuilder();
         String newLine = "\\r";
+        s.append(newLine);
+        s.append("Čas objednávky: " + new Date().toString());
         s.append(newLine);
         s.append("Daľšie informácie:");
         s.append(newLine);
