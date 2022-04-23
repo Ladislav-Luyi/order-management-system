@@ -14,6 +14,6 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class DateDTO {
     @NotNull
-    @Size(min=10, message = "Na?ítaj dátum")
+    @Size(min=10, message = "NaÄÃ­taj dÃ¡tum")
     private String date;
 }
