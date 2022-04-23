@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.Controllers;
+package com.customer.ordermanagementsystem.controllers;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.item.menu_item.DateDTO;

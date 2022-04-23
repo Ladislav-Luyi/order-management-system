@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.Controllers;
+package com.customer.ordermanagementsystem.controllers;
 
 import com.customer.ordermanagementsystem.pojos.company.CompanyDTO;
 import com.customer.ordermanagementsystem.services.CompanyService;

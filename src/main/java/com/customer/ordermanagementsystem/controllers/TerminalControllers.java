@@ -1,8 +1,5 @@
-package com.customer.ordermanagementsystem.Controllers;
+package com.customer.ordermanagementsystem.controllers;
 
-import com.customer.ordermanagementsystem.pojos.company.Company;
-import com.customer.ordermanagementsystem.pojos.company.CompanyDTO;
-import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
 import com.customer.ordermanagementsystem.pojos.order.TerminalReply;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import com.customer.ordermanagementsystem.services.TerminalService;
@@ -12,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;

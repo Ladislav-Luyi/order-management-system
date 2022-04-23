@@ -1,6 +1,5 @@
-package com.customer.ordermanagementsystem.Controllers;
+package com.customer.ordermanagementsystem.controllers;
 
-import com.customer.ordermanagementsystem.pojos.order.Order;
 import com.customer.ordermanagementsystem.pojos.order.OrderDTO;
 import com.customer.ordermanagementsystem.pojos.item.Type;
 import com.customer.ordermanagementsystem.services.DiscountService;

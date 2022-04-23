@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.Controllers;
+package com.customer.ordermanagementsystem.controllers;
 
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
