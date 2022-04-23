@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.processingBatchFiles;
+package com.customer.ordermanagementsystem.bach_processing;
 
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
