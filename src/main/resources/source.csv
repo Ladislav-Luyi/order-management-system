@@ -1,150 +1,154 @@
-1,POLIEVKA,"Brokolicovo-syrová polievka1,7","0,40l, maslo, múka, vývar, cibuľa, cesnak, bylinky, topený syr, strúhaný syr, smotana na varenie, soľ, korenie, brokolica, voda + 2ks pizza chlieb",2.6
-2,POLIEVKA,"Kurací vývar s cestovinou1,3,7","0,40l, kuracie mäso, koreňová zelenina, voda, cestoviny, korenie, petržlenová vňať",1.8
-3,POLIEVKA,"Cesnaková krémová polievka so syrom1,3,7","0,40l, cesnak, cibuľa, olej, zemiaky, soľ, korenie, syr, voda (zahusťovaná škrobovou múčkou)",1.8
-4,POLIEVKA,Paradajková polievka so syrom7,"0,40l, paradajkový pretlak, paradajka, voda, cukor, soľ, korenie, bazalka, syr Eidam",1.8
-5,SALAT,"Grécky šalát + pizza chlieb + dresing1,7","400g, paradajka, paprika, uhorka, olivy, syr Feta, cibuľa, olivový olej, 3 ks pizza chlieb, tzatziky dresing",5.5
-6,SALAT,"Kurací steak na šaláte + pizza chlieb +dresing1,7","100/150/120/0,30g, kuracie prsia (100g), (listový šalát, uhorka, paradajka, mix 150g), syr feta (30g), 3 ks pizza chlieb, tzatziky dresing",5.9
-7,SALAT,"Alte šalát s proscuttom + pizza chlieb + dresing1,7","400g, mix šalát, paradajka, uhorka, syr Feta, šunka Prosciutto (80g), syr Parmezán, olivový olej, 3 ks pizza chlieb, tzatziky dresing",9.9
-8,SALAT,"Miešaný šalát1,7","150g, miešaná zelenina",1.5
-9,SALAT,"Šalát s lososom + pizza chlieb + dresing1,3","120/150/20/120/0,30g, šalát mix, grilovaný losos (150g), strúhaný syr parmezán, 3ks pizza chlieb, tzatziky dresing",8.9
-10,ZEMIAK_SPECIAL,"Zemiaková pizza z panvici s brokolicou3,7","350g, zemiaky, olivový olej, soľ, cesnak, vajce, smotana (kyslá), brokolica a mozzarela",5.5
-11,ZEMIAK_SPECIAL,Zemiaková pizza z panvici pikante3,"400g, zemiaky, olivový olej, soľ, cesnak, vajce, paradajkový základ, klobása, slanina, čili",6.9
-12,ZEMIAK_SPECIAL,Plnené zemiaky s kyslou kapustou a slaninkou3,400g,5.9
-13,ZEMIAK_SPECIAL,"Spišské bryndzové pirohy s cibuĺou, slaninkou na smotane1,3,7","400g, (Cesto-múka, vajcia, voda, olej, soľ), zemiaky, bryndza, smotana, cibuľa, slanina, soľ",5.9
-14,ZEMIAK_SPECIAL,"Bohatý farmársky tanier (250g sýrové halušky +350g bryndzové pirohy)1,3,7","250/350g, (Cesto-múka, soľ, zemiaky, voda, olej, vajcia), strúhaný syr eidam, bryndza, soľ, slanina, smotana, cibuľa",8.9
-15,ZEMIAK_SPECIAL,"Zemiakové placky + kyslá kapusta + kyslá smotana (kapusta v surovom stave)1,3,7","250/100g, placky-múka, soľ, zemiaky, vajce, korenie, cesnak, olej",5.9
-16,BURGER,"Klasik burger +120g hranolky, 30ml, kečup1,3,7,10","150g / 100% hovädzie mäso, slanina, paradajka, syr Eidam, cibuľa, , žemľa(dresing BBQ a horčica)+ 120g hranolky, 30ml, kečup",5.9
-17,BURGER,"Veggie burger + 120g hranolky, 30ml, kečup1,3","žemľa, 120g zeleninová fašírka, 20g syr eidam, šalát, dresing tzatziky",5.9
-18,BURGER,"Slaninový burger + 120g hranolky, 30ml kečup1,3,10","žemľa, 150g +120g grilovaná slaninka a cibuľa, 1 ks volské oko, 20g syr eidam, BBQ dresing a horčica",5.9
-19,BURGER,"Kurací burger + 120g hranolky, 30ml kečup1,3,7","žemľa, 2x70g grilované kuracie prsia, 20g slanina, 20g cibuľa, šalát, dresing tzatziky, tatárska omáčka",5.9
-20,BURGER,"Alte burger + 120g hranolky, 30ml kečup1,3,10","žemľa, 150g bravčová pečená krkovička, 20g syr eidam, 20g pečená cibuľa, 10g nakladané uhorky, BBQ dresing a horčica",6.9
-21,BURGER,"Mix 6ks poctivé chlebíčky1,3,7","2ks prosciuttový chlebíček (veka, máslo, proscutto, kyslá uhorka), 2ks šunkový chlebíček (veka, máslo, šunka, paradajka, strúhaný syr), 2ks tuniakový chlebíček (veka, tuniak, cibuľa, strúhaný syr)",9.9
-22,CESTOVINA,"Makaróny Aglio e olio1,7","350g, cestoviny makaróny, olivový olej, cesnak, syr Parmezán, soľ",4.9
-23,CESTOVINA,"Makaróny Carbonara1,3,7","400g, cestoviny makaróny, vajce, smotana, strúhaný syr Parmezán, oravská slanina, cesnak, biele víno, soľ, korenie, olivový olej",6.5
-24,CESTOVINA,"Tagliatelle cestoviny so sušenou paradajkou s lososom na grile1,3,4",150150g,8.9
-25,CESTOVINA,"Makaróny so šunkou1,3,7","400g, makaróny, olivový olej cesnak, paprika, paradajka, šunka, pretlak, soľ, korenie, syr eidam a parmezán",7.9
-26,GURMANSKE,"Pečené bravčové rebrá s pečenými zemiakmi a cesnakovým dipom1,7","750g, bravčové rebrá, soľ, sója, med, korenie, zemiaky, cibuľa/dip: cesnak, smotana, ocot, soľ, tzatziky korenie",9.7
-27,GURMANSKE,"Steik z bravčovej panenky obalený v slaninke, zemiaky, kyslá uhorka1,7",250/250/15g,9.7
-28,GURMANSKE,"Rodinná misa + koláčik +fľaša vína1,3","1400g, bravčové rezne (4×120g), kuracia na grile so syrom a šunkou (4×120g), opekané zemiaky (200g), pizza chlieb (250g), šalát mix (75g), tatárska omáčka, kečup, kyslá uhorka, 2x sladký koláčik, fľaša vína (0, 7l)",25
-29,GURMANSKE,"Strapačky s kyslou kapustou a slaninkou +pečená krkovička1,3","250/200g, Dlho pečená bravčová krkovička, cibuľa, cesnak, slanina, kyslá kapusta, (cesto na strapačky-múka, soľ, zemiaky, vajce, voda, soľ), korenie, olej",8.7
-30,GURMANSKE,"Gurmán misa + 1, 5l čapované pivo(3×11' bernard)1,3","350g pečené bravčové rebrá, 350g pečené údené koleno, 250g obalované krídielka, 300g chlieb, horčica, cesnakový dresing (pivo v pet fľaša čapované)",25
-31,OBALOVANE,"Obaĺované rezne z bravčovej panenky+zemiaky+kyslá uhorka1,3","200/150g, bravčová panenka, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka",6.9
-32,OBALOVANE,"Obaĺované rezne z kuracích pŕs, zemiaky, kyslá uhorka1,3","200/150g, kuracie prsia, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka",5.9
-33,OBALOVANE,"Chrumkavé kuracie krídelka + cesnakový dresing1,3","350g, dresing obsahuje smotanu, cesnak, korenie",5.9
-34,OBALOVANE,"Chrumkavé kuracie rezančeky obaľované v kukuričných cereáliách na šaláte+ hranolky +dresing1,3","150/150g, kuracie prsia(vajcia a flakesy na obaľovanie), šalát listový, cesnakový dresing (smotana, cesnak, korenie)",6.9
-35,OBALOVANE,"Obaĺovaný syr +hranolky +tatárska omáčka1,3,7","150/150/30g, syr eidam (múka, vajce, strúhanka-na obalovanie), olej",5.5
-36,OBALOVANE,"Obaĺovaný syr so šunkou +hranolky +tatárska omáčka1,3,7","150/150/30g, eidam syr, (múka, strúhanka, vajce-na obalovanie), šunka, olej",5.9
-37,OBALOVANE,"Mozzarelové tyčinky(8ks) +hranolky +tatárska omáčka1,3,7","150/150/30g, syr mozzarela (múku, strúhanka, vajce-na obalovanie), olej",6.9
-38,OBALOVANE,"Obaĺovaný karfiol +opekané zemiaky +dresing1,3,7","300/150/30g, karfiol, (múka, strúhanka, vajce-na obalovanie), olej, soľ, tzatziky dresing",5.9
-39,OBALOVANE,"Obaĺované cibuľové krúžky +tzatziky dresing1,3,7",200/30g,3.5
-40,FIT,Mix grill s kuracím steikom a volským okom +opekané zemiaky3,"200/100/100g, kuracie prsia, grilovacie korenie, olej, mix zelenina, zemiaky, volské oko",8.9
-41,FIT,"Špíz z bravčovej panenky, ryža, cvíkla",150/150/30g,7.9
-42,FIT,"Kurací špíz na dusenej brokolici, kari ryža",150/60/150g,7.9
-43,FIT,"Labužnícka bezmäsitá misa + 1, 5 minerálka1,3,7","1100g, zemiakovo-zeleninové rösti(250g), obaĺovaný karfiol (200g), grilovaná zelenina (100g), (2×75g)obaľovaný syr, cibuľové krúžky (100g), pizza chlieb (250g), tatárska omáčka (75g)",15.9
-44,RIZOTO,Milánske rizoto7,"300g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, máslo",4.9
-45,RIZOTO,Zeleninové rizoto s brokolicou7,"350g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, zeleninová zmes",5.5
-46,PIZZA_NORMAL,"Pizza Margherita klasik1,7","400g, pomodoro, syr Mozzarella, oregano",4
-47,PIZZA_NORMAL,"Pizza Šunková klasik1,7","500g, pomodoro, syr Mozzarella, šunka, oregano",4.95
-48,PIZZA_NORMAL,"Pizza Šampiňónová klasik1,7","450g, pomodoro, syr Mozzarella, šampiňóny, oregano",4.95
-49,PIZZA_NORMAL,"Pizza Alte klasik1,7","600g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, oregano",5.95
-50,PIZZA_NORMAL,"Pizza Prosciutto klasik1,7","500g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo",5.95
-51,PIZZA_NORMAL,"Pizza Quasimodo klasik1,7","630g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, oregano",5.95
-52,PIZZA_NORMAL,"Pizza Sedliacka klasik1,3,7","600g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, oregano",5.95
-53,PIZZA_NORMAL,"Pizza Diabolská klasik1,3,7","660g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, oregano",5.95
-54,PIZZA_NORMAL,"Pizza Capri klasik1,7","550g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, oregano",5.95
-55,PIZZA_NORMAL,"Pizza Salámová1,7","500g, pomodoro, syr Mozzarella, saláma, oregano",4.95
-56,PIZZA_NORMAL,"Pizza Quattro klasik1,7","600g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, oregano",4.95
-57,PIZZA_NORMAL,"Pizza Qattro so šunkou klasik1,7","700g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, oregano",5.95
-58,PIZZA_NORMAL,"Pizza Calzone klasik(kapsa)1,7","550g, kapsa, pomodoro, šunka, saláma, kukurica, syr",5.95
-59,PIZZA_NORMAL,"Pizza Enzo klasik1,3,7","600g, pomodoro, syr Mozzarella, syr Niva, plesnivec-Encián, bambino, vajce, oregano",6.47
-60,PIZZA_NORMAL,"Pizza Hawai s kuracím mäsom klasik1,7","630g, pomodoro, syr Mozzarella, kuracie mäso, ananás, oregano",6.47
-61,PIZZA_NORMAL,"Pizza Hawai so šunkou1,7","600g, pomodoro, syr Mozzarella, šunka, ananás, oregano",5.95
-62,PIZZA_NORMAL,"Pizza Maestro klasik1,7","560g, smotana, syr Mozzarella, paradajka, olivy, bazalka, oregano",4.95
-63,PIZZA_NORMAL,"Pizza Roma klasik1,3,7","680g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, oregano",6.47
-64,PIZZA_NORMAL,"Pizza Max pikant klasik1,3,7","720g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky",5.95
-65,PIZZA_NORMAL,"Pizza Tunis klasik1,7","600g, pomodoro, syr Mozzarella, chilli, kuracie mäso, kukurica, oregano",6.47
-66,PIZZA_NORMAL,"Pizza Vegetariana klasik1,7","700g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, Fetta, oregano",5.95
-67,PIZZA_NORMAL,"Pizza Bambino klasik1,7","600g, pomodoro, syr Mozzarella, šunka, kukurica, oregano",4.95
-68,PIZZA_NORMAL,"Pizza Tuniaková klasik1,4,7","600g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, oregano",5.95
-69,PIZZA_NORMAL,"Pizza Liptovská klasik1,7","580g, smotana, syr Mozzarella, slanina, bryndza, cibuľa",5.95
-70,PIZZA_BIG,"Pizza Margherita XXL1,7","800g, pomodoro, syr Mozzarella, oregano",7
-71,PIZZA_BIG,"Pizza Šunková XXL1,7","1000g, pomodoro, syr Mozzarella, šunka, oregano",8.9
-72,PIZZA_BIG,"Pizza Šampiňónová XXL1,7","1000g, pomodoro, syr Mozzarella, šampiňóny, oregano",8.9
-73,PIZZA_BIG,"Pizza Alte XXL1,7","1150g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, oregano",9.9
-74,PIZZA_BIG,"Pizza Prosciutto veľká1,7","1000g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo",11
-75,PIZZA_BIG,"Pizza Quasimodo veľká1,7","1200g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, oregano",11
-76,PIZZA_BIG,"Pizza Sedliacka veľká1,3,7","1200g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, oregano",11
-77,PIZZA_BIG,"Pizza Diabolská veľká1,3,7","1200g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, oregano",11
-78,PIZZA_BIG,"Pizza Capri veľká1,7","1200g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, oregano",9.9
-79,PIZZA_BIG,"Pizza Salámová veľká1,7","1000g, pomodoro, syr Mozzarella, saláma, oregano",8.9
-80,PIZZA_BIG,"Pizza Quattro veľká1,7","1000g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, oregano",8.9
-81,PIZZA_BIG,"Pizza Qattro so šunkou veľká1,7","1100g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, oregano",9.9
-82,PIZZA_BIG,"Pizza Calzone1,7","1100g, kapsa, pomodoro, šunka, saláma, kukurica, syr",11
-83,PIZZA_BIG,"Pizza Hawai s kuracím mäsom veľká1,7","1100g, pomodoro, syr Mozzarella, kuracie mäso, ananás, oregano",11
-84,PIZZA_BIG,"Pizza Hawai so šunkou veľká1,7","1100g, pomodoro, syr Mozzarella, šunka, ananás, oregano",9.9
-85,PIZZA_BIG,"Pizza Maestro veľká1,7","1000g, smotana, syr Mozzarella, paradajka, olivy, bazalka, oregano",9.9
-86,PIZZA_BIG,"Pizza Roma veľká1,3,7","1200g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, oregano",11
-87,PIZZA_BIG,"Pizza Max pokant veľká1,3,7","1100g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky",9.9
-88,PIZZA_BIG,"Pizza Tunis veľká1,7","1200g, pomodoro, cheese Mozzarella, chilli, kuracie mäso, kukurica, oregano",11
-89,PIZZA_BIG,"Pizza Vegetariana veľká1,7","1200g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, syr Fetta, oregano",9.9
-90,PIZZA_BIG,"Pizza Bambino veľká1,7","1100g, pomodoro, syr Mozzarella, šunka, kukurica, oregano",8.9
-91,PIZZA_BIG,"Pizza Tuniaková veľká1,4,7","1100g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, oregano",9.9
-92,PIZZA_BIG,"Pizza Liptovská veľká1,7","1150g, smotana, syr Mozzarella, slanina, bryndza, cibuľa",9.9
-93,PIZZA_SPECIAL,"Pizza roličky 8ks1,7","380g, šunka, syr Mozzarella, cesnak s olivovým olejom",5.95
-94,PIZZA_SPECIAL,"Pizza chlieb s dressingom1,7","250g, pizza chlieb, dressing podľa ponuky",3.5
-95,SLADKOST,"Vyprážané pirohy so slivkovým lekvárom1,3,7","330g, 8ks, kysnuté cesto, slivkový lekvár, práškový cukor, škorica",4.9
-96,SLADKOST,"Marlenka (medová torta)1,3,7","80g, kysnuté cesto, lesná zmes, práškový cukor, vajce, sušienky",1.9
-97,SLADKOST,Jogurtový pohár s lesným ovocím a s müsli7,"450g, smotanový jogurt, zmes ovocia, javorový sirup, müsli",4
-98,SLADKOST,Horúca čokoláda s lesným ovocím7,450g,3.9
-99,PRILOHA,Hranolky,200g,1.5
-100,PRILOHA,Ryža,200g,1.5
-101,PRILOHA,Steakové hranolky7,200g,2
-102,PRILOHA,"Steakové hranolky so slaninou a syrom7,10","350g, slanina, maslo, cibuľa, cesnak, syr Eidam, syr Parmezán, smotana, soľ, steakové hranolky",5.9
-103,DOPLNOK,chilli,5g,0.66
-104,DOPLNOK,feferóny,5g,0.66
-105,DOPLNOK,olivy,10g,0.66
-106,DOPLNOK,cibuľa,20g,0.66
-107,DOPLNOK,krevety,5g,0.66
-108,DOPLNOK,mozzarella,30g,0.99
-109,DOPLNOK,niva7,30g,0.99
-110,DOPLNOK,ementál7,30g,0.99
-111,DOPLNOK,fetta syr7,30g,0.66
-112,DOPLNOK,tuniak,30g,1.5
-113,DOPLNOK,brokolica,20g,0.66
-114,DOPLNOK,ananás,30g,0.66
-115,DOPLNOK,kukurica,20g,0.66
-116,DOPLNOK,šampiňóny,30g,0.66
-117,DOPLNOK,šunka,30g,1
-118,DOPLNOK,prosciutto crudo,30g,2
-119,DOPLNOK,slanina,30g,1
-120,DOPLNOK,klobása,30g,1
-121,DOPLNOK,saláma,30g,1
-122,DOPLNOK,vajce3,1ks.,0.66
-123,DOPLNOK,smotana7,60ml,0.66
-124,DOPLNOK,paprika,20g,0.66
-125,DOPLNOK,paradajka,20g,0.66
-126,DOPLNOK,kuracie mäso,50g,1.5
-127,DOPLNOK,"chlieb1,3",1ks.,0.15
-128,POCHUTINA,"Tyčinky7,10",45g,1
-129,POCHUTINA,"Arašidy7,10",80g,1
-130,POCHUTINA,"Chrumky7,10",60g,1
-131,POCHUTINA,"Horalka7,10",40g,1
-132,OMACKA,Tzatziky omáčka7,33ml,1
-133,OMACKA,Cesnakový dressing7,33ml,0.99
-134,OMACKA,"Tatárska omáčka3,7",33ml,0.99
-135,OMACKA,Kečup1,33ml,0.99
-136,OMACKA,Pikantný dressing1,33ml,0.99
-137,OMACKA,Horčica10,33ml,0.99
-138,OMACKA,Chrenový dressing7,33ml,0.99
-139,OMACKA,Barbecue,33ml,1
-140,OMACKA,Jogurt7,33ml,0.7
-141,PIVO,"Bernard 11°/1, 5 l","1,5l",4.7
-142,PIVO,"Prazdroj 12°/1, 5 l","1,5l, čapované pivo",6.2
-143,VINO,"Červené víno 0, 75l","0,75l, fľaša",8
-144,VINO,"Biele víno 0, 75l","0,75l, fľaša",8
-145,VINO,"Frankovka červená 1, 5l","1,5l, sudové víno (pet fľaša) cena komplet",6.5
-146,VINO,"Biele víno sudové 1, 5l","1,5l, čapované víno(pet fľaša) cena komplet",6.5
-147,VINO,"Ríbezľové víno 1, 5","1,5l, sudové sladké(pet fľaša), cena komplet",6.5
-148,ALKOHOL,Borovička,"0,5l",6
-149,ALKOHOL,Vodka,"0,5l",6
-150,ALKOHOL,Rum,"0,5l",6
+1,POLIEVKA,Menu polievka (ponuka do 14.00h.) ," 0,40l ",1.4
+2,POLIEVKA,Brokolicová krémová s nivou7," 0,40l, kurací vývar, cibuľa, bylinky, zemiaky, soľ, korenie, brokolica, niva",2
+3,POLIEVKA,"Kurací vývar s cestovinou1,3,7  "," 0,40l, kuracie mäso, koreňová zelenina, voda, cestoviny, korenie, petržlenová vňať",2
+4,POLIEVKA,Cesnaková krémová ," 0,40l, cesnak, cibuľa, olej, zemiaky, soľ, korenie, syr, vývar ",2
+5,POLIEVKA,Paradajková krémová ," 0,40l paradajkový pretlak, paradajka, voda, cukor, soľ, korenie, bazalka",2
+6,POLIEVKA,Hubová krémová ," 0,40l šampiňóny, cibuľa, vývar, soľ, korenie, zemiaky ",2
+7,POLIEVKA,Krémová z červenej šošovice ," 0,40l červená šošovica, cesnak, cibuľa, korenie, zemiaky, vývar ",2
+8,POLIEVKA,Hrášková krémová ," 0,40l vývar, hrášok, cibuľa, zemiaky, polievkové korenie",2
+9,POLIEVKA,Pizza chlieb k polievke1 , 125g pizzové cesto s cesnakom,1
+10,SALAT,"Grécky šalát + pizza chlieb + dresing1,7 "," 400g, paradajka, paprika, uhorka, olivy, syr Feta, cibuľa,, olivový olej, 3 ks pizza chlieb, tzatziky dresing",5.5
+11,SALAT,"Kurací steak na šaláte + pizza chlieb +dresing1,7 "," 450g, kuracie prsia , (listový šalát, uhorka, paradajka ), syr feta , pizza chlieb, tzatziky dresing",6.9
+12,SALAT,"Alte šalát s prosciuttom + pizza chlieb + dresing1,7 "," 400g, mix šalát, paradajka, uhorka, syr Feta, šunka Prosciutto , syr Parmezán, olivový olej, 3 ks pizza chlieb, tzatziky dresing",8.9
+13,SALAT,"Miešaný šalát1,7  "," 150g, miešaná zelenina",1.5
+14,SALAT,"Šalát s lososom + pizza chlieb + dresing1,3 "," 400g šalát mix, grilovaný losos, strúhaný syr parmezán, 3ks pizza chlieb, tzatziky dresing",8.9
+15,SALAT,Šalát Havaj+ pizza chlieb ," 400g šalát mix, ananás, strúhaná mrkva, syr feta, 3ks pizza chlieb ",5.5
+16,SALAT,Uhorkový šalát ," 150g uhorky, cibuľa, octová zálievka (vhodný k hlavnému jedlu)",1.5
+17,ZEMIAK_SPECIAL,"Zemiakové rösti s brokolicou a kukuricou3,7 "," 350g, zemiaky, olivový olej, soľ, cesnak, vajce, smotana (kyslá), kukurica, brokolica a syr eidam (zapekané na panvici)",5.5
+18,ZEMIAK_SPECIAL,Zemiakové rösti pikante3 ," 400g, zemiaky, olivový olej, soľ, cesnak, vajce, cibuľa, paradajkový základ, klobása, slanina, čili, syr eidam (zapekané na panvici)",6.9
+19,ZEMIAK_SPECIAL,"Spišské bryndzové pirôžky s cibuľou, slaninkou na smotane1,3,7 "," 400g, (Cesto",6.9
+20,ZEMIAK_SPECIAL,"Halušky s bryndzou 1,3,7 400g ", (Cesto,6.9
+21,ZEMIAK_SPECIAL,"Pirôžky s lekvárom na masle s Grankom1,3,7 ", 350g ( Cesto ,5.9
+22,BAGETA,"Bageta s trhaným bravčovým mäsom +120g hranolky, 30ml, kečup1,3,7,10 "," 50g bageta + 150g / bravčové mäso, slanina, syr Eidam, cibuľa, kyslá uhorka , dresing BBQ a horčica, šalát",6.9
+23,BAGETA,"Bageta s hovädzím mäsom + 120g hranolky, 30ml, kečup1,3  "," 50g bageta + 150g / 100% hovädzie mäso, 20g syr eidam, cibuľa, kyslá uhorka, šalát, dresing BBQ a horčica",8.9
+24,BAGETA,"Slaninová bageta + 120g hranolky, 30ml kečup1,3,10 "," 50g bageta + 120g grilovaná slaninka a cibuľa, 1 ks volské oko, 20g syr eidam, šalát, dresing BBQ a horčica",6.9
+25,BAGETA,"Bageta s kuracím strip sami + 120g hranolky, 30ml kečup1,3,10 "," 50g bageta + 120g/ kuracie prsia, 20g syr eidam, šalát, dresing  ",6.9
+26,CESTOVINA,"Makaróny Aglio e olio1,7 "," 350g, cestoviny makaróny, olivový olej, cesnak, syr Parmezán, soľ",5.9
+27,CESTOVINA,"Makaróny Carbonara1,3,7  "," 400g, cestoviny makaróny, vajce, smotana, strúhaný syr Parmezán, oravská slanina, cesnak, biele víno, soľ, korenie, olivový olej",6.9
+28,CESTOVINA,"Tagliatelle cestoviny so sušenou paradajkou s lososom na grile1,3,4 ", 150/150g,8.9
+29,CESTOVINA,"Tagliatelle cestoviny s hovädzou sviečkovicou 1,3,7 "," 400g, Tagliatelle, 100 % hovädzia sviečková, olivový olej, paradajková salaš, soľ, korenie , smotana ",9.9
+30,GURMANSKE,"Pečené bravčové rebrá s pečenými zemiakmi a dipom1,7 "," 750g, bravčové rebrá, soľ, sója, med, korenie, zemiaky, cibuľa/dip: cesnak, smotana, ocot, soľ, tzatziky korenie",9.7
+31,GURMANSKE,Mega pekelný tanier s fazuľou a klobásou ," 500g/ bravčové mäso, fazuľa, klobása, zemiaky, pretlak, korenia, cibuľa, cesnak",9.7
+32,GURMANSKE,"Rodinná misa + koláčik +fľaša vína1,3 "," 1400g/ bravčové rezne (8×60 g), kuracie prsia na grile so syrom a šunkou (4×120g), opekané zemiaky (200g), pizza chlieb (250g), šalát , tatárska omáčka, kečup, kyslá uhorka, 2x sladký koláčik, fľaša vína (0, 7l)",29
+33,GURMANSKE,"Strapačky s kyslou kapustou, slaninkou a údeným kolenom1,3 "," 500g, pečené údené koleno, cibuľa, cesnak, slanina, kyslá kapusta, (cesto na strapačky",9.7
+34,GURMANSKE,"Misa plná burgrov +hranolky+ 2 ks energetický nápoj1,3,7  "," 8 x 40g burger, 8 x 100g hovädzie mäso, šalát, syr eidam, cibuľa, slanina, dresing BBQ a horčica, 300g hranolky, kečup",29
+35,GURMANSKE,"Misa XXL/ 3000g/+0,75fľ. Víno "," Pečené rebrá, pečené koleno, obaľované rezne z bravčovej panenky , kuracie špízy plnené syrom a slaninkou, kyslé uhorky, feferóny, tzatziky dresing, zemiaky ",50
+36,OBALOVANE,"Obaľované rezne z bravčovej panenky + zemiaky + kyslá uhorka1,3 "," 350g, bravčová panenka, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka",7.9
+37,OBALOVANE,"Obaľované rezne z kuracích pŕs, zemiaky, kyslá uhorka1,3 "," 200/150g, kuracie prsia, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka",6.9
+38,OBALOVANE,"Chrumkavé kuracie krídelka + hranolky, cesnakový dresing 1,3  ", 300g + 100g ,7.9
+39,OBALOVANE,"Chrumkavé kuracie rezančeky obaľované v kukuričných cereáliách na šaláte+ hranolky +dresing1,3 "," 150/150g, kuracie prsia(vajcia a flakesy na obaľovanie), šalát listový, cesnakový dresing ",6.9
+40,OBALOVANE,"Obaľovaný syr +hranolky +tatárska omáčka1,3,7 "," 150/150/30g, syr eidam (múka, vajce, strúhanka na obaľovanie), olej",5.9
+41,OBALOVANE,"Obaľovaný syr so šunkou +hranolky +tatárska omáčka1,3,7  ","150/150/30g, eidam syr, (múka, strúhanka, vajce na obaľovanie), šunka, olej",6.4
+42,OBALOVANE,"Mozzarelové tyčinky(6 ks) ,+hranolky +tatárska omáčka1,3,7  "," 150/150/30g, syr mozzarelou (múku, strúhanka, vajce na obaľovanie), olej",6.9
+43,OBALOVANE,"Obaľovaný karfiol +opekané zemiaky + tatárska omáčka 1,3,7  "," 300/150/30g, karfiol, (múka, strúhanka, vajce",6.4
+44,OBALOVANE,"Obaľované cibuľové krúžky + tzatziky dresing1,3,7 ", 200/30g,3.5
+45,FIT,Kurací wrap3 ," 200g wrap, mix šalát, kukurica, kuracie mäso, dresing",3.9
+46,FIT,Wrap s vaječnou omeletu a syrom3 ," 200g wrap, vajcia, smotana, syr eidam",4.5
+47,FIT,Grilovaný kurací steak s volským okom +opekané zemiaky3 ," 300g kuracie prsia, grilovacie korenie, olej, zemiaky, volské oko",8.9
+48,FIT,Bravčová panenka na peprovej omáčke + kuskus s cviklou 300g ,,8.9
+49,FIT,Kurací špíz na dusenej zelenine s brokolicou 250g/ ,,7.9
+50,RIZOTO,Milánske rizoto7 ," 300g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, maslo",5.9
+51,PIZZA_NORMAL,"Pizza Margherita klasik1,7 "," 400g, pomodoro, syr Mozzarella, cesnakové okraje",4.5
+52,PIZZA_NORMAL,"Pizza Šunková klasik1,7 ","  500g, pomodoro, syr Mozzarella, šunka, cesnakové okraje",5.45
+53,PIZZA_NORMAL,"Pizza Šampiňónová klasik1,7  "," 450g, pomodoro, syr Mozzarella, šampiňóny, cesnakové okraje",4.5
+54,PIZZA_NORMAL,"Pizza Alte klasik1,7  "," 600g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, cesnakové okraje",6.45
+55,PIZZA_NORMAL,"Pizza Prosciutto klasik1,7 "," 500g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo, cesnakové okraje",6.95
+56,PIZZA_NORMAL,"Pizza Quasimodo klasik1,7  "," 630g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, cesnakové okraje",6.95
+57,PIZZA_NORMAL,"Pizza Sedliacka klasik1,3,7  "," 600g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, cesnakové okraje",6.95
+58,PIZZA_NORMAL,"Pizza Diabolská klasik1,3,7 "," 660g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, cesnakové okraje",6.95
+59,PIZZA_NORMAL,"Pizza Capri klasik1,7 "," 550g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, cesnakové okraje",6.45
+60,PIZZA_NORMAL,"Pizza Salámová1,7 "," 500g, pomodoro, syr Mozzarella, saláma, cesnakové okraje",5.95
+61,PIZZA_NORMAL,"Pizza Quattro klasik1,7 "," 600g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, cesnakové okraje",5.95
+62,PIZZA_NORMAL,"Pizza Qattro so šunkou klasik1,7 "," 700g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, cesnakové okraje",6.95
+63,PIZZA_NORMAL,"Pizza Calzone klasik(kapsa)1,7  "," 550g, kapsa, pomodoro, šunka, saláma, kukurica, syr",6.45
+64,PIZZA_NORMAL,"Pizza Hawai s kuracím mäsom klasik1,7 "," 630g, pomodoro, syr Mozzarella, kuracie mäso, ananás, cesnakové okraje",6.95
+65,PIZZA_NORMAL,"Pizza Hawai so šunkou1,7 "," 600g, pomodoro, syr Mozzarella, šunka, ananás, cesnakové okraje",6.45
+66,PIZZA_NORMAL,"Pizza Maestro klasik1,7 "," 560g, smotana, syr Mozzarella, paradajka, olivy, bazalka, cesnakové okraje",5.95
+67,PIZZA_NORMAL,"Pizza Roma klasik1,3,7 "," 680g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, cesnakové okraje",6.95
+68,PIZZA_NORMAL,"Pizza Max pikant klasik1,3,7 "," 720g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky, cesnakové okraje",5.45
+69,PIZZA_NORMAL,"Pizza Tunis klasik1,7 "," 600g, pomodoro, syr Mozzarella, chilli, kuracie mäso, kukurica, cesnakové okraje",6.95
+70,PIZZA_NORMAL,"Pizza Vegetariana klasik1,7"," 700g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, Fetta, cesnakové okraje",6.95
+71,PIZZA_NORMAL,"Pizza Bambino klasik1,7 "," 600g, pomodoro, syr Mozzarella, šunka, kukurica, cesnakové okraje",5.95
+72,PIZZA_NORMAL,"Pizza Bambino detská/priemer 28 / 1,7  ",,4.5
+73,PIZZA_NORMAL,"Pizza Tuniaková klasik1,4,7 "," 600g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, cesnakové okraje",6.95
+74,PIZZA_NORMAL,"Pizza Liptovská klasik1,7 "," 580g, smotana, syr Mozzarella, slanina, bryndza, cibuľa, cesnakové okraje",6.95
+75,PIZZA_BIG,"Pizza Margherita XXL1,7 "," 800g, pomodoro, syr Mozzarella, cesnakové okraje",8
+76,PIZZA_BIG,"Pizza Šunková XXL1,7 "," 1000g, pomodoro, syr Mozzarella, šunka, cesnakové okraje",9.9
+77,PIZZA_BIG,"Pizza Šampiňónová XXL1,7 "," 1000g, pomodoro, syr Mozzarella, šampiňóny, oregano",8.9
+78,PIZZA_BIG,"Pizza Alte XXL 1,7  "," 1150g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, cesnakové okraje",11
+79,PIZZA_BIG,"Pizza Prosciutto XXL 1,7 "," 1000g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo, cesnakové okraje",12
+80,PIZZA_BIG,"Pizza Quasimodo XXL 1,7 "," 1200g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, cesnakové okraje",11
+81,PIZZA_BIG,"Pizza Sedliacka XXL 1,3,7 "," 1200g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, cesnakové okraje",12
+82,PIZZA_BIG,"Pizza Diabolská XXL 1,3,7 "," 1200g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, saláma, klobása, vajce, cesnakové okraje",11
+83,PIZZA_BIG,"Pizza Capri XXL 1,7  "," 1200g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, cesnakové okraje",11
+84,PIZZA_BIG,"Pizza Salámová XXL 1,7 "," 1000g, pomodoro, syr Mozzarella, saláma, cesnakové okraje",9.9
+85,PIZZA_BIG,"Pizza Quattro XXL 1,7 "," 1000g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, cesnakové okraje",9.9
+86,PIZZA_BIG,"Pizza Qattro so šunkou XXL 1,7  "," 1100g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, cesnakové okraje",11
+87,PIZZA_BIG,"Pizza Hawai s kuracím mäsom XXL 1,7 "," 1100g, pomodoro, syr Mozzarella, kuracie mäso, ananás, cesnakové okraje",12
+88,PIZZA_BIG,"Pizza Hawai so šunkou XXL 1,7  "," 1100g, pomodoro, syr Mozzarella, šunka, ananás, cesnakové okraje",11
+89,PIZZA_BIG,"Pizza Maestro XXL 1,7 "," 1000g, smotana, syr Mozzarella, paradajka, olivy, bazalka, cesnakové okraje",9.9
+90,PIZZA_BIG,"Pizza Roma XXL 1,3,7 "," 1200g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, zelené olivy, cesnakové okraje",12
+91,PIZZA_BIG,"Pizza Max pikant XXL 1,3,7  "," 1100g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky, cesnakové okraje",11
+92,PIZZA_BIG,"Pizza Tunis XXL 1,7 "," 1200g, pomodoro, syr Mozzarella, chilli, kuracie mäso, kukurica, cesnakové okraje",12
+93,PIZZA_BIG,"Pizza Vegetariana XXL 1,7  "," 1200g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, syr Fetta, cesnakové okraje",12
+94,PIZZA_BIG,"Pizza Bambino XXL 1,7  "," 1100g, pomodoro, syr Mozzarella, šunka, kukurica, cesnakové okraje",11
+95,PIZZA_BIG,"Pizza Tuniaková XXL 1,4,7  "," 1100g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, cesnakové okraje",12
+96,PIZZA_BIG,"Pizza Liptovská XXL 1,7  "," 1150g, smotana, syr Mozzarella, slanina, bryndza, cibuľa, cesnakové okraje",12
+97,PIZZA_SPECIAL,"Pizza rohličky 8ks1,7  "," 380g/ šunka, syr Mozzarella, cesnak s olivovým olejom",6.5
+98,PIZZA_SPECIAL,"Pizza chlieb s dressingom1,7  ",250g,3.9
+99,PIZZA_SPECIAL," Pizza tyčinky s paradajkovou salsou1,7 ",250g,3.9
+100,SLADKOST,"Vyprážané pirohy so slivkovým lekvárom1,3,7 "," 330g , Kysnuté cesto, slivkový lekvár, práškový cukor, škorica, olej (šiškové cesto )",5.9
+101,SLADKOST,"Marlenka (medová torta)1,3,7  ",,2.2
+102,SLADKOST,"Jogurtový pohár s lesným ovocím a s müsli 1,7  "," 450g, smotanový jogurt, zmes ovocia, javorový sirup, müsli",4
+103,SLADKOST,"Horúca čokoláda s lesným ovocím a smotanou 3,7 ", 450g (domáca výroba ),4
+104,SLADKOST,Horúca čokoláda , 200g,2.5
+105,PRILOHA,Hranolky , 200g,1.7
+106,PRILOHA,Ryža , 200g,1.7
+107,PRILOHA,Steakové hranolky7 , 200g,2.5
+108,PRILOHA,"Steakové hranolky so slaninou a syrom7,10 "," 350g, slanina, olej, cibuľa, syr Eidam, syr Parmezán, soľ, steakové hranolky, cesnakový dresing",5.9
+109,DOPLNOK,chilli , 5g,0.5
+110,DOPLNOK,feferóny , 5g,0.8
+111,DOPLNOK,olivy , 10g,0.8
+112,DOPLNOK,cibuľa , 20g,0.8
+113,DOPLNOK,mozzarella  , 30g,1
+114,DOPLNOK,niva7  , 30g,1
+115,DOPLNOK,ementál7  , 30g,1
+116,DOPLNOK,fetta syr7  , 30g,1
+117,DOPLNOK,tuniak , 30g,1.5
+118,DOPLNOK,brokolica , 20g,0.8
+119,DOPLNOK,ananás , 30g,0.8
+120,DOPLNOK,kukurica , 20g,0.8
+121,DOPLNOK,šampiňóny , 30g,0.8
+122,DOPLNOK,šunka , 30g,1.5
+123,DOPLNOK,prosciutto , 30g,2
+124,DOPLNOK,slanina , 30g,1.5
+125,DOPLNOK,klobása , 30g,1.5
+126,DOPLNOK,saláma , 30g,1.5
+127,DOPLNOK,vajce3  , 1ks.,1
+128,DOPLNOK,smotana7 , 60ml,0.8
+129,DOPLNOK,paprika , 20g,0.8
+130,DOPLNOK,paradajka , 20g,0.8
+131,DOPLNOK,kuracie mäso , 50g,1.5
+132,DOPLNOK,"chlieb1,3 ", 1ks.,0.15
+133,POCHUTINA,"Tyčinky7,10 ", 45g,1.5
+134,POCHUTINA,"Arašidy7,10 ", 80g,1.7
+135,POCHUTINA,"Chrumky7,10 ", 60g,1.5
+136,POCHUTINA,"Horalka7,10 ", 40g,1
+137,OMACKA,Tzatziky omáčka7 , 30ml,1
+138,OMACKA,Cesnakový dressing7  , 30ml,1
+139,OMACKA,"Tatárska omáčka3,7  ", 30ml,1
+140,OMACKA,Kečup1  , 30ml,1
+141,OMACKA,Pikantný dressing1  , 30ml,1
+142,OMACKA,Horčica10  , 30ml,1
+143,OMACKA,Barbecue , 30ml,1
+144,OMACKA,Paradajková salsa  , 30ml,1.5
+145,OMACKA,Jogurt7  , 50ml,1
+146,PIVO,"Bernard 11°/1, 5 l "," 1,5l (pet fľaša)",4.9
+147,PIVO,"Prazdroj 12°/1, 5 l "," 1,5l, čapované pivo(pet fľaša)",6.9
+148,VINO,"Červené víno 0, 75l "," 0,75l, fľaša",8
+149,VINO,"Biele víno 0, 75l "," 0,75l, fľaša",8
+150,VINO,"Frankovka červená 1, 5l "," 1,5l, sudové víno (pet fľaša) cena komplet",6.5
+151,VINO,"Biele víno sudové 1, 5l "," 1,5l, čapované víno(pet fľaša) cena komplet",6.5
+152,ALKOHOL,Borovička ," 0,5l",6
+153,ALKOHOL,Vodka ," 0,5l",6
+154,ALKOHOL,Rum ," 0,5l",6
