@@ -39,7 +39,7 @@ public class BatchConfiguration {
                 .resource(new ClassPathResource("source.csv"))
                 .delimited()
                 .names(new String[]{"id", "type", "name", "additionalInfo", "price"})
-                .fieldSetMapper(new BeanWrapperFieldSetMapper<Item>() {{
+                .fieldSetMapper(new BeanWrapperFieldSetMapper<>() {{
                     setTargetType(Item.class);
                 }})
                 .build();
