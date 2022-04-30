@@ -35,6 +35,7 @@ public class AddItemsController {
     @RequestMapping()
     public String showOrderForm(Model model){
         if ( ! companyService.isStoreOpen() ) {
+            itemService.addAllItemsToModel(model);
             companyService.addItemToModel(model,"closedMessage");
             return "closed";
         }
