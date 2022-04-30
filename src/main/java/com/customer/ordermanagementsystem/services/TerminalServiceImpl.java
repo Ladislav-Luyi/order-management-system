@@ -88,12 +88,18 @@ public class TerminalServiceImpl implements TerminalService {
 
     @Override
     public void updateOrder(TerminalReply terminalReply) {
-        Optional<Order> order = orderRepository.findById(
-                Long.valueOf(terminalReply.getOrderId()).longValue());
+        try {
+            Long id = Long.valueOf(terminalReply.getOrderId());
 
-        order.ifPresent( o -> { o.setTerminalReplyInfo(terminalReply);
-            orderRepository.save(o);});
+            Optional<Order> order = orderRepository.findById(id);
 
+            order.ifPresent(o -> {
+                o.setTerminalReplyInfo(terminalReply);
+                orderRepository.save(o);
+            });
+        } catch (Exception e){
+            log.error(e.toString() + " terminalReply is: " + terminalReply.toString());
+        }
     }
 
 
