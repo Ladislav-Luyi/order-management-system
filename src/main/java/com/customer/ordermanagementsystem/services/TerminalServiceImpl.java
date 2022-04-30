@@ -35,7 +35,7 @@ public class TerminalServiceImpl implements TerminalService {
             while(reader.ready())
                 listOrdersFromFile.add(reader.readLine());
 
-            log.debug("Orders from file " + listOrdersFromFile.toString());
+            log.info("Orders from file " + listOrdersFromFile.toString());
 
         }catch (IOException e) {
             log.error("There is error during reading  the file: " + e.getMessage());
