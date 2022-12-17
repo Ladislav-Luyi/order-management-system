@@ -7,5 +7,4 @@ import org.springframework.ui.Model;
 public interface DiscountService {
     void addDiscountToModel(Model model, String nameOfAttributeForMapping);
     void refreshDiscounts();
-
 }

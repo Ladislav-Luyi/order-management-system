@@ -2,14 +2,12 @@ package com.customer.ordermanagementsystem.pojos.item;
 
 
 public enum Type {
-
-    MENU_POLIEVKA("MENU_POLIEVKA"), MENU_JEDLO("MENU_JEDLO"),PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
+    PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
     POLIEVKA("POLIEVKA"),      SALAT("SALAT"),    OMACKA("OMACKA"),   POCHUTINA("POCHUTINA"),
     ZEMIAK_SPECIAL("ZEMIAK_SPECIAL"), BAGETA("BAGETA"), CESTOVINA("CESTOVINA"),
     GURMANSKE("GURMANSKE"), OBALOVANE("OBALOVANE"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"),
     PRILOHA("PRILOHA"), NAPOJ("NAPOJ"), DOPLNOK("DOPLNOK"),
     PIVO("PIVO"), VINO("VINO"), ALKOHOL("ALKOHOL");
-
 
     private String shortName;
 
@@ -23,12 +21,6 @@ public enum Type {
 
     public static Type fromShortName(String shortName) {
         switch (shortName) {
-            case "MENU_POLIEVKA":
-                return Type.MENU_POLIEVKA;
-
-            case "MENU_JEDLO":
-                return Type.MENU_JEDLO;
-
             case "PIZZA_NORMAL":
                 return Type.PIZZA_NORMAL;
 
@@ -91,7 +83,6 @@ public enum Type {
 
             case "ALKOHOL":
                 return Type.ALKOHOL;
-
 
             default:
                 throw new IllegalArgumentException("ShortName [" + shortName

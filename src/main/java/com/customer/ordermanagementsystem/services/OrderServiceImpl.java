@@ -104,7 +104,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void saveOrder() {
-
         Order orderToSave = new Order();
         orderToSave.setOrderInfo( order.getOrderInfo() );
         orderToSave.setTotalPrice( order.getTotalPrice() );
