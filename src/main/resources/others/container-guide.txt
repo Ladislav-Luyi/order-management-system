@@ -8,8 +8,10 @@ mvn spring-boot:build-image -Dspring-boot.build-image.imageName=order-management
 docker login --username=yourhubusername
 
 #: run in git bash not in intellij  terminal
-docker run  -p 8080:8080 --name order-management-system --memory 512m --env  LANG="en_US.UTF-8"  --env LC_ALL="en_US.UTF-8" --env LANGUAGE="en_US:en" --env TZ="Europe/Bratislava" --env JAVA_OPTS="-Xss512k -Xmx150M -XX:ReservedCodeCacheSize=100M" --env server.tomcat.max-threads=25 order-management-system
-
+    #: old
+    docker run  -p 8080:8080 --name order-management-system --memory 512m --env  LANG="en_US.UTF-8"  --env LC_ALL="en_US.UTF-8" --env LANGUAGE="en_US:en" --env TZ="Europe/Bratislava" --env JAVA_OPTS="-Xss512k -Xmx150M -XX:ReservedCodeCacheSize=100M" --env server.tomcat.max-threads=25 order-management-system
+    #: new
+    docker run  -p 8080:8080 --name order-management-system --env  LANG="en_US.UTF-8"  --env LC_ALL="en_US.UTF-8" --env LANGUAGE="en_US:en" --env TZ="Europe/Bratislava" --env JAVA_OPTS="-Djdk.tls.client.protocols=TLSv1.2" --env server.tomcat.max-threads=15 order-management-system
 
 docker ps
 
