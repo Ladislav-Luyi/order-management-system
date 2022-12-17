@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-//TODO zisti co to robilo
-//@Embeddable
 @AllArgsConstructor
 @NoArgsConstructor
 public class TerminalReply {

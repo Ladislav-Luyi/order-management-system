@@ -11,8 +11,6 @@ import java.util.Date;
 
 @Data
 @Component
-//TODO
-//@Embeddable
 public class OrderInfo {
     @NotNull
     @Size(min=5, max=30, message = "Zadajte prosím meno a priezvisko")
