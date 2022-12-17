@@ -36,9 +36,10 @@ public class AddItemsController {
     public String showOrderForm(Model model){
         if ( ! companyService.isStoreOpen() ) {
             itemService.addAllItemsToModel(model);
-            companyService.addItemToModel(model,"closedMessage");
+            companyService.addItemToModel(model, "closedMessage");
             return "closed";
         }
+
 
         addItemOrderDiscountToModel(model);
 

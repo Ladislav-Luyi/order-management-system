@@ -29,7 +29,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Override
     public void openAndCloseStore(String status) {
-        Optional<Company> company = companyRepository.findById(1l);
+        Optional<Company> company = companyRepository.findById("1");
 
         boolean s = stringStatusToBoolean(status);
 
@@ -48,7 +48,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Override
     public void openAndCloseStoreWithMessage(String status, String message) {
-        Optional<Company> company = companyRepository.findById(1l);
+        Optional<Company> company = companyRepository.findById("1");
 
         boolean s = stringStatusToBoolean(status);
 
@@ -72,7 +72,7 @@ public class CompanyServiceImpl implements CompanyService{
     }
     
     private boolean isCompanyStatus() {
-        Optional<Company> company = companyRepository.findById(1l);
+        Optional<Company> company = companyRepository.findById("1");
         return company.get().isStatus();
     }
 
@@ -81,7 +81,7 @@ public class CompanyServiceImpl implements CompanyService{
     public void addItemToModel(Model model, String nameOfAttributeForMapping) {
         if ( ! isCompanyStatus() ) {
             log.debug("Reason for closed is dedicated rest api call; not opening hours; fetching message about close reason and adding it to model");
-            model.addAttribute(nameOfAttributeForMapping, companyRepository.findById(1l).get().getStatusMessage());
+            model.addAttribute(nameOfAttributeForMapping, companyRepository.findById("1").get().getStatusMessage());
         }
     }
 
@@ -126,7 +126,7 @@ public class CompanyServiceImpl implements CompanyService{
                     })
                     .get();
 
-            log.info("Going to apply rule:" + ruleWithHighestPriority);
+            log.debug("Going to apply rule:" + ruleWithHighestPriority);
 
             return ruleWithHighestPriority.getOpenning_hours() <= currentHour &&
                     ruleWithHighestPriority.getClosing_hours() > currentHour;
@@ -193,7 +193,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Override
     public String getOpenAndCloseStoreMessage() {
-        return companyRepository.findById(1l).get().toString();
+        return companyRepository.findById("1").get().toString();
     }
 
     private int getCurrentHour(){

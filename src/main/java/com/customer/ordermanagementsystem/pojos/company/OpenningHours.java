@@ -1,18 +1,15 @@
 package com.customer.ordermanagementsystem.pojos.company;
 
 import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Entity
-@Table(name = "OpenningHours")
+@Document("OpenningHours")
 @Data
 public class OpenningHours {
     @Id
-    private Long id;
+    private String id;
     private String description;
     private String matcher;
     private int openning_hours;

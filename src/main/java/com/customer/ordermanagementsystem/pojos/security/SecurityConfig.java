@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.httpBasic()
                 .and()
-                .authorizeRequests().antMatchers("/otvorene", "/podnik","/uprav-menu").authenticated()
+                .authorizeRequests().antMatchers("/otvorene", "/podnik").authenticated()
                 .and()
                 .csrf().disable();
 

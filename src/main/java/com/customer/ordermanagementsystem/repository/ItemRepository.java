@@ -1,12 +1,12 @@
 package com.customer.ordermanagementsystem.repository;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ItemRepository extends CrudRepository<Item,Long> {
+public interface ItemRepository extends MongoRepository<Item,String> {
     List<Item> findAll();
 }

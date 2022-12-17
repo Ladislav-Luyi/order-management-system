@@ -2,35 +2,36 @@ package com.customer.ordermanagementsystem.pojos.item;
 
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.context.annotation.SessionScope;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "Items")
 @Data
+@Document("Items")
 @NoArgsConstructor
 @SessionScope
 public class Item {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private String  id;
     private Type type;
     private String name;
     private String additionalInfo;
     private BigDecimal price;
     private String date;
 
-
+    //TODO mozna mozes odmazat
     @Transient
     private  List<Item> itemList = new ArrayList<>();
 
-    public Item(Long id, String name, String additionalInfo, Type type, BigDecimal price) {
+    public Item(String  id, String name, String additionalInfo, Type type, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.additionalInfo = additionalInfo;
@@ -38,7 +39,7 @@ public class Item {
         this.price = price;
     }
 
-    public Item(Long id, String name,  Type type, BigDecimal price, String date) {
+    public Item(String  id, String name,  Type type, BigDecimal price, String date) {
         this.id = id;
         this.name = name;
         this.type = type;

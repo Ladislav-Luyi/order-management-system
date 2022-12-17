@@ -89,7 +89,7 @@ public class TerminalServiceImpl implements TerminalService {
     @Override
     public void updateOrder(TerminalReply terminalReply) {
         try {
-            Long id = Long.valueOf(terminalReply.getOrderId());
+            String id = terminalReply.getOrderId();
 
             Optional<Order> order = orderRepository.findById(id);
 

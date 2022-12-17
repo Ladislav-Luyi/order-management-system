@@ -1,9 +1,8 @@
 package com.customer.ordermanagementsystem.pojos.order;
 
 import lombok.Data;
+import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Component;
-import javax.persistence.Embeddable;
-import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,7 +11,8 @@ import java.util.Date;
 
 @Data
 @Component
-@Embeddable
+//TODO
+//@Embeddable
 public class OrderInfo {
     @NotNull
     @Size(min=5, max=30, message = "Zadajte prosím meno a priezvisko")

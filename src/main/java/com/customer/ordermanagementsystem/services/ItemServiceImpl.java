@@ -17,12 +17,10 @@ public class ItemServiceImpl implements ItemService {
 
 
     private final ItemRepository itemRepository;
-    private final MenuTimeService menuTimeService;
 
     @Autowired
-    public ItemServiceImpl(ItemRepository itemRepository, MenuTimeService menuTimeService) {
+    public ItemServiceImpl(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
-        this.menuTimeService = menuTimeService;
     }
 
     @Override
@@ -38,13 +36,7 @@ public class ItemServiceImpl implements ItemService {
             for(Item tmpItem : items)
             {
                 if (tmpItem.getType() == type) {
-
-                    if (isMenuItemForToday(type, tmpItem))
-                        continue;
-
-                    if (isMenuItemForCurrentHour(type, tmpItem))
-                        continue;
-
+                    
                     tmpList.add(tmpItem);
                 }
             }
@@ -62,16 +54,6 @@ public class ItemServiceImpl implements ItemService {
 
     }
 
-    private boolean isMenuItemForToday(Type type, Item tmpItem) {
-        return ( type.equals(Type.MENU_POLIEVKA) || type.equals(Type.MENU_JEDLO)) &&
-                tmpItem.getDate() != null &&
-                ! tmpItem.getDate().equals(menuTimeService.getCurrentDate() );
-    }
-
-    private boolean isMenuItemForCurrentHour (Type type, Item tmpItem){
-        return ( type.equals(Type.MENU_POLIEVKA) || type.equals(Type.MENU_JEDLO)) &
-                ! menuTimeService.isMenuForCurrentHour();
-    }
 
     @Override
     public void addSingleItemToModel(Model model, Type type) {

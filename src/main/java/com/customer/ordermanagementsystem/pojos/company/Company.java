@@ -1,54 +1,26 @@
 package com.customer.ordermanagementsystem.pojos.company;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-import java.util.Date;
-
-@Entity
-@Table(name = "Company")
+@Document("Company")
 @Data
 public class Company {
     @Id
-    private Long id;
-
+    private String id;
+    private String name = "1";
     private boolean status;
-
     private String statusMessage = "";
-
-    private Date placedAt;
-
-    @PrePersist
-    void placedAt(){
-        placedAt = new Date();
-    }
-
-    @PreUpdate
-    protected void preUpdate() {
-        placedAt = new Date();
-    }
 
     @Override
     public String toString() {
-        final String newLine = System.getProperty("line.separator");
-
         StringBuilder sb = new StringBuilder();
-
         sb.append("Podnik: ");
-
-        if (status)
-            sb.append("Otvorený");
-        else
-            sb.append("Zatvorený");
-
-        sb.append(newLine);
-
+        sb.append ( status ? "Otvorený" : "Zatvorený");
+        sb.append( System.getProperty("line.separator") );
         sb.append("Správa: ");
         sb.append(statusMessage);
-
-
         return sb.toString();
     }
-
-
 }

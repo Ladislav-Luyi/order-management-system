@@ -1,23 +1,23 @@
 package com.customer.ordermanagementsystem.pojos.order;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
-import com.customer.ordermanagementsystem.pojos.item.menu_item.MenuItem;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "Orders")
+
 @Data
 @Component
 @SessionScope
+@Document("Orders")
 public class Order{
     @Id
     private  Long id;
@@ -42,20 +42,19 @@ public class Order{
     @Transient
     private  List<Item> orderList = new ArrayList<>();
 
-    @Transient
-    private  List<MenuItem> orderListMenu = new ArrayList<>();
 
     @Transient
     @Value("${minimalValueForOrder}")
     BigDecimal minimalValueForOrder;
-
-    @Column(columnDefinition = "TEXT")
+//TODO nevies co s tym zatial
+//    @Column(columnDefinition = "TEXT")
     private  String orderText = "";
 
-    @PrePersist
-    void placedAt(){
-        placedAt = new Date();
-    }
+    //najdi za to nahradu
+//    @PrePersist
+//    void placedAt(){
+//        placedAt = new Date();
+//    }
 
     private OrderInfo orderInfo;
     private TerminalReply terminalReplyInfo;
