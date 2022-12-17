@@ -37,14 +37,12 @@ public class TerminalControllers {
 
     @GetMapping("/orders.txt")
     @ResponseBody
-    public ResponseEntity<FileSystemResource> getOrders( @RequestParam String u, @RequestParam String p){
+    public ResponseEntity<String> getOrders( @RequestParam String u, @RequestParam String p){
 
         if (!u.equals(user) || !p.equals(password))
              return new ResponseEntity("Unauthorized", HttpStatus.UNAUTHORIZED);
 
-        File f = terminalService.refreshAndGetFile();
-
-        return ResponseEntity.ok().body(new FileSystemResource(f));
+        return ResponseEntity.ok().body(terminalService.getOrders());
     }
 
 
