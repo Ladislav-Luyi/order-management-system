@@ -3,7 +3,6 @@ package com.customer.ordermanagementsystem.pojos.item;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.context.annotation.SessionScope;
 import lombok.NoArgsConstructor;
@@ -26,9 +25,6 @@ public class Item {
     private String additionalInfo;
     private BigDecimal price;
     private String date;
-
-    //TODO mozna mozes odmazat
-    @Transient
     private  List<Item> itemList = new ArrayList<>();
 
     public Item(String  id, String name, String additionalInfo, Type type, BigDecimal price) {

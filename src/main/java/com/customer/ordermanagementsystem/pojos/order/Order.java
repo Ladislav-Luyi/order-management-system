@@ -34,11 +34,8 @@ public class Order{
     private BigDecimal totalDiscount = new BigDecimal(0);
     private BigDecimal totalPriceDiscount = new BigDecimal(0);
     private boolean isPaid = false;
-
-    @Transient
     private  List<Item> orderList = new ArrayList<>();
 
-    @Transient
     @Value("${minimalValueForOrder}")
     BigDecimal minimalValueForOrder;
 //TODO nevies co s tym zatial

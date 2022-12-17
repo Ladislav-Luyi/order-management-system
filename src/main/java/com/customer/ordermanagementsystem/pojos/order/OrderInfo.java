@@ -1,7 +1,6 @@
 package com.customer.ordermanagementsystem.pojos.order;
 
 import lombok.Data;
-import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Component;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -27,7 +26,6 @@ public class OrderInfo {
 
     private String payWithCardToDeliveryGuy;
 
-    @Transient
     @NotNull
     @Size(min=3)
     private String agreement;
