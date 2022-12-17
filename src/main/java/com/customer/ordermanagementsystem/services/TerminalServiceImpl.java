@@ -12,6 +12,8 @@ import java.util.*;
 
 @Slf4j
 @Service
+//TODO return strings instead of documents from get request
+//TODO if missing id find oldest mongodb entry for response
 public class TerminalServiceImpl implements TerminalService {
 
     private final OrderRepository orderRepository;

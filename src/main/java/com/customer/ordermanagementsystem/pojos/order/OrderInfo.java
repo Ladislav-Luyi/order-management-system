@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 
+//TODO fix validations
 @Data
 @Component
 public class OrderInfo {
