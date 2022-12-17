@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OrderManagementSystemApplication {
 
     public static void main(String[] args) {
-        // mvn clean compile assembly:single // for building package with dependencies
-        //Add the Java Option -Djdk.tls.client.protocols=TLSv1.2
         System.out.println(com.customer.ordermanagementsystem.OrderManagementSystemApplication.class);
         SpringApplication.run(OrderManagementSystemApplication.class, args);
     }
