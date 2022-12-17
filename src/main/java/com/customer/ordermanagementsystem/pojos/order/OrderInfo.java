@@ -16,8 +16,8 @@ public class OrderInfo {
     @Size(min=5, max=30, message = "Zadajte prosím meno a priezvisko")
     private String name;
 
-//    @NotNull
-//    @Size(min=5, max=100, message = "Zadajte prosím ulicu")
+    @NotNull
+    @Size(min=5, max=100, message = "Zadajte prosím ulicu")
     private String street;
 
     @NotNull
