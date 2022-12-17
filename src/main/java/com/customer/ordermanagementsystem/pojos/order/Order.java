@@ -38,8 +38,6 @@ public class Order{
 
     @Value("${minimalValueForOrder}")
     BigDecimal minimalValueForOrder;
-//TODO nevies co s tym zatial
-//    @Column(columnDefinition = "TEXT")
     private  String orderText = "";
 
     private OrderInfo orderInfo;
