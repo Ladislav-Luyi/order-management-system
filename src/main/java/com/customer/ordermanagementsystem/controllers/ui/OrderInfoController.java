@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.controllers;
+package com.customer.ordermanagementsystem.controllers.ui;
 
 
 import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
