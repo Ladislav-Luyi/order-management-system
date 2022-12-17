@@ -26,22 +26,17 @@ public class Order{
        Date date = new Date();
        long timeMilli = date.getTime();
        id = timeMilli;
+       placedAt = new Date();
     }
 
-
     private Date placedAt;
-
     private BigDecimal totalPrice = new BigDecimal(0);
-
     private BigDecimal totalDiscount = new BigDecimal(0);
-
     private BigDecimal totalPriceDiscount = new BigDecimal(0);
-
     private boolean isPaid = false;
 
     @Transient
     private  List<Item> orderList = new ArrayList<>();
-
 
     @Transient
     @Value("${minimalValueForOrder}")
@@ -50,18 +45,12 @@ public class Order{
 //    @Column(columnDefinition = "TEXT")
     private  String orderText = "";
 
-    //najdi za to nahradu
-//    @PrePersist
-//    void placedAt(){
-//        placedAt = new Date();
-//    }
-
     private OrderInfo orderInfo;
     private TerminalReply terminalReplyInfo;
 
     /*
         expected format:
-                        #OrderId*Order info#
+                      #OrderId*Order info#
 
         UOrderId*
      */
