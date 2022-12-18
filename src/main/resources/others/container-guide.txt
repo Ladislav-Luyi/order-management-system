@@ -2,8 +2,8 @@ https://spring.io/guides/gs/spring-boot-docker/
 https://docs.docker.com/engine/reference/commandline/push/
 
 mvn clean
-
-mvn spring-boot:build-image -Dspring-boot.build-image.imageName=order-management-system
+mvn package
+docker build -t order-management-system .
 
 docker login --username=yourhubusername
 
