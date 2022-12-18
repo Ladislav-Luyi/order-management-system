@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
-@SessionAttributes({"orderInfo","order","orderedItems","totalPrice","discount"})
+@SessionAttributes({"customerInfo","order","orderedItems","totalPrice","discount"})
 @RequestMapping({"","/","/kosik"})
 public class AddItemsController {
 

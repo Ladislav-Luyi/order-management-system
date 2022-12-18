@@ -16,43 +16,43 @@ import javax.validation.Valid;
 
 @Slf4j
 @Controller
-@SessionAttributes({"order","orderInfo"})
+@SessionAttributes({"order","customerInfo"})
 @RequestMapping("/objednavka")
-public class OrderInfoController {
+public class CustomerInfoController {
 
     private final OrderService orderService;
     private final DiscountService discountService;
 
     @Autowired
-    public OrderInfoController(OrderService orderService, DiscountService discountService) {
+    public CustomerInfoController(OrderService orderService, DiscountService discountService) {
         this.orderService = orderService;
         this.discountService = discountService;
     }
 
     @GetMapping("/formular")
-    public String showOrderInfoForm(Model model){
+    public String showCustomerInfoForm(Model model){
         if (!orderService.isHigherThanMinimalValue())
             return "redirect:/kosik";
 
-        model.addAttribute("orderInfo",  new CustomerInfo());
+        model.addAttribute("customerInfo",  new CustomerInfo());
 
         addOrderToModel(model);
 
-        return "orderInfo";
+        return "customerInfo";
     }
 
     @PostMapping("/formular")
-    public String processOrderInfoForm(Model model, @Valid CustomerInfo customerInfo, BindingResult bindingResult) {
+    public String processCustomerInfoForm(Model model, @Valid CustomerInfo customerInfo, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             log.debug("BINDING RESULT ERROR");
             addOrderToModel(model);
-            return "orderInfo";
+            return "customerInfo";
         }
 
-        log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
+        log.info("Processing order processCustomerInfoForm: " + orderService.getOrderInstance());
 
-        log.info("Processing orderInfo in orderInfo: " + customerInfo);
+        log.info("Processing customerInfo in customerInfo: " + customerInfo);
 
         orderService.setCustomerInfo(customerInfo);
 
