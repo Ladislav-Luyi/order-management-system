@@ -11,7 +11,7 @@ import java.util.Date;
 //TODO fix validations
 @Data
 @Component
-public class OrderInfo {
+public class CustomerInfo {
     @NotNull
     @Size(min=5, max=30, message = "Zadajte prosím meno a priezvisko")
     private String name;

@@ -40,7 +40,7 @@ public class Order{
     BigDecimal minimalValueForOrder;
     private  String orderText = "";
 
-    private OrderInfo orderInfo;
+    private CustomerInfo customerInfo;
     private TerminalReply terminalReplyInfo;
 
     /*
@@ -59,7 +59,7 @@ public class Order{
 
         StringBuilder s = new StringBuilder();
         s.append(orderListToString());
-        s.append(orderInfo);
+        s.append(customerInfo);
         s.append(priceToString());
 
         return s.toString();

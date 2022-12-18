@@ -2,7 +2,7 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.order.Order;
-import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
+import com.customer.ordermanagementsystem.pojos.order.CustomerInfo;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,8 +72,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void setOrderInfo(OrderInfo orderInfo) {
-        order.setOrderInfo(orderInfo);
+    public void setCustomerInfo(CustomerInfo customerInfo) {
+        order.setCustomerInfo(customerInfo);
     }
 
 
@@ -105,7 +105,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void saveOrder() {
         Order orderToSave = new Order();
-        orderToSave.setOrderInfo( order.getOrderInfo() );
+        orderToSave.setCustomerInfo( order.getCustomerInfo() );
         orderToSave.setTotalPrice( order.getTotalPrice() );
         orderToSave.setTotalDiscount( order.getTotalDiscount() );
         orderToSave.setTotalPriceDiscount( order.getTotalPriceDiscount() );

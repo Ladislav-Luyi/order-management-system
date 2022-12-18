@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
 
-import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
+import com.customer.ordermanagementsystem.pojos.order.CustomerInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ public class OrderInfoController {
         if (!orderService.isHigherThanMinimalValue())
             return "redirect:/kosik";
 
-        model.addAttribute("orderInfo",  new OrderInfo());
+        model.addAttribute("orderInfo",  new CustomerInfo());
 
         addOrderToModel(model);
 
@@ -42,7 +42,7 @@ public class OrderInfoController {
     }
 
     @PostMapping("/formular")
-    public String processOrderInfoForm(Model model, @Valid OrderInfo orderInfo, BindingResult bindingResult) {
+    public String processOrderInfoForm(Model model, @Valid CustomerInfo customerInfo, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             log.debug("BINDING RESULT ERROR");
@@ -52,9 +52,9 @@ public class OrderInfoController {
 
         log.info("Processing order processOrderInfoForm: " + orderService.getOrderInstance());
 
-        log.info("Processing orderInfo in orderInfo: " + orderInfo);
+        log.info("Processing orderInfo in orderInfo: " + customerInfo);
 
-        orderService.setOrderInfo(orderInfo);
+        orderService.setCustomerInfo(customerInfo);
 
         return "redirect:/objednavka/dokoncena";
     }

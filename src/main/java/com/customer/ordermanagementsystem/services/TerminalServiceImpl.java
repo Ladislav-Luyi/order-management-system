@@ -32,7 +32,7 @@ public class TerminalServiceImpl implements TerminalService {
         s.append("*");
         s.append(removeEmojiChars( o.getOrderText() ));
         s.append("*");
-        s.append(o.getOrderInfo().getTelephoneNumber());
+        s.append(o.getCustomerInfo().getTelephoneNumber());
         s.append("#");
         s.append("\r");
         return s.toString();

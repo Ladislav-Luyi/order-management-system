@@ -3,7 +3,7 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.pojos.item.Item;
 import com.customer.ordermanagementsystem.pojos.order.Order;
-import com.customer.ordermanagementsystem.pojos.order.OrderInfo;
+import com.customer.ordermanagementsystem.pojos.order.CustomerInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -17,7 +17,7 @@ public interface OrderService {
     void removeItemFromList(int index);
     void addItemToIndexInList(int index, Item item);
     void removeIndexFromInnerList(int indexOuter, int indexInner);
-    void setOrderInfo(OrderInfo orderInfo);
+    void setCustomerInfo(CustomerInfo customerInfo);
     void refreshPrice();
     Order getOrderInstance();
     void saveOrder();
