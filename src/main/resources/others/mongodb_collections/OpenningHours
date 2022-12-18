@@ -1,10 +1,10 @@
 [
-{"_id":{"$oid":"6399f509b81881e96814d85b"},"description":"'Pondelok'","openning_hours":-1,"closing_hours":-1,"matcher":"1","priority":2}
-{"_id":{"$oid":"6399f509b81881e96814d85c"},"description":"'Utorok'","openning_hours":-1,"closing_hours":-1,"matcher":"2","priority":2}
-{"_id":{"$oid":"6399f509b81881e96814d85d"},"description":"'Streda'","openning_hours":-1,"closing_hours":-1,"matcher":"3","priority":2}
-{"_id":{"$oid":"6399f509b81881e96814d85e"},"description":"'Štvrtok'","openning_hours":-1,"closing_hours":-1,"matcher":"4","priority":2}
-{"_id":{"$oid":"6399f509b81881e96814d85f"},"description":"'Piatok'","openning_hours":-1,"closing_hours":-1,"matcher":"5","priority":2}
-{"_id":{"$oid":"6399f509b81881e96814d860"},"description":"'Sobota'","openning_hours":10,"closing_hours":24,"matcher":"6","priority":2}
-{"_id":{"$oid":"6399f509b81881e96814d861"},"description":"'Nedeľa'","openning_hours":11,"closing_hours":11,"matcher":"7","priority":2}
+{"_id":{"$oid":"6399f509b81881e96814d85b"},"description":"'Pondelok'","openning_hours":-1,"closing_hours":-1,"matcher":"1","priority":2},
+{"_id":{"$oid":"6399f509b81881e96814d85c"},"description":"'Utorok'","openning_hours":-1,"closing_hours":-1,"matcher":"2","priority":2},
+{"_id":{"$oid":"6399f509b81881e96814d85d"},"description":"'Streda'","openning_hours":-1,"closing_hours":-1,"matcher":"3","priority":2},
+{"_id":{"$oid":"6399f509b81881e96814d85e"},"description":"'Štvrtok'","openning_hours":-1,"closing_hours":-1,"matcher":"4","priority":2},
+{"_id":{"$oid":"6399f509b81881e96814d85f"},"description":"'Piatok'","openning_hours":-1,"closing_hours":-1,"matcher":"5","priority":2},
+{"_id":{"$oid":"6399f509b81881e96814d860"},"description":"'Sobota'","openning_hours":10,"closing_hours":24,"matcher":"6","priority":2},
+{"_id":{"$oid":"6399f509b81881e96814d861"},"description":"'Nedeľa'","openning_hours":11,"closing_hours":11,"matcher":"7","priority":2},
 {"_id":{"$oid":"639a01d0b81881e9682fff32"},"description":"Special","openning_hours":-1,"closing_hours":-1,"matcher":"24.12","priority":1}
 ]

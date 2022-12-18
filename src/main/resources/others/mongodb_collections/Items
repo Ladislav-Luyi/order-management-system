@@ -1,145 +1,145 @@
 [
-{"_id":{"$oid":"6399eb1db81881e968007227"},"id":2,"type":"POLIEVKA","name":"Kurací vývar s cestovinou1,3,7","additionalInfo":"0,40l, kuracie mäso, koreňová zelenina, voda, cestoviny, korenie, petržlenová vňať","price":1.8}
-{"_id":{"$oid":"6399eb1db81881e968007228"},"id":3,"type":"POLIEVKA","name":"Cesnaková krémová polievka so syrom1,3,7","additionalInfo":"0,40l, cesnak, cibuľa, olej, zemiaky, soľ, korenie, syr, voda (zahusťovaná škrobovou múčkou)","price":1.8}
-{"_id":{"$oid":"6399eb1db81881e968007229"},"id":4,"type":"POLIEVKA","name":"Paradajková polievka so syrom7","additionalInfo":"0,40l, paradajkový pretlak, paradajka, voda, cukor, soľ, korenie, bazalka, syr Eidam","price":1.8}
-{"_id":{"$oid":"6399eb1db81881e96800722a"},"id":5,"type":"SALAT","name":"Grécky šalát + pizza chlieb + dresing1,7","additionalInfo":"400g, paradajka, paprika, uhorka, olivy, syr Feta, cibuľa, olivový olej, 3 ks pizza chlieb, tzatziky dresing","price":5.5}
-{"_id":{"$oid":"6399eb1db81881e96800722b"},"id":6,"type":"SALAT","name":"Kurací steak na šaláte + pizza chlieb +dresing1,7","additionalInfo":"100/150/120/0,30g, kuracie prsia (100g), (listový šalát, uhorka, paradajka, mix 150g), syr feta (30g), 3 ks pizza chlieb, tzatziky dresing","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e96800722c"},"id":7,"type":"SALAT","name":"Alte šalát s proscuttom + pizza chlieb + dresing1,7","additionalInfo":"400g, mix šalát, paradajka, uhorka, syr Feta, šunka Prosciutto (80g), syr Parmezán, olivový olej, 3 ks pizza chlieb, tzatziky dresing","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e96800722d"},"id":8,"type":"SALAT","name":"Miešaný šalát1,7","additionalInfo":"150g, miešaná zelenina","price":1.5}
-{"_id":{"$oid":"6399eb1db81881e96800722e"},"id":9,"type":"SALAT","name":"Šalát s lososom + pizza chlieb + dresing1,3","additionalInfo":"120/150/20/120/0,30g, šalát mix, grilovaný losos (150g), strúhaný syr parmezán, 3ks pizza chlieb, tzatziky dresing","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e96800722f"},"id":10,"type":"ZEMIAK_SPECIAL","name":"Zemiaková pizza z panvici s brokolicou3,7","additionalInfo":"350g, zemiaky, olivový olej, soľ, cesnak, vajce, smotana (kyslá), brokolica a mozzarela","price":5.5}
-{"_id":{"$oid":"6399eb1db81881e968007230"},"id":11,"type":"ZEMIAK_SPECIAL","name":"Zemiaková pizza z panvici pikante3","additionalInfo":"400g, zemiaky, olivový olej, soľ, cesnak, vajce, paradajkový základ, klobása, slanina, čili","price":6.9}
-{"_id":{"$oid":"6399eb1db81881e968007231"},"id":12,"type":"ZEMIAK_SPECIAL","name":"Plnené zemiaky s kyslou kapustou a slaninkou3","additionalInfo":"400g","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007232"},"id":13,"type":"ZEMIAK_SPECIAL","name":"Spišské bryndzové pirohy s cibuĺou, slaninkou na smotane1,3,7","additionalInfo":"400g, (Cesto-múka, vajcia, voda, olej, soľ), zemiaky, bryndza, smotana, cibuľa, slanina, soľ","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007233"},"id":14,"type":"ZEMIAK_SPECIAL","name":"Bohatý farmársky tanier (250g sýrové halušky +350g bryndzové pirohy)1,3,7","additionalInfo":"250/350g, (Cesto-múka, soľ, zemiaky, voda, olej, vajcia), strúhaný syr eidam, bryndza, soľ, slanina, smotana, cibuľa","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e968007234"},"id":15,"type":"ZEMIAK_SPECIAL","name":"Zemiakové placky + kyslá kapusta + kyslá smotana (kapusta v surovom stave)1,3,7","additionalInfo":"250/100g, placky-múka, soľ, zemiaky, vajce, korenie, cesnak, olej","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007235"},"id":22,"type":"CESTOVINA","name":"Makaróny Aglio e olio1,7","additionalInfo":"350g, cestoviny makaróny, olivový olej, cesnak, syr Parmezán, soľ","price":4.9}
-{"_id":{"$oid":"6399eb1db81881e968007236"},"id":23,"type":"CESTOVINA","name":"Makaróny Carbonara1,3,7","additionalInfo":"400g, cestoviny makaróny, vajce, smotana, strúhaný syr Parmezán, oravská slanina, cesnak, biele víno, soľ, korenie, olivový olej","price":6.5}
-{"_id":{"$oid":"6399eb1db81881e968007237"},"id":24,"type":"CESTOVINA","name":"Tagliatelle cestoviny so sušenou paradajkou s lososom na grile1,3,4","additionalInfo":"150150g","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e968007238"},"id":25,"type":"CESTOVINA","name":"Makaróny so šunkou1,3,7","additionalInfo":"400g, makaróny, olivový olej cesnak, paprika, paradajka, šunka, pretlak, soľ, korenie, syr eidam a parmezán","price":7.9}
-{"_id":{"$oid":"6399eb1db81881e968007239"},"id":26,"type":"GURMANSKE","name":"Pečené bravčové rebrá s pečenými zemiakmi a cesnakovým dipom1,7","additionalInfo":"750g, bravčové rebrá, soľ, sója, med, korenie, zemiaky, cibuľa/dip: cesnak, smotana, ocot, soľ, tzatziky korenie","price":9.7}
-{"_id":{"$oid":"6399eb1db81881e96800723a"},"id":27,"type":"GURMANSKE","name":"Steik z bravčovej panenky obalený v slaninke, zemiaky, kyslá uhorka1,7","additionalInfo":"250/250/15g","price":9.7}
-{"_id":{"$oid":"6399eb1db81881e96800723b"},"id":28,"type":"GURMANSKE","name":"Rodinná misa + koláčik +fľaša vína1,3","additionalInfo":"1400g, bravčové rezne (4×120g), kuracia na grile so syrom a šunkou (4×120g), opekané zemiaky (200g), pizza chlieb (250g), šalát mix (75g), tatárska omáčka, kečup, kyslá uhorka, 2x sladký koláčik, fľaša vína (0, 7l)","price":25}
-{"_id":{"$oid":"6399eb1db81881e96800723c"},"id":29,"type":"GURMANSKE","name":"Strapačky s kyslou kapustou a slaninkou +pečená krkovička1,3","additionalInfo":"250/200g, Dlho pečená bravčová krkovička, cibuľa, cesnak, slanina, kyslá kapusta, (cesto na strapačky-múka, soľ, zemiaky, vajce, voda, soľ), korenie, olej","price":8.7}
-{"_id":{"$oid":"6399eb1db81881e96800723d"},"id":30,"type":"GURMANSKE","name":"Gurmán misa + 1, 5l čapované pivo(3×11' bernard)1,3","additionalInfo":"350g pečené bravčové rebrá, 350g pečené údené koleno, 250g obalované krídielka, 300g chlieb, horčica, cesnakový dresing (pivo v pet fľaša čapované)","price":25}
-{"_id":{"$oid":"6399eb1db81881e96800723e"},"id":31,"type":"OBALOVANE","name":"Obaĺované rezne z bravčovej panenky+zemiaky+kyslá uhorka1,3","additionalInfo":"200/150g, bravčová panenka, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka","price":6.9}
-{"_id":{"$oid":"6399eb1db81881e96800723f"},"id":32,"type":"OBALOVANE","name":"Obaĺované rezne z kuracích pŕs, zemiaky, kyslá uhorka1,3","additionalInfo":"200/150g, kuracie prsia, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007240"},"id":33,"type":"OBALOVANE","name":"Chrumkavé kuracie krídelka + cesnakový dresing1,3","additionalInfo":"350g, dresing obsahuje smotanu, cesnak, korenie","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007241"},"id":34,"type":"OBALOVANE","name":"Chrumkavé kuracie rezančeky obaľované v kukuričných cereáliách na šaláte+ hranolky +dresing1,3","additionalInfo":"150/150g, kuracie prsia(vajcia a flakesy na obaľovanie), šalát listový, cesnakový dresing (smotana, cesnak, korenie)","price":6.9}
-{"_id":{"$oid":"6399eb1db81881e968007242"},"id":35,"type":"OBALOVANE","name":"Obaĺovaný syr +hranolky +tatárska omáčka1,3,7","additionalInfo":"150/150/30g, syr eidam (múka, vajce, strúhanka-na obalovanie), olej","price":5.5}
-{"_id":{"$oid":"6399eb1db81881e968007243"},"id":36,"type":"OBALOVANE","name":"Obaĺovaný syr so šunkou +hranolky +tatárska omáčka1,3,7","additionalInfo":"150/150/30g, eidam syr, (múka, strúhanka, vajce-na obalovanie), šunka, olej","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007244"},"id":37,"type":"OBALOVANE","name":"Mozzarelové tyčinky(8ks) +hranolky +tatárska omáčka1,3,7","additionalInfo":"150/150/30g, syr mozzarela (múku, strúhanka, vajce-na obalovanie), olej","price":6.9}
-{"_id":{"$oid":"6399eb1db81881e968007245"},"id":38,"type":"OBALOVANE","name":"Obaĺovaný karfiol +opekané zemiaky +dresing1,3,7","additionalInfo":"300/150/30g, karfiol, (múka, strúhanka, vajce-na obalovanie), olej, soľ, tzatziky dresing","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007246"},"id":39,"type":"OBALOVANE","name":"Obaĺované cibuľové krúžky +tzatziky dresing1,3,7","additionalInfo":"200/30g","price":3.5}
-{"_id":{"$oid":"6399eb1db81881e968007247"},"id":40,"type":"FIT","name":"Mix grill s kuracím steikom a volským okom +opekané zemiaky3","additionalInfo":"200/100/100g, kuracie prsia, grilovacie korenie, olej, mix zelenina, zemiaky, volské oko","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e968007248"},"id":41,"type":"FIT","name":"Špíz z bravčovej panenky, ryža, cvíkla","additionalInfo":"150/150/30g","price":7.9}
-{"_id":{"$oid":"6399eb1db81881e968007249"},"id":42,"type":"FIT","name":"Kurací špíz na dusenej brokolici, kari ryža","additionalInfo":"150/60/150g","price":7.9}
-{"_id":{"$oid":"6399eb1db81881e96800724a"},"id":43,"type":"FIT","name":"Labužnícka bezmäsitá misa + 1, 5 minerálka1,3,7","additionalInfo":"1100g, zemiakovo-zeleninové rösti(250g), obaĺovaný karfiol (200g), grilovaná zelenina (100g), (2×75g)obaľovaný syr, cibuľové krúžky (100g), pizza chlieb (250g), tatárska omáčka (75g)","price":15.9}
-{"_id":{"$oid":"6399eb1db81881e96800724b"},"id":44,"type":"RIZOTO","name":"Milánske rizoto7","additionalInfo":"300g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, máslo","price":4.9}
-{"_id":{"$oid":"6399eb1db81881e96800724c"},"id":45,"type":"RIZOTO","name":"Zeleninové rizoto s brokolicou7","additionalInfo":"350g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, zeleninová zmes","price":5.5}
-{"_id":{"$oid":"6399eb1db81881e96800724d"},"id":46,"type":"PIZZA_NORMAL","name":"Pizza Margherita klasik1,7","additionalInfo":"400g, pomodoro, syr Mozzarella, oregano","price":4}
-{"_id":{"$oid":"6399eb1db81881e96800724e"},"id":47,"type":"PIZZA_NORMAL","name":"Pizza Šunková klasik1,7","additionalInfo":"500g, pomodoro, syr Mozzarella, šunka, oregano","price":4.95}
-{"_id":{"$oid":"6399eb1db81881e96800724f"},"id":48,"type":"PIZZA_NORMAL","name":"Pizza Šampiňónová klasik1,7","additionalInfo":"450g, pomodoro, syr Mozzarella, šampiňóny, oregano","price":4.95}
-{"_id":{"$oid":"6399eb1db81881e968007250"},"id":49,"type":"PIZZA_NORMAL","name":"Pizza Alte klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007251"},"id":50,"type":"PIZZA_NORMAL","name":"Pizza Prosciutto klasik1,7","additionalInfo":"500g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007252"},"id":51,"type":"PIZZA_NORMAL","name":"Pizza Quasimodo klasik1,7","additionalInfo":"630g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007253"},"id":52,"type":"PIZZA_NORMAL","name":"Pizza Sedliacka klasik1,3,7","additionalInfo":"600g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007254"},"id":53,"type":"PIZZA_NORMAL","name":"Pizza Diabolská klasik1,3,7","additionalInfo":"660g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007255"},"id":54,"type":"PIZZA_NORMAL","name":"Pizza Capri klasik1,7","additionalInfo":"550g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007256"},"id":55,"type":"PIZZA_NORMAL","name":"Pizza Salámová1,7","additionalInfo":"500g, pomodoro, syr Mozzarella, saláma, oregano","price":4.95}
-{"_id":{"$oid":"6399eb1db81881e968007257"},"id":56,"type":"PIZZA_NORMAL","name":"Pizza Quattro klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, oregano","price":4.95}
-{"_id":{"$oid":"6399eb1db81881e968007258"},"id":57,"type":"PIZZA_NORMAL","name":"Pizza Qattro so šunkou klasik1,7","additionalInfo":"700g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007259"},"id":58,"type":"PIZZA_NORMAL","name":"Pizza Calzone klasik(kapsa)1,7","additionalInfo":"550g, kapsa, pomodoro, šunka, saláma, kukurica, syr","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e96800725a"},"id":59,"type":"PIZZA_NORMAL","name":"Pizza Enzo klasik1,3,7","additionalInfo":"600g, pomodoro, syr Mozzarella, syr Niva, plesnivec-Encián, bambino, vajce, oregano","price":6.47}
-{"_id":{"$oid":"6399eb1db81881e96800725b"},"id":60,"type":"PIZZA_NORMAL","name":"Pizza Hawai s kuracím mäsom klasik1,7","additionalInfo":"630g, pomodoro, syr Mozzarella, kuracie mäso, ananás, oregano","price":6.47}
-{"_id":{"$oid":"6399eb1db81881e96800725c"},"id":61,"type":"PIZZA_NORMAL","name":"Pizza Hawai so šunkou1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, šunka, ananás, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e96800725d"},"id":62,"type":"PIZZA_NORMAL","name":"Pizza Maestro klasik1,7","additionalInfo":"560g, smotana, syr Mozzarella, paradajka, olivy, bazalka, oregano","price":4.95}
-{"_id":{"$oid":"6399eb1db81881e96800725e"},"id":63,"type":"PIZZA_NORMAL","name":"Pizza Roma klasik1,3,7","additionalInfo":"680g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, oregano","price":6.47}
-{"_id":{"$oid":"6399eb1db81881e96800725f"},"id":64,"type":"PIZZA_NORMAL","name":"Pizza Max pikant klasik1,3,7","additionalInfo":"720g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007260"},"id":65,"type":"PIZZA_NORMAL","name":"Pizza Tunis klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, chilli, kuracie mäso, kukurica, oregano","price":6.47}
-{"_id":{"$oid":"6399eb1db81881e968007261"},"id":66,"type":"PIZZA_NORMAL","name":"Pizza Vegetariana klasik1,7","additionalInfo":"700g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, Fetta, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007262"},"id":67,"type":"PIZZA_NORMAL","name":"Pizza Bambino klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, šunka, kukurica, oregano","price":4.95}
-{"_id":{"$oid":"6399eb1db81881e968007263"},"id":68,"type":"PIZZA_NORMAL","name":"Pizza Tuniaková klasik1,4,7","additionalInfo":"600g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, oregano","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007264"},"id":69,"type":"PIZZA_NORMAL","name":"Pizza Liptovská klasik1,7","additionalInfo":"580g, smotana, syr Mozzarella, slanina, bryndza, cibuľa","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e968007265"},"id":70,"type":"PIZZA_BIG","name":"Pizza Margherita XXL1,7","additionalInfo":"800g, pomodoro, syr Mozzarella, oregano","price":7}
-{"_id":{"$oid":"6399eb1db81881e968007266"},"id":71,"type":"PIZZA_BIG","name":"Pizza Šunková XXL1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, šunka, oregano","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e968007267"},"id":72,"type":"PIZZA_BIG","name":"Pizza Šampiňónová XXL1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, šampiňóny, oregano","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e968007268"},"id":73,"type":"PIZZA_BIG","name":"Pizza Alte XXL1,7","additionalInfo":"1150g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e968007269"},"id":74,"type":"PIZZA_BIG","name":"Pizza Prosciutto veľká1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo","price":11}
-{"_id":{"$oid":"6399eb1db81881e96800726a"},"id":75,"type":"PIZZA_BIG","name":"Pizza Quasimodo veľká1,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, oregano","price":11}
-{"_id":{"$oid":"6399eb1db81881e96800726b"},"id":76,"type":"PIZZA_BIG","name":"Pizza Sedliacka veľká1,3,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, oregano","price":11}
-{"_id":{"$oid":"6399eb1db81881e96800726c"},"id":77,"type":"PIZZA_BIG","name":"Pizza Diabolská veľká1,3,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, oregano","price":11}
-{"_id":{"$oid":"6399eb1db81881e96800726d"},"id":78,"type":"PIZZA_BIG","name":"Pizza Capri veľká1,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e96800726e"},"id":79,"type":"PIZZA_BIG","name":"Pizza Salámová veľká1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, saláma, oregano","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e96800726f"},"id":80,"type":"PIZZA_BIG","name":"Pizza Quattro veľká1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, oregano","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e968007270"},"id":81,"type":"PIZZA_BIG","name":"Pizza Qattro so šunkou veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e968007271"},"id":82,"type":"PIZZA_BIG","name":"Pizza Calzone1,7","additionalInfo":"1100g, kapsa, pomodoro, šunka, saláma, kukurica, syr","price":11}
-{"_id":{"$oid":"6399eb1db81881e968007272"},"id":83,"type":"PIZZA_BIG","name":"Pizza Hawai s kuracím mäsom veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, kuracie mäso, ananás, oregano","price":11}
-{"_id":{"$oid":"6399eb1db81881e968007273"},"id":84,"type":"PIZZA_BIG","name":"Pizza Hawai so šunkou veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, šunka, ananás, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e968007274"},"id":85,"type":"PIZZA_BIG","name":"Pizza Maestro veľká1,7","additionalInfo":"1000g, smotana, syr Mozzarella, paradajka, olivy, bazalka, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e968007275"},"id":86,"type":"PIZZA_BIG","name":"Pizza Roma veľká1,3,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, oregano","price":11}
-{"_id":{"$oid":"6399eb1db81881e968007276"},"id":87,"type":"PIZZA_BIG","name":"Pizza Max pokant veľká1,3,7","additionalInfo":"1100g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e968007277"},"id":88,"type":"PIZZA_BIG","name":"Pizza Tunis veľká1,7","additionalInfo":"1200g, pomodoro, cheese Mozzarella, chilli, kuracie mäso, kukurica, oregano","price":11}
-{"_id":{"$oid":"6399eb1db81881e968007278"},"id":89,"type":"PIZZA_BIG","name":"Pizza Vegetariana veľká1,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, syr Fetta, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e968007279"},"id":90,"type":"PIZZA_BIG","name":"Pizza Bambino veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, šunka, kukurica, oregano","price":8.9}
-{"_id":{"$oid":"6399eb1db81881e96800727a"},"id":91,"type":"PIZZA_BIG","name":"Pizza Tuniaková veľká1,4,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, oregano","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e96800727b"},"id":92,"type":"PIZZA_BIG","name":"Pizza Liptovská veľká1,7","additionalInfo":"1150g, smotana, syr Mozzarella, slanina, bryndza, cibuľa","price":9.9}
-{"_id":{"$oid":"6399eb1db81881e96800727c"},"id":93,"type":"PIZZA_SPECIAL","name":"Pizza roličky 8ks1,7","additionalInfo":"380g, šunka, syr Mozzarella, cesnak s olivovým olejom","price":5.95}
-{"_id":{"$oid":"6399eb1db81881e96800727d"},"id":94,"type":"PIZZA_SPECIAL","name":"Pizza chlieb s dressingom1,7","additionalInfo":"250g, pizza chlieb, dressing podľa ponuky","price":3.5}
-{"_id":{"$oid":"6399eb1db81881e96800727e"},"id":95,"type":"SLADKOST","name":"Vyprážané pirohy so slivkovým lekvárom1,3,7","additionalInfo":"330g, 8ks, kysnuté cesto, slivkový lekvár, práškový cukor, škorica","price":4.9}
-{"_id":{"$oid":"6399eb1db81881e96800727f"},"id":96,"type":"SLADKOST","name":"Marlenka (medová torta)1,3,7","additionalInfo":"80g, kysnuté cesto, lesná zmes, práškový cukor, vajce, sušienky","price":1.9}
-{"_id":{"$oid":"6399eb1db81881e968007280"},"id":97,"type":"SLADKOST","name":"Jogurtový pohár s lesným ovocím a s müsli7","additionalInfo":"450g, smotanový jogurt, zmes ovocia, javorový sirup, müsli","price":4}
-{"_id":{"$oid":"6399eb1db81881e968007281"},"id":98,"type":"SLADKOST","name":"Horúca čokoláda s lesným ovocím7","additionalInfo":"450g","price":3.9}
-{"_id":{"$oid":"6399eb1db81881e968007282"},"id":99,"type":"PRILOHA","name":"Hranolky","additionalInfo":"200g","price":1.5}
-{"_id":{"$oid":"6399eb1db81881e968007283"},"id":100,"type":"PRILOHA","name":"Ryža","additionalInfo":"200g","price":1.5}
-{"_id":{"$oid":"6399eb1db81881e968007284"},"id":101,"type":"PRILOHA","name":"Steakové hranolky7","additionalInfo":"200g","price":2}
-{"_id":{"$oid":"6399eb1db81881e968007285"},"id":102,"type":"PRILOHA","name":"Steakové hranolky so slaninou a syrom7,10","additionalInfo":"350g, slanina, maslo, cibuľa, cesnak, syr Eidam, syr Parmezán, smotana, soľ, steakové hranolky","price":5.9}
-{"_id":{"$oid":"6399eb1db81881e968007286"},"id":103,"type":"DOPLNOK","name":"chilli","additionalInfo":"5g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007287"},"id":104,"type":"DOPLNOK","name":"feferóny","additionalInfo":"5g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007288"},"id":105,"type":"DOPLNOK","name":"olivy","additionalInfo":"10g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007289"},"id":106,"type":"DOPLNOK","name":"cibuľa","additionalInfo":"20g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800728a"},"id":107,"type":"DOPLNOK","name":"krevety","additionalInfo":"5g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800728b"},"id":108,"type":"DOPLNOK","name":"mozzarella","additionalInfo":"30g","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e96800728c"},"id":109,"type":"DOPLNOK","name":"niva7","additionalInfo":"30g","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e96800728d"},"id":110,"type":"DOPLNOK","name":"ementál7","additionalInfo":"30g","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e96800728e"},"id":111,"type":"DOPLNOK","name":"fetta syr7","additionalInfo":"30g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800728f"},"id":112,"type":"DOPLNOK","name":"tuniak","additionalInfo":"30g","price":1.5}
-{"_id":{"$oid":"6399eb1db81881e968007290"},"id":113,"type":"DOPLNOK","name":"brokolica","additionalInfo":"20g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007291"},"id":114,"type":"DOPLNOK","name":"ananás","additionalInfo":"30g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007292"},"id":115,"type":"DOPLNOK","name":"kukurica","additionalInfo":"20g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007293"},"id":116,"type":"DOPLNOK","name":"šampiňóny","additionalInfo":"30g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e968007294"},"id":117,"type":"DOPLNOK","name":"šunka","additionalInfo":"30g","price":1}
-{"_id":{"$oid":"6399eb1db81881e968007295"},"id":118,"type":"DOPLNOK","name":"prosciutto crudo","additionalInfo":"30g","price":2}
-{"_id":{"$oid":"6399eb1db81881e968007296"},"id":119,"type":"DOPLNOK","name":"slanina","additionalInfo":"30g","price":1}
-{"_id":{"$oid":"6399eb1db81881e968007297"},"id":120,"type":"DOPLNOK","name":"klobása","additionalInfo":"30g","price":1}
-{"_id":{"$oid":"6399eb1db81881e968007298"},"id":121,"type":"DOPLNOK","name":"saláma","additionalInfo":"30g","price":1}
-{"_id":{"$oid":"6399eb1db81881e968007299"},"id":122,"type":"DOPLNOK","name":"vajce3","additionalInfo":"1ks.","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800729a"},"id":123,"type":"DOPLNOK","name":"smotana7","additionalInfo":"60ml","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800729b"},"id":124,"type":"DOPLNOK","name":"paprika","additionalInfo":"20g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800729c"},"id":125,"type":"DOPLNOK","name":"paradajka","additionalInfo":"20g","price":0.66}
-{"_id":{"$oid":"6399eb1db81881e96800729d"},"id":126,"type":"DOPLNOK","name":"kuracie mäso","additionalInfo":"50g","price":1.5}
-{"_id":{"$oid":"6399eb1db81881e96800729e"},"id":127,"type":"DOPLNOK","name":"chlieb1,3","additionalInfo":"1ks.","price":0.15}
-{"_id":{"$oid":"6399eb1db81881e96800729f"},"id":128,"type":"POCHUTINA","name":"Tyčinky7,10","additionalInfo":"45g","price":1}
-{"_id":{"$oid":"6399eb1db81881e9680072a0"},"id":129,"type":"POCHUTINA","name":"Arašidy7,10","additionalInfo":"80g","price":1}
-{"_id":{"$oid":"6399eb1db81881e9680072a1"},"id":130,"type":"POCHUTINA","name":"Chrumky7,10","additionalInfo":"60g","price":1}
-{"_id":{"$oid":"6399eb1db81881e9680072a2"},"id":131,"type":"POCHUTINA","name":"Horalka7,10","additionalInfo":"40g","price":1}
-{"_id":{"$oid":"6399eb1db81881e9680072a3"},"id":132,"type":"OMACKA","name":"Tzatziky omáčka7","additionalInfo":"33ml","price":1}
-{"_id":{"$oid":"6399eb1db81881e9680072a4"},"id":133,"type":"OMACKA","name":"Cesnakový dressing7","additionalInfo":"33ml","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e9680072a5"},"id":134,"type":"OMACKA","name":"Tatárska omáčka3,7","additionalInfo":"33ml","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e9680072a6"},"id":135,"type":"OMACKA","name":"Kečup1","additionalInfo":"33ml","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e9680072a7"},"id":136,"type":"OMACKA","name":"Pikantný dressing1","additionalInfo":"33ml","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e9680072a8"},"id":137,"type":"OMACKA","name":"Horčica10","additionalInfo":"33ml","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e9680072a9"},"id":138,"type":"OMACKA","name":"Chrenový dressing7","additionalInfo":"33ml","price":0.99}
-{"_id":{"$oid":"6399eb1db81881e9680072aa"},"id":139,"type":"OMACKA","name":"Barbecue","additionalInfo":"33ml","price":1}
-{"_id":{"$oid":"6399eb1db81881e9680072ab"},"id":140,"type":"OMACKA","name":"Jogurt7","additionalInfo":"33ml","price":0.7}
-{"_id":{"$oid":"6399eb1db81881e9680072ac"},"id":141,"type":"PIVO","name":"Bernard 11°/1, 5 l","additionalInfo":"1,5l","price":4.7}
-{"_id":{"$oid":"6399eb1db81881e9680072ad"},"id":142,"type":"PIVO","name":"Prazdroj 12°/1, 5 l","additionalInfo":"1,5l, čapované pivo","price":6.2}
-{"_id":{"$oid":"6399eb1db81881e9680072ae"},"id":143,"type":"VINO","name":"Červené víno 0, 75l","additionalInfo":"0,75l, fľaša","price":8}
-{"_id":{"$oid":"6399eb1db81881e9680072af"},"id":144,"type":"VINO","name":"Biele víno 0, 75l","additionalInfo":"0,75l, fľaša","price":8}
-{"_id":{"$oid":"6399eb1db81881e9680072b0"},"id":145,"type":"VINO","name":"Frankovka červená 1, 5l","additionalInfo":"1,5l, sudové víno (pet fľaša) cena komplet","price":6.5}
-{"_id":{"$oid":"6399eb1db81881e9680072b1"},"id":146,"type":"VINO","name":"Biele víno sudové 1, 5l","additionalInfo":"1,5l, čapované víno(pet fľaša) cena komplet","price":6.5}
-{"_id":{"$oid":"6399eb1db81881e9680072b2"},"id":147,"type":"VINO","name":"Ríbezľové víno 1, 5","additionalInfo":"1,5l, sudové sladké(pet fľaša), cena komplet","price":6.5}
-{"_id":{"$oid":"6399eb1db81881e9680072b3"},"id":148,"type":"ALKOHOL","name":"Borovička","additionalInfo":"0,5l","price":6}
-{"_id":{"$oid":"6399eb1db81881e9680072b4"},"id":149,"type":"ALKOHOL","name":"Vodka","additionalInfo":"0,5l","price":6}
+{"_id":{"$oid":"6399eb1db81881e968007227"},"id":2,"type":"POLIEVKA","name":"Kurací vývar s cestovinou1,3,7","additionalInfo":"0,40l, kuracie mäso, koreňová zelenina, voda, cestoviny, korenie, petržlenová vňať","price":1.8},
+{"_id":{"$oid":"6399eb1db81881e968007228"},"id":3,"type":"POLIEVKA","name":"Cesnaková krémová polievka so syrom1,3,7","additionalInfo":"0,40l, cesnak, cibuľa, olej, zemiaky, soľ, korenie, syr, voda (zahusťovaná škrobovou múčkou)","price":1.8},
+{"_id":{"$oid":"6399eb1db81881e968007229"},"id":4,"type":"POLIEVKA","name":"Paradajková polievka so syrom7","additionalInfo":"0,40l, paradajkový pretlak, paradajka, voda, cukor, soľ, korenie, bazalka, syr Eidam","price":1.8},
+{"_id":{"$oid":"6399eb1db81881e96800722a"},"id":5,"type":"SALAT","name":"Grécky šalát + pizza chlieb + dresing1,7","additionalInfo":"400g, paradajka, paprika, uhorka, olivy, syr Feta, cibuľa, olivový olej, 3 ks pizza chlieb, tzatziky dresing","price":5.5},
+{"_id":{"$oid":"6399eb1db81881e96800722b"},"id":6,"type":"SALAT","name":"Kurací steak na šaláte + pizza chlieb +dresing1,7","additionalInfo":"100/150/120/0,30g, kuracie prsia (100g), (listový šalát, uhorka, paradajka, mix 150g), syr feta (30g), 3 ks pizza chlieb, tzatziky dresing","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e96800722c"},"id":7,"type":"SALAT","name":"Alte šalát s proscuttom + pizza chlieb + dresing1,7","additionalInfo":"400g, mix šalát, paradajka, uhorka, syr Feta, šunka Prosciutto (80g), syr Parmezán, olivový olej, 3 ks pizza chlieb, tzatziky dresing","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e96800722d"},"id":8,"type":"SALAT","name":"Miešaný šalát1,7","additionalInfo":"150g, miešaná zelenina","price":1.5},
+{"_id":{"$oid":"6399eb1db81881e96800722e"},"id":9,"type":"SALAT","name":"Šalát s lososom + pizza chlieb + dresing1,3","additionalInfo":"120/150/20/120/0,30g, šalát mix, grilovaný losos (150g), strúhaný syr parmezán, 3ks pizza chlieb, tzatziky dresing","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e96800722f"},"id":10,"type":"ZEMIAK_SPECIAL","name":"Zemiaková pizza z panvici s brokolicou3,7","additionalInfo":"350g, zemiaky, olivový olej, soľ, cesnak, vajce, smotana (kyslá), brokolica a mozzarela","price":5.5},
+{"_id":{"$oid":"6399eb1db81881e968007230"},"id":11,"type":"ZEMIAK_SPECIAL","name":"Zemiaková pizza z panvici pikante3","additionalInfo":"400g, zemiaky, olivový olej, soľ, cesnak, vajce, paradajkový základ, klobása, slanina, čili","price":6.9},
+{"_id":{"$oid":"6399eb1db81881e968007231"},"id":12,"type":"ZEMIAK_SPECIAL","name":"Plnené zemiaky s kyslou kapustou a slaninkou3","additionalInfo":"400g","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007232"},"id":13,"type":"ZEMIAK_SPECIAL","name":"Spišské bryndzové pirohy s cibuĺou, slaninkou na smotane1,3,7","additionalInfo":"400g, (Cesto-múka, vajcia, voda, olej, soľ), zemiaky, bryndza, smotana, cibuľa, slanina, soľ","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007233"},"id":14,"type":"ZEMIAK_SPECIAL","name":"Bohatý farmársky tanier (250g sýrové halušky +350g bryndzové pirohy)1,3,7","additionalInfo":"250/350g, (Cesto-múka, soľ, zemiaky, voda, olej, vajcia), strúhaný syr eidam, bryndza, soľ, slanina, smotana, cibuľa","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e968007234"},"id":15,"type":"ZEMIAK_SPECIAL","name":"Zemiakové placky + kyslá kapusta + kyslá smotana (kapusta v surovom stave)1,3,7","additionalInfo":"250/100g, placky-múka, soľ, zemiaky, vajce, korenie, cesnak, olej","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007235"},"id":22,"type":"CESTOVINA","name":"Makaróny Aglio e olio1,7","additionalInfo":"350g, cestoviny makaróny, olivový olej, cesnak, syr Parmezán, soľ","price":4.9},
+{"_id":{"$oid":"6399eb1db81881e968007236"},"id":23,"type":"CESTOVINA","name":"Makaróny Carbonara1,3,7","additionalInfo":"400g, cestoviny makaróny, vajce, smotana, strúhaný syr Parmezán, oravská slanina, cesnak, biele víno, soľ, korenie, olivový olej","price":6.5},
+{"_id":{"$oid":"6399eb1db81881e968007237"},"id":24,"type":"CESTOVINA","name":"Tagliatelle cestoviny so sušenou paradajkou s lososom na grile1,3,4","additionalInfo":"150150g","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e968007238"},"id":25,"type":"CESTOVINA","name":"Makaróny so šunkou1,3,7","additionalInfo":"400g, makaróny, olivový olej cesnak, paprika, paradajka, šunka, pretlak, soľ, korenie, syr eidam a parmezán","price":7.9},
+{"_id":{"$oid":"6399eb1db81881e968007239"},"id":26,"type":"GURMANSKE","name":"Pečené bravčové rebrá s pečenými zemiakmi a cesnakovým dipom1,7","additionalInfo":"750g, bravčové rebrá, soľ, sója, med, korenie, zemiaky, cibuľa/dip: cesnak, smotana, ocot, soľ, tzatziky korenie","price":9.7},
+{"_id":{"$oid":"6399eb1db81881e96800723a"},"id":27,"type":"GURMANSKE","name":"Steik z bravčovej panenky obalený v slaninke, zemiaky, kyslá uhorka1,7","additionalInfo":"250/250/15g","price":9.7},
+{"_id":{"$oid":"6399eb1db81881e96800723b"},"id":28,"type":"GURMANSKE","name":"Rodinná misa + koláčik +fľaša vína1,3","additionalInfo":"1400g, bravčové rezne (4×120g), kuracia na grile so syrom a šunkou (4×120g), opekané zemiaky (200g), pizza chlieb (250g), šalát mix (75g), tatárska omáčka, kečup, kyslá uhorka, 2x sladký koláčik, fľaša vína (0, 7l)","price":25},
+{"_id":{"$oid":"6399eb1db81881e96800723c"},"id":29,"type":"GURMANSKE","name":"Strapačky s kyslou kapustou a slaninkou +pečená krkovička1,3","additionalInfo":"250/200g, Dlho pečená bravčová krkovička, cibuľa, cesnak, slanina, kyslá kapusta, (cesto na strapačky-múka, soľ, zemiaky, vajce, voda, soľ), korenie, olej","price":8.7},
+{"_id":{"$oid":"6399eb1db81881e96800723d"},"id":30,"type":"GURMANSKE","name":"Gurmán misa + 1, 5l čapované pivo(3×11' bernard)1,3","additionalInfo":"350g pečené bravčové rebrá, 350g pečené údené koleno, 250g obalované krídielka, 300g chlieb, horčica, cesnakový dresing (pivo v pet fľaša čapované)","price":25},
+{"_id":{"$oid":"6399eb1db81881e96800723e"},"id":31,"type":"OBALOVANE","name":"Obaĺované rezne z bravčovej panenky+zemiaky+kyslá uhorka1,3","additionalInfo":"200/150g, bravčová panenka, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka","price":6.9},
+{"_id":{"$oid":"6399eb1db81881e96800723f"},"id":32,"type":"OBALOVANE","name":"Obaĺované rezne z kuracích pŕs, zemiaky, kyslá uhorka1,3","additionalInfo":"200/150g, kuracie prsia, múka, vajce, strúhanka, olej, korenie, soľ, opekané zemiaky, kyslá uhorka","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007240"},"id":33,"type":"OBALOVANE","name":"Chrumkavé kuracie krídelka + cesnakový dresing1,3","additionalInfo":"350g, dresing obsahuje smotanu, cesnak, korenie","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007241"},"id":34,"type":"OBALOVANE","name":"Chrumkavé kuracie rezančeky obaľované v kukuričných cereáliách na šaláte+ hranolky +dresing1,3","additionalInfo":"150/150g, kuracie prsia(vajcia a flakesy na obaľovanie), šalát listový, cesnakový dresing (smotana, cesnak, korenie)","price":6.9},
+{"_id":{"$oid":"6399eb1db81881e968007242"},"id":35,"type":"OBALOVANE","name":"Obaĺovaný syr +hranolky +tatárska omáčka1,3,7","additionalInfo":"150/150/30g, syr eidam (múka, vajce, strúhanka-na obalovanie), olej","price":5.5},
+{"_id":{"$oid":"6399eb1db81881e968007243"},"id":36,"type":"OBALOVANE","name":"Obaĺovaný syr so šunkou +hranolky +tatárska omáčka1,3,7","additionalInfo":"150/150/30g, eidam syr, (múka, strúhanka, vajce-na obalovanie), šunka, olej","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007244"},"id":37,"type":"OBALOVANE","name":"Mozzarelové tyčinky(8ks) +hranolky +tatárska omáčka1,3,7","additionalInfo":"150/150/30g, syr mozzarela (múku, strúhanka, vajce-na obalovanie), olej","price":6.9},
+{"_id":{"$oid":"6399eb1db81881e968007245"},"id":38,"type":"OBALOVANE","name":"Obaĺovaný karfiol +opekané zemiaky +dresing1,3,7","additionalInfo":"300/150/30g, karfiol, (múka, strúhanka, vajce-na obalovanie), olej, soľ, tzatziky dresing","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007246"},"id":39,"type":"OBALOVANE","name":"Obaĺované cibuľové krúžky +tzatziky dresing1,3,7","additionalInfo":"200/30g","price":3.5},
+{"_id":{"$oid":"6399eb1db81881e968007247"},"id":40,"type":"FIT","name":"Mix grill s kuracím steikom a volským okom +opekané zemiaky3","additionalInfo":"200/100/100g, kuracie prsia, grilovacie korenie, olej, mix zelenina, zemiaky, volské oko","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e968007248"},"id":41,"type":"FIT","name":"Špíz z bravčovej panenky, ryža, cvíkla","additionalInfo":"150/150/30g","price":7.9},
+{"_id":{"$oid":"6399eb1db81881e968007249"},"id":42,"type":"FIT","name":"Kurací špíz na dusenej brokolici, kari ryža","additionalInfo":"150/60/150g","price":7.9},
+{"_id":{"$oid":"6399eb1db81881e96800724a"},"id":43,"type":"FIT","name":"Labužnícka bezmäsitá misa + 1, 5 minerálka1,3,7","additionalInfo":"1100g, zemiakovo-zeleninové rösti(250g), obaĺovaný karfiol (200g), grilovaná zelenina (100g), (2×75g)obaľovaný syr, cibuľové krúžky (100g), pizza chlieb (250g), tatárska omáčka (75g)","price":15.9},
+{"_id":{"$oid":"6399eb1db81881e96800724b"},"id":44,"type":"RIZOTO","name":"Milánske rizoto7","additionalInfo":"300g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, máslo","price":4.9},
+{"_id":{"$oid":"6399eb1db81881e96800724c"},"id":45,"type":"RIZOTO","name":"Zeleninové rizoto s brokolicou7","additionalInfo":"350g, ryža, šafran, cibuľa, olivový olej, soľ, korenie, syr Parmezán, zeleninová zmes","price":5.5},
+{"_id":{"$oid":"6399eb1db81881e96800724d"},"id":46,"type":"PIZZA_NORMAL","name":"Pizza Margherita klasik1,7","additionalInfo":"400g, pomodoro, syr Mozzarella, oregano","price":4},
+{"_id":{"$oid":"6399eb1db81881e96800724e"},"id":47,"type":"PIZZA_NORMAL","name":"Pizza Šunková klasik1,7","additionalInfo":"500g, pomodoro, syr Mozzarella, šunka, oregano","price":4.95},
+{"_id":{"$oid":"6399eb1db81881e96800724f"},"id":48,"type":"PIZZA_NORMAL","name":"Pizza Šampiňónová klasik1,7","additionalInfo":"450g, pomodoro, syr Mozzarella, šampiňóny, oregano","price":4.95},
+{"_id":{"$oid":"6399eb1db81881e968007250"},"id":49,"type":"PIZZA_NORMAL","name":"Pizza Alte klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007251"},"id":50,"type":"PIZZA_NORMAL","name":"Pizza Prosciutto klasik1,7","additionalInfo":"500g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007252"},"id":51,"type":"PIZZA_NORMAL","name":"Pizza Quasimodo klasik1,7","additionalInfo":"630g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007253"},"id":52,"type":"PIZZA_NORMAL","name":"Pizza Sedliacka klasik1,3,7","additionalInfo":"600g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007254"},"id":53,"type":"PIZZA_NORMAL","name":"Pizza Diabolská klasik1,3,7","additionalInfo":"660g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007255"},"id":54,"type":"PIZZA_NORMAL","name":"Pizza Capri klasik1,7","additionalInfo":"550g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007256"},"id":55,"type":"PIZZA_NORMAL","name":"Pizza Salámová1,7","additionalInfo":"500g, pomodoro, syr Mozzarella, saláma, oregano","price":4.95},
+{"_id":{"$oid":"6399eb1db81881e968007257"},"id":56,"type":"PIZZA_NORMAL","name":"Pizza Quattro klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, oregano","price":4.95},
+{"_id":{"$oid":"6399eb1db81881e968007258"},"id":57,"type":"PIZZA_NORMAL","name":"Pizza Qattro so šunkou klasik1,7","additionalInfo":"700g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007259"},"id":58,"type":"PIZZA_NORMAL","name":"Pizza Calzone klasik(kapsa)1,7","additionalInfo":"550g, kapsa, pomodoro, šunka, saláma, kukurica, syr","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e96800725a"},"id":59,"type":"PIZZA_NORMAL","name":"Pizza Enzo klasik1,3,7","additionalInfo":"600g, pomodoro, syr Mozzarella, syr Niva, plesnivec-Encián, bambino, vajce, oregano","price":6.47},
+{"_id":{"$oid":"6399eb1db81881e96800725b"},"id":60,"type":"PIZZA_NORMAL","name":"Pizza Hawai s kuracím mäsom klasik1,7","additionalInfo":"630g, pomodoro, syr Mozzarella, kuracie mäso, ananás, oregano","price":6.47},
+{"_id":{"$oid":"6399eb1db81881e96800725c"},"id":61,"type":"PIZZA_NORMAL","name":"Pizza Hawai so šunkou1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, šunka, ananás, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e96800725d"},"id":62,"type":"PIZZA_NORMAL","name":"Pizza Maestro klasik1,7","additionalInfo":"560g, smotana, syr Mozzarella, paradajka, olivy, bazalka, oregano","price":4.95},
+{"_id":{"$oid":"6399eb1db81881e96800725e"},"id":63,"type":"PIZZA_NORMAL","name":"Pizza Roma klasik1,3,7","additionalInfo":"680g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, oregano","price":6.47},
+{"_id":{"$oid":"6399eb1db81881e96800725f"},"id":64,"type":"PIZZA_NORMAL","name":"Pizza Max pikant klasik1,3,7","additionalInfo":"720g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007260"},"id":65,"type":"PIZZA_NORMAL","name":"Pizza Tunis klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, chilli, kuracie mäso, kukurica, oregano","price":6.47},
+{"_id":{"$oid":"6399eb1db81881e968007261"},"id":66,"type":"PIZZA_NORMAL","name":"Pizza Vegetariana klasik1,7","additionalInfo":"700g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, Fetta, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007262"},"id":67,"type":"PIZZA_NORMAL","name":"Pizza Bambino klasik1,7","additionalInfo":"600g, pomodoro, syr Mozzarella, šunka, kukurica, oregano","price":4.95},
+{"_id":{"$oid":"6399eb1db81881e968007263"},"id":68,"type":"PIZZA_NORMAL","name":"Pizza Tuniaková klasik1,4,7","additionalInfo":"600g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, oregano","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007264"},"id":69,"type":"PIZZA_NORMAL","name":"Pizza Liptovská klasik1,7","additionalInfo":"580g, smotana, syr Mozzarella, slanina, bryndza, cibuľa","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e968007265"},"id":70,"type":"PIZZA_BIG","name":"Pizza Margherita XXL1,7","additionalInfo":"800g, pomodoro, syr Mozzarella, oregano","price":7},
+{"_id":{"$oid":"6399eb1db81881e968007266"},"id":71,"type":"PIZZA_BIG","name":"Pizza Šunková XXL1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, šunka, oregano","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e968007267"},"id":72,"type":"PIZZA_BIG","name":"Pizza Šampiňónová XXL1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, šampiňóny, oregano","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e968007268"},"id":73,"type":"PIZZA_BIG","name":"Pizza Alte XXL1,7","additionalInfo":"1150g, pomodoro, syr Mozzarella, šunka, saláma, olivy, chilli, kukurica, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e968007269"},"id":74,"type":"PIZZA_BIG","name":"Pizza Prosciutto veľká1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, šunka Prosciutto Crudo","price":11},
+{"_id":{"$oid":"6399eb1db81881e96800726a"},"id":75,"type":"PIZZA_BIG","name":"Pizza Quasimodo veľká1,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, cibuľa, feferóny, saláma, klobása, paradajka, syr Niva, oregano","price":11},
+{"_id":{"$oid":"6399eb1db81881e96800726b"},"id":76,"type":"PIZZA_BIG","name":"Pizza Sedliacka veľká1,3,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, biela cibuľa, chilli, slanina, klobása, cesnak, vajce, oregano","price":11},
+{"_id":{"$oid":"6399eb1db81881e96800726c"},"id":77,"type":"PIZZA_BIG","name":"Pizza Diabolská veľká1,3,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, cibuľa, chilli, feferóny, baranie rohy, saláma, klobása, vajce, oregano","price":11},
+{"_id":{"$oid":"6399eb1db81881e96800726d"},"id":78,"type":"PIZZA_BIG","name":"Pizza Capri veľká1,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, šunka, šampiňóny, kukurica, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e96800726e"},"id":79,"type":"PIZZA_BIG","name":"Pizza Salámová veľká1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, saláma, oregano","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e96800726f"},"id":80,"type":"PIZZA_BIG","name":"Pizza Quattro veľká1,7","additionalInfo":"1000g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, smotana, oregano","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e968007270"},"id":81,"type":"PIZZA_BIG","name":"Pizza Qattro so šunkou veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, syr Ementál, syr Fetta, syr Niva, šunka, smotana, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e968007271"},"id":82,"type":"PIZZA_BIG","name":"Pizza Calzone1,7","additionalInfo":"1100g, kapsa, pomodoro, šunka, saláma, kukurica, syr","price":11},
+{"_id":{"$oid":"6399eb1db81881e968007272"},"id":83,"type":"PIZZA_BIG","name":"Pizza Hawai s kuracím mäsom veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, kuracie mäso, ananás, oregano","price":11},
+{"_id":{"$oid":"6399eb1db81881e968007273"},"id":84,"type":"PIZZA_BIG","name":"Pizza Hawai so šunkou veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, šunka, ananás, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e968007274"},"id":85,"type":"PIZZA_BIG","name":"Pizza Maestro veľká1,7","additionalInfo":"1000g, smotana, syr Mozzarella, paradajka, olivy, bazalka, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e968007275"},"id":86,"type":"PIZZA_BIG","name":"Pizza Roma veľká1,3,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, šunka, vajce, šampiňóny, brokolica, olivy, oregano","price":11},
+{"_id":{"$oid":"6399eb1db81881e968007276"},"id":87,"type":"PIZZA_BIG","name":"Pizza Max pokant veľká1,3,7","additionalInfo":"1100g, pikantné pomodoro, saláma, syr Niva, syr Mozzarella, paradajka, chilli papričky","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e968007277"},"id":88,"type":"PIZZA_BIG","name":"Pizza Tunis veľká1,7","additionalInfo":"1200g, pomodoro, cheese Mozzarella, chilli, kuracie mäso, kukurica, oregano","price":11},
+{"_id":{"$oid":"6399eb1db81881e968007278"},"id":89,"type":"PIZZA_BIG","name":"Pizza Vegetariana veľká1,7","additionalInfo":"1200g, pomodoro, syr Mozzarella, kukurica, šampiňóny, paradajka, olivy, brokolica, syr Fetta, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e968007279"},"id":90,"type":"PIZZA_BIG","name":"Pizza Bambino veľká1,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, šunka, kukurica, oregano","price":8.9},
+{"_id":{"$oid":"6399eb1db81881e96800727a"},"id":91,"type":"PIZZA_BIG","name":"Pizza Tuniaková veľká1,4,7","additionalInfo":"1100g, pomodoro, syr Mozzarella, cibuľa, tuniak, paradajka, oregano","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e96800727b"},"id":92,"type":"PIZZA_BIG","name":"Pizza Liptovská veľká1,7","additionalInfo":"1150g, smotana, syr Mozzarella, slanina, bryndza, cibuľa","price":9.9},
+{"_id":{"$oid":"6399eb1db81881e96800727c"},"id":93,"type":"PIZZA_SPECIAL","name":"Pizza roličky 8ks1,7","additionalInfo":"380g, šunka, syr Mozzarella, cesnak s olivovým olejom","price":5.95},
+{"_id":{"$oid":"6399eb1db81881e96800727d"},"id":94,"type":"PIZZA_SPECIAL","name":"Pizza chlieb s dressingom1,7","additionalInfo":"250g, pizza chlieb, dressing podľa ponuky","price":3.5},
+{"_id":{"$oid":"6399eb1db81881e96800727e"},"id":95,"type":"SLADKOST","name":"Vyprážané pirohy so slivkovým lekvárom1,3,7","additionalInfo":"330g, 8ks, kysnuté cesto, slivkový lekvár, práškový cukor, škorica","price":4.9},
+{"_id":{"$oid":"6399eb1db81881e96800727f"},"id":96,"type":"SLADKOST","name":"Marlenka (medová torta)1,3,7","additionalInfo":"80g, kysnuté cesto, lesná zmes, práškový cukor, vajce, sušienky","price":1.9},
+{"_id":{"$oid":"6399eb1db81881e968007280"},"id":97,"type":"SLADKOST","name":"Jogurtový pohár s lesným ovocím a s müsli7","additionalInfo":"450g, smotanový jogurt, zmes ovocia, javorový sirup, müsli","price":4},
+{"_id":{"$oid":"6399eb1db81881e968007281"},"id":98,"type":"SLADKOST","name":"Horúca čokoláda s lesným ovocím7","additionalInfo":"450g","price":3.9},
+{"_id":{"$oid":"6399eb1db81881e968007282"},"id":99,"type":"PRILOHA","name":"Hranolky","additionalInfo":"200g","price":1.5},
+{"_id":{"$oid":"6399eb1db81881e968007283"},"id":100,"type":"PRILOHA","name":"Ryža","additionalInfo":"200g","price":1.5},
+{"_id":{"$oid":"6399eb1db81881e968007284"},"id":101,"type":"PRILOHA","name":"Steakové hranolky7","additionalInfo":"200g","price":2},
+{"_id":{"$oid":"6399eb1db81881e968007285"},"id":102,"type":"PRILOHA","name":"Steakové hranolky so slaninou a syrom7,10","additionalInfo":"350g, slanina, maslo, cibuľa, cesnak, syr Eidam, syr Parmezán, smotana, soľ, steakové hranolky","price":5.9},
+{"_id":{"$oid":"6399eb1db81881e968007286"},"id":103,"type":"DOPLNOK","name":"chilli","additionalInfo":"5g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007287"},"id":104,"type":"DOPLNOK","name":"feferóny","additionalInfo":"5g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007288"},"id":105,"type":"DOPLNOK","name":"olivy","additionalInfo":"10g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007289"},"id":106,"type":"DOPLNOK","name":"cibuľa","additionalInfo":"20g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800728a"},"id":107,"type":"DOPLNOK","name":"krevety","additionalInfo":"5g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800728b"},"id":108,"type":"DOPLNOK","name":"mozzarella","additionalInfo":"30g","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e96800728c"},"id":109,"type":"DOPLNOK","name":"niva7","additionalInfo":"30g","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e96800728d"},"id":110,"type":"DOPLNOK","name":"ementál7","additionalInfo":"30g","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e96800728e"},"id":111,"type":"DOPLNOK","name":"fetta syr7","additionalInfo":"30g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800728f"},"id":112,"type":"DOPLNOK","name":"tuniak","additionalInfo":"30g","price":1.5},
+{"_id":{"$oid":"6399eb1db81881e968007290"},"id":113,"type":"DOPLNOK","name":"brokolica","additionalInfo":"20g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007291"},"id":114,"type":"DOPLNOK","name":"ananás","additionalInfo":"30g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007292"},"id":115,"type":"DOPLNOK","name":"kukurica","additionalInfo":"20g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007293"},"id":116,"type":"DOPLNOK","name":"šampiňóny","additionalInfo":"30g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e968007294"},"id":117,"type":"DOPLNOK","name":"šunka","additionalInfo":"30g","price":1},
+{"_id":{"$oid":"6399eb1db81881e968007295"},"id":118,"type":"DOPLNOK","name":"prosciutto crudo","additionalInfo":"30g","price":2},
+{"_id":{"$oid":"6399eb1db81881e968007296"},"id":119,"type":"DOPLNOK","name":"slanina","additionalInfo":"30g","price":1},
+{"_id":{"$oid":"6399eb1db81881e968007297"},"id":120,"type":"DOPLNOK","name":"klobása","additionalInfo":"30g","price":1},
+{"_id":{"$oid":"6399eb1db81881e968007298"},"id":121,"type":"DOPLNOK","name":"saláma","additionalInfo":"30g","price":1},
+{"_id":{"$oid":"6399eb1db81881e968007299"},"id":122,"type":"DOPLNOK","name":"vajce3","additionalInfo":"1ks.","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800729a"},"id":123,"type":"DOPLNOK","name":"smotana7","additionalInfo":"60ml","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800729b"},"id":124,"type":"DOPLNOK","name":"paprika","additionalInfo":"20g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800729c"},"id":125,"type":"DOPLNOK","name":"paradajka","additionalInfo":"20g","price":0.66},
+{"_id":{"$oid":"6399eb1db81881e96800729d"},"id":126,"type":"DOPLNOK","name":"kuracie mäso","additionalInfo":"50g","price":1.5},
+{"_id":{"$oid":"6399eb1db81881e96800729e"},"id":127,"type":"DOPLNOK","name":"chlieb1,3","additionalInfo":"1ks.","price":0.15},
+{"_id":{"$oid":"6399eb1db81881e96800729f"},"id":128,"type":"POCHUTINA","name":"Tyčinky7,10","additionalInfo":"45g","price":1},
+{"_id":{"$oid":"6399eb1db81881e9680072a0"},"id":129,"type":"POCHUTINA","name":"Arašidy7,10","additionalInfo":"80g","price":1},
+{"_id":{"$oid":"6399eb1db81881e9680072a1"},"id":130,"type":"POCHUTINA","name":"Chrumky7,10","additionalInfo":"60g","price":1},
+{"_id":{"$oid":"6399eb1db81881e9680072a2"},"id":131,"type":"POCHUTINA","name":"Horalka7,10","additionalInfo":"40g","price":1},
+{"_id":{"$oid":"6399eb1db81881e9680072a3"},"id":132,"type":"OMACKA","name":"Tzatziky omáčka7","additionalInfo":"33ml","price":1},
+{"_id":{"$oid":"6399eb1db81881e9680072a4"},"id":133,"type":"OMACKA","name":"Cesnakový dressing7","additionalInfo":"33ml","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e9680072a5"},"id":134,"type":"OMACKA","name":"Tatárska omáčka3,7","additionalInfo":"33ml","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e9680072a6"},"id":135,"type":"OMACKA","name":"Kečup1","additionalInfo":"33ml","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e9680072a7"},"id":136,"type":"OMACKA","name":"Pikantný dressing1","additionalInfo":"33ml","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e9680072a8"},"id":137,"type":"OMACKA","name":"Horčica10","additionalInfo":"33ml","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e9680072a9"},"id":138,"type":"OMACKA","name":"Chrenový dressing7","additionalInfo":"33ml","price":0.99},
+{"_id":{"$oid":"6399eb1db81881e9680072aa"},"id":139,"type":"OMACKA","name":"Barbecue","additionalInfo":"33ml","price":1},
+{"_id":{"$oid":"6399eb1db81881e9680072ab"},"id":140,"type":"OMACKA","name":"Jogurt7","additionalInfo":"33ml","price":0.7},
+{"_id":{"$oid":"6399eb1db81881e9680072ac"},"id":141,"type":"PIVO","name":"Bernard 11°/1, 5 l","additionalInfo":"1,5l","price":4.7},
+{"_id":{"$oid":"6399eb1db81881e9680072ad"},"id":142,"type":"PIVO","name":"Prazdroj 12°/1, 5 l","additionalInfo":"1,5l, čapované pivo","price":6.2},
+{"_id":{"$oid":"6399eb1db81881e9680072ae"},"id":143,"type":"VINO","name":"Červené víno 0, 75l","additionalInfo":"0,75l, fľaša","price":8},
+{"_id":{"$oid":"6399eb1db81881e9680072af"},"id":144,"type":"VINO","name":"Biele víno 0, 75l","additionalInfo":"0,75l, fľaša","price":8},
+{"_id":{"$oid":"6399eb1db81881e9680072b0"},"id":145,"type":"VINO","name":"Frankovka červená 1, 5l","additionalInfo":"1,5l, sudové víno (pet fľaša) cena komplet","price":6.5},
+{"_id":{"$oid":"6399eb1db81881e9680072b1"},"id":146,"type":"VINO","name":"Biele víno sudové 1, 5l","additionalInfo":"1,5l, čapované víno(pet fľaša) cena komplet","price":6.5},
+{"_id":{"$oid":"6399eb1db81881e9680072b2"},"id":147,"type":"VINO","name":"Ríbezľové víno 1, 5","additionalInfo":"1,5l, sudové sladké(pet fľaša), cena komplet","price":6.5},
+{"_id":{"$oid":"6399eb1db81881e9680072b3"},"id":148,"type":"ALKOHOL","name":"Borovička","additionalInfo":"0,5l","price":6},
+{"_id":{"$oid":"6399eb1db81881e9680072b4"},"id":149,"type":"ALKOHOL","name":"Vodka","additionalInfo":"0,5l","price":6},
 {"_id":{"$oid":"6399eb1db81881e9680072b5"},"id":150,"type":"ALKOHOL","name":"Rum","additionalInfo":"0,5l","price":6}
 ]
