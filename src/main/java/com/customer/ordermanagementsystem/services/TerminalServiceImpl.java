@@ -51,11 +51,12 @@ public class TerminalServiceImpl implements TerminalService {
         try {
             String id = terminalReply.getOrderId();
             Optional<Order> order = orderRepository.findById(id);
-
-            order.ifPresent(o -> {
-                o.setTerminalReplyInfo(terminalReply);
-                orderRepository.save(o);
-            });
+            if ( order.isPresent() ){
+                order.get().setTerminalReplyInfo(terminalReply);
+                orderRepository.save(order.get());
+            } else{
+                log.error("Order with id " + id + " was not found");
+            }
         } catch (Exception e){
             log.error(e.toString() + " terminalReply is: " + terminalReply.toString());
         }

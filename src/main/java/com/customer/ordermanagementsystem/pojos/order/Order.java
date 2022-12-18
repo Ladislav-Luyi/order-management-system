@@ -4,7 +4,6 @@ import com.customer.ordermanagementsystem.pojos.item.Item;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
@@ -20,12 +19,12 @@ import java.util.List;
 @Document("Orders")
 public class Order{
     @Id
-    private  Long id;
+    private  String id;
 
     public Order(){
        Date date = new Date();
-       long timeMilli = date.getTime();
-       id = timeMilli;
+       Long timeMilli = date.getTime();
+       id = timeMilli.toString();
        placedAt = new Date();
     }
 
