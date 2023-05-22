@@ -5,7 +5,8 @@ public enum Type {
     PIZZA_NORMAL("PIZZA_NORMAL"), PIZZA_BIG("PIZZA_BIG"), PIZZA_SPECIAL("PIZZA_SPECIAL"),
     POLIEVKA("POLIEVKA"),      SALAT("SALAT"),    OMACKA("OMACKA"),   POCHUTINA("POCHUTINA"),
     ZEMIAK_SPECIAL("ZEMIAK_SPECIAL"), BAGETA("BAGETA"), CESTOVINA("CESTOVINA"),
-    GURMANSKE("GURMANSKE"), OBALOVANE("OBALOVANE"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"),
+    GURMANSKE("GURMANSKE"), OBALOVANE("OBALOVANE"), FIT("FIT"), RIZOTO("RIZOTO"), SLADKOST("SLADKOST"), MASOVE_JEDLO("MASOVE_JEDLO"),
+    WRAP_FRITTATA("WRAP_FRITTATA"), NIECO_MALE_POD_ZUB("NIECO_MALE_POD_ZUB"),
     PRILOHA("PRILOHA"), NAPOJ("NAPOJ"), DOPLNOK("DOPLNOK"),
     PIVO("PIVO"), VINO("VINO"), ALKOHOL("ALKOHOL");
 
@@ -56,6 +57,15 @@ public enum Type {
 
             case "OBALOVANE":
                 return Type.OBALOVANE;
+
+            case "MASOVE_JEDLO":
+                return Type.MASOVE_JEDLO;
+
+            case "WRAP_FRITTATA":
+                return Type.WRAP_FRITTATA;
+
+            case "NIECO_MALE_POD_ZUB":
+                return Type.NIECO_MALE_POD_ZUB;
 
             case "FIT":
                 return Type.FIT;

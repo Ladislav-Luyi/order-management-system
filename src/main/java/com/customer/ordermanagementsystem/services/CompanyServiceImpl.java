@@ -94,6 +94,7 @@ public class CompanyServiceImpl implements CompanyService{
         try {
             int priority = applicableRules.stream()
                     .mapToInt(o -> o.getPriority())
+                    .peek(System.out::println)
                     .min()
                     .orElseThrow(() -> new IllegalStateException("Not applicable rule was found!"));
 

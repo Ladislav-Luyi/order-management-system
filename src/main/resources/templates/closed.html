@@ -43,19 +43,16 @@
                         <a class="nav-link" href="#Cestoviny">Cestoviny</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Gurmánske jedlá">Gurmánske jedlá</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#OBALOVANE">Obalované jedlá</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Fit jedlá">Fit jedlá</a>
+                        <a class="nav-link" href="#Mäsové jedlá">Mäsové jedlá</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Rizotá">Rizotá</a>
+                        <a class="nav-link" href="#Wrap a fritata">Wrap a fritata</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Sladkosti">Sladkosti</a>
+                        <a class="nav-link" href="#Niečo malé pod zub">Niečo malé pod zub</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Prílohy">Prílohy</a>
@@ -67,13 +64,7 @@
                         <a class="nav-link" href="#Omáčky">Omáčky</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#PIVO">Pivo</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#VINO">Víno</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#ALKOHOL">Alkohol</a>
                     </li>
                 </ul>
             </div>
@@ -81,13 +72,14 @@
 
 
         <div class='row'>
-            <div th:object="${orderDTO}">
+            <div class="column" th:object="${orderDTO}">
                 <h2 id="Menu" th:if="${MENU_POLIEVKA != null}" class="dash_border">Denné menu</h2>
                 <h6 th:if="${MENU_POLIEVKA != null}">V cene menu je polievka. Cena polievky bude po výbere menu jedla odrátaná.</h6>
                 <div  th:each="var : ${MENU_POLIEVKA}">
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -102,6 +94,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -118,6 +111,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -134,6 +128,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -149,6 +144,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -164,6 +160,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -178,6 +175,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -192,6 +190,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -206,6 +205,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -215,11 +215,42 @@
 
                 </div>
 
-                <h2 id="Gurmánske jedlá" class="dash_border">Jedlá na veľký hlad pre gurmánov</h2>
-                <div th:each="var : ${GURMANSKE}">
+                <h2 id="Mäsové jedlá" class="dash_border">Mäsové jedlá</h2>
+                <div th:each="var : ${MASOVE_JEDLO}">
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                        <span> - </span>
+                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                        <br>
+                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                    </p>
+
+                </div>
+
+                <h2 id="Wrap a fritata" class="dash_border">Wrap a fritata</h2>
+                <div th:each="var : ${WRAP_FRITTATA}">
+
+                    <p>
+                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
+                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
+                        <span> - </span>
+                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
+                        <br>
+                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                    </p>
+
+                </div>
+
+                <h2 id="Niečo malé pod zub" class="dash_border">Niečo malé pod zub</h2>
+                <div th:each="var : ${NIECO_MALE_POD_ZUB}">
+
+                    <p>
+                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -234,48 +265,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                        <span> - </span>
-                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                        <br>
-                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
-                    </p>
-
-                </div>
-
-                <h2 id="Fit jedlá" class="dash_border">Fit jedlá</h2>
-                <div th:each="var : ${FIT}">
-
-                    <p>
-                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                        <span> - </span>
-                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                        <br>
-                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
-                    </p>
-
-                </div>
-
-                <h2 id="Rizotá" class="dash_border">Rizotá</h2>
-                <div th:each="var : ${RIZOTO}">
-
-                    <p>
-                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                        <span> - </span>
-                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                        <br>
-                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
-                    </p>
-
-                </div>
-
-                <h2 id="Sladkosti" class="dash_border">Sladkosti</h2>
-                <div th:each="var : ${SLADKOST}">
-
-                    <p>
-                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -290,6 +280,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -304,6 +295,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -318,6 +310,7 @@
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -327,25 +320,13 @@
 
                 </div>
 
-                <h2 id="PIVO" class="dash_border">Pivo</h2>
-                <div th:each="var : ${PIVO}">
-
-                    <p>
-                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                        <span> - </span>
-                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                        <br>
-                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
-                    </p>
-
-                </div>
 
                 <h2 id="VINO" class="dash_border">Víno</h2>
                 <div th:each="var : ${VINO}">
 
                     <p>
                         <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
+                        <button class="btn btn-outline-info" th:onclick="activateCheckbox([[ ${var.id + 'checkbox'} ]])" type="submit" name="addElement">+</button>
                         <span class="jedlo" th:text="${var.getName()}">itemName</span>
                         <span> - </span>
                         <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
@@ -355,20 +336,28 @@
 
                 </div>
 
-                <h2 id="ALKOHOL" class="dash_border">Alkohol</h2>
-                <div th:each="var : ${ALKOHOL}">
+            </div>
 
+
+            <div class="column"  th:object="${orderDTO}">
+                <p class="pink_color emphasize">Tvoj košík</p>
+                <div th:each="var : ${orderedItems}">
                     <p>
-                        <input th:id="${var.id + 'checkbox'}" th:name="item" type="checkbox" th:value="${var.id}" style="display:none" />
-                        <span class="jedlo" th:text="${var.getName()}">itemName</span>
-                        <span> - </span>
-                        <span class="pink_color no_breaking_text" th:text="${var.getPrice() + ' €'}">itemPrice</span>
-                        <br>
-                        <span class="small_font" th:text="${ var.getAdditionalInfo()}">itemInfo</span>
+                        <input th:id="${var.id + 'removeItem'}" th:name="indexToRemove" type="checkbox" th:value="${varStat.index}" style="display:none" />
+                        <button class="btn btn-outline-danger" th:onclick="activateCheckbox([[ ${var.id + 'removeItem'} ]])"  type="submit" name="removeElement">-</button>
+                        <span class="small_font" th:text="${var.name}"></span>
+                        <span class="small_font" th:text="${var.itemListToString()}"></span>
+                        <a  class="btn btn-outline-info" th:href="@{/upravaPolozky(index=${varStat.index})}">extra +/-</a>
                     </p>
 
                 </div>
 
+                <p>
+                    <span class="pink_color emphasize">Celková cena</span>
+                    <span class="pink_color emphasize" th:text="${totalPrice}" id="overallPrice">0.00</span>
+                    <span class="pink_color emphasize"> €</span>
+                    <button class="btn btn-outline-primary row">Odoslať objednávku</button>
+                </p>
             </div>
 
         </div>
@@ -398,19 +387,16 @@
                         <a class="nav-link" href="#Cestoviny">Cestoviny</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Gurmánske jedlá">Gurmánske jedlá</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#OBALOVANE">Obalované jedlá</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Fit jedlá">Fit jedlá</a>
+                        <a class="nav-link" href="#Mäsové jedlá">Mäsové jedlá</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Rizotá">Rizotá</a>
+                        <a class="nav-link" href="#Wrap a fritata">Wrap a fritata</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Sladkosti">Sladkosti</a>
+                        <a class="nav-link" href="#Niečo malé pod zub">Niečo malé pod zub</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Prílohy">Prílohy</a>
@@ -422,13 +408,7 @@
                         <a class="nav-link" href="#Omáčky">Omáčky</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#PIVO">Pivo</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#VINO">Víno</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#ALKOHOL">Alkohol</a>
                     </li>
                 </ul>
             </div>
