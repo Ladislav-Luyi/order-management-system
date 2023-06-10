@@ -69,11 +69,8 @@ public class AddItemsController {
     @RequestMapping(params = {"addElement"})
     public String addElement(OrderDTO orderDTO, Model model) {
         orderService.addItemToList(orderDTO.getItem());
-
         log.debug("addElement: " + orderService.getOrderInstance().getOrderList().toString());
-
         addElements(model);
-
         return "order";
     }
 
@@ -89,9 +86,7 @@ public class AddItemsController {
     public String processOrder() {
         if (!orderService.isHigherThanMinimalValue())
             return "redirect:/kosik";
-
         log.info("Processing order: " + orderService.getOrderInstance());
-
         return "redirect:/objednavka/formular";
     }
 
