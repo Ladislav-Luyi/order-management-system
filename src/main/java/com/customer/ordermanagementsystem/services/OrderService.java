@@ -7,14 +7,11 @@ import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Service
 public interface OrderService {
-
-    void addOrderedItemsToModel(Model model, String nameOfAttributeForMapping);
-
-    void addSingleOrderedItemToModel(Model model, int i, String nameOfAttributeForMapping);
-
-    void addTotalPrice(Model model, String nameOfAttributeForMapping);
 
     void addItemToList(Item item);
 
@@ -34,5 +31,8 @@ public interface OrderService {
 
     boolean isHigherThanMinimalValue();
 
-    void addMinimalOrderValueToModel(Model model, String nameOfAttributeForMapping);
+    List<Item> getOrders();
+
+    BigDecimal getMinimalOrderValue();
+    BigDecimal getTotalPrice();
 }

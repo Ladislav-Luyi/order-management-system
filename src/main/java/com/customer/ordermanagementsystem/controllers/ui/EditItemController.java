@@ -5,6 +5,7 @@ import com.customer.ordermanagementsystem.domain.order.OrderDTO;
 import com.customer.ordermanagementsystem.domain.item.Type;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemService;
+import com.customer.ordermanagementsystem.services.ModelService;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,6 @@ import java.util.List;
 @Slf4j
 @Controller
 @SessionAttributes({"customerInfo", "order", "orderDTO"})
-
 @RequestMapping("/upravaPolozky")
 public class EditItemController {
 
@@ -26,20 +26,20 @@ public class EditItemController {
     private final ItemService itemService;
     private final OrderService orderService;
     private final DiscountService discountService;
+    private final ModelService modelService;
 
     @Autowired
-    public EditItemController(ItemService itemService, OrderService orderService, DiscountService discountService) {
+    public EditItemController(ItemService itemService, OrderService orderService, DiscountService discountService, ModelService modelService) {
         this.itemService = itemService;
         this.orderService = orderService;
         this.discountService = discountService;
+        this.modelService = modelService;
     }
 
     @RequestMapping()
     public String editItem(Model model, @RequestParam int index) {
-        addItemOrderDiscountToModel(model, index);
-
+        addElements(model, index);
         model.addAttribute("orderDTO", new OrderDTO());
-
         return "edit";
 
     }
@@ -47,11 +47,8 @@ public class EditItemController {
     @RequestMapping(params = {"addInnerElement"})
     public String addItem(Model model, OrderDTO orderDTO, @RequestParam int index) {
         orderService.addItemToIndexInList(index, orderDTO.getItem());
-
-        addItemOrderDiscountToModel(model, index);
-
+        addElements(model, index);
         model.addAttribute("orderDTO", new OrderDTO());
-
         return "edit";
 
     }
@@ -60,35 +57,25 @@ public class EditItemController {
     @RequestMapping(params = {"removeElement"})
     public String removeItem(OrderDTO orderDTO, Model model, @RequestParam int index) {
         orderService.removeIndexFromInnerList(index, orderDTO.getIndexToRemove());
-
-        addItemOrderDiscountToModel(model, index);
-
+        addElements(model, index);
         model.addAttribute("orderDTO", new OrderDTO());
-
         return "edit";
     }
 
 
     @PostMapping()
     public String returnToBasket() {
-
         return "redirect:/kosik";
     }
 
-    private void addItemOrderDiscountToModel(Model model, @RequestParam int index) {
+    private void addElements(Model model, @RequestParam int index) {
         addToModel(model, Type.DOPLNOK, itemService.getItemsOfType(Type.DOPLNOK));
-
-        orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
+        modelService.addToModel(model, "orderedItem",  orderService.getOrders().get(index));
+        modelService.addToModel(model, "orderedItems", orderService.getOrders());
         orderService.refreshPrice();
-
         discountService.refreshDiscounts();
-
         discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 
     private void addToModel(Model model, Type type, List<Item> items) {

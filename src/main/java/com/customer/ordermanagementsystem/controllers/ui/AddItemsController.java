@@ -4,10 +4,7 @@ package com.customer.ordermanagementsystem.controllers.ui;
 import com.customer.ordermanagementsystem.domain.item.Item;
 import com.customer.ordermanagementsystem.domain.item.Type;
 import com.customer.ordermanagementsystem.domain.order.OrderDTO;
-import com.customer.ordermanagementsystem.services.CompanyService;
-import com.customer.ordermanagementsystem.services.DiscountService;
-import com.customer.ordermanagementsystem.services.ItemService;
-import com.customer.ordermanagementsystem.services.OrderService;
+import com.customer.ordermanagementsystem.services.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,17 +27,17 @@ public class AddItemsController {
     private final OrderService orderService;
     private final DiscountService discountService;
     private final CompanyService companyService;
+    private final ModelService modelService;
 
     @Autowired
-    public AddItemsController(ItemService itemService, OrderService orderService, DiscountService discountService, CompanyService companyService) {
+    public AddItemsController(ItemService itemService, OrderService orderService, DiscountService discountService, CompanyService companyService, ModelService modelService) {
         this.itemService = itemService;
         this.orderService = orderService;
         this.discountService = discountService;
         this.companyService = companyService;
+        this.modelService = modelService;
     }
-    private void addToModel(Model model, Type type, List<Item> items) {
-        model.addAttribute(type.toString(), items);
-    }
+
 
     private static Predicate<Map.Entry<Type, List<Item>>> isKeyDefinedAsType() {
         return typeListEntry -> Type.isTypeDefined(typeListEntry.getKey().toString());
@@ -55,15 +52,8 @@ public class AddItemsController {
                 .entrySet().stream()
                 .filter(isValueArrayNotEmpty())
                 .filter(isKeyDefinedAsType())
-                .forEach(typeListEntry -> addToModel(model, typeListEntry.getKey(), typeListEntry.getValue()));
+                .forEach(typeListEntry -> modelService.addToModel(model, typeListEntry.getKey().toString(), typeListEntry.getValue()));
     }
-
-//    public void addSingleTypeItemsToModel(Model model, List<Item> items) {
-//        items
-//                .filter(e -> e.getType().equals(type))
-//                .collect(Collectors.toList());
-//        addToModel(model, type, items);
-//    }
 
     @RequestMapping()
     public String showOrderForm(Model model) {
@@ -72,12 +62,8 @@ public class AddItemsController {
             companyService.addItemToModel(model, "closedMessage");
             return "closed";
         }
-
-
         addElements(model);
-
         model.addAttribute("orderDTO", new OrderDTO());
-
         return "order";
     }
 
@@ -113,18 +99,12 @@ public class AddItemsController {
 
     private void addElements(Model model) {
         addAllItemsToModel(model, itemService.getItems());
-
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
-        orderService.addMinimalOrderValueToModel(model, "minimalOrderValue");
-
+        modelService.addToModel(model, "orderedItems", orderService.getOrders());
+        modelService.addToModel(model, "minimalOrderValue", orderService.getMinimalOrderValue().toString() );
         orderService.refreshPrice();
-
         discountService.refreshDiscounts();
-
         discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 
 }

@@ -3,6 +3,7 @@ package com.customer.ordermanagementsystem.controllers.ui;
 
 import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
+import com.customer.ordermanagementsystem.services.ModelService;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,13 @@ public class CustomerInfoController {
 
     private final OrderService orderService;
     private final DiscountService discountService;
+    private final ModelService modelService;
 
     @Autowired
-    public CustomerInfoController(OrderService orderService, DiscountService discountService) {
+    public CustomerInfoController(OrderService orderService, DiscountService discountService, ModelService modelService) {
         this.orderService = orderService;
         this.discountService = discountService;
+        this.modelService = modelService;
     }
 
     @GetMapping("/formular")
@@ -66,14 +69,10 @@ public class CustomerInfoController {
     }
 
     private void addOrderToModel(Model model) {
-        orderService.addOrderedItemsToModel(model, "orderedItems");
-
+        modelService.addToModel(model, "orderedItems", orderService.getOrders());
         orderService.refreshPrice();
-
         discountService.refreshDiscounts();
-
         discountService.addDiscountToModel(model, "discount");
-
-        orderService.addTotalPrice(model, "totalPrice");
+        modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 }
