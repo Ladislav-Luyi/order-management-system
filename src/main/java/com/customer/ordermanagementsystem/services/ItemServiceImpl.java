@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
 public class ItemServiceImpl implements ItemService {
-
 
     private final ItemRepository itemRepository;
 
@@ -25,51 +25,32 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void addAllItemsToModel(Model model) {
+        Map<Type,List<Item>> map= itemRepository.findAll().stream()
+                .collect(Collectors.groupingBy(Item::getType));
+        map.entrySet().stream()
+                .filter(isValueArrayNotEmpty())
+                .filter(isKeyDefinedAsType())
+                .forEach(typeListEntry -> addToModel(model, typeListEntry.getKey(), typeListEntry.getValue()));
+    }
 
-        List<Item> items = itemRepository.findAll();
+    private static Predicate<Map.Entry<Type, List<Item>>> isKeyDefinedAsType() {
+        return typeListEntry -> Type.isTypeDefined(typeListEntry.getKey().toString());
+    }
 
-        Type[] types = Type.values();
-
-        for (Type type : types)
-        {
-            List<Item> tmpList = new ArrayList<>();
-            for(Item tmpItem : items)
-            {
-                if (tmpItem.getType() == type) {
-                    
-                    tmpList.add(tmpItem);
-                }
-            }
-
-            if (tmpList.size() == 0)
-                continue;
-
-            log.debug("Processing for " + type.toString());
-
-
-            model.addAttribute(type.toString(), tmpList);
-        }
-
-
-
+    private Predicate<Map.Entry<Type, List<Item>>> isValueArrayNotEmpty() {
+        return typeListEntry -> typeListEntry.getValue().size() != 0;
     }
 
 
     @Override
     public void addSingleItemToModel(Model model, Type type) {
+        List<Item> items = itemRepository.findAll().stream()
+                .filter( e -> e.getType().equals(type))
+                .collect(Collectors.toList());
+        addToModel(model, type, items);
+    }
 
-        List<Item> items = itemRepository.findAll();
-
-        List<Item> tmpList = new ArrayList<>();
-
-        for(Item tmpItem : items)
-        {
-            if (tmpItem.getType() == type) {
-                tmpList.add(tmpItem);
-            }
-        }
-
-        log.debug("Processing " + type.toString());
-        model.addAttribute(type.toString(), tmpList);
+    private void addToModel(Model model, Type type, List<Item> items) {
+        model.addAttribute(type.toString(), items);
     }
 }

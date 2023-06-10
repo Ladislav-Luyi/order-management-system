@@ -9,4 +9,13 @@ public enum Type {
     WRAP_FRITTATA, NIECO_MALE_POD_ZUB,
     PRILOHA, NAPOJ, DOPLNOK,
     PIVO, VINO, ALKOHOL;
+
+    public static boolean isTypeDefined(String value) {
+        try {
+            Type.valueOf(value);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
 }
