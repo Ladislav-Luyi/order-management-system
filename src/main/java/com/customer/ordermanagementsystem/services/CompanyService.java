@@ -9,8 +9,6 @@ public interface CompanyService {
 
     void openAndCloseStoreWithMessage(String status, String message);
 
-    boolean isStoreOpenAccordingTimeSchedule();
-
     String getOpenAndCloseStoreMessage();
 
     boolean isStoreOpen();

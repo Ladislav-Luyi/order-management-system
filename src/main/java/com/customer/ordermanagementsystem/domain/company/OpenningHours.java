@@ -15,6 +15,4 @@ public class OpenningHours {
     private int openning_hours;
     private int closing_hours;
     private int priority;
-
-
 }
