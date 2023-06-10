@@ -1,0 +1,50 @@
+<div th:fragment="listItems(isOrderButtonActive)">
+  <div  th:object="${orderDTO}">
+    <h2 id="Pizza - normálna veľkosť" class="dash_border">Pizza - normálna veľkosť</h2>
+    <h6>Akcia 3x pizza + 1x pizza grátis</h6>
+    <div th:insert="fragments/listItems :: listItems(vars=${PIZZA_NORMAL}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Pizza - XXL veľkosť" class="dash_border">Pizza - XXL veľkosť</h2>
+    <h6>Akcia 3x pizza + 1x pizza grátis</h6>
+    <div th:insert="fragments/listItems :: listItems(vars=${PIZZA_BIG}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Polievky" class="dash_border">Polievky</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${POLIEVKA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Šaláty" class="dash_border">Šaláty</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${SALAT}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="ZEMIAK_SPECIAL" class="dash_border">Zemiakové špeciality</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${ZEMIAK_SPECIAL}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Bagety" class="dash_border">Bagety</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${BAGETA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Cestoviny" class="dash_border">Cestoviny</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${CESTOVINA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Mäsové jedlá" class="dash_border">Mäsové jedlá</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${MASOVE_JEDLO}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Wrap a fritata" class="dash_border">Wrap a fritata</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${WRAP_FRITTATA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Niečo malé pod zub" class="dash_border">Niečo malé pod zub</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${NIECO_MALE_POD_ZUB}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="OBALOVANE" class="dash_border">Obalované jedlá</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${OBALOVANE}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Prílohy" class="dash_border">Prílohy</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${PRILOHA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Pochutiny" class="dash_border">Pochutiny</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${POCHUTINA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="Omáčky" class="dash_border">Omáčky</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${OMACKA}, isOrderButtonActive=${isOrderButtonActive})"></div>
+
+    <h2 id="VINO" class="dash_border">Víno</h2>
+    <div th:insert="fragments/listItems :: listItems(vars=${VINO}, isOrderButtonActive=${isOrderButtonActive})"></div>
+  </div>
+</div>
