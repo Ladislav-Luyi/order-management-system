@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.pojos.item;
+package com.customer.ordermanagementsystem.domain.item;
 
 
 import lombok.Data;

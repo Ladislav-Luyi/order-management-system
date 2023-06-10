@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
 
-import com.customer.ordermanagementsystem.pojos.order.OrderDTO;
+import com.customer.ordermanagementsystem.domain.order.OrderDTO;
 import com.customer.ordermanagementsystem.services.CompanyService;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ItemService;

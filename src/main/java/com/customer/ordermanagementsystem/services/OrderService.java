@@ -1,9 +1,9 @@
 package com.customer.ordermanagementsystem.services;
 
 
-import com.customer.ordermanagementsystem.pojos.item.Item;
-import com.customer.ordermanagementsystem.pojos.order.Order;
-import com.customer.ordermanagementsystem.pojos.order.CustomerInfo;
+import com.customer.ordermanagementsystem.domain.item.Item;
+import com.customer.ordermanagementsystem.domain.order.Order;
+import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 

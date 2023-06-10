@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.repository;
 
-import com.customer.ordermanagementsystem.pojos.item.Item;
+import com.customer.ordermanagementsystem.domain.item.Item;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

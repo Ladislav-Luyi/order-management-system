@@ -1,8 +1,8 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.item.Item;
-import com.customer.ordermanagementsystem.pojos.order.Order;
-import com.customer.ordermanagementsystem.pojos.item.Type;
+import com.customer.ordermanagementsystem.domain.item.Item;
+import com.customer.ordermanagementsystem.domain.order.Order;
+import com.customer.ordermanagementsystem.domain.item.Type;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

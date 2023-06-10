@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.order.Order;
-import com.customer.ordermanagementsystem.pojos.order.TerminalReply;
+import com.customer.ordermanagementsystem.domain.order.Order;
+import com.customer.ordermanagementsystem.domain.order.TerminalReply;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

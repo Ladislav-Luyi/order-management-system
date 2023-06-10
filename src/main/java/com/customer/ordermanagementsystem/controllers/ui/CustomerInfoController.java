@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
 
-import com.customer.ordermanagementsystem.pojos.order.CustomerInfo;
+import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
 import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.pojos.security;
+package com.customer.ordermanagementsystem.domain.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -8,9 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-@Profile("prod")
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+@Profile("dev")
+public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
 
 
 
@@ -19,11 +18,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.httpBasic()
                 .and()
-                .authorizeRequests().antMatchers("/otvorene", "/podnik").authenticated()
+                .authorizeRequests().antMatchers("/otvorene").authenticated()
+                .and()
+                .authorizeRequests().antMatchers("/db/**").permitAll()
                 .and()
                 .csrf().disable();
 
-    }
+
+        http.headers().frameOptions().disable(); 
+        }
+
     }
 
 

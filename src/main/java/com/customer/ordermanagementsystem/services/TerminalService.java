@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.services;
 
-import com.customer.ordermanagementsystem.pojos.order.TerminalReply;
+import com.customer.ordermanagementsystem.domain.order.TerminalReply;
 import org.springframework.stereotype.Service;
 
 @Service

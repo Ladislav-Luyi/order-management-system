@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
-import com.customer.ordermanagementsystem.pojos.company.CompanyDTO;
+import com.customer.ordermanagementsystem.domain.company.CompanyDTO;
 import com.customer.ordermanagementsystem.services.CompanyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

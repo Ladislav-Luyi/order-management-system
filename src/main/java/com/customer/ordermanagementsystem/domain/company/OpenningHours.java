@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.pojos.company;
+package com.customer.ordermanagementsystem.domain.company;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

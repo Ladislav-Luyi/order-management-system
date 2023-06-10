@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.pojos.order;
+package com.customer.ordermanagementsystem.domain.order;
 
 
 import lombok.AllArgsConstructor;
