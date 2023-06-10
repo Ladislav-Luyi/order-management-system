@@ -1,11 +1,12 @@
 package com.customer.ordermanagementsystem.services;
 
+import com.customer.ordermanagementsystem.domain.item.Item;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public interface DiscountService {
-    void addDiscountToModel(Model model, String nameOfAttributeForMapping);
-
-    void refreshDiscounts();
+    BigDecimal getDiscountValue(List<Item> items);
 }

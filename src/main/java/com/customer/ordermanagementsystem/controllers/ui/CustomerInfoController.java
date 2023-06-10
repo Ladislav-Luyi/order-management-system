@@ -22,13 +22,11 @@ import javax.validation.Valid;
 public class CustomerInfoController {
 
     private final OrderService orderService;
-    private final DiscountService discountService;
     private final ModelService modelService;
 
     @Autowired
-    public CustomerInfoController(OrderService orderService, DiscountService discountService, ModelService modelService) {
+    public CustomerInfoController(OrderService orderService, ModelService modelService) {
         this.orderService = orderService;
-        this.discountService = discountService;
         this.modelService = modelService;
     }
 
@@ -71,8 +69,6 @@ public class CustomerInfoController {
     private void addOrderToModel(Model model) {
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
         orderService.refreshPrice();
-        discountService.refreshDiscounts();
-        discountService.addDiscountToModel(model, "discount");
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 }

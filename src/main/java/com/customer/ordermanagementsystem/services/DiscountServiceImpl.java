@@ -2,11 +2,8 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.domain.item.Item;
 import com.customer.ordermanagementsystem.domain.item.Type;
-import com.customer.ordermanagementsystem.domain.order.Order;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,36 +13,15 @@ import java.util.List;
 @Slf4j
 @Service
 public class DiscountServiceImpl implements DiscountService {
-
-    private final Order order;
-
-    private String message = "";
-    private BigDecimal discount = new BigDecimal(0);
-
-
-    @Autowired
-    public DiscountServiceImpl(OrderService orderService) {
-        this.order = orderService.getOrderInstance();
+    public BigDecimal getDiscountValue(List<Item> items) {
+        return processDiscountsForPizzas(items);
     }
 
-    @Override
-    public void addDiscountToModel(Model model, String nameOfAttributeForMapping) {
-        String discountMessage = message;
-        model.addAttribute(nameOfAttributeForMapping, discountMessage);
-    }
-
-    public void refreshDiscounts() {
-        this.discount = new BigDecimal(0);
-        this.message = "";
-        processDiscountsForPizzas();
-        order.setTotalDiscount(discount);
-    }
-
-    private void processDiscountsForPizzas() {
+    private BigDecimal processDiscountsForPizzas(List<Item> items) {
 
         List<Item> pizzaItems = new ArrayList<>();
 
-        for (Item i : order.getOrderList()) {
+        for (Item i : items) {
             if (i.getType() == Type.PIZZA_BIG || i.getType() == Type.PIZZA_NORMAL)
                 pizzaItems.add(i);
         }
@@ -56,7 +32,7 @@ public class DiscountServiceImpl implements DiscountService {
         List<Item> listItemsWithOutDiscount = new ArrayList<>();
 
         if (isDiscountForPizzas(pizzaItems)) {
-            int discountForXItems = howManyTimesDiscountForPizzas(pizzaItems);
+            int discountForXItems = getDiscountCount(pizzaItems);
             pizzaItems.sort(Comparator.comparing(Item::getPrice));
 
             int counter = 0;
@@ -73,22 +49,21 @@ public class DiscountServiceImpl implements DiscountService {
 
         }
 
-        this.discount = setTotalDiscountForPizzas(listItemsWithDiscount, discount);
-
         log.debug("Pizza items with discount: " + listItemsWithDiscount);
         log.debug("Pizza items without discount: " + listItemsWithOutDiscount);
-
+        return getTotalDiscountForPizzas(listItemsWithDiscount);
     }
 
-    private BigDecimal setTotalDiscountForPizzas(List<Item> listItemsWithDiscount, BigDecimal discount) {
+    private BigDecimal getTotalDiscountForPizzas(List<Item> listItemsWithDiscount) {
+        BigDecimal discount = new BigDecimal(0);
         for (Item i : listItemsWithDiscount) {
             discount = discount.add(i.getPrice());
         }
         return discount;
     }
 
-    private int howManyTimesDiscountForPizzas(List<Item> pizzaItems) {
-        return pizzaItems.size() / 4;
+    private int getDiscountCount(List<Item> items) {
+        return items.size() / 4;
     }
 
     private boolean isDiscountForPizzas(List<Item> pizzaItems) {

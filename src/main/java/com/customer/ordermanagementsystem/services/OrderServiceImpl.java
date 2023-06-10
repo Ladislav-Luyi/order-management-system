@@ -7,7 +7,6 @@ import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,12 +18,14 @@ public class OrderServiceImpl implements OrderService {
 
     private final Order order;
     private final OrderRepository orderRepository;
+    private final DiscountService discountService;
 
 
     @Autowired
-    public OrderServiceImpl(Order order, OrderRepository orderRepository) {
+    public OrderServiceImpl(Order order, OrderRepository orderRepository, DiscountService discountService) {
         this.order = order;
         this.orderRepository = orderRepository;
+        this.discountService = discountService;
     }
 
     @Override
@@ -75,9 +76,9 @@ public class OrderServiceImpl implements OrderService {
                 price = price.add(item2.getPrice());
             }
         }
-
-        order.setTotalPrice(price);
-
+        BigDecimal totalDiscount = discountService.getDiscountValue(order.getOrderList());
+        order.setTotalPriceDiscount(totalDiscount);
+        order.setTotalPrice(price.subtract(totalDiscount));
     }
 
     @Override

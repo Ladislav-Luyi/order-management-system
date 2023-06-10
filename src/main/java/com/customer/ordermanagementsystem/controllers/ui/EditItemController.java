@@ -25,14 +25,12 @@ public class EditItemController {
 
     private final ItemService itemService;
     private final OrderService orderService;
-    private final DiscountService discountService;
     private final ModelService modelService;
 
     @Autowired
-    public EditItemController(ItemService itemService, OrderService orderService, DiscountService discountService, ModelService modelService) {
+    public EditItemController(ItemService itemService, OrderService orderService, ModelService modelService) {
         this.itemService = itemService;
         this.orderService = orderService;
-        this.discountService = discountService;
         this.modelService = modelService;
     }
 
@@ -73,8 +71,6 @@ public class EditItemController {
         modelService.addToModel(model, "orderedItem",  orderService.getOrders().get(index));
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
         orderService.refreshPrice();
-        discountService.refreshDiscounts();
-        discountService.addDiscountToModel(model, "discount");
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 

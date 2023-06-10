@@ -25,15 +25,13 @@ public class AddItemsController {
 
     private final ItemService itemService;
     private final OrderService orderService;
-    private final DiscountService discountService;
     private final CompanyService companyService;
     private final ModelService modelService;
 
     @Autowired
-    public AddItemsController(ItemService itemService, OrderService orderService, DiscountService discountService, CompanyService companyService, ModelService modelService) {
+    public AddItemsController(ItemService itemService, OrderService orderService, CompanyService companyService, ModelService modelService) {
         this.itemService = itemService;
         this.orderService = orderService;
-        this.discountService = discountService;
         this.companyService = companyService;
         this.modelService = modelService;
     }
@@ -102,8 +100,6 @@ public class AddItemsController {
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
         modelService.addToModel(model, "minimalOrderValue", orderService.getMinimalOrderValue().toString() );
         orderService.refreshPrice();
-        discountService.refreshDiscounts();
-        discountService.addDiscountToModel(model, "discount");
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 
