@@ -19,29 +19,13 @@ import java.util.List;
 public class Item {
 
     @Id
-    private String  id;
+    private String id;
     private Type type;
     private String name;
     private String additionalInfo;
     private BigDecimal price;
     private String date;
-    private  List<Item> itemList = new ArrayList<>();
-
-    public Item(String  id, String name, String additionalInfo, Type type, BigDecimal price) {
-        this.id = id;
-        this.name = name;
-        this.additionalInfo = additionalInfo;
-        this.type = type;
-        this.price = price;
-    }
-
-    public Item(String  id, String name,  Type type, BigDecimal price, String date) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.price = price;
-        this.date = date;
-    }
+    private List<Item> itemList = new ArrayList<>();
 
     public List<Item> getItemList() {
         return itemList;
@@ -51,18 +35,17 @@ public class Item {
         this.itemList = itemList;
     }
 
-    public String itemListToString(){
+    public String itemListToString() {
         StringBuilder stringBuilder = new StringBuilder();
 
         int counter = 0;
 
-        for(Item item : itemList){
+        for (Item item : itemList) {
             if (counter == 0) {
                 stringBuilder.append("(");
                 stringBuilder.append(item.name.toLowerCase());
-            }
-            else
-                stringBuilder.append(", " + item.name.toLowerCase());
+            } else
+                stringBuilder.append(", ").append(item.name.toLowerCase());
 
             counter++;
         }
@@ -72,7 +55,6 @@ public class Item {
         return stringBuilder.toString();
 
     }
-
 
 
 }

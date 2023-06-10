@@ -6,6 +6,7 @@ import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,9 +21,9 @@ public class TerminalServiceImpl implements TerminalService {
         this.orderRepository = orderRepository;
     }
 
-    private String removeEmojiChars(String s){
+    private String removeEmojiChars(String s) {
         String characterFilter = "[^\\p{L}\\p{M}\\p{N}\\p{P}\\p{Z}\\p{Cf}\\p{Cs}\\s]";
-        return s.replaceAll(characterFilter,"");
+        return s.replaceAll(characterFilter, "");
     }
 
     public String composeMessage(Order o) {
@@ -30,7 +31,7 @@ public class TerminalServiceImpl implements TerminalService {
         s.append("#");
         s.append(o.getId());
         s.append("*");
-        s.append(removeEmojiChars( o.getOrderText() ));
+        s.append(removeEmojiChars(o.getOrderText()));
         s.append("*");
         s.append(o.getCustomerInfo().getTelephoneNumber());
         s.append("#");
@@ -39,11 +40,11 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     @Override
-    public String getOrders(){
-        return orderRepository.findAll()   .stream()
-                                    .filter(o -> o.getTerminalReplyInfo() == null)
-                                    .map(this::composeMessage)
-                                    .collect(Collectors.joining(""));
+    public String getOrders() {
+        return orderRepository.findAll().stream()
+                .filter(o -> o.getTerminalReplyInfo() == null)
+                .map(this::composeMessage)
+                .collect(Collectors.joining(""));
     }
 
     @Override
@@ -51,14 +52,14 @@ public class TerminalServiceImpl implements TerminalService {
         try {
             String id = terminalReply.getOrderId();
             Optional<Order> order = orderRepository.findById(id);
-            if ( order.isPresent() ){
+            if (order.isPresent()) {
                 order.get().setTerminalReplyInfo(terminalReply);
                 orderRepository.save(order.get());
-            } else{
+            } else {
                 log.error("Order with id " + id + " was not found");
             }
-        } catch (Exception e){
-            log.error(e.toString() + " terminalReply is: " + terminalReply.toString());
+        } catch (Exception e) {
+            log.error(e + " terminalReply is: " + terminalReply.toString());
         }
     }
 }

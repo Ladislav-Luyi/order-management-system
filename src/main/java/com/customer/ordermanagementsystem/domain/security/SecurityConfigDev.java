@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
 
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -25,10 +24,10 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
 
 
-        http.headers().frameOptions().disable(); 
-        }
-
+        http.headers().frameOptions().disable();
     }
+
+}
 
 
 

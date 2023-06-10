@@ -17,8 +17,8 @@ public class Company {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Podnik: ");
-        sb.append ( status ? "Otvorený" : "Zatvorený");
-        sb.append( System.getProperty("line.separator") );
+        sb.append(status ? "Otvorený" : "Zatvorený");
+        sb.append(System.getProperty("line.separator"));
         sb.append("Správa: ");
         sb.append(statusMessage);
         return sb.toString();

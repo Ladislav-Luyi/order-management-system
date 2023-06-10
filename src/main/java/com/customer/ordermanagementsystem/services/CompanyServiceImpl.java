@@ -8,13 +8,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.StreamSupport;
 
 @Slf4j
 @Service
-public class CompanyServiceImpl implements CompanyService{
+public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
     private final OpenningHoursRepository openningHoursRepository;
@@ -31,7 +32,7 @@ public class CompanyServiceImpl implements CompanyService{
         Optional<Company> company = companyRepository.findById("1");
         boolean s = stringStatusToBoolean(status);
         company.ifPresent(c -> c.setStatus(s));
-        company.ifPresent(c -> companyRepository.save(c));
+        company.ifPresent(companyRepository::save);
     }
 
     private boolean stringStatusToBoolean(String status) {
@@ -43,15 +44,15 @@ public class CompanyServiceImpl implements CompanyService{
         Optional<Company> company = companyRepository.findById("1");
         boolean s = stringStatusToBoolean(status);
         company.ifPresent(c -> c.setStatus(s));
-        company.ifPresent(c -> c.setStatusMessage(  s ? "" : message ));
-        company.ifPresent(c -> companyRepository.save(c));
+        company.ifPresent(c -> c.setStatusMessage(s ? "" : message));
+        company.ifPresent(companyRepository::save);
     }
 
     @Override
     public boolean isStoreOpen() {
         return isStoreOpenAccordingManualAction() && isStoreOpenAccordingTimeSchedule();
     }
-    
+
     private boolean isStoreOpenAccordingManualAction() {
         Optional<Company> company = companyRepository.findById("1");
         return company.get().isStatus();
@@ -60,7 +61,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Override
     public void addItemToModel(Model model, String nameOfAttributeForMapping) {
-        if ( ! isStoreOpenAccordingManualAction() ) {
+        if (!isStoreOpenAccordingManualAction()) {
             log.debug("Reason for closed is dedicated rest api call; not opening hours; fetching message about close reason and adding it to model");
             model.addAttribute(nameOfAttributeForMapping, companyRepository.findById("1").get().getStatusMessage());
         }
@@ -93,7 +94,7 @@ public class CompanyServiceImpl implements CompanyService{
 
         try {
             int priority = applicableRules.stream()
-                    .mapToInt(o -> o.getPriority())
+                    .mapToInt(OpenningHours::getPriority)
                     .peek(System.out::println)
                     .min()
                     .orElseThrow(() -> new IllegalStateException("Not applicable rule was found!"));
@@ -110,7 +111,7 @@ public class CompanyServiceImpl implements CompanyService{
             return ruleWithHighestPriority.getOpenning_hours() <= currentHour &&
                     ruleWithHighestPriority.getClosing_hours() > currentHour;
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -120,13 +121,13 @@ public class CompanyServiceImpl implements CompanyService{
 
 
     Predicate<OpenningHours> prio1Match = o -> o.getPriority() == 1;
-    Predicate<OpenningHours> matchExactDay = o -> o.getMatcher().equals( getCurrentDayAndMonth() );
+    Predicate<OpenningHours> matchExactDay = o -> o.getMatcher().equals(getCurrentDayAndMonth());
     Predicate<OpenningHours> notMinusValue = o -> o.getOpenning_hours() > 0 && o.getClosing_hours() > 0;
     Predicate<OpenningHours> prio2Match = o -> o.getPriority() == 2;
-    Predicate<OpenningHours> matchDayFromWeek = o -> Integer.valueOf( o.getMatcher() ) == getCurrentDayFromWeek();
+    Predicate<OpenningHours> matchDayFromWeek = o -> Integer.parseInt(o.getMatcher()) == getCurrentDayFromWeek();
     Predicate<OpenningHours> prio3Rule = o -> o.getPriority() == 3;
 
-    private List<OpenningHours> getApplicableRules(Iterable<OpenningHours> allRules) throws Exception {
+    private List<OpenningHours> getApplicableRules(Iterable<OpenningHours> allRules) {
         Predicate<OpenningHours> prio1Rule = prio1Match.and(matchExactDay).and(notMinusValue);
         Predicate<OpenningHours> prio2Rule = prio2Match.and(matchDayFromWeek).and(notMinusValue);
         List<OpenningHours> applicableRules = new ArrayList<>();
@@ -134,7 +135,7 @@ public class CompanyServiceImpl implements CompanyService{
         addApplicableRule(allRules, applicableRules, prio2Rule);
         addApplicableRule(allRules, applicableRules, prio3Rule);
         log.debug("Applicable rules: ");
-        applicableRules.forEach(o -> log.debug( o.toString() ));
+        applicableRules.forEach(o -> log.debug(o.toString()));
         return applicableRules;
     }
 
@@ -144,9 +145,9 @@ public class CompanyServiceImpl implements CompanyService{
                     .filter(predicate)
                     .reduce((a, b) -> {
                         throw new IllegalStateException("Found multiple elements" + a + " " + b);
-                    }).ifPresent( o -> specificRules.add(o));
+                    }).ifPresent(specificRules::add);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -155,17 +156,17 @@ public class CompanyServiceImpl implements CompanyService{
     private Iterable<OpenningHours> fetchRules() {
         Iterable<OpenningHours> allRules = openningHoursRepository.findAll();
         log.debug("All fetched rules: ");
-        allRules.forEach(o -> log.debug( o.toString() ));
+        allRules.forEach(o -> log.debug(o.toString()));
         return allRules;
     }
 
-    private int getCurrentHour(){
+    private int getCurrentHour() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         return cal.get(Calendar.HOUR_OF_DAY);
     }
 
-    private int getCurrentDayFromWeek(){
+    private int getCurrentDayFromWeek() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         int day = cal.get(Calendar.DAY_OF_WEEK) - 1;
@@ -173,10 +174,9 @@ public class CompanyServiceImpl implements CompanyService{
         return day;
     }
 
-    private String getCurrentDayAndMonth(){
+    private String getCurrentDayAndMonth() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
-        String day =  cal.get(Calendar.DAY_OF_MONTH) + "." + (  cal.get(Calendar.MONTH) + 1 );
-        return day;
+        return cal.get(Calendar.DAY_OF_MONTH) + "." + (cal.get(Calendar.MONTH) + 1);
     }
 }

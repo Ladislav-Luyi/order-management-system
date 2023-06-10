@@ -13,11 +13,10 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class TerminalReply {
 
-    private  String orderId;
-    private  String stateOfOrder;
-    private  String messageOfOrder;
-    private  String acceptanceDate;
-
+    private String orderId;
+    private String stateOfOrder;
+    private String messageOfOrder;
+    private String acceptanceDate;
 
 
 }

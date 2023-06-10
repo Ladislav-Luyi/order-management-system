@@ -21,7 +21,7 @@ public class CompanyController {
 
 
     @GetMapping("/podnik")
-    public String getOpen(Model model){
+    public String getOpen(Model model) {
         model.addAttribute("status", companyService.getOpenAndCloseStoreMessage());
         model.addAttribute("company", new CompanyDTO());
 
@@ -29,7 +29,7 @@ public class CompanyController {
     }
 
     @PostMapping("/podnik")
-    public String setOpen(CompanyDTO companyDTO){
+    public String setOpen(CompanyDTO companyDTO) {
 
         companyService.openAndCloseStoreWithMessage(companyDTO.getStatus(),
                 companyDTO.getStatusMessage());

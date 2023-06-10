@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
+
 import javax.servlet.http.HttpSession;
 
 @Slf4j
@@ -22,7 +23,7 @@ public class OrderFinishController {
     }
 
     @GetMapping("/dokoncena")
-    public String home(SessionStatus sessionStatus, HttpSession httpsession){
+    public String home(SessionStatus sessionStatus, HttpSession httpsession) {
         if (!orderService.isHigherThanMinimalValue())
             return "redirect:/kosik";
 
@@ -35,7 +36,6 @@ public class OrderFinishController {
 
         return "ordered";
     }
-
 
 
 }

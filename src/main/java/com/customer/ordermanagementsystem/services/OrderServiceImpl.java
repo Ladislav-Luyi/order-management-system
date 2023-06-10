@@ -27,12 +27,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void addOrderedItemsToModel(Model model,String nameOfAttributeForMapping) {
+    public void addOrderedItemsToModel(Model model, String nameOfAttributeForMapping) {
         model.addAttribute(nameOfAttributeForMapping, order.getOrderList());
     }
 
     @Override
-    public void addSingleOrderedItemToModel(Model model, int i,String nameOfAttributeForMapping) {
+    public void addSingleOrderedItemToModel(Model model, int i, String nameOfAttributeForMapping) {
         model.addAttribute(nameOfAttributeForMapping, order.getOrderList().get(i));
     }
 
@@ -77,18 +77,18 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public void refreshPrice(){
+    public void refreshPrice() {
         BigDecimal price = new BigDecimal(0);
 
-        for(Item item1 : order.getOrderList()) {
+        for (Item item1 : order.getOrderList()) {
 
             if (item1.getPrice() != null) {
-                price = price.add(item1.getPrice()) ;
+                price = price.add(item1.getPrice());
             }
 
 
-            for (Item item2 : item1.getItemList()){
-                price = price.add(item2.getPrice()) ;
+            for (Item item2 : item1.getItemList()) {
+                price = price.add(item2.getPrice());
             }
         }
 
@@ -104,11 +104,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void saveOrder() {
         Order orderToSave = new Order();
-        orderToSave.setCustomerInfo( order.getCustomerInfo() );
-        orderToSave.setTotalPrice( order.getTotalPrice() );
-        orderToSave.setTotalDiscount( order.getTotalDiscount() );
-        orderToSave.setTotalPriceDiscount( order.getTotalPriceDiscount() );
-        orderToSave.setOrderText( order.toString() );
+        orderToSave.setCustomerInfo(order.getCustomerInfo());
+        orderToSave.setTotalPrice(order.getTotalPrice());
+        orderToSave.setTotalDiscount(order.getTotalDiscount());
+        orderToSave.setTotalPriceDiscount(order.getTotalPriceDiscount());
+        orderToSave.setOrderText(order.toString());
 
         orderRepository.save(orderToSave);
     }
@@ -116,7 +116,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean isHigherThanMinimalValue() {
 
-        if ( order.getTotalPriceDiscount().compareTo(order.getMinimalValueForOrder()) == -1 )
+        if (order.getTotalPriceDiscount().compareTo(order.getMinimalValueForOrder()) == -1)
             return false;
         else
             return true;

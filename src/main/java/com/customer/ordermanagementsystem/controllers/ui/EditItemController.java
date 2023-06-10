@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
-@SessionAttributes({"customerInfo","order", "orderDTO"})
+@SessionAttributes({"customerInfo", "order", "orderDTO"})
 
 @RequestMapping("/upravaPolozky")
 public class EditItemController {
@@ -32,42 +32,42 @@ public class EditItemController {
     }
 
     @RequestMapping()
-    public String editItem(Model model,  @RequestParam int index){
+    public String editItem(Model model, @RequestParam int index) {
         addItemOrderDiscountToModel(model, index);
 
-        model.addAttribute("orderDTO", new OrderDTO() );
+        model.addAttribute("orderDTO", new OrderDTO());
 
         return "edit";
 
     }
 
-    @RequestMapping(params={"addInnerElement"})
-    public String addItem(Model model, OrderDTO orderDTO, @RequestParam int index){
+    @RequestMapping(params = {"addInnerElement"})
+    public String addItem(Model model, OrderDTO orderDTO, @RequestParam int index) {
         orderService.addItemToIndexInList(index, orderDTO.getItem());
 
         addItemOrderDiscountToModel(model, index);
 
-        model.addAttribute("orderDTO", new OrderDTO() );
+        model.addAttribute("orderDTO", new OrderDTO());
 
         return "edit";
 
     }
 
 
-    @RequestMapping(params={"removeElement"})
+    @RequestMapping(params = {"removeElement"})
     public String removeItem(OrderDTO orderDTO, Model model, @RequestParam int index) {
         orderService.removeIndexFromInnerList(index, orderDTO.getIndexToRemove());
 
         addItemOrderDiscountToModel(model, index);
 
-        model.addAttribute("orderDTO", new OrderDTO() );
+        model.addAttribute("orderDTO", new OrderDTO());
 
         return "edit";
     }
 
 
     @PostMapping()
-    public String returnToBasket(){
+    public String returnToBasket() {
 
         return "redirect:/kosik";
     }

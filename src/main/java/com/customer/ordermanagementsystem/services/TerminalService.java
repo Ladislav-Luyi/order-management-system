@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TerminalService {
     void updateOrder(TerminalReply terminalReply);
+
     String getOrders();
 
 }

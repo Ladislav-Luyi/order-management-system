@@ -1,15 +1,15 @@
 package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.domain.item.Item;
-import com.customer.ordermanagementsystem.domain.order.Order;
 import com.customer.ordermanagementsystem.domain.item.Type;
+import com.customer.ordermanagementsystem.domain.order.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class DiscountServiceImpl implements DiscountService {
 
         List<Item> pizzaItems = new ArrayList<>();
 
-        for(Item i : order.getOrderList() ){
+        for (Item i : order.getOrderList()) {
             if (i.getType() == Type.PIZZA_BIG || i.getType() == Type.PIZZA_NORMAL)
                 pizzaItems.add(i);
         }
@@ -55,34 +55,34 @@ public class DiscountServiceImpl implements DiscountService {
         List<Item> listItemsWithDiscount = new ArrayList<>();
         List<Item> listItemsWithOutDiscount = new ArrayList<>();
 
-        if (isDiscountForPizzas(pizzaItems)){
+        if (isDiscountForPizzas(pizzaItems)) {
             int discountForXItems = howManyTimesDiscountForPizzas(pizzaItems);
-            Collections.sort( pizzaItems, Comparator.comparing(Item::getPrice));
+            pizzaItems.sort(Comparator.comparing(Item::getPrice));
 
             int counter = 0;
-            for(Item item : pizzaItems){
+            for (Item item : pizzaItems) {
 
-               if(counter < discountForXItems){
-                   listItemsWithDiscount.add(item);
-               }else{
-                   listItemsWithOutDiscount.add(item);
-               }
+                if (counter < discountForXItems) {
+                    listItemsWithDiscount.add(item);
+                } else {
+                    listItemsWithOutDiscount.add(item);
+                }
 
-               counter++;
+                counter++;
             }
 
         }
 
         this.discount = setTotalDiscountForPizzas(listItemsWithDiscount, discount);
 
-        log.debug("Pizza items with discount: " + listItemsWithDiscount.toString() );
-        log.debug("Pizza items without discount: " + listItemsWithOutDiscount.toString() );
+        log.debug("Pizza items with discount: " + listItemsWithDiscount);
+        log.debug("Pizza items without discount: " + listItemsWithOutDiscount);
 
     }
 
     private BigDecimal setTotalDiscountForPizzas(List<Item> listItemsWithDiscount, BigDecimal discount) {
         for (Item i : listItemsWithDiscount) {
-            discount = discount.add(i.getPrice()) ;
+            discount = discount.add(i.getPrice());
         }
         return discount;
     }

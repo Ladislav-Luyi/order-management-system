@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
-@SessionAttributes({"customerInfo","order","orderedItems","totalPrice","discount"})
-@RequestMapping({"","/","/kosik"})
+@SessionAttributes({"customerInfo", "order", "orderedItems", "totalPrice", "discount"})
+@RequestMapping({"", "/", "/kosik"})
 public class AddItemsController {
 
     private final ItemService itemService;
@@ -33,8 +33,8 @@ public class AddItemsController {
     }
 
     @RequestMapping()
-    public String showOrderForm(Model model){
-        if ( ! companyService.isStoreOpen() ) {
+    public String showOrderForm(Model model) {
+        if (!companyService.isStoreOpen()) {
             itemService.addAllItemsToModel(model);
             companyService.addItemToModel(model, "closedMessage");
             return "closed";
@@ -43,14 +43,13 @@ public class AddItemsController {
 
         addItemOrderDiscountToModel(model);
 
-        model.addAttribute("orderDTO", new OrderDTO() );
+        model.addAttribute("orderDTO", new OrderDTO());
 
         return "order";
     }
 
 
-
-    @RequestMapping(params={"addElement"})
+    @RequestMapping(params = {"addElement"})
     public String addElement(OrderDTO orderDTO, Model model) {
         orderService.addItemToList(orderDTO.getItem());
 
@@ -62,7 +61,7 @@ public class AddItemsController {
     }
 
 
-    @RequestMapping(params={"removeElement"})
+    @RequestMapping(params = {"removeElement"})
     public String removeElement(OrderDTO orderDTO, Model model) {
         orderService.removeItemFromList(orderDTO.getIndexToRemove());
 

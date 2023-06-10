@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @Slf4j
 @Controller
-@SessionAttributes({"order","customerInfo"})
+@SessionAttributes({"order", "customerInfo"})
 @RequestMapping("/objednavka")
 public class CustomerInfoController {
 
@@ -30,11 +30,11 @@ public class CustomerInfoController {
     }
 
     @GetMapping("/formular")
-    public String showCustomerInfoForm(Model model){
+    public String showCustomerInfoForm(Model model) {
         if (!orderService.isHigherThanMinimalValue())
             return "redirect:/kosik";
 
-        model.addAttribute("customerInfo",  new CustomerInfo());
+        model.addAttribute("customerInfo", new CustomerInfo());
 
         addOrderToModel(model);
 

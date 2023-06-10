@@ -25,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void addAllItemsToModel(Model model) {
-        Map<Type,List<Item>> map= itemRepository.findAll().stream()
+        Map<Type, List<Item>> map = itemRepository.findAll().stream()
                 .collect(Collectors.groupingBy(Item::getType));
         map.entrySet().stream()
                 .filter(isValueArrayNotEmpty())
@@ -45,7 +45,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void addSingleItemToModel(Model model, Type type) {
         List<Item> items = itemRepository.findAll().stream()
-                .filter( e -> e.getType().equals(type))
+                .filter(e -> e.getType().equals(type))
                 .collect(Collectors.toList());
         addToModel(model, type, items);
     }
