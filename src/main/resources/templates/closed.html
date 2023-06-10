@@ -17,13 +17,13 @@
         <h1 class="center">Zatvorené</h1>
         <p class="center" th:text="${closedMessage}"></p>
 
-        <div th:insert="fragments/navbarFragment :: navbarFragment"></div>
+        <div th:insert="fragments/navbar :: navbarFragment"></div>
 
         <div class='row'>
             <div th:insert="fragments/listedItems :: listItems(isOrderButtonActive=false)"></div>
         </div>
 
-        <div th:insert="fragments/navbarFragment :: navbarFragment"></div>
+        <div th:insert="fragments/navbar :: navbarFragment"></div>
     </div>
 </div>
 </body>
