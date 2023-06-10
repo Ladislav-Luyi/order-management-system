@@ -1,6 +1,8 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
 
+import com.customer.ordermanagementsystem.domain.item.Item;
+import com.customer.ordermanagementsystem.domain.item.Type;
 import com.customer.ordermanagementsystem.domain.order.OrderDTO;
 import com.customer.ordermanagementsystem.services.CompanyService;
 import com.customer.ordermanagementsystem.services.DiscountService;
@@ -11,6 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -31,17 +38,43 @@ public class AddItemsController {
         this.discountService = discountService;
         this.companyService = companyService;
     }
+    private void addToModel(Model model, Type type, List<Item> items) {
+        model.addAttribute(type.toString(), items);
+    }
+
+    private static Predicate<Map.Entry<Type, List<Item>>> isKeyDefinedAsType() {
+        return typeListEntry -> Type.isTypeDefined(typeListEntry.getKey().toString());
+    }
+
+    private Predicate<Map.Entry<Type, List<Item>>> isValueArrayNotEmpty() {
+        return typeListEntry -> typeListEntry.getValue().size() != 0;
+    }
+    public void addAllItemsToModel(Model model, List<Item> items) {
+        items.stream()
+                .collect(Collectors.groupingBy(Item::getType))
+                .entrySet().stream()
+                .filter(isValueArrayNotEmpty())
+                .filter(isKeyDefinedAsType())
+                .forEach(typeListEntry -> addToModel(model, typeListEntry.getKey(), typeListEntry.getValue()));
+    }
+
+//    public void addSingleTypeItemsToModel(Model model, List<Item> items) {
+//        items
+//                .filter(e -> e.getType().equals(type))
+//                .collect(Collectors.toList());
+//        addToModel(model, type, items);
+//    }
 
     @RequestMapping()
     public String showOrderForm(Model model) {
         if (!companyService.isStoreOpen()) {
-            itemService.addAllItemsToModel(model);
+            addAllItemsToModel(model, itemService.getItems());
             companyService.addItemToModel(model, "closedMessage");
             return "closed";
         }
 
 
-        addItemOrderDiscountToModel(model);
+        addElements(model);
 
         model.addAttribute("orderDTO", new OrderDTO());
 
@@ -55,7 +88,7 @@ public class AddItemsController {
 
         log.debug("addElement: " + orderService.getOrderInstance().getOrderList().toString());
 
-        addItemOrderDiscountToModel(model);
+        addElements(model);
 
         return "order";
     }
@@ -64,9 +97,7 @@ public class AddItemsController {
     @RequestMapping(params = {"removeElement"})
     public String removeElement(OrderDTO orderDTO, Model model) {
         orderService.removeItemFromList(orderDTO.getIndexToRemove());
-
-        addItemOrderDiscountToModel(model);
-
+        addElements(model);
         return "order";
     }
 
@@ -80,8 +111,8 @@ public class AddItemsController {
         return "redirect:/objednavka/formular";
     }
 
-    private void addItemOrderDiscountToModel(Model model) {
-        itemService.addAllItemsToModel(model);
+    private void addElements(Model model) {
+        addAllItemsToModel(model, itemService.getItems());
 
         orderService.addOrderedItemsToModel(model, "orderedItems");
 

@@ -1,5 +1,6 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
+import com.customer.ordermanagementsystem.domain.item.Item;
 import com.customer.ordermanagementsystem.domain.order.OrderDTO;
 import com.customer.ordermanagementsystem.domain.item.Type;
 import com.customer.ordermanagementsystem.services.DiscountService;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Slf4j
@@ -73,7 +76,7 @@ public class EditItemController {
     }
 
     private void addItemOrderDiscountToModel(Model model, @RequestParam int index) {
-        itemService.addSingleItemToModel(model, Type.DOPLNOK);
+        addToModel(model, Type.DOPLNOK, itemService.getItemsOfType(Type.DOPLNOK));
 
         orderService.addSingleOrderedItemToModel(model, index, "orderedItem");
 
@@ -86,5 +89,9 @@ public class EditItemController {
         discountService.addDiscountToModel(model, "discount");
 
         orderService.addTotalPrice(model, "totalPrice");
+    }
+
+    private void addToModel(Model model, Type type, List<Item> items) {
+        model.addAttribute(type.toString(), items);
     }
 }

@@ -23,34 +23,18 @@ public class ItemServiceImpl implements ItemService {
         this.itemRepository = itemRepository;
     }
 
-    @Override
-    public void addAllItemsToModel(Model model) {
-        Map<Type, List<Item>> map = itemRepository.findAll().stream()
-                .collect(Collectors.groupingBy(Item::getType));
-        map.entrySet().stream()
-                .filter(isValueArrayNotEmpty())
-                .filter(isKeyDefinedAsType())
-                .forEach(typeListEntry -> addToModel(model, typeListEntry.getKey(), typeListEntry.getValue()));
-    }
-
-    private static Predicate<Map.Entry<Type, List<Item>>> isKeyDefinedAsType() {
-        return typeListEntry -> Type.isTypeDefined(typeListEntry.getKey().toString());
-    }
-
-    private Predicate<Map.Entry<Type, List<Item>>> isValueArrayNotEmpty() {
-        return typeListEntry -> typeListEntry.getValue().size() != 0;
-    }
-
 
     @Override
-    public void addSingleItemToModel(Model model, Type type) {
-        List<Item> items = itemRepository.findAll().stream()
+    public List<Item> getItems() {
+        return itemRepository.findAll();
+    }
+
+    @Override
+    public List<Item> getItemsOfType(Type type) {
+        return itemRepository.findAll().stream()
                 .filter(e -> e.getType().equals(type))
                 .collect(Collectors.toList());
-        addToModel(model, type, items);
     }
 
-    private void addToModel(Model model, Type type, List<Item> items) {
-        model.addAttribute(type.toString(), items);
-    }
+
 }
