@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 
 @Component
@@ -63,22 +65,20 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void refreshPrice() {
-        BigDecimal price = new BigDecimal(0);
-
-        for (Item item1 : order.getOrderList()) {
-
-            if (item1.getPrice() != null) {
-                price = price.add(item1.getPrice());
-            }
-
-
-            for (Item item2 : item1.getItemList()) {
-                price = price.add(item2.getPrice());
-            }
-        }
+        BigDecimal price = getPriceWithoutDiscount();
         BigDecimal totalDiscount = discountService.getDiscountValue(order.getOrderList());
         order.setTotalPriceDiscount(totalDiscount);
         order.setTotalPrice(price.subtract(totalDiscount));
+    }
+
+    private BigDecimal getPriceWithoutDiscount() {
+        Optional<BigDecimal> priceWithoutDiscount = order.getOrderList().stream()
+                // each item can have list of items, e.g. ingredients
+                .flatMap(item -> Stream.concat(Stream.of(item),
+                        item.getItemList().stream()))
+                .map(Item::getPrice)
+                .reduce(BigDecimal::add);
+        return priceWithoutDiscount.orElse(new BigDecimal(0));
     }
 
     @Override
@@ -94,7 +94,6 @@ public class OrderServiceImpl implements OrderService {
         orderToSave.setTotalDiscount(order.getTotalDiscount());
         orderToSave.setTotalPriceDiscount(order.getTotalPriceDiscount());
         orderToSave.setOrderText(order.toString());
-
         orderRepository.save(orderToSave);
     }
 
