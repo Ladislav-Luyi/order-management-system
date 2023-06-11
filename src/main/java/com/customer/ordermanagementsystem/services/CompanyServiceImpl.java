@@ -5,7 +5,6 @@ import com.customer.ordermanagementsystem.repository.CompanyRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.Optional;
 
@@ -48,7 +47,7 @@ public class CompanyServiceImpl implements CompanyService {
         return isStoreOpenAccordingManualAction() && openingHoursService.isStoreOpen();
     }
 
-    private Company getDefaultCompany(){
+    private Company getDefaultCompany() {
         log.info("Using default company");
         Company company = new Company();
         company.setStatus(true);
@@ -62,20 +61,9 @@ public class CompanyServiceImpl implements CompanyService {
         return company.orElse(getDefaultCompany()).isStatus();
     }
 
-
-    @Override
-    public void addItemToModel(Model model, String nameOfAttributeForMapping) {
-        if (!isStoreOpenAccordingManualAction()) {
-            log.debug("Reason for closed is dedicated rest api call; not opening hours; fetching message about close reason and adding it to model");
-            model.addAttribute( nameOfAttributeForMapping,
-                                companyRepository.findById("1").orElse(getDefaultCompany())
-                                    .getStatusMessage());
-        }
-    }
-
     @Override
     public String getOpenAndCloseStoreMessage() {
         return companyRepository.findById("1").orElse(getDefaultCompany())
-                                .toString();
+                .toString();
     }
 }

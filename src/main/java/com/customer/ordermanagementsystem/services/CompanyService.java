@@ -12,6 +12,4 @@ public interface CompanyService {
     String getOpenAndCloseStoreMessage();
 
     boolean isStoreOpen();
-
-    void addItemToModel(Model model, String nameOfAttributeForMapping);
 }
