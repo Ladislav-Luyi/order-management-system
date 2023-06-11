@@ -5,15 +5,13 @@ import com.customer.ordermanagementsystem.domain.item.Type;
 import com.customer.ordermanagementsystem.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
+import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.function.Predicate;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Component
+@Service
 public class ItemServiceImpl implements ItemService {
 
     private final ItemRepository itemRepository;

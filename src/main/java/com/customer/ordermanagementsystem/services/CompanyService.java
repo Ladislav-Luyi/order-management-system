@@ -1,9 +1,5 @@
 package com.customer.ordermanagementsystem.services;
 
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
-@Service
 public interface CompanyService {
     void openAndCloseStore(String status);
 

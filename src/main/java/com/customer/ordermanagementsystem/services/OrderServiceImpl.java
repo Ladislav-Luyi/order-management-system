@@ -1,12 +1,12 @@
 package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.domain.item.Item;
-import com.customer.ordermanagementsystem.domain.order.Order;
 import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
+import com.customer.ordermanagementsystem.domain.order.Order;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,8 +14,9 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 
-@Component
+
 @Slf4j
+@Service
 public class OrderServiceImpl implements OrderService {
 
     private final Order order;

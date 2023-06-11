@@ -2,15 +2,12 @@ package com.customer.ordermanagementsystem.services;
 
 
 import com.customer.ordermanagementsystem.domain.item.Item;
-import com.customer.ordermanagementsystem.domain.order.Order;
 import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+import com.customer.ordermanagementsystem.domain.order.Order;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Service
 public interface OrderService {
 
     void addItemToList(Item item);
