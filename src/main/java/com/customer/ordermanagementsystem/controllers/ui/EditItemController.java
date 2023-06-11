@@ -1,17 +1,18 @@
 package com.customer.ordermanagementsystem.controllers.ui;
 
 import com.customer.ordermanagementsystem.domain.item.Item;
-import com.customer.ordermanagementsystem.domain.order.OrderDTO;
 import com.customer.ordermanagementsystem.domain.item.Type;
-import com.customer.ordermanagementsystem.services.DiscountService;
+import com.customer.ordermanagementsystem.domain.order.OrderDTO;
 import com.customer.ordermanagementsystem.services.ItemService;
 import com.customer.ordermanagementsystem.services.ModelService;
 import com.customer.ordermanagementsystem.services.OrderService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
@@ -27,7 +28,6 @@ public class EditItemController {
     private final OrderService orderService;
     private final ModelService modelService;
 
-    @Autowired
     public EditItemController(ItemService itemService, OrderService orderService, ModelService modelService) {
         this.itemService = itemService;
         this.orderService = orderService;

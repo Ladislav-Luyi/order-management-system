@@ -64,6 +64,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public String getOpenAndCloseStoreMessage() {
         return companyRepository.findById("1").orElse(getDefaultCompany())
-                .toString();
+                .getStatusMessage();
     }
 }

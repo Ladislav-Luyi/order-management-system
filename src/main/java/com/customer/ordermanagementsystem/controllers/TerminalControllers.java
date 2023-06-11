@@ -3,7 +3,6 @@ package com.customer.ordermanagementsystem.controllers;
 import com.customer.ordermanagementsystem.domain.order.TerminalReply;
 import com.customer.ordermanagementsystem.services.TerminalService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +21,7 @@ public class TerminalControllers {
 
     @Value("${terminalPassword}")
     private String password;
-
-    @Autowired
+    
     public TerminalControllers(TerminalService terminalService) {
         this.terminalService = terminalService;
     }

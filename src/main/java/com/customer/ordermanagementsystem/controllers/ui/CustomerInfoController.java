@@ -2,17 +2,19 @@ package com.customer.ordermanagementsystem.controllers.ui;
 
 
 import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
-import com.customer.ordermanagementsystem.services.DiscountService;
 import com.customer.ordermanagementsystem.services.ModelService;
 import com.customer.ordermanagementsystem.services.OrderService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import javax.validation.Valid;
+
 
 
 @Slf4j
@@ -24,7 +26,6 @@ public class CustomerInfoController {
     private final OrderService orderService;
     private final ModelService modelService;
 
-    @Autowired
     public CustomerInfoController(OrderService orderService, ModelService modelService) {
         this.orderService = orderService;
         this.modelService = modelService;
