@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
@@ -67,7 +66,7 @@ public class EditItemController {
 
     private void addElements(Model model, @RequestParam int index) {
         addToModel(model, Type.DOPLNOK, itemService.getItemsOfType(Type.DOPLNOK));
-        modelService.addToModel(model, "orderedItem",  orderService.getOrders().get(index));
+        modelService.addToModel(model, "orderedItem", orderService.getOrders().get(index));
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
         orderService.refreshPrice();
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());

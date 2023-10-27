@@ -15,9 +15,11 @@ import java.util.Set;
 @Service
 public class DiscountServiceImpl implements DiscountService {
     Set<Discount<Item>> services = new HashSet<>();
+
     {
         services.add(new PizzaDiscount());
     }
+
     public BigDecimal getDiscountValue(List<Item> items) {
         return services.stream()
                 .map(s -> s.getDiscountValue(items))

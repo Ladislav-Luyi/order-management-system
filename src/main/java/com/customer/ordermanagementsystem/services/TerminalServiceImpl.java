@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -27,16 +27,15 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     public String composeMessage(Order o) {
-        StringBuilder s = new StringBuilder();
-        s.append("#");
-        s.append(o.getId());
-        s.append("*");
-        s.append(removeEmojiChars(o.getOrderText()));
-        s.append("*");
-        s.append(o.getCustomerInfo().getTelephoneNumber());
-        s.append("#");
-        s.append("\r");
-        return s.toString();
+        String s = "#" +
+                o.getId() +
+                "*" +
+                removeEmojiChars(o.getOrderText()) +
+                "*" +
+                o.getCustomerInfo().getTelephoneNumber() +
+                "#" +
+                "\r";
+        return s;
     }
 
     @Override

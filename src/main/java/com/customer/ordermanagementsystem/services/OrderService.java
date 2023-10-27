@@ -32,5 +32,6 @@ public interface OrderService {
     List<Item> getOrders();
 
     BigDecimal getMinimalOrderValue();
+
     BigDecimal getTotalPrice();
 }

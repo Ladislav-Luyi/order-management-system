@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface ModelService {
-    default  <T> void addToModel(Model model, String s, List<T> items) {
+    default <T> void addToModel(Model model, String s, List<T> items) {
         model.addAttribute(s, items);
     }
 

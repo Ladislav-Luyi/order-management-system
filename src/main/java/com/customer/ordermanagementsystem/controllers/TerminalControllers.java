@@ -21,7 +21,7 @@ public class TerminalControllers {
 
     @Value("${terminalPassword}")
     private String password;
-    
+
     public TerminalControllers(TerminalService terminalService) {
         this.terminalService = terminalService;
     }

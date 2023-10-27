@@ -15,12 +15,11 @@ public class Company {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Podnik: ");
-        sb.append(status ? "Otvorený" : "Zatvorený");
-        sb.append(System.getProperty("line.separator"));
-        sb.append("Správa: ");
-        sb.append(statusMessage);
-        return sb.toString();
+        String sb = "Podnik: " +
+                (status ? "Otvorený" : "Zatvorený") +
+                System.getProperty("line.separator") +
+                "Správa: " +
+                statusMessage;
+        return sb;
     }
 }

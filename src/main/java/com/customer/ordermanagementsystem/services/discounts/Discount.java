@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface Discount<T> {
-    public BigDecimal getDiscountValue(List<T> items);
+    BigDecimal getDiscountValue(List<T> items);
 }

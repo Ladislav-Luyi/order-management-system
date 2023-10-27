@@ -14,7 +14,6 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 
-
 @Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -101,10 +100,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean isHigherThanMinimalValue() {
 
-        if (order.getTotalPriceDiscount().compareTo(order.getMinimalValueForOrder()) == -1)
-            return false;
-        else
-            return true;
+        return order.getTotalPriceDiscount().compareTo(order.getMinimalValueForOrder()) != -1;
     }
 
 

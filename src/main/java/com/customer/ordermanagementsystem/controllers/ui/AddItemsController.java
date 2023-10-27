@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 import java.util.Map;
@@ -46,6 +45,7 @@ public class AddItemsController {
     private Predicate<Map.Entry<Type, List<Item>>> isValueArrayNotEmpty() {
         return typeListEntry -> typeListEntry.getValue().size() != 0;
     }
+
     public void addAllItemsToModel(Model model, List<Item> items) {
         items.stream()
                 .collect(Collectors.groupingBy(Item::getType))
@@ -95,7 +95,7 @@ public class AddItemsController {
     private void addElements(Model model) {
         addAllItemsToModel(model, itemService.getItems());
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
-        modelService.addToModel(model, "minimalOrderValue", orderService.getMinimalOrderValue().toString() );
+        modelService.addToModel(model, "minimalOrderValue", orderService.getMinimalOrderValue().toString());
         orderService.refreshPrice();
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }

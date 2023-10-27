@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import java.util.List;
 
 @Data
 @Component
-@SessionScope
 @Document("Orders")
 public class Order {
     @Id
@@ -57,12 +55,11 @@ public class Order {
     @Override
     public String toString() {
 
-        StringBuilder s = new StringBuilder();
-        s.append(orderListToString());
-        s.append(customerInfo);
-        s.append(priceToString());
+        String s = orderListToString() +
+                customerInfo +
+                priceToString();
 
-        return s.toString();
+        return s;
 
     }
 
@@ -90,11 +87,10 @@ public class Order {
     }
 
     private String priceToString() {
-        StringBuilder s = new StringBuilder();
         String newLine = "\\r";
-        s.append("Celková cena: ").append(this.getTotalPriceDiscount());
-        s.append(newLine);
-        return s.toString();
+        String s = "Celková cena: " + this.getTotalPriceDiscount() +
+                newLine;
+        return s;
     }
 
 }

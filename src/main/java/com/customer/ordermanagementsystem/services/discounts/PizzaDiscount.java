@@ -12,7 +12,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class PizzaDiscount implements Discount<Item>{
+public class PizzaDiscount implements Discount<Item> {
     @Override
     public BigDecimal getDiscountValue(List<Item> items) {
         return processDiscountsForPizzas(items);
