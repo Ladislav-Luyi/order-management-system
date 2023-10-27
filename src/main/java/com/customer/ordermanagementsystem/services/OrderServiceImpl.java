@@ -63,13 +63,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-    @Override
-    public void refreshPrice() {
-        BigDecimal price = getPriceWithoutDiscount();
-        BigDecimal totalDiscount = discountService.getDiscountValue(order.getOrderList());
-        order.setTotalPriceDiscount(totalDiscount);
-        order.setTotalPrice(price.subtract(totalDiscount));
-    }
 
     private BigDecimal getPriceWithoutDiscount() {
         Optional<BigDecimal> priceWithoutDiscount = order.getOrderList().stream()
@@ -116,6 +109,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public BigDecimal getTotalPrice() {
+        refreshPrice();
         return order.getTotalPrice();
+    }
+
+    public void refreshPrice() {
+        BigDecimal price = getPriceWithoutDiscount();
+        BigDecimal totalDiscount = discountService.getDiscountValue(order.getOrderList());
+        order.setTotalPriceDiscount(totalDiscount);
+        order.setTotalPrice(price.subtract(totalDiscount));
     }
 }

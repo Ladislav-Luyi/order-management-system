@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @RequestMapping({"", "/", "/kosik"})
+@SessionScope
 public class AddItemsController {
 
     private final ItemService itemService;
@@ -96,7 +98,6 @@ public class AddItemsController {
         addAllItemsToModel(model, itemService.getItems());
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
         modelService.addToModel(model, "minimalOrderValue", orderService.getMinimalOrderValue().toString());
-        orderService.refreshPrice();
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 

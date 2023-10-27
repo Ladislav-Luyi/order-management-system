@@ -65,7 +65,6 @@ public class CustomerInfoController {
 
     private void addOrderToModel(Model model) {
         modelService.addToModel(model, "orderedItems", orderService.getOrders());
-        orderService.refreshPrice();
         modelService.addToModel(model, "totalPrice", orderService.getTotalPrice());
     }
 }

@@ -21,8 +21,6 @@ public interface OrderService {
 
     void setCustomerInfo(CustomerInfo customerInfo);
 
-    void refreshPrice();
-
     Order getOrderInstance();
 
     void saveOrder();
