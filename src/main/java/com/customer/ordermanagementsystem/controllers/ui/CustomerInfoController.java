@@ -48,7 +48,6 @@ public class CustomerInfoController {
             return "customerInfo";
         }
 
-        log.info("Processing order processCustomerInfoForm: " + orderService.getOrderInstance());
 
         log.info("Processing customerInfo in customerInfo: " + customerInfo);
 

@@ -63,7 +63,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-
     private BigDecimal getPriceWithoutDiscount() {
         Optional<BigDecimal> priceWithoutDiscount = order.getOrderList().stream()
                 // each item can have list of items, e.g. ingredients
@@ -74,10 +73,6 @@ public class OrderServiceImpl implements OrderService {
         return priceWithoutDiscount.orElse(new BigDecimal(0));
     }
 
-    @Override
-    public Order getOrderInstance() {
-        return order;
-    }
 
     @Override
     public void saveOrder() {

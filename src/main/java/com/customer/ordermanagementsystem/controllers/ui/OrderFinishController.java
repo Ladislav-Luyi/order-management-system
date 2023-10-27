@@ -25,8 +25,6 @@ public class OrderFinishController {
         if (!orderService.isHigherThanMinimalValue())
             return "redirect:/kosik";
 
-        log.info("Sending order to ticketing device: " + orderService.getOrderInstance());
-
         orderService.saveOrder();
 
         sessionStatus.setComplete();
