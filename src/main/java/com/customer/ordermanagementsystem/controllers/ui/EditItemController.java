@@ -19,7 +19,6 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@SessionAttributes({"customerInfo", "order", "orderDTO"})
 @RequestMapping("/upravaPolozky")
 public class EditItemController {
 

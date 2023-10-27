@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
-@SessionAttributes({"customerInfo", "order", "orderedItems", "totalPrice", "discount"})
 @RequestMapping({"", "/", "/kosik"})
 public class AddItemsController {
 

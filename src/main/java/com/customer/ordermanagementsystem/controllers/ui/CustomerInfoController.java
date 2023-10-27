@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Slf4j
 @Controller
-@SessionAttributes({"order", "customerInfo"})
 @RequestMapping("/objednavka")
 public class CustomerInfoController {
 
