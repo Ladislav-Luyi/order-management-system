@@ -82,9 +82,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    // TODO what is reason for this?
     public boolean isHigherThanMinimalValue() {
-        return order.getPriceDetails().getPriceAfterDiscount().compareTo(orderDefaults.getMinimalValueForOrder()) != -1;
+        return order.getPriceDetails().getPriceAfterDiscount().compareTo(orderDefaults.getMinimalValueForOrder()) >= 0;
     }
 
     @Override
