@@ -4,10 +4,10 @@ import com.customer.ordermanagementsystem.domain.item.Item;
 import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
 import com.customer.ordermanagementsystem.domain.order.Order;
 import com.customer.ordermanagementsystem.domain.order.OrderDefaults;
+import com.customer.ordermanagementsystem.domain.order.PriceDetails;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.annotation.SessionScope;
@@ -84,7 +84,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     // TODO what is reason for this?
     public boolean isHigherThanMinimalValue() {
-        return order.getTotalPriceDiscount().compareTo(orderDefaults.getMinimalValueForOrder()) != -1;
+        return order.getPriceDetails().getPriceAfterDiscount().compareTo(orderDefaults.getMinimalValueForOrder()) != -1;
     }
 
     @Override
@@ -99,14 +99,20 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public BigDecimal getTotalPrice() {
-        refreshPrice();
+        refreshPrices();
         return order.getPriceDetails().getTotalPrice();
     }
 
-    public void refreshPrice() {
+    public void refreshPrices() {
         BigDecimal price = getPriceWithoutDiscount();
         BigDecimal totalDiscount = discountService.getDiscountValue(order.getShoppingCart());
-        order.getPriceDetails().setTotalPriceDiscount(totalDiscount);
+        order.getPriceDetails().setPriceAfterDiscount(totalDiscount);
         order.getPriceDetails().setTotalPrice(price.subtract(totalDiscount));
+        order.getPriceDetails().setPriceAfterDiscount(getTotalPriceDiscount(order.getPriceDetails()));
+    }
+
+
+    public BigDecimal getTotalPriceDiscount(PriceDetails priceDetails) {
+        return priceDetails.getTotalPrice().subtract(priceDetails.getTotalDiscount());
     }
 }

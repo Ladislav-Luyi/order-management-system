@@ -11,7 +11,4 @@ import java.math.BigDecimal;
 public class OrderDefaults {
     @Value("${minimalValueForOrder}")
     BigDecimal minimalValueForOrder;
-
-    public OrderDefaults() {
-    }
 }

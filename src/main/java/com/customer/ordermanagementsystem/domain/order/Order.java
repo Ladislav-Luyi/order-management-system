@@ -44,10 +44,4 @@ public class Order {
 
         UOrderId*
      */
-
-    public BigDecimal getTotalPriceDiscount() {
-        return priceDetails.getTotalPrice().subtract(priceDetails.getTotalDiscount());
-    }
-
-
 }

@@ -33,7 +33,7 @@ public class OrderDescriptionComposer {
 
     private String priceToString(Order order) {
         String newLine = "\\r";
-        return "Celková cena: %s%s".formatted(order.getTotalPriceDiscount(), newLine);
+        return "Celková cena: %s%s".formatted(order.getPriceDetails().getPriceAfterDiscount(), newLine);
     }
 
 }
