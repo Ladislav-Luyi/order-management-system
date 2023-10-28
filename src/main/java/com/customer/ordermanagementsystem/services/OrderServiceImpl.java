@@ -3,10 +3,14 @@ package com.customer.ordermanagementsystem.services;
 import com.customer.ordermanagementsystem.domain.item.Item;
 import com.customer.ordermanagementsystem.domain.order.CustomerInfo;
 import com.customer.ordermanagementsystem.domain.order.Order;
+import com.customer.ordermanagementsystem.domain.order.OrderDefaults;
 import com.customer.ordermanagementsystem.repository.OrderRepository;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,44 +20,40 @@ import java.util.stream.Stream;
 
 @Slf4j
 @Service
+@SessionScope
+@AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-    private final Order order;
+    private final Order order = new Order();
     private final OrderRepository orderRepository;
     private final DiscountService discountService;
+    private final OrderDefaults orderDefaults;
 
-
-    @Autowired
-    public OrderServiceImpl(Order order, OrderRepository orderRepository, DiscountService discountService) {
-        this.order = order;
-        this.orderRepository = orderRepository;
-        this.discountService = discountService;
-    }
 
     @Override
     public void addItemToList(Item item) {
-        order.getOrderList().add(item);
+        order.getShoppingCart().add(item);
     }
 
     @Override
     public void removeItemFromList(int index) {
-        if (order.getOrderList().size() > 0)
-            order.getOrderList().remove(index);
+        if (order.getShoppingCart().size() > 0)
+            order.getShoppingCart().remove(index);
     }
 
     @Override
     public void addItemToIndexInList(int index, Item item) {
-        if (order.getOrderList().size() > 0) {
+        if (order.getShoppingCart().size() > 0) {
             log.debug("Adding subItem " + item);
-            order.getOrderList().get(index).getItemList().add(item);
+            order.getShoppingCart().get(index).getItemList().add(item);
         }
     }
 
     @Override
     public void removeIndexFromInnerList(int indexOuter, int indexInner) {
-        if (order.getOrderList().size() > 0) {
+        if (order.getShoppingCart().size() > 0) {
             log.debug("Removing subItem " + indexInner);
-            order.getOrderList().get(indexOuter).getItemList().remove(indexInner);
+            order.getShoppingCart().get(indexOuter).getItemList().remove(indexInner);
         }
     }
 
@@ -64,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     private BigDecimal getPriceWithoutDiscount() {
-        Optional<BigDecimal> priceWithoutDiscount = order.getOrderList().stream()
+        Optional<BigDecimal> priceWithoutDiscount = order.getShoppingCart().stream()
                 // each item can have list of items, e.g. ingredients
                 .flatMap(item -> Stream.concat(Stream.of(item),
                         item.getItemList().stream()))
@@ -75,43 +75,38 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
+    @Transactional
     public void saveOrder() {
-        Order orderToSave = new Order();
-        orderToSave.setCustomerInfo(order.getCustomerInfo());
-        orderToSave.setTotalPrice(order.getTotalPrice());
-        orderToSave.setTotalDiscount(order.getTotalDiscount());
-        orderToSave.setTotalPriceDiscount(order.getTotalPriceDiscount());
-        orderToSave.setOrderText(order.toString());
-        orderRepository.save(orderToSave);
+        order.setOrderText( new OrderDescriptionComposer().composeOrderText(order) );
+        orderRepository.save(order);
     }
 
     @Override
+    // TODO what is reason for this?
     public boolean isHigherThanMinimalValue() {
-
-        return order.getTotalPriceDiscount().compareTo(order.getMinimalValueForOrder()) != -1;
+        return order.getTotalPriceDiscount().compareTo(orderDefaults.getMinimalValueForOrder()) != -1;
     }
-
 
     @Override
     public List<Item> getOrders() {
-        return order.getOrderList();
+        return order.getShoppingCart();
     }
 
     @Override
     public BigDecimal getMinimalOrderValue() {
-        return order.getMinimalValueForOrder();
+        return orderDefaults.getMinimalValueForOrder();
     }
 
     @Override
     public BigDecimal getTotalPrice() {
         refreshPrice();
-        return order.getTotalPrice();
+        return order.getPriceDetails().getTotalPrice();
     }
 
     public void refreshPrice() {
         BigDecimal price = getPriceWithoutDiscount();
-        BigDecimal totalDiscount = discountService.getDiscountValue(order.getOrderList());
-        order.setTotalPriceDiscount(totalDiscount);
-        order.setTotalPrice(price.subtract(totalDiscount));
+        BigDecimal totalDiscount = discountService.getDiscountValue(order.getShoppingCart());
+        order.getPriceDetails().setTotalPriceDiscount(totalDiscount);
+        order.getPriceDetails().setTotalPrice(price.subtract(totalDiscount));
     }
 }

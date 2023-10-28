@@ -59,11 +59,11 @@ public class AddItemsController {
 
     @RequestMapping()
     public String showOrderForm(Model model) {
-        if (!companyService.isStoreOpen()) {
-            addAllItemsToModel(model, itemService.getItems());
-            modelService.addToModel(model, "closedMessage", companyService.getOpenAndCloseStoreMessage());
-            return "closed";
-        }
+//        if (!companyService.isStoreOpen()) {
+//            addAllItemsToModel(model, itemService.getItems());
+//            modelService.addToModel(model, "closedMessage", companyService.getOpenAndCloseStoreMessage());
+//            return "closed";
+//        }
         addElements(model);
         model.addAttribute("orderDTO", new OrderDTO());
         return "order";
