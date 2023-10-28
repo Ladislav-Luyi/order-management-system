@@ -37,24 +37,30 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void removeItemFromList(int index) {
-        if (order.getShoppingCart().size() > 0)
-            order.getShoppingCart().remove(index);
+        if (order.getShoppingCart().isEmpty()){
+            return;
+        }
+        order.getShoppingCart().remove(index);
     }
 
     @Override
     public void addItemToIndexInList(int index, Item item) {
-        if (order.getShoppingCart().size() > 0) {
-            log.debug("Adding subItem " + item);
-            order.getShoppingCart().get(index).getItemList().add(item);
+        if (order.getShoppingCart().isEmpty()){
+            return;
         }
+        log.debug("Adding subItem " + item);
+        order.getShoppingCart().get(index).getItemList().add(item);
+
     }
 
     @Override
     public void removeIndexFromInnerList(int indexOuter, int indexInner) {
-        if (order.getShoppingCart().size() > 0) {
-            log.debug("Removing subItem " + indexInner);
-            order.getShoppingCart().get(indexOuter).getItemList().remove(indexInner);
+        if (order.getShoppingCart().isEmpty()){
+            return;
         }
+        log.debug("Removing subItem " + indexInner);
+        order.getShoppingCart().get(indexOuter).getItemList().remove(indexInner);
+
     }
 
     @Override
