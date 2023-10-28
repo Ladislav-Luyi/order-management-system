@@ -9,17 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Company {
     @Id
     private String id;
-    private String name = "1";
+    private String name = "Default company name";
     private boolean status;
     private String statusMessage = "";
 
     @Override
     public String toString() {
-        String sb = "Podnik: " +
-                (status ? "Otvorený" : "Zatvorený") +
-                System.getProperty("line.separator") +
-                "Správa: " +
-                statusMessage;
-        return sb;
+        return "Podnik: %s%sSpráva: %s".formatted(status ? "Otvorený" : "Zatvorený", System.getProperty("line.separator"), statusMessage);
     }
 }
