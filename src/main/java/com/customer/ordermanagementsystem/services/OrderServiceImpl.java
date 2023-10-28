@@ -75,7 +75,6 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    @Transactional
     public void saveOrder() {
         order.setOrderText( new OrderDescriptionComposer().composeOrderText(order) );
         orderRepository.save(order);
