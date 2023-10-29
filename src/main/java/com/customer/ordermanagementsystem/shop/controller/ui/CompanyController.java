@@ -1,7 +1,7 @@
-package com.customer.ordermanagementsystem.shop.controllers.ui;
+package com.customer.ordermanagementsystem.shop.controller.ui;
 
 import com.customer.ordermanagementsystem.company.domain.CompanyDTO;
-import com.customer.ordermanagementsystem.company.services.CompanyService;
+import com.customer.ordermanagementsystem.company.service.CompanyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

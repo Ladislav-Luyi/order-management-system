@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.company.services;
+package com.customer.ordermanagementsystem.company.service;
 
 public interface CompanyService {
     void openAndCloseStore(String status);

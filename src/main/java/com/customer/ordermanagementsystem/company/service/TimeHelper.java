@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.company.services;
+package com.customer.ordermanagementsystem.company.service;
 
 import java.util.Calendar;
 import java.util.Date;

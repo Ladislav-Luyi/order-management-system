@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.shop.services;
+package com.customer.ordermanagementsystem.shop.service;
 
 import org.springframework.stereotype.Service;
 

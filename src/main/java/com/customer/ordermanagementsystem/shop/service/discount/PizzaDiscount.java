@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.shop.services.discounts;
+package com.customer.ordermanagementsystem.shop.service.discount;
 
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
 import com.customer.ordermanagementsystem.shop.domain.item.Type;

@@ -1,8 +1,8 @@
-package com.customer.ordermanagementsystem.shop.services;
+package com.customer.ordermanagementsystem.shop.service;
 
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
-import com.customer.ordermanagementsystem.shop.services.discounts.Discount;
-import com.customer.ordermanagementsystem.shop.services.discounts.PizzaDiscount;
+import com.customer.ordermanagementsystem.shop.service.discount.Discount;
+import com.customer.ordermanagementsystem.shop.service.discount.PizzaDiscount;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

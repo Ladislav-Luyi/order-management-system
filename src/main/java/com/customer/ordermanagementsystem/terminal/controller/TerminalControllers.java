@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.terminal.controller;
 
 import com.customer.ordermanagementsystem.shop.domain.order.TerminalReply;
-import com.customer.ordermanagementsystem.terminal.services.TerminalService;
+import com.customer.ordermanagementsystem.terminal.service.TerminalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;

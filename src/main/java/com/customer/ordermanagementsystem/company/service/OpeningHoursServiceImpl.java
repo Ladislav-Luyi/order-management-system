@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.company.services;
+package com.customer.ordermanagementsystem.company.service;
 
 import com.customer.ordermanagementsystem.company.domain.OpenningHours;
 import com.customer.ordermanagementsystem.company.repository.OpenningHoursRepository;

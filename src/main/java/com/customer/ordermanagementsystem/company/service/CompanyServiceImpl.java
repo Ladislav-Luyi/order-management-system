@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.company.services;
+package com.customer.ordermanagementsystem.company.service;
 
 import com.customer.ordermanagementsystem.company.domain.Company;
 import com.customer.ordermanagementsystem.company.repository.CompanyRepository;

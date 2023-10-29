@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.terminal.services;
+package com.customer.ordermanagementsystem.terminal.service;
 
 import com.customer.ordermanagementsystem.shop.domain.order.TerminalReply;
 
