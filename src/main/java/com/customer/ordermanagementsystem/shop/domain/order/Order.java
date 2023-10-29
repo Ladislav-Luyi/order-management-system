@@ -1,6 +1,8 @@
 package com.customer.ordermanagementsystem.shop.domain.order;
 
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
+import com.customer.ordermanagementsystem.shop.domain.order.price.PriceDetails;
+import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

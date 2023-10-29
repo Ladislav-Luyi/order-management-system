@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.terminal.controller;
 
-import com.customer.ordermanagementsystem.shop.domain.order.TerminalReply;
+import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
 import com.customer.ordermanagementsystem.terminal.service.TerminalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,11 +49,8 @@ public class TerminalControllers {
         //AC001 142 Accepted OK 04:31 admin admin
         //a     o   ak       m  dt
         log.info("Terminal reply: " + a + " " + o + " " + ak + " " + m + " " + dt + " " + u + " " + p);
-
         TerminalReply terminalReply = new TerminalReply(o, ak, m, dt);
-
         terminalService.updateOrder(terminalReply);
-
         return o;
     }
 

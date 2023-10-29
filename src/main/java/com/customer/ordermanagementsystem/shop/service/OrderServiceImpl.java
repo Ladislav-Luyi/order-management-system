@@ -26,11 +26,13 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
+    // TODO add logic into Order class
     public void addItemToList(Item item) {
         order.getShoppingCart().add(item);
     }
 
     @Override
+    // TODO add logic into Order class
     public void removeItemFromList(int index) {
         if (order.getShoppingCart().isEmpty()) {
             return;
@@ -39,6 +41,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    // TODO add logic into Order class
     public void addItemToIndexInList(int index, Item item) {
         if (order.getShoppingCart().isEmpty()) {
             return;
@@ -49,6 +52,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    // TODO add logic into Order class
     public void removeIndexFromInnerList(int indexOuter, int indexInner) {
         if (order.getShoppingCart().isEmpty()) {
             return;
@@ -66,6 +70,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void saveOrder() {
+        // TODO add logic into Order class to be called in setters
         order.setOrderText(new OrderDescriptionComposer().composeOrderText(order));
         orderRepository.save(order);
     }
@@ -89,5 +94,4 @@ public class OrderServiceImpl implements OrderService {
     public BigDecimal getTotalPrice() {
         return order.calculateTotalPrice();
     }
-
 }

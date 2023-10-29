@@ -1,7 +1,7 @@
 package com.customer.ordermanagementsystem.terminal.service;
 
 import com.customer.ordermanagementsystem.shop.domain.order.Order;
-import com.customer.ordermanagementsystem.shop.domain.order.TerminalReply;
+import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
 import com.customer.ordermanagementsystem.shop.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     public String composeMessage(Order o) {
-        String s = "#" +
+        return "#" +
                 o.getId() +
                 "*" +
                 removeEmojiChars(o.getOrderText()) +
@@ -35,10 +35,10 @@ public class TerminalServiceImpl implements TerminalService {
                 o.getCustomerInfo().getTelephoneNumber() +
                 "#" +
                 "\r";
-        return s;
     }
 
     @Override
+    // TODO communicate with service instead of repository
     public String getOrders() {
         return orderRepository.findAll().stream()
                 .filter(o -> o.getTerminalReplyInfo() == null)
@@ -47,6 +47,7 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     @Override
+    // TODO communicate with service instead of repository
     public void updateOrder(TerminalReply terminalReply) {
         try {
             String id = terminalReply.getOrderId();

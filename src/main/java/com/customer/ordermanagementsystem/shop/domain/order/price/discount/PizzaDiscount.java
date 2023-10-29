@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.shop.domain.order.discount;
+package com.customer.ordermanagementsystem.shop.domain.order.price.discount;
 
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
 import com.customer.ordermanagementsystem.shop.domain.item.Type;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class PizzaDiscount implements Discount<Item> {
+public class PizzaDiscount implements Discountability<Item> {
     @Override
     public BigDecimal getDiscountValue(List<Item> items) {
         return processDiscountsForPizzas(items);

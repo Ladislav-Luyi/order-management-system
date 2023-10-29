@@ -1,6 +1,6 @@
 package com.customer.ordermanagementsystem.terminal.service;
 
-import com.customer.ordermanagementsystem.shop.domain.order.TerminalReply;
+import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
 
 
 public interface TerminalService {

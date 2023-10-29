@@ -1,7 +1,6 @@
-package com.customer.ordermanagementsystem.shop.domain.order;
+package com.customer.ordermanagementsystem.shop.domain.order.price.discount;
 
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
-import com.customer.ordermanagementsystem.shop.domain.order.discount.PizzaDiscount;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +13,7 @@ import java.util.Set;
 @Component
 public class Discount {
 
-    Set<com.customer.ordermanagementsystem.shop.domain.order.discount.Discount<Item>> discounts = new HashSet<>();
+    Set<Discountability<Item>> discounts = new HashSet<>();
 
     {
         discounts.add(new PizzaDiscount());

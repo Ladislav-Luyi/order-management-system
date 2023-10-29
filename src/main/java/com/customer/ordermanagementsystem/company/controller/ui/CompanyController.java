@@ -1,4 +1,4 @@
-package com.customer.ordermanagementsystem.shop.controller.ui;
+package com.customer.ordermanagementsystem.company.controller.ui;
 
 import com.customer.ordermanagementsystem.company.domain.CompanyDTO;
 import com.customer.ordermanagementsystem.company.service.CompanyService;

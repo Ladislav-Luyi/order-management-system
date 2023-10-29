@@ -1,6 +1,7 @@
-package com.customer.ordermanagementsystem.shop.domain.order;
+package com.customer.ordermanagementsystem.shop.domain.order.price;
 
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
+import com.customer.ordermanagementsystem.shop.domain.order.price.discount.Discount;
 import lombok.Data;
 
 import java.math.BigDecimal;
