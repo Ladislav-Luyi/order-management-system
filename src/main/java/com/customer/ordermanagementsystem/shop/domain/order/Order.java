@@ -40,7 +40,7 @@ public class Order {
     private CustomerInfo customerInfo;
     private TerminalReply terminalReplyInfo;
 
-    public BigDecimal calculateTotalPrice(){
+    public BigDecimal calculateTotalPrice() {
         priceDetails.calculateTotalPrice(shoppingCart);
         return priceDetails.getPriceAfterDiscount();
     }

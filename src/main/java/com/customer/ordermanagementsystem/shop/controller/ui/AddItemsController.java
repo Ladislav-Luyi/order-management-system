@@ -1,10 +1,10 @@
 package com.customer.ordermanagementsystem.shop.controller.ui;
 
 
+import com.customer.ordermanagementsystem.company.service.CompanyService;
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
 import com.customer.ordermanagementsystem.shop.domain.item.Type;
 import com.customer.ordermanagementsystem.shop.domain.order.OrderDTO;
-import com.customer.ordermanagementsystem.company.service.CompanyService;
 import com.customer.ordermanagementsystem.shop.service.ItemService;
 import com.customer.ordermanagementsystem.shop.service.ModelService;
 import com.customer.ordermanagementsystem.shop.service.OrderService;

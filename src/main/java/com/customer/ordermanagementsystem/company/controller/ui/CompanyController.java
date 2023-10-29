@@ -22,16 +22,13 @@ public class CompanyController {
     public String getOpen(Model model) {
         model.addAttribute("status", companyService.getOpenAndCloseStoreMessage());
         model.addAttribute("company", new CompanyDTO());
-
         return "company";
     }
 
     @PostMapping("/podnik")
     public String setOpen(CompanyDTO companyDTO) {
-
         companyService.openAndCloseStoreWithMessage(companyDTO.getStatus(),
                 companyDTO.getStatusMessage());
-
         return "redirect:/podnik";
     }
 

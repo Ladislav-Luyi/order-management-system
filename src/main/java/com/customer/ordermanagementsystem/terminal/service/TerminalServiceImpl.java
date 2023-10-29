@@ -1,8 +1,8 @@
 package com.customer.ordermanagementsystem.terminal.service;
 
 import com.customer.ordermanagementsystem.shop.domain.order.Order;
-import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
 import com.customer.ordermanagementsystem.shop.repository.OrderRepository;
+import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

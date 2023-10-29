@@ -5,11 +5,9 @@ import com.customer.ordermanagementsystem.shop.domain.item.Type;
 import com.customer.ordermanagementsystem.shop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
