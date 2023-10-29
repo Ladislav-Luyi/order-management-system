@@ -2,6 +2,7 @@ package com.customer.ordermanagementsystem.domain.company;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Company")
@@ -9,7 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Company {
     @Id
     private String id;
-    private String name = "Default company name";
+
+    @Transient
+    public static final String defaultName = "default";
+    private String name = defaultName;
     private boolean status;
     private String statusMessage = "";
 

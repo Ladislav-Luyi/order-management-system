@@ -2,6 +2,7 @@ package com.customer.ordermanagementsystem.services;
 
 import com.customer.ordermanagementsystem.domain.company.Company;
 import com.customer.ordermanagementsystem.repository.CompanyRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,20 +11,16 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
     private final OpeningHoursService openingHoursService;
 
-    @Autowired
-    public CompanyServiceImpl(CompanyRepository companyRepository, OpeningHoursServiceImpl openingHoursService) {
-        this.companyRepository = companyRepository;
-        this.openingHoursService = openingHoursService;
-    }
-
     @Override
     public void openAndCloseStore(String status) {
-        Optional<Company> company = companyRepository.findById("1");
+        // there will be always only one company in current state
+        Optional<Company> company = companyRepository.findByName(Company.defaultName);
         boolean s = stringStatusToBoolean(status);
         company.ifPresent(c -> c.setStatus(s));
         company.ifPresent(companyRepository::save);
@@ -35,7 +32,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public void openAndCloseStoreWithMessage(String status, String message) {
-        Optional<Company> company = companyRepository.findById("1");
+        Optional<Company> company = companyRepository.findByName(Company.defaultName);
         boolean s = stringStatusToBoolean(status);
         company.ifPresent(c -> c.setStatus(s));
         company.ifPresent(c -> c.setStatusMessage(s ? "" : message));
@@ -51,19 +48,18 @@ public class CompanyServiceImpl implements CompanyService {
         log.info("Using default company");
         Company company = new Company();
         company.setStatus(true);
-        company.setName("");
         company.setStatusMessage("Z technických príčin zatvorené");
         return company;
     }
 
     private boolean isStoreOpenAccordingManualAction() {
-        Optional<Company> company = companyRepository.findById("1");
+        Optional<Company> company = companyRepository.findByName(Company.defaultName);
         return company.orElse(getDefaultCompany()).isStatus();
     }
 
     @Override
     public String getOpenAndCloseStoreMessage() {
-        return companyRepository.findById("1").orElse(getDefaultCompany())
+        return companyRepository.findByName(Company.defaultName).orElse(getDefaultCompany())
                 .getStatusMessage();
     }
 }

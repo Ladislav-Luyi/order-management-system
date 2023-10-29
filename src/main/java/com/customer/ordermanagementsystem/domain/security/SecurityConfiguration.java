@@ -16,7 +16,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authConfig) -> {
-                            authConfig.requestMatchers("", "/", "/kosik", "/upravaPolozky", "/objednavka/*", "/orders.txt", "/reply-orders.txt", "/static/**", "/custom.css", "/favicon.ico", "/images/back.jpg", "/images/pattern.png")
+                            authConfig.requestMatchers("", "/", "/kosik", "/upravaPolozky", "/objednavka/*", "/orders.txt", "/reply-orders.txt", "/static/**", "/custom.css", "/favicon.ico", "/images/back.jpg", "/images/pattern.png", "/podnik")
                                     .permitAll();
                             authConfig.anyRequest().authenticated();
                         }
