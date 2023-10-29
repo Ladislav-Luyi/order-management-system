@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,6 +37,11 @@ public class Order {
 
     private CustomerInfo customerInfo;
     private TerminalReply terminalReplyInfo;
+
+    public BigDecimal calculateTotalPrice(){
+        priceDetails.calculateTotalPrice(shoppingCart);
+        return priceDetails.getPriceAfterDiscount();
+    }
 
     /*
         expected format:

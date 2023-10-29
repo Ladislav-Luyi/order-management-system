@@ -4,7 +4,6 @@ import com.customer.ordermanagementsystem.shop.domain.item.Item;
 import com.customer.ordermanagementsystem.shop.domain.order.CustomerInfo;
 import com.customer.ordermanagementsystem.shop.domain.order.Order;
 import com.customer.ordermanagementsystem.shop.domain.order.OrderDefaults;
-import com.customer.ordermanagementsystem.shop.domain.order.PriceDetails;
 import com.customer.ordermanagementsystem.shop.repository.OrderRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,8 +12,6 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
 
 
 @Slf4j
@@ -25,7 +22,6 @@ public class OrderServiceImpl implements OrderService {
 
     private final Order order = new Order();
     private final OrderRepository orderRepository;
-    private final DiscountService discountService;
     private final OrderDefaults orderDefaults;
 
 
@@ -36,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void removeItemFromList(int index) {
-        if (order.getShoppingCart().isEmpty()){
+        if (order.getShoppingCart().isEmpty()) {
             return;
         }
         order.getShoppingCart().remove(index);
@@ -44,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void addItemToIndexInList(int index, Item item) {
-        if (order.getShoppingCart().isEmpty()){
+        if (order.getShoppingCart().isEmpty()) {
             return;
         }
         log.debug("Adding subItem " + item);
@@ -54,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void removeIndexFromInnerList(int indexOuter, int indexInner) {
-        if (order.getShoppingCart().isEmpty()){
+        if (order.getShoppingCart().isEmpty()) {
             return;
         }
         log.debug("Removing subItem " + indexInner);
@@ -68,20 +64,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-    private BigDecimal getPriceWithoutDiscount() {
-        Optional<BigDecimal> priceWithoutDiscount = order.getShoppingCart().stream()
-                // each item can have list of items, e.g. ingredients
-                .flatMap(item -> Stream.concat(Stream.of(item),
-                        item.getItemList().stream()))
-                .map(Item::getPrice)
-                .reduce(BigDecimal::add);
-        return priceWithoutDiscount.orElse(new BigDecimal(0));
-    }
-
-
     @Override
     public void saveOrder() {
-        order.setOrderText( new OrderDescriptionComposer().composeOrderText(order) );
+        order.setOrderText(new OrderDescriptionComposer().composeOrderText(order));
         orderRepository.save(order);
     }
 
@@ -102,20 +87,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public BigDecimal getTotalPrice() {
-        refreshPrices();
-        return order.getPriceDetails().getTotalPrice();
+        return order.calculateTotalPrice();
     }
 
-    public void refreshPrices() {
-        BigDecimal price = getPriceWithoutDiscount();
-        BigDecimal totalDiscount = discountService.getDiscountValue(order.getShoppingCart());
-        order.getPriceDetails().setPriceAfterDiscount(totalDiscount);
-        order.getPriceDetails().setTotalPrice(price.subtract(totalDiscount));
-        order.getPriceDetails().setPriceAfterDiscount(getTotalPriceDiscount(order.getPriceDetails()));
-    }
-
-
-    public BigDecimal getTotalPriceDiscount(PriceDetails priceDetails) {
-        return priceDetails.getTotalPrice().subtract(priceDetails.getTotalDiscount());
-    }
 }

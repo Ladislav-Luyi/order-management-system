@@ -9,6 +9,7 @@ public class OrderDescriptionComposer {
         return "%s%s%s".formatted(orderListToString(order), order.getCustomerInfo(), priceToString(order));
 
     }
+
     private String orderListToString(Order order) {
         StringBuilder s = new StringBuilder();
 
