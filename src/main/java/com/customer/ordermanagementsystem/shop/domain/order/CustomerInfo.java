@@ -3,13 +3,19 @@ package com.customer.ordermanagementsystem.shop.domain.order;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Component
 public class CustomerInfo {
     @NotNull

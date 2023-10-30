@@ -37,6 +37,7 @@ public class TerminalControllers {
     }
 
 
+    // TODO fix bug no auth
     @GetMapping("/reply-orders.txt")
     @ResponseBody
     public String acceptOrders(@RequestParam String a,

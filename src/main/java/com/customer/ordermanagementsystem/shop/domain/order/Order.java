@@ -3,7 +3,7 @@ package com.customer.ordermanagementsystem.shop.domain.order;
 import com.customer.ordermanagementsystem.shop.domain.item.Item;
 import com.customer.ordermanagementsystem.shop.domain.order.price.PriceDetails;
 import com.customer.ordermanagementsystem.terminal.domain.TerminalReply;
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -16,6 +16,8 @@ import java.util.List;
 
 @Data
 @Component
+@AllArgsConstructor
+@Builder
 @Document("Orders")
 public class Order {
 
@@ -30,7 +32,7 @@ public class Order {
         priceDetails = new PriceDetails();
     }
 
-    private final PriceDetails priceDetails;
+    private PriceDetails priceDetails;
     private Date placedAt;
     private boolean isPaid = false;
     private List<Item> shoppingCart = new ArrayList<>();
