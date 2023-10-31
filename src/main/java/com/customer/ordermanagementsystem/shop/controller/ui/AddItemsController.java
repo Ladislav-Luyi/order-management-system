@@ -48,7 +48,7 @@ public class AddItemsController {
         return typeListEntry -> typeListEntry.getValue().size() != 0;
     }
 
-    public void addAllItemsToModel(Model model, List<Item> items) {
+    private void addAllItemsToModel(Model model, List<Item> items) {
         items.stream()
                 .collect(Collectors.groupingBy(Item::getType))
                 .entrySet().stream()
