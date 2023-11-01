@@ -64,7 +64,7 @@ public class EditItemController {
         return "redirect:/kosik";
     }
 
-    private void addElements(Model model, @RequestParam int index) {
+    void addElements(Model model, @RequestParam int index) {
         addToModel(model, Type.DOPLNOK, itemService.getItemsOfType(Type.DOPLNOK));
         modelService.addToModel(model, "orderedItem", orderService.getOrders().get(index));
         modelService.addToModel(model, "orderedItems", orderService.getOrders());

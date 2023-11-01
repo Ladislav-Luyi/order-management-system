@@ -23,9 +23,9 @@ import java.math.BigDecimal;
 
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = AddItemsController.class)
@@ -72,7 +72,7 @@ class AddItemsControllerIntTest {
         this.mockMvc
                 .perform(get("/kosik")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-                        .param("addElement",""))
+                        .param("addElement", ""))
                 .andExpect(status().isOk())
                 .andExpect(view().name("order"));
     }
@@ -84,7 +84,7 @@ class AddItemsControllerIntTest {
         this.mockMvc
                 .perform(get("/kosik")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-                        .param("removeElement",""))
+                        .param("removeElement", ""))
                 .andExpect(status().isOk())
                 .andExpect(view().name("order"));
     }
@@ -94,7 +94,8 @@ class AddItemsControllerIntTest {
         this.mockMvc
                 .perform(post("/kosik"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/kosik"));;
+                .andExpect(view().name("redirect:/kosik"));
+        ;
     }
 
     @Test
@@ -103,6 +104,7 @@ class AddItemsControllerIntTest {
         this.mockMvc
                 .perform(post("/kosik"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/objednavka/formular"));;
+                .andExpect(view().name("redirect:/objednavka/formular"));
+        ;
     }
 }
